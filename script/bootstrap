@@ -1,0 +1,8 @@
+#!/bin/sh
+#bootstrap the development environment
+
+set -ex
+
+script/branding
+bundle install
+npm install

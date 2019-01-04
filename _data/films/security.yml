@@ -1,0 +1,44 @@
+- 
+    title: Citizenfour
+    director: Laura Poitras
+    comment: "**Required viewing for the course**"
+    img: https://images-na.ssl-images-amazon.com/images/I/51g%2BDfN7S2L._SX200_QL80_.jpg
+    links:
+        -
+            type: Amazon
+            link: http://a.co/6g6GFoh
+
+
+-
+    title: The Lives of Others
+    director: F. Henckel von Donnersmarck
+    img: https://images-na.ssl-images-amazon.com/images/M/MV5BNDUzNjYwNDYyNl5BMl5BanBnXkFtZTcwNjU3ODQ0MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg
+    comment: The 2007 Oscar winner of Best Foreign Language Film of the
+        Year, this film tells the story of a secret police agent in East Berlin
+        in 1984 who surveils a writer and becomes increasingly absorbed
+        his life.
+
+
+-
+    title: The Conversation
+    director: Francis Ford Coppola
+    comment: A classic 1974 film psychological thriller starring Gene Hackman
+        that revolves around surveillance. It is more relevant today than
+        when it debuted.
+    img: https://images-na.ssl-images-amazon.com/images/M/MV5BNDk2ZmViMDgtYjU2YS00OTJiLTg3YmYtYmY2MTY2NTliZThkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UX182_CR0,0,182,268_AL_.jpg
+    links:
+        -
+            type: Amazon
+            link: http://amzn.com/B005FUTBZA
+
+-
+    title: Zero Days
+    director: Alex Gibney
+    comment: "**Required viewing for the course**"
+    img: https://images-na.ssl-images-amazon.com/images/I/51Uxj89eavL._SX200_QL80_.jpg
+    links:
+        -
+            type: Amazon
+            link: http://a.co/15TdcIT
+
+

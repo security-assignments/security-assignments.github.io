@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -e
+
+title () {
+  echo ""
+  echo "-------------------------------"
+  echo $1
+  echo "-------------------------------"
+  echo ""
+}
+
+export CI=1
+script/branding
+
+title "checking markdown"
+script/remark
+
+title "checking site"
+JEKYLL_GITHUB_TOKEN="$(cat ~/.token)" DISABLE_WHITELIST=true bundle exec rake test
+
+title "checking ruby"
+bundle exec rubocop -D -S
+
+title "checking DNS"
+bundle exec github-pages health-check
+
+title "Cleaning up..."
+rm -Rf _site

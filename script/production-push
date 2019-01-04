@@ -1,0 +1,12 @@
+#!/bin/sh
+#push local site live yo
+
+cd _site
+
+git add .
+git commit -m 'pushing new site build'
+git fetch origin master
+git merge origin/master master -s ours -m 'merging...'
+git push origin master
+
+cd -
