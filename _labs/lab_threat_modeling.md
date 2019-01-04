@@ -10,7 +10,7 @@ In this lab, you will create attack trees for different attacker goals to help y
 
 Note: I recommend using Microsoft Word’s SmartArt function and the "hierarchy" template to quickly generate an attack tree from an outline. You can enter multiple lines into one box by using `shift+enter`.
 
-![image_4](../images/lab_threatmodel_smartart.PNG){: width="500px" }
+![image_4](/images/lab_threatmodel_smartart.PNG){: width="500px" }
 
 **Minimum requirement for each attack tree:**
 

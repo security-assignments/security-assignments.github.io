@@ -17,7 +17,7 @@ But if you haven't finished the exploitation lab, don't perform the steps in thi
 
 1.	Create a snapshot of your Metasploitable VM in case you need to revert to its original state. Do this by highlighting the virtual machine in VirtualBox, and click the “Snapshots button in the top right. Finally, click the “Take a snapshot button.”
 
-![](../images/lab_8_1.jpg){: width=40% .center-block}
+![](/images/lab_8_1.jpg){: width=40% .center-block}
  
 
 # Closing Ports on Metasploitable 2
