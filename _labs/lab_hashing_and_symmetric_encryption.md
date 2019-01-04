@@ -94,7 +94,7 @@ Use the screenshot below to see how to connect the components. Put the ciphertex
 Click-and-drag the component arrow connectors over to an appropriate connector arrow on the next component 
 (it may not be the same one as shown in the screenshot -- the CrypTool tooltip guides will help you).
 
-![image_1](/images/lab_2/lab_2_2.png)
+![image_1]({{ "/images/lab_2/lab_2_2.png" | relative_url }})
 
 Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 
@@ -152,7 +152,7 @@ Save the modified file and hash it again. Since you only changed a single bit in
 
 **Optional:** Use the MD5 function in CrypTool to hash a file. Look at the graphical depiction for how it works.
 
-![image_4](/images/lab_2/lab_2_4.png){: width="300px" }
+![image_4]({{ "/images/lab_2/lab_2_4.png" | relative_url }}){: width="300px" }
 
 
 ## Symmetric encryption with AES
@@ -170,7 +170,7 @@ Message (base64):
 - Keysize (in bits): `?` (You have to count; see the hint in the hashing section above.)
 - Blocksize (in bits; IV block length): `?` (hint: count the IV above, just like you did the key)
 
-![image_1](/images/lab_2/lab_2_3.png)
+![image_1]({{ "/images/lab_2/lab_2_3.png" | relative_url }})
 
 What is the plaintext of the message?
 
@@ -181,7 +181,7 @@ What is the plaintext of the message?
 
 Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged between you and another class member. (You could email encrypted messages to one another, and decrypt using CryptTool. You can copy-paste from the host into your VM if you enable the bidirectional clipboard)
 
-![image_1](/images/lab_2/lab_2_5.png){: style="border: 1px solid black;" }
+![image_1]({{ "/images/lab_2/lab_2_5.png" | relative_url }}){: style="border: 1px solid black;" }
 
 
 Questions:

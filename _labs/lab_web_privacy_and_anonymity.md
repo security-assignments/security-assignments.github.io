@@ -41,7 +41,7 @@ While DNT politely asks web trackers not to track you, you can install software 
 3.	Browse to your favorite sites and click the Ghostery icon after each page load. Which of your favorite sites uses the most web trackers?
 4.	Click on the struck-through name of an add tracker and click the “Continue to full tracker profile” link on Chrome or the “Click here for more information about…” link in Safari to learn more about the add tracker (see figure below).
 
-![](/images/lab_13_1.png){: width='40%'}
+![]({{ "/images/lab_13_1.png" | relative_url }}){: width='40%'}
 
 5.	While viewing one of the "full tracker profiles", click on the down arrow next to “Privacy Information” to learn about the tracker’s privacy policy. 
 
@@ -121,7 +121,7 @@ While DNT politely asks web trackers not to track you, you can install software 
 
     SecureDrop uses the Tor network to allow whistleblowers to securely share information with the news media:
 
-    ![](/images/lab_13_2.png){: width='60%'}
+    ![]({{ "/images/lab_13_2.png" | relative_url }}){: width='60%'}
     
     **Note:** If you’re interested in how SecureDrop works, see here: [https://securedrop.org/faq](https://securedrop.org/faq)
     
