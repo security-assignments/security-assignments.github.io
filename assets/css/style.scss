@@ -71,16 +71,6 @@ body { padding-top: 20px; font-weight: 200; }
     padding-bottom: 13px;
 }
 
-/* Header */
-.hero-unit {
-    background-image: url( '{{ site.baseurl }}/assets/img/profile-pic.jpg' );
-    background-size: cover;
-    background-position: top left;
-    height: 400px;
-    position: relative;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-}
 @media (max-width: 768px) {
     .hero-unit {display: none;}
 }

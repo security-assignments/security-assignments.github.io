@@ -1,13 +1,13 @@
 ---
 title: Security Readings and Films list
-layout: syllabus
+layout: default
 id: security-readings-and-films-list
 ---
 
 # Security Films
 
 
-{% assign films = site.data.films.security | sort: 'director' %}
+{% assign films = site.data.films.security %}
 {% for film in films %}
  
 <div class='row bottom-divider'>
@@ -65,6 +65,3 @@ _"{{ book.title }},"_ by {{ book.author }}.
 </div>
 </div>
 {% endfor %}
-
-
-{% include tony-acknowledgement.html %}

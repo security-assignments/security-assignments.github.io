@@ -3,13 +3,10 @@
 title: Lab &ndash; Symmetric Encryption and Hashing 
 number: 2
 description: Fundamentals of symmetric encryption, cryptanalysis, and of hashing
+vms:
+    - Windows 10
 ---
 
-# Required virtual machine
-
-{% include vm-setup-boilerplate.html vm='[My prepared Windows 10 VM]( /security-assignments/virtual-machines/#windows-10 )'%}
-
-	
 # Part 1
 
 ## Polyalphabetic substitution and Transposition Ciphers 

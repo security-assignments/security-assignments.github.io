@@ -8,6 +8,15 @@
             type: Amazon
             link: http://a.co/6g6GFoh
 
+-
+    title: Zero Days
+    director: Alex Gibney
+    comment: "**Required viewing for the course**"
+    img: https://images-na.ssl-images-amazon.com/images/I/51Uxj89eavL._SX200_QL80_.jpg
+    links:
+        -
+            type: Amazon
+            link: http://a.co/15TdcIT
 
 -
     title: The Lives of Others
@@ -25,20 +34,11 @@
     comment: A classic 1974 film psychological thriller starring Gene Hackman
         that revolves around surveillance. It is more relevant today than
         when it debuted.
-    img: https://images-na.ssl-images-amazon.com/images/M/MV5BNDk2ZmViMDgtYjU2YS00OTJiLTg3YmYtYmY2MTY2NTliZThkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UX182_CR0,0,182,268_AL_.jpg
+    img: https://images-na.ssl-images-amazon.com/images/I/917fYNO-PcL._SL1500_.jpg
     links:
         -
             type: Amazon
             link: http://amzn.com/B005FUTBZA
 
--
-    title: Zero Days
-    director: Alex Gibney
-    comment: "**Required viewing for the course**"
-    img: https://images-na.ssl-images-amazon.com/images/I/51Uxj89eavL._SX200_QL80_.jpg
-    links:
-        -
-            type: Amazon
-            link: http://a.co/15TdcIT
 
 

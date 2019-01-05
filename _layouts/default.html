@@ -22,15 +22,31 @@
 
 <div class="container">
 
-  {% if page.layout == "default" %}
-  <!--div class="hero-unit">&nbsp;</div-->
-  {% endif %}
-  
-  {% unless layout.exclude_nav %}
-    {% unless page.exclude_nav %}
-        {% include nav.html %}
-    {% endunless %}
-  {% endunless %}
+	<div class="content" id="content" role="main">
 
-  
-  <div class="content" id="content" role="main">
+
+{{ content }}
+
+	</div><!-- content -->
+	<div class="row">
+		{% if page.layout == "default" %}
+		<div class="col-sm-12 footer">
+		{% else %}
+		<div class="col-sm-10 col-sm-offset-1 footer">
+		{% endif %}
+			<div class="fine-print">
+				<a href="{{ '/fine-print/' | relative_url }}">Fine Print</a>
+			</div>
+		</div>
+	</div>
+
+</div><!--/.container-->
+
+
+<script src="{{ '/assets/vendor/anchor-js/anchor.min.js' | relative_url }}"></script>
+<script>anchors.add('h3, h4, h5, h6');</script>
+
+<script src="{{ '/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js' | relative_url }}"></script>
+
+</body>
+</html>

@@ -2,9 +2,8 @@
 layout: assignment
 ---
  
-{% assign assignments = site.labs | sort: 'number' %}
-{% for assignment in assignments %} 
+# Information Security Management
 
-[{{ assignment.title }}]( {{ assignment.url | relative_url }} )
+## [Labs]( {{ '/labs/' | relative_url }} )
 
-{% endfor %}
+## [Reading and Film Lists]( {{ '/security-reading-and-film-list/' | relative_url }})

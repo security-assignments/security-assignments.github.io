@@ -85,7 +85,7 @@ Your report will be graded using the following rubric:
 | 25% | Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps. |
 | 5% | Clarity of writing for a managerial audience. |
 
-Use [this report template](/security-assignments/Midterm_template.docx) to create your report as a PDF file.
+Use [this report template]({{ "/Midterm_template.docx" | relative_url }}) to create your report as a PDF file.
 For submission, have one person on your team submit the report on Canvas.
 
 I look forward to reading your report. Let me know if you have any questions.
