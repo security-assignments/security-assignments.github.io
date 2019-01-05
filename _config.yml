@@ -46,6 +46,7 @@ exclude:
   - assets/vendor/bootstrap-sass/assets/fonts
   - assets/vendor/bootstrap-sass/assets/stylesheets
   - assets/vendor/bootstrap-sass/assets/javascripts/bootstrap/
+  - README.md
 
 host: 0.0.0.0
 
