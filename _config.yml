@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Security labs for a university course, "Information Security Management."
   Authors Anthony Vance and Dave Eargle
 baseurl: "/security-assignments-new" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://daveeargle.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: deargle
 github_username:  deargle
 repository: 'deargle/security-assignments'
