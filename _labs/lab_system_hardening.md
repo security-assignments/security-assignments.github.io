@@ -17,7 +17,7 @@ But if you haven't finished the exploitation lab, don't perform the steps in thi
 
 1.	Create a snapshot of your Metasploitable VM in case you need to revert to its original state. Do this by highlighting the virtual machine in VirtualBox, and click the “Snapshots button in the top right. Finally, click the “Take a snapshot button.”
 
-![]({{ "/images/lab_8_1.jpg" | relative_url }}){: width=40% .center-block}
+![]({{ "/assets/images/lab_8_1.jpg" | relative_url }}){: width=40% .center-block}
  
 
 # Closing Ports on Metasploitable 2
@@ -26,7 +26,7 @@ For this part of the lab, use the command `nmap -p 0-65535 -sV [IP address of Me
 
 Recall that shutting down services is only one way to harden a system. For services deemed essential to business function, you could also harden by applying security patches (i.e., upgrading the software). But for this lab, you will focus on just shutting down unnecessary services. 
 
-<div class='alert alert-info'>Whenever you are instructed to 'edit' a file, you will use a text editor, such as `nano`. See <a href='/class/security/note-on-editors/'>this note on choosing an editor</a>.</div>
+<div class='alert alert-info'>Whenever you are instructed to 'edit' a file, you will use a text editor, such as `nano`. See <a href='{{ '/note-on-editors/' | relative-url }}'>this note on choosing an editor</a>.</div>
 
 1.	Log in to metasploitable. The password is “msfadmin”. 
 2.	On Metasploitable 2, become root by typing: `sudo su –`, then by giving msfadmin's password when prompted.

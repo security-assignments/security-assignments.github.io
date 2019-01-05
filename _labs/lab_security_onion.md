@@ -175,7 +175,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     
 3.	Each row in Squert lists an IDS event. Click on the `QUEUE “2”` button on the row with `ET POLICY PE EXE or DLL Windows file download` to see the detail of this alert. 
 
-    ![]({{ "/images/lab_12_1.png" | relative_url }}){: .img-responsive width='70%'}
+    ![]({{ "/assets/images/lab_12_1.png" | relative_url }}){: .img-responsive width='70%'}
 
     When you click this number, more details will appear below the accordion expansion, including the source and destination IP of the associated IDS event.
     
@@ -193,7 +193,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
 	
     You can also click on the Summary tab to see a map and summary of traffic by countries.
     
-    ![]({{ "/images/lab_12_2.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_12_2.png" | relative_url }}){: .img-responsive width='30%'}
 	
 	If the map isn't working, just search for the IP address using Wolfram-Alpha. Or, follow the instructions in the box below to update your map.
     
@@ -214,7 +214,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
 	
 	Then press Squert's "Refresh" button (not the browser refresh button):
 	
-	![]({{ "/images/lab_so_1.png" | relative_url }}){: .img-responsive width='600px'}
+	![]({{ "/assets/images/lab_so_1.png" | relative_url }}){: .img-responsive width='600px'}
 	</div>
     
 	

@@ -41,7 +41,7 @@ You _must use your Kali vm for the following_. Doing so proves both that you got
     
 For example:
 
-![img](/security-assignments/intro-linux-lab.png)
+![img]( {{ "/assets/images/intro-linux-lab.png" | relative_url }})
 
 
 
@@ -77,7 +77,7 @@ For example:
 		- 5.1
 		- 5.3
 	- Chapter 6
-		- Actually, in lieu of reading Chapter 6, read [this note on choosing which text editor to learn](/security-assignments/note-on-editors), then learn it (i.e., google 'nano tutorial').
+		- Actually, in lieu of reading Chapter 6, read [this note on choosing which text editor to learn]({{ '/note-on-editors/' | relative_url }}), then learn it (i.e., google 'nano tutorial').
 	- Chapter 7
 		- 7.2.5
 		- 7.5.3.2

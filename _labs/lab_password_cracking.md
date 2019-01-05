@@ -9,7 +9,7 @@ description: hydra, hashcat, rockyou, hashcat rules, cewl wordlists
 
 # Part 0: Introduction to Linux Tutorial
 
-1.  Complete the ["Intro to Linux" tutorial]( /security-assignments/intro-to-linux ). There is a deliverable associated with this tutorial which counts towards your participation grade.
+1.  Complete the ["Intro to Linux" tutorial]( {{'/intro-to-linux' | relative_url }}). There is a deliverable associated with this tutorial which counts towards your participation grade.
 
 
 

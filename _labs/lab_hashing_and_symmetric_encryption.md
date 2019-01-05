@@ -69,7 +69,7 @@ Open CrypTool 2.0. Under Templates, select Cryptanalysis, then Classical, and do
 
 2. Do the same analysis, but for character pairs (bigrams) or trigrams. You can either open up a new Frequency Test or hit the Stop button and modify the test you’re currently running.  Under the settings tab of the Frequency Test box, you can change the length of n-grams.  Hit Play and then view the Presentation tab for a graphical view of your results.  What are the three most frequent N-grams of length 2 in your analysis? Examine the frequency table chart at [http://en.wikipedia.org/wiki/Bigram](http://en.wikipedia.org/wiki/Bigram). What does this suggest the three 2-length N-grams identified correspond to? Also examine N-grams of length 3, and report the likely plaintext identities of the four 3-length N-grams reported (use [http://en.wikipedia.org/wiki/Trigram](http://en.wikipedia.org/wiki/Trigram)).
 
-    ![image_1]( {{ '/images/lab_2/lab_2_1.png' | relative_url }})
+    ![image_1]( {{ '/assets/images/lab_2/lab_2_1.png' | relative_url }})
     
     {% include lab_question.html question='According to CrypTool, what are the three most frequent trigrams?' %}
     
@@ -91,7 +91,7 @@ Use the screenshot below to see how to connect the components. Put the ciphertex
 Click-and-drag the component arrow connectors over to an appropriate connector arrow on the next component 
 (it may not be the same one as shown in the screenshot -- the CrypTool tooltip guides will help you).
 
-![image_1]({{ "/images/lab_2/lab_2_2.png" | relative_url }})
+![image_1]({{ "/assets/images/lab_2/lab_2_2.png" | relative_url }})
 
 Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 
@@ -149,7 +149,7 @@ Save the modified file and hash it again. Since you only changed a single bit in
 
 **Optional:** Use the MD5 function in CrypTool to hash a file. Look at the graphical depiction for how it works.
 
-![image_4]({{ "/images/lab_2/lab_2_4.png" | relative_url }}){: width="300px" }
+![image_4]({{ "/assets/images/lab_2/lab_2_4.png" | relative_url }}){: width="300px" }
 
 
 ## Symmetric encryption with AES
@@ -167,7 +167,7 @@ Message (base64):
 - Keysize (in bits): `?` (You have to count; see the hint in the hashing section above.)
 - Blocksize (in bits; IV block length): `?` (hint: count the IV above, just like you did the key)
 
-![image_1]({{ "/images/lab_2/lab_2_3.png" | relative_url }})
+![image_1]({{ "/assets/images/lab_2/lab_2_3.png" | relative_url }})
 
 What is the plaintext of the message?
 
@@ -178,7 +178,7 @@ What is the plaintext of the message?
 
 Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged between you and another class member. (You could email encrypted messages to one another, and decrypt using CryptTool. You can copy-paste from the host into your VM if you enable the bidirectional clipboard)
 
-![image_1]({{ "/images/lab_2/lab_2_5.png" | relative_url }}){: style="border: 1px solid black;" }
+![image_1]({{ "/assets/images/lab_2/lab_2_5.png" | relative_url }}){: style="border: 1px solid black;" }
 
 
 Questions:

@@ -121,19 +121,19 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
 1.	Navigate to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
     
-    ![]({{ "/images/lab_11_2.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_2.png" | relative_url }}){: .img-responsive width='30%'}
 
 2.	Enter option `1` for social-engineering attacks. That should display this menu:
     
-    ![]({{ "/images/lab_11_3.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_3.png" | relative_url }}){: .img-responsive width='30%'}
     
 3.	Select option `2` for website attack vectors. The next menu will list the various web attack vectors:
 
-    ![]({{ "/images/lab_11_4.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_4.png" | relative_url }}){: .img-responsive width='30%'}
     
 4.	Select number `3` for a credential harvesting attack. This brings you to the following screen:
 
-    ![]({{ "/images/lab_11_5.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_5.png" | relative_url }}){: .img-responsive width='30%'}
 
 5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to the IP address of Kali Linux for the host-only network.
 
@@ -141,7 +141,7 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
     If all has gone well, you should see a screen like the following:
 
-    ![]({{ "/images/lab_11_6.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_6.png" | relative_url }}){: .img-responsive width='30%'}
     
 6.	Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
 
@@ -151,13 +151,13 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
 7. Open the email in your Windows 10 VM. When you receive the email, click the link, which should forward you to this page:
 
-    ![]({{ "/images/lab_11_7.png" | relative_url }}){: .img-responsive width='50%'}
+    ![]({{ "/assets/images/lab_11_7.png" | relative_url }}){: .img-responsive width='50%'}
     
     **Note:** the address bar indicates the actual IP of the attacker. This is the biggest indication that the site is forged. If this were a more sophisticated attempt, the attacker would obtain a domain that looked similar to Facebook (like `facebook.webs.com`) For this, one could use a site like [http://freedns.afraid.org](http://freedns.afraid.org).
     
 8.	Enter fake credentials into the fields on the spoofed website. After you’ve filled the fields in with whatever words you wish, press the login button on the website. On your Kali VM, you should see something similar to this in your terminal window:
 
-    ![]({{ "/images/lab_set_facebook.png" | relative_url }}){: .img-responsive width='50%'}
+    ![]({{ "/assets/images/lab_set_facebook.png" | relative_url }}){: .img-responsive width='50%'}
         
 
 ## <span class='label label-success'>Deliverable</span>
@@ -181,7 +181,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 2.  `9` for `PowerShell Attack Vectors`
 3.  within this option, you will find four different features. Select `1` for `PowerShell Alphanumeric Shellcode Injector`
 
-    ![]({{ "/images/" | relative_url }}){: .img-responsive width='50%'}
+    ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
 
 4.	Enter your Kali VM IP address and port `443`. Choose `yes` to start the listener. This will automatically open `msfconsole`, so it will take a minute or two.
 
@@ -192,7 +192,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
         apt install leafpad     # if necessary
         leafpad x86_powershell_injection.txt
     
-    ![]({{ "/images/" | relative_url }}){: .img-responsive width='50%'}
+    ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
     
 7.	Copy the entire script you found on leafpad to the clipboard. On Windows, open a Paste the script on the windows command line as the figure depicts below. Then press enter.
 8.  You should see an opened Meterpreter session. Get the session id with `sessions` if you don't already see it, and then interact with that session with `sessions [id]`
@@ -313,11 +313,11 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
         
         From the File tab, select Options. Select “Customize Ribbon” from the left-hand side menu, and check the Developer checkbox (see screenshot below).
 
-        ![]({{ "/images/lab_11_8.png" | relative_url }}){: .img-responsive width='70%'}
+        ![]({{ "/assets/images/lab_11_8.png" | relative_url }}){: .img-responsive width='70%'}
 
     2.  From the Developer ribbon, select “Visual Basic” to open the Visual Basic editor.
     
-        ![]({{ "/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
+        ![]({{ "/assets/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
     
         Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the text file with the exploit code that you copied over from Kali. 
         Paste in all of the code in the "Macro" section (**but not the payload**) into the Visual Basic module you just inserted. 
@@ -328,7 +328,7 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
         
         Save it as a Word macro-enabled document (`.docm`) and close the VB editor.
         
-        ![]({{ "/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
+        ![]({{ "/assets/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
     
 5.  In the main body of the Word document, paste the payload hex code from the kali output. Above the hex code, type a simple memo as the ostensible content of the 
     memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white. 
