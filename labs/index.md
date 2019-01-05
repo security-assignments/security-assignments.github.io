@@ -1,10 +1,7 @@
 ---
 layout: assignment
+title: Information Security Management | Labs
 ---
- 
-# Information Security Management
-
-## Labs
  
 {% assign assignments = site.labs | sort: 'number' %}
 {% for assignment in assignments %} 

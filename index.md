@@ -1,8 +1,7 @@
 ---
 layout: assignment
+title: Information Security Management
 ---
- 
-# Information Security Management
 
 ## [Labs]( {{ '/labs/' | relative_url }} )
 
