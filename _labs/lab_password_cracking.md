@@ -129,7 +129,7 @@ then run the command, <code>brew install hashcat</code>.</p>
             
 	* hashcat.doc is available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/hashcat.doc). To obtain it, run:
 		
-			wget https://raw.githubusercontent.com/deargle/deargle/security-assignments/master/labs/files/hashcat.doc
+			wget https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/hashcat.doc
 	
 
 5.  In the output you’ll see the name of the file followed by the type. The type is shown with a $ at the beginning and end of it. You’ll need to copy the type and everything until “:::”. For example, the hash looks like the following, all on one line:
