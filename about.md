@@ -1,8 +1,7 @@
 ---
-title: Fine Print for Security Assignments
+title: About &amp; Fine Print for Security Assignments
 
 layout: page
-permalink: /fine-print/
 robots: noindex
 ---
 
