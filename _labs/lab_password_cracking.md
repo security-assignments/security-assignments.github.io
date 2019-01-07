@@ -127,9 +127,9 @@ then run the command, <code>brew install hashcat</code>.</p>
     
             wget https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py
             
-	* hashcat.doc is available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc). To obtain it, run:
+	* hashcat.doc is available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/hashcat.doc). To obtain it, run:
 		
-			wget https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/hashcat.doc
+			wget https://raw.githubusercontent.com/deargle/deargle/security-assignments/master/labs/files/hashcat.doc
 	
 
 5.  In the output you’ll see the name of the file followed by the type. The type is shown with a $ at the beginning and end of it. You’ll need to copy the type and everything until “:::”. For example, the hash looks like the following, all on one line:
@@ -173,7 +173,7 @@ then run the command, <code>brew install hashcat</code>.</p>
     {% include lab_question.html question='What is the password for <code>hashcat.doc</code>?' %}
     
     
-    Do the same for the file `john.doc` (available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/john.doc), use `wget` as above to obtain it from url `https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/john.doc`). 
+    Do the same for the file `john.doc` (available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc), use `wget` as above to obtain it from url `https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc`). 
 
     {% include lab_question.html question='What is the password for <code>john.doc</code>?' %}
     
@@ -213,7 +213,7 @@ LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.
 However, in interest of your time, this section will require you to crack only 500,000 of these passwords. After you complete this lab, you’re welcome to crack all of the LinkedIn 
 hashes. Ask me for a copy.
 
-1.  Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/deargle.github.io/master/security-assignments/LinkedIn_HalfMillionHashes.txt). 
+1.  Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/LinkedIn_HalfMillionHashes.txt). 
     Right-click this link, select "copy link" , then paste it into Kali after `wget`).
 
 2.  Open a terminal. To get your feet wet, perform a "straight" dictionary attack using the `rockyou.txt` wordlist again, as follows (one line):
