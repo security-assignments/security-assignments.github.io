@@ -54,12 +54,25 @@ host: 0.0.0.0
 collections:
     labs:
         output: true
+    activities:
+        output: true
         
 defaults:
     -
         scope:
+            path: "" # an empty string here means all files in the project
+        values:
+            layout: "default"
+    -
+        scope:
             path: ""
             type: "labs"
+        values:
+            layout: assignment
+    -
+        scope:
+            path: ""
+            type: "activities"
         values:
             layout: assignment
         
