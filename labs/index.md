@@ -24,5 +24,5 @@ Follow instructions [here]( {{ '/labs/virtual-machines/' | relative_url }}) for 
 
 ## Lab Supplementary Files
 
-[Hosted on github, here.](https://github.com/deargle/security-assignments-new/tree/master/labs/files) To download any one of them, click its link
+[Hosted on github, here.](https://github.com/{{ site.repository }}/tree/master/labs/files) To download any one of them, click its link
 on that page, and then click "Download." 
