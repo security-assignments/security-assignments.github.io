@@ -1,5 +1,5 @@
 ---
-title: Lab: Threat Modeling with Attack Trees
+title: "Lab: Threat Modeling with Attack Trees"
 number: 1
 descripton: Practice with attack trees
 ---

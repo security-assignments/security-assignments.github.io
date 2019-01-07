@@ -1,6 +1,6 @@
 ---
 
-title: Lab: Social Engineering
+title: "Lab: Social Engineering"
 number: 11
 description: "Only amateurs attack machines; professionals target people."
 ---

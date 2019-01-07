@@ -1,5 +1,5 @@
 ---
-title: Lab: Network Security Monitoring / Security Onion
+title: "Lab: Network Security Monitoring and Security Onion"
 number: 12
 vms:
     - SecurityOnion

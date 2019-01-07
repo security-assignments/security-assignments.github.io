@@ -1,6 +1,6 @@
 ---
 
-title: Lab: System Hardening
+title: "Lab: System Hardening"
 number: 8
 ---
 

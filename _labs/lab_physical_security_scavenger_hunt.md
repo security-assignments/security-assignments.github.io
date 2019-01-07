@@ -1,6 +1,6 @@
 ---
 
-title: Lab: Physical Security Scavenger Hunt
+title: "Lab: Physical Security Scavenger Hunt"
 description: There can be no information security without physical security
 number: 9
 ---

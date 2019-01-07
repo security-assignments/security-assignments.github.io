@@ -1,6 +1,6 @@
 ---
 
-title: Lab: Password Cracking
+title: "Lab: Password Cracking"
 number: 5
 vms:
     - Kali

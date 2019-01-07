@@ -1,6 +1,6 @@
 ---
 
-title: Lab: Digital Certificates
+title: "Lab: Digital Certificates"
 number: 4
 description: PGP key party, contrasted with Signal
 ---
