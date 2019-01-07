@@ -19,7 +19,7 @@ title: Information Security Management | Labs
 
 ## Virtual Machines for the labs
 
-Follow instructions [here]( {{ '/labs/virtual-machines/' | relative_url }}) for setting up the virtual machines referenced in some of the labs.
+Follow instructions [here]( {{ '/labs/virtual-machines' | relative_url }}) for setting up the virtual machines referenced in some of the labs.
 
 
 ## Lab Supplementary Files
