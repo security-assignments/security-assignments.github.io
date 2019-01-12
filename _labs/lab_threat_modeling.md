@@ -37,4 +37,4 @@ In this lab, you will create attack trees for different attacker goals to help y
     
 ## Deliverable:
 
-Submit a document on canvas with one page for each of the attack trees along with its answers to questions. If working on a team, form a "group" on Canvas, and make only one submission per team.
+Submit a PDF document on Canvas with one page for each of the attack trees along with its answers to questions. If working on a team, form a "group" on Canvas, and make only one submission per team.
