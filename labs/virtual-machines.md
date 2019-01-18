@@ -86,7 +86,7 @@ You will need to reconfigure the network adapter for each VM that you imported b
 # The Virtual Machines
 
 <div class='alert alert-info'>All VMs can be found here: 
-    <a class='btn btn-primary' href='https://canvas.colorado.edu/courses/21392/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
+    <a class='btn btn-primary' href='https://templeu.instructure.com/courses/54116/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
 </div>
 
 ## `infosec-net` Network Map
