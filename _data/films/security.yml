@@ -1,44 +1,66 @@
 - 
     title: Citizenfour
     director: Laura Poitras
-    comment: "**Required viewing for the course**"
+    comment: "**Required viewing for the course.** The 2015 Academy Award winner for Best Documentary Feature, this film tells the story of Edward Snowden and the NSA spying disclosures of 2013. Edited version available on Vidangel.com."
     img: https://images-na.ssl-images-amazon.com/images/I/51g%2BDfN7S2L._SX200_QL80_.jpg
     links:
         -
-            type: Amazon
-            link: http://a.co/6g6GFoh
+            type: Streaming availability
+            link: https://www.justwatch.com/us/movie/citizen-four
 
 -
     title: Zero Days
     director: Alex Gibney
-    comment: "**Required viewing for the course**"
+    comment: "**Required viewing for the course.** A 2016 documentary about Stuxnet and the advent of cyberwarfare. Edited version available on Vidangel.com."
     img: https://images-na.ssl-images-amazon.com/images/I/51Uxj89eavL._SX200_QL80_.jpg
     links:
         -
-            type: Amazon
-            link: http://a.co/15TdcIT
+            type: Streaming availability
+            link: https://www.justwatch.com/us/movie/zero-days
 
 -
     title: The Lives of Others
     director: F. Henckel von Donnersmarck
-    img: https://images-na.ssl-images-amazon.com/images/M/MV5BNDUzNjYwNDYyNl5BMl5BanBnXkFtZTcwNjU3ODQ0MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg
-    comment: The 2007 Oscar winner of Best Foreign Language Film of the
+    comment: "**For extra credit.** The 2007 Oscar winner of Best Foreign Language Film of the
         Year, this film tells the story of a secret police agent in East Berlin
         in 1984 who surveils a writer and becomes increasingly absorbed
-        his life.
-
+        his life. Edited version available on Vidangel.com."
+    img: https://images-na.ssl-images-amazon.com/images/M/MV5BNDUzNjYwNDYyNl5BMl5BanBnXkFtZTcwNjU3ODQ0MQ@@._V1_UX182_CR0,0,182,268_AL_.jpg
+    links: 
+        -
+            type: Streaming availability
+            link: https://www.justwatch.com/us/movie/the-lives-of-others 
 
 -
     title: The Conversation
     director: Francis Ford Coppola
-    comment: A classic 1974 film psychological thriller starring Gene Hackman
+    comment: "**For extra credit.** A classic 1974 film psychological thriller starring Gene Hackman
         that revolves around surveillance. It is more relevant today than
-        when it debuted.
+        when it debuted. Edited version available on Vidangel.com."
     img: https://images-na.ssl-images-amazon.com/images/I/917fYNO-PcL._SL1500_.jpg
     links:
         -
-            type: Amazon
-            link: http://amzn.com/B005FUTBZA
+            type: Streaming availability
+            link: https://www.justwatch.com/us/movie/the-conversation
 
+-
+    title: War Games
+    director: John Badham
+    comment: "A young man finds a back door into a military central computer in which reality is confused with game-playing, possibly starting World War III. —IMDB"
+    img: https://images-na.ssl-images-amazon.com/images/I/51h1ZqUSHaL._SX200_QL80_.jpg
+    links:
+        -
+            type: Streaming availability
+            link: https://www.justwatch.com/us/movie/wargames
+            
+-
+    title: Sneakers
+    director: Phil Alden Robinson
+    comment: "A security pro finds his past coming back to haunt him, when he and his unique team are tasked with retrieving a particularly important item. —IMDB"
+    img: https://images-na.ssl-images-amazon.com/images/I/51S5WGgZTYL._SX200_QL80_.jpg
+    links:
+        -
+            type: Streaming availability
+            link: https://www.justwatch.com/us/movie/sneakers
 
 
