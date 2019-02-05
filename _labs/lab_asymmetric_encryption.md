@@ -52,7 +52,7 @@ In summary, using Kleopatra:
 
 **A:** [To better future-proof your key](https://www.yubico.com/2015/02/big-debate-2048-4096-yubicos-stand/), Generate a 4096-bit key, not the default 2048-bit one. 
 
-**History Lesson:** Edward Snowden originally reached out directly to Glen Greenwald, seeking to leak the NSA documents. However, Greenwald didn't have a secure communication method such as PGP. So, Snowden made him a voice-obfuscated how-to video, for doing the same things that you are doing. Greenwald blew it off, because seriously who has time for the usability mess that is PGP. Eventually, Greenwald's friend and journalist, Laura Poitras, arranged for Greenwald to meet Snowden anyway. [Watch Snowden's tutorial video to Greenwald here!](https://vimeo.com/56881481)
+**History Lesson:** Edward Snowden originally reached out directly to Glenn Greenwald, seeking to leak the NSA documents. However, Greenwald didn't have a secure communication method such as PGP. So, Snowden made him a voice-obfuscated how-to video, for doing the same things that you are doing. Greenwald blew it off, because seriously who has time for the usability mess that is PGP. Eventually, Greenwald's friend and journalist, Laura Poitras, arranged for Greenwald to meet Snowden anyway. [Watch Snowden's tutorial video to Greenwald here.](https://vimeo.com/56881481)
 
 
 
@@ -78,7 +78,7 @@ In summary, using Kleopatra:
     
     {% include lab_question.html question='Show all work for encryption <b>and</b> decryption' %}
 
-4. You are Eve. In a public-key system using RSA, you intercept the ciphertext, `C=10`, sent to a user whose public key is `e=5, n=35`. You grin -- an evil, knowing grin.
+4. You are Eve. In a public-key system using RSA, you intercept the ciphertext, `C=10`, sent to a user whose public key is `e=5, n=35`.
 
 	{% include lab_question.html question='What is the plaintext `M`?' %}
     
