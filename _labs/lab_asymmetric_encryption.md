@@ -7,7 +7,7 @@ description: PGP setup and RSA practice
 
 <div class='alert alert-danger'><strong>Important:</strong> To receive full credit, you must complete Part 1 of the lab by the day marked in the calendar, which entails generating a PGP keypair, uploading your public key to a keyserver, and submitting your key's fingerprint on Canvas. This is required for the PGP key signing class activity.</div>
 
-<div class='alert alert-info'>I recommend using the tools in the Windows VM for Part 1, although you are free to install GPG on your own machine.</div>
+<div class='alert alert-info'>I recommend using the Windows 10 vm for this lab. Alternatively, you can install GPG4Win for your [Windows](https://www.gpg4win.org/) or my favorite, GPG Suite [Mac](https://gpgtools.org/), but you're responsible to figure out the below steps if you do.</div>
 
 # Part 1. Install PGP and Create a Public-Private Key Pair
 
