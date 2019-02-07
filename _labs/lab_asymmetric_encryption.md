@@ -32,10 +32,10 @@ Do the following:
         
         It's the same thing as submitting via Kleopatra. In fact, if you wanted to send someone your public key without relying on a keyserver, you could sent them the `.asc` file as an email attachment.
 * Use a web browser to browse `https://pgp.circl.lu` and verify that when you search by your name or email address, your key is displayed, with the correct keyID, that it is 4096 bits, and that both of your `@temple.edu` email addresses are associated with your key.
-    * To search by your key-id or fingerprint, prefix the value with `0x`, which is the prefix for hex values. For example, to search for my key-id, `8DC01F3A`, I would enter the following search query into `https://keys.gnupg.net/`: `0x8DC01F3A`.
+    * To search by your key-id or fingerprint, prefix the value with `0x`, which is the prefix for [hex values](https://en.wikipedia.org/wiki/Hexadecimal). For example, to search for my key-id, `8DC01F3A`, I would enter the following search query into `https://pgp.circl.lu`: `0x8DC01F3A`. For searching fingerprints, make sure there are no spaces in between characters.
 * Once you have verified the above, submit your fingerprint on Canvas.
 
-<div class='alert alert-info'>It is important that <strong>both</strong> your <code>TUid</code> and <code>first.last</code> email variants are tied to your key, so that you can get credit for this part of the lab. If you forget, you can add and then re-export, and your key will be updated on the keyserver... eventually.</div>
+<div class='alert alert-info'>It is important that <strong>both</strong> your <code>TUid</code> and <code>first.last</code> email variants are tied to your key, so that you can get credit for this part of the lab. If you forget, you can add and then re-export, and your key will be updated on the keyserver—eventually.</div>
 
 
 ## Part 1 deliverable
@@ -45,7 +45,7 @@ In summary, using Kleopatra:
 * Upload your key to a keyserver
 * Make a key with key length of 4096 bits
 * Ensure that both first.last@temple.edu and TUid@temple.edu addresses are associated with your key
-* Verify that your key is discoverable on `https://keys.gnupg.net/
+* Verify that your key is discoverable on `https://pgp.circl.lu`
 * Submit your key key-id or fingerprint on Canvas
 
 **Q:** Why do we need a 4096-bit key? Isn't that overkill?
