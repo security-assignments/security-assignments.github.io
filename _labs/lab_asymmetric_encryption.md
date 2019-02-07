@@ -11,17 +11,17 @@ description: PGP setup and RSA practice
 
 # Part 1. Install PGP and Create a Public-Private Key Pair
 
-On the Windows 10 VM, open the app `Kleopatra`. This is an app that interfaces with gpg, allowing you to create and manage gpg public/private keypairs.
+On the Windows 10 VM, open the app `Kleopatra`. This is an app that interfaces with GPG, allowing you to create and manage GPG public/private keypairs.
 
 Do the following:
 
-* Open Kleopatra > navigate to `Settings` > `Configure Kleopatra` > `GnuPG System` > then click `edit` next to "use keyserver at", then "new", then "OK".
+* Open Kleopatra > navigate to `Settings` > `Configure Kleopatra` > `GnuPG System` > then click `edit` next to "use keyserver at", then change the server name to `pgp.circl.lu`, then "OK", and "OK".
 * Then, in Kleopatra still, `File` > `New Certificate`
 * Create a personal OpenPGP key pair
 * Enter your first and last name and your **TUid@temple.edu** email. Do <span class='label label-danger'>not</span> click "OK" yet.
 * `Advanced Settings` > change the keylength to `4096 bits` for both fields.
-* Create the key. If you enter a passphrase (you should, although you don't have to), *do not forget your passphrase*.
-* Open your newly-created key. Open the "User-IDs & Certifications" tab. Highlight your key, and click "Add". Add your **first.last@temple.edu** email variant.
+* Create the key. If you enter a passphrase (you should, although you don't have to), *do not forget your passphrase*. Click "Finish".
+* Double-click on your newly-created key to open it. Open the "User-IDs & Certifications" tab. Highlight your key, and click "Add". Add your **first.last@temple.edu** email variant.
 * Take note of your key `Key-ID` displayed in the Kleopatra interface. *This is your short-form key fingerprint.* If you double-click the key, the dialog will display your full-length key fingerprint.
 * Right-click your key and "Export Certificates to Server..." By default, this will send your key to `keys.gnupg.net`, from where it will replicate to other keyservers around the world... eventually. Sometimes the replication is very quick (minutes), while in other cases [it can reportedly take hours](https://security.stackexchange.com/questions/96949/how-long-before-a-key-is-visible-on-a-key-server).
     *   Alternatively, you can: 
