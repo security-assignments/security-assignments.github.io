@@ -5,7 +5,7 @@ number: 4
 description: PGP key party, contrasted with Signal
 ---
 
-<div class='alert alert-info'>I recommend using the Windows 10 vm for this lab. Alternatively, you can install GPG4Win for your [Windows](https://www.gpg4win.org/) or my favorite, GPG Suite [Mac](https://gpgtools.org/), but you're responsible to figure out the below steps if you do.</div>
+<div class='alert alert-info'>I recommend using the Windows 10 vm for this lab. Alternatively, you can install <a href="https://www.gpg4win.org/">GPG4Win</a> for Windows or the excellent <a href="https://gpgtools.org/">GPG Suite</a> for Mac. However, you're responsible to figure out the below steps if you do.</div>
 
 # Part 1
 
