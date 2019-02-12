@@ -19,8 +19,8 @@ Then, repeat the steps below for at least three classmates, not including your p
 
 1. Verify their keys (i.e., witness the person show his/her government ID and attest that his/her key-id or fingerprint is correct).
 2. Sign the public key that you have verified.
-    1. Get their public key into your keyring.
-        1. I bundled the keys for the class into a keyring—find it on `Slack` under `#labs` or in `Canvas` > `Files` > `Download` folder and import the `.asc`. file there.
+    1. Get their public key into your keyring:
+        1. I bundled the keys for the class into a keyring—find it on `Slack` under `#labs` or in `Canvas` > `Files` > `Download` folder. Download the `.asc` file. In Kleopatra, click the `Import Certificates` button and select the `.asc` file you downloaded.
         2. If their key is not in the keyring: 
             * You can use the `Lookup Certificates on Server` button within Kleopatra, 
             * Or, you can manually navigate to `pgp.circl.lu` from a web browser, find their key, 
