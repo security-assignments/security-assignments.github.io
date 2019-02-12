@@ -65,7 +65,7 @@ Follow the steps above, and make sure that your key is discoverable on `pgp.circ
 	
 For this, use `GPA` (gnu-privacy-assistant), which is installed on the Windows 10 VM. `GPA` has access to the same keyring on your machine as does `Kleopatra`.
     
-You will send an <span class='label label-info'>encrypted <strong>and</strong> signed</span>email to <a href='mailto:ryan.mccreesh@gmail.com'>ITA Ryan McCreesh (ryan.mccreesh@gmail.com)</a> (Key-id: `C3F4E242`). 
+You will send an <span class='label label-info'>encrypted <strong>and</strong> signed</span>email to <a href='mailto:ryan.mccreesh@gmail.com'>ITA Ryan McCreesh (ryan.mccreesh@gmail.com)</a> (Key-id: `720D38A6`). 
 
 <div class='alert alert-danger'>
     <p><strong>Q:</strong> But how can we trust this key?</p>
