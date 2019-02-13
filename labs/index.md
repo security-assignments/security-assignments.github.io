@@ -15,8 +15,9 @@ title: Information Security Management | Labs
 {% endfor %}
 
 
+## Tutorials
 
-
+[Tutorial: Introduction to Linux]
 ## Virtual Machines for the labs
 
 Follow instructions [here]( {{ '/labs/virtual-machines' | relative_url }}) for setting up the virtual machines referenced in some of the labs.

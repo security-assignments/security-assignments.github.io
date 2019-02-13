@@ -1,9 +1,9 @@
 ---
 layout: assignment
-title: Intro to Linux
+title: Introduction to Linux
 ---
 
-# Complete this very gentle introduction to Linux Terminal
+# Complete this very gentle introduction to the Linux Terminal
 
 CodeAcademy has an [introductory set of lessons](https://www.codecademy.com/learn/learn-the-command-line) that teach the Linux Terminal. 
 You should complete the first lesson-set within each module:
@@ -24,29 +24,29 @@ You do _not_ need to do any of the "projects" or multiple choice quizzes. Just t
     
 # Learn a linux text editor
 
-The CodeAcademy lessons above give you basic exposure to the `nano` text editor. However, you are free to use whatever text editor you like. `nano` is good for beginners, though.
+The CodeAcademy lessons above give you basic exposure to the `nano` text editor. However, you are free to use whatever text editor you like. However, `nano` is good for beginners.
 
 
 
 # Deliverable
 
-You _must use your Kali vm for the following_. Doing so proves both that you got Kali up and running, and that you have basic skills with Linux terminal.
+You _must use your Kali VM for the following_. Doing so proves both that you got your Kali VM up and running, and that you have basic skills with the Linux terminal.
 
-* Make a directory called `le-tutorial`
+* Make a directory called `linux-tutorial`
 * In that directory, create a file called `i-did-it.txt` with the following contents: `Hello, world!`
 * Submit a screenshot showing:
     * The contents of that file (`cat`)
-    * A string with your name and uni email, e.g., `echo "David Eargle david.eargle@colorado.edu"`
+    * A string with your name and uni email, e.g., `echo "Anthony Vance anthony.vance@temple.edu"`
     * Run the `date` command
     
 For example:
 
-![img]( {{ "/assets/images/intro-linux-lab.png" | relative_url }})
+![img]( {{ "/assets/images/intro-linux-lab-TV.png" | relative_url }})
 
 
 
 
-# Optional -- More Thorough Walkthrough, but also more intimidating
+# Optional—More thorough walkthrough, but also more difficult
 
 - Using your Kali VM, go through the following sections of <a href='http://www.tldp.org/LDP/intro-linux/intro-linux.pdf'>this Linux tutorial:</a>
 	- Chapter 2
