@@ -13,7 +13,7 @@ description: hydra, hashcat, rockyou, hashcat rules, cewl wordlists
 
 
 
-# Part 1: Testing Passwords
+# Part 1: Test Password Security
 
 1.	Visit the following URL:
 
@@ -25,7 +25,7 @@ description: hydra, hashcat, rockyou, hashcat rules, cewl wordlists
 
 
     
-# Part 2: Checking an Account for an Existing Data Breach
+# Part 2: Check an Account for a Prior Data Breach
 
 1.  Check to see if one of your online accounts has already been breached. 
 
@@ -53,11 +53,33 @@ Sign up for 2FA for at least one account.
 
 {% include lab_question.html question='You will be asked to report whether or not you signed up for 2FA.' %}
 
+
+
+
     
+# Part 4. Install and Set up a Password Manager
+
+If you're not already using one, set up a password manager. I recommend creating an account with [LastPass](https://www.lastpass.com/) (free, premium version $24 per year), or my favorite, [1Password](https://1password.com) (first six months free for students using this [link](https://www.studentappcentre.com/discounts/1password), $36 per year). See [here](https://thewirecutter.com/reviews/best-password-managers/) for a comparison of leading password managers. 
+ 
+Next, install the browser extension for your password manager (see [here](https://lastpass.com/misc_download2.php) for LastPass; see [here](https://1password.com/downloads/mac/) for 1Password). With the browser extension installed, log into a website for which you have an account. Your password manager will ask to save the password after each login. Do this for three sites.
+
+## Deliverable:
+
+Take a screenshot of your password manager showing **saved entries for at least three sites** you visited. Also, make sure the screenshot **shows your username** in the top left- or right-hand corner. Submit your screenshot on Canvas.
+
+**LastPass.com example screenshot:**
+
+![img]( {{ "/assets/images/LastPass.png" | relative_url }}){: width="600px" }
     
-    
-    
-# Part 4: Online Password Attack
+**1Password app example screenshot:**
+
+![img]( {{ "/assets/images/1Password-app.png" | relative_url }}){: width="550px" }
+
+**1Password.com example screenshot:**
+
+![img]( {{ "/assets/images/1Password-web.png" | relative_url }}){: width="500px" }
+
+# Part 5: Online Password Attack
 
 This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all unique passwords from the 32 million RockYou password breach you read about in your reading.
 
@@ -102,7 +124,7 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
     
     
     
-# Part 5: Offline Attack Using Hashcat
+# Part 6: Offline Attack Using Hashcat
 
 Cracking in Hashcat:
 
@@ -205,7 +227,7 @@ then run the command, <code>brew install hashcat</code>.</p>
 
     
     
-# Part 6. Cracking Linkedin Hashes Using Hashcat
+# Part 7. Cracking Linkedin Hashes Using Hashcat
 
 In this section, you’ll see how many hashes you can recover from the 2016 LinkedIn password breach. This breach of 177,500,189 unsalted SHA1 password hashes represents the data of all 
 LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.
@@ -306,7 +328,7 @@ on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</
     
     
     
-# Part 7. Secure Password Hashing
+# Part 8. Secure Password Hashing
 
 Refer again to the [benchmark output for a Brutalis](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40).
 
@@ -321,7 +343,7 @@ Read about the bcrypt algorithm [here](https://en.wikipedia.org/wiki/Bcrypt#Algo
 
 
 
-# Part 8. Create a Targeted Wordlist Using CeWL
+# Part 9. Create a Targeted Wordlist Using CeWL
 
 CeWL (Custom Word List Generator) is a command-line tool that creates custom wordlists from a target website. This can be useful for cracking a password of an organization or individual that also has a website or social media profile. Because people often use information about themselves or their organization when creating passwords, custom wordlists can be very effective.
 
