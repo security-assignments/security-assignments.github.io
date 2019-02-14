@@ -5,7 +5,7 @@ title: Information Security Management | Labs
 # {{ page.title }}
  
  
-## The Labs
+## Labs
 
 {% assign assignments = site.labs | sort: 'number' %}
 {% for assignment in assignments %} 
@@ -17,7 +17,7 @@ title: Information Security Management | Labs
 
 ## Tutorials
 
-[Tutorial: Introduction to Linux]
+[Tutorial: Introduction to Linux](/security-assignments/intro-to-linux.html)
 ## Virtual Machines for the labs
 
 Follow instructions [here]( {{ '/labs/virtual-machines' | relative_url }}) for setting up the virtual machines referenced in some of the labs.

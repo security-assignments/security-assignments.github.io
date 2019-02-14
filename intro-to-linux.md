@@ -3,7 +3,7 @@ layout: assignment
 title: Introduction to Linux
 ---
 
-# Complete this very gentle introduction to the Linux Terminal
+# Complete this very gentle introduction to the Linux terminal
 
 CodeAcademy has an [introductory set of lessons](https://www.codecademy.com/learn/learn-the-command-line) that teach the Linux Terminal. 
 You should complete the first lesson-set within each module:
@@ -22,9 +22,9 @@ You do _not_ need to do any of the "projects" or multiple choice quizzes. Just t
 
     
     
-# Learn a linux text editor
+# Learn a Linux text editor
 
-The CodeAcademy lessons above give you basic exposure to the `nano` text editor. However, you are free to use whatever text editor you like. However, `nano` is good for beginners.
+The CodeAcademy lessons above give you basic exposure to the `nano` text editor. However, you are free to use whatever text editor you like, such as `Vim` ([see tutorial here](https://danielmiessler.com/study/vim/)). However, `nano` is good for beginners.
 
 
 
