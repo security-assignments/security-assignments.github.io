@@ -30,7 +30,7 @@ The CodeAcademy lessons above give you basic exposure to the `nano` text editor.
 
 # Deliverable
 
-You _must use your Kali VM for the following_. Doing so proves both that you got your Kali VM up and running, and that you have basic skills with the Linux terminal.
+You _must use your Kali VM for the following_. See [here](https://templeu.instructure.com/courses/54116/pages/virtual-machine-links) for the download link, and [here](/security-assignments/labs/virtual-machines#kali) for the login credentials. Using the Kali VM for the steps below shows both that you got your Kali VM up and running, and that you have basic skills with the Linux terminal.
 
 * Make a directory called `linux-tutorial`
 * In that directory, create a file called `i-did-it.txt` with the following contents: `Hello, world!`
