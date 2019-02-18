@@ -3,7 +3,7 @@ layout: assignment
 title: Introduction to Linux
 ---
 
-# Complete this very gentle introduction to the Linux terminal
+# Part 1. Complete this very gentle introduction to the Linux terminal
 
 CodeAcademy has an [introductory set of lessons](https://www.codecademy.com/learn/learn-the-command-line) that teach the Linux Terminal. 
 You should complete the first lesson-set within each module:
@@ -19,8 +19,11 @@ You should complete the first lesson-set within each module:
 
 You do _not_ need to do any of the "projects" or multiple choice quizzes. Just the lesson-sets.
     
+# Part 2. Play the Bandit wargame on OvertheWire.org
 
-    
+Play the [Bandit wargame on OvertheWire.org](http://overthewire.org/wargames/bandit/). Use the "man" command and Google to learn about the recommended commands to help you reach the next level. Start at Level 0 and complete Level 15 (which gives you the password for Level 16).
+
+To play, you'll need an SSH client. Use the Terminal.app on a Mac or download [Putty](https://www.putty.org) for Windows.
     
 # Learn a Linux text editor
 
