@@ -18,7 +18,7 @@ The EFF has [created a set of Diceware lists](https://www.eff.org/deeplinks/2016
   
 1. An [Amazon EC2 *p3.16xlarge*](https://aws.amazon.com/ec2/instance-types/p3/) high-performance computer can try 76,920 1Password master passwords a second.[^1] About how many of these computers would you need to rent in order to try 1 billion 1Password master passwords a second?
 
-1. One Amazon EC2 *p3.16xlarge* computer costs [$24.48 an hour](https://aws.amazon.com/ec2/instance-types/p3/) to rent. Guessing at the rate of 1 billion passwords a second, **on average** how much would it cost you to rent enough of these computers to crack a 1Password master password that uses a five-word Diceware passphrase?[^2]  
+1. One Amazon EC2 *p3.16xlarge* computer costs [$24.48 an hour](https://aws.amazon.com/ec2/instance-types/p3/) to rent as of February 2019. Guessing at the rate of 1 billion passwords a second, **on average** how much would it cost you to rent enough of these computers to crack a 1Password master password that uses a five-word Diceware passphrase?[^2]  
 **In other words:**  
 (# of hours from answer to Question 2) * (# computers from answer to Question 4) * $24.48 an hour = Total cost in $
 
@@ -29,5 +29,5 @@ The EFF has [created a set of Diceware lists](https://www.eff.org/deeplinks/2016
 
 ### Footnotes
 
-[^1]: Read about Iraklis Mathiopoulos' *p3.16xlarge* tests using Hashcat [here](https://medium.com/@iraklis/running-hashcat-v4-0-0-in-amazons-aws-new-p3-16xlarge-instance-e8fab4541e9b).
+[^1]: Read about Iraklis Mathiopoulos' *p3.16xlarge* tests using Hashcat [here](https://medium.com/@iraklis/running-hashcat-v4-0-0-in-amazons-aws-new-p3-16xlarge-instance-e8fab4541e9b). 
 [^2]: This question is inspired by Micah Flee's calculations [here](https://github.com/micahflee/passphraseme/blob/master/README.md#strength-of-passphrases). 
