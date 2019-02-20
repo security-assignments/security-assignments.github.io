@@ -9,11 +9,11 @@ The EFF has [created a set of Diceware lists](https://www.eff.org/deeplinks/2016
 
 ## Questions
 
-1. What are the two five-worded passphrases that you created?
+1. Create two five-word Diceware passphrases. What are they?
 
 1. What is the amount of entropy in bits for your five-word Diceware passphrases? How many possible passwords does that represent? Show your work. **Note:** Each Diceware word is worth an additional 12.9 bits of entropy. This is because 2<sup>12.9</sup> ≈ 7776, the length of the Diceware word list.
 
-1. **On average**, how long in **hours** would take to guess a five-word Diceware passphrase if you could try 1 billion passwords a second? How many **years**? Show your work.  
+1. **On average**, how long in **hours** would it take to guess a five-word Diceware passphrase if you could try 1 billion passwords a second? How many **years**? Show your work.  
 **Note:** The average of a uniform distribution is half the numbers in a set.
   
 1. An [Amazon EC2 *p3.16xlarge*](https://aws.amazon.com/ec2/instance-types/p3/) high-performance computer can try 76,920 1Password master passwords a second.[^1] About how many of these computers would you need to rent in order to try 1 billion 1Password master passwords a second?
