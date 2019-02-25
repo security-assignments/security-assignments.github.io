@@ -5,10 +5,11 @@ description: An exercise creating passphrases using the EFF's long improved-usab
 
 For this activity, you will calculate the strength of a five-word Diceware passphrase in terms of the time and money required to crack it.  
 
-The [Diceware system](http://world.std.com/~reinhold/diceware.html) uses five six-sided dice to randomly select words from a *wordlist* of 7,776 words. 7,776 equals the number of sides of each dice, raised to the number of dice rolled together (6<sup>5</sup> = 7,776). This way, every roll of the five dice randomly selects a word from the list. Read more about Diceware [here](https://theintercept.com/2015/03/26/passphrases-can-memorize-attackers-cant-guess/).
+The [Diceware system](http://world.std.com/~reinhold/diceware.html) uses five six-sided dice to randomly select words from a *wordlist* of 7,776 words. 7,776 equals the number of sides on one dice, raised to the number of dice rolled together (6<sup>5</sup> = 7,776). This way, every roll of the five dice randomly selects a word from the list. Read more about Diceware [here](https://theintercept.com/2015/03/26/passphrases-can-memorize-attackers-cant-guess/).
 
 
-The EFF has [created a set of Diceware lists](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases) that are easier to use. For this activity, use the [EFF's "long" improved-usability list](https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt), which also has 7,776 words, but they are easier to type and remember. 
+The EFF has [created a set of Diceware lists](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases) that are easier to use. For this activity, use the [EFF's "long" improved-usability list](https://www.eff.org/files/2016/07/18/eff_large_wordlist.txt), which also has 7,776 words, but which are easier to type and remember. 
+
 ## Questions
 
 1. Using dice, create two five-word Diceware passphrases. What passphrases did you create?
