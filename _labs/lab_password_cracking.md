@@ -398,6 +398,7 @@ You want to create a custom dictionary using the words on neurosecurity.byu.edu 
 
 # Learn more:
 
+* Podcast: Story behind the game-changing RockYou password breach: [https://darknetdiaries.com/episode/33/](https://darknetdiaries.com/episode/33/)
 * ["Hash Crack: Password Cracking Manual (v3)"](https://www.amazon.com/dp/1793458618/ref=cm_sw_em_r_mt_dp_U_SmFDCb0ZVQ098) by [@Netmux](https://twitter.com/netmux), one of the foremost password crackers.
 * [https://arstechnica.com/security/2013/03/how-i-became-a-password-cracker/](https://arstechnica.com/security/2013/03/how-i-became-a-password-cracker/)
 * Official Hashcat documentation: [https://hashcat.net/wiki/](https://hashcat.net/wiki/)
