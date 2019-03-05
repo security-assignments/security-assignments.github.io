@@ -207,7 +207,7 @@ then run the command, <code>brew install hashcat</code>.</p>
     
     {% include lab_question.html question='Roughly how many passwords per second can Hashcat running on a Brutalis try on a <code>.doc</code> file?' %}
         
-    {% include lab_question.html question='How much faster is Hashcat in cracking .doc MS Office documents (option 9700, *Hashtype: MS Office <= 2003 MD5 + RC4, oldoffice$0, oldoffice$1*) compared to Office 2013 documents (option 9600, *Hashtype: Office 2013*)?' %}
+    {% include lab_question.html question='How much faster is Hashcat in cracking .doc MS Office documents (option 9700, "Hashtype: MS Office <= 2003 MD5 + RC4, oldoffice$0, oldoffice$1") compared to Office 2013 documents (option 9600, "Hashtype: Office 2013")?' %}
    
         
     **Optional:** Install `hashcat` on your own machine (not the VM). See how your benchmarks compare against a Brutalis. Note that running benchmarks on the VM will break once it reaches `scrypt` before complete results are reported.
