@@ -258,7 +258,7 @@ hashes. Ask me for a copy.
     To see hashes cracked in real time, in another terminal shell, type the command: `tail -f LinkedIn_cracked.txt`. Type `control+c` to exit the `tail` command.
 
 
-    {% include lab_question.html question='How many passwords were you able to recover using this command?' %}
+    {% include lab_question.html question='How many passwords were you able to recover using the Hashcat command above?' %}
 
 
     
