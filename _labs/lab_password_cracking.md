@@ -242,7 +242,7 @@ hashes. Ask me for a copy.
     <div class='alert alert-warning'>These commands use the <code>--remove</code> flag. This will remove cracked hashes from the input file. So, if you run these commands more than once without changing anything, it won't crack anything after the first time.</div>
     <div class='alert alert-danger'>
         <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile.</p>
-        <p>To do this, <code>rm ~/.hashcat/hashcat.pofile</code>.</p>
+        <p>To do this, <code>rm ~/.hashcat/hashcat.potfile</code>.</p>
         <p>Don't forget to also start with a fresh 500k hashlist.</p>
     </div>
     
