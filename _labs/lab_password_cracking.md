@@ -205,7 +205,7 @@ then run the command, <code>brew install hashcat</code>.</p>
         TH/s	Terahashes per second (Trillions of hashes per second)
         PH/s	Petahashes per second (Quadrillions of hashes per second)    
     
-    {% include lab_question.html question='Roughly how many passwords per second can Hashcat running on a Brutalis try on a <code>.doc</code> file?' %}
+    {% include lab_question.html question='How many passwords per second can Hashcat running on a Brutalis try on a <code>.doc</code> file (i.e., hashtype "MS Office <= 2003 MD5 + RC4, oldoffice$0, oldoffice$1")?' %}
         
     {% include lab_question.html question='How much faster is Hashcat in cracking .doc MS Office documents (option 9700, "Hashtype: MS Office <= 2003 MD5 + RC4, oldoffice$0, oldoffice$1") compared to Office 2013 documents (option 9600, "Hashtype: Office 2013")?' %}
    
