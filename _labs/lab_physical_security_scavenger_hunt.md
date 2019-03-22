@@ -35,7 +35,7 @@ Either a or b but not both.
 Example:
 
 <div markdown='1' style='width:30%'>
-<img src="/assets/images/lab_5_3.jpg" width='100%' alt="lab 5 1">
+<img src="/security-assignments/assets/images/lab_5_3.jpg" width='100%' alt="lab 5 1">
 </div>
 
 
@@ -44,7 +44,7 @@ Example:
 Example:
 
 <div markdown='1' style='width:30%'>
-<img src="/assets/images/lab_5_4.jpg" width='100%' alt="lab 5 1">
+<img src="/security-assignments/assets/images/lab_5_4.jpg" width='100%' alt="lab 5 1">
 </div>
 
 
@@ -59,10 +59,10 @@ Example:
 
 <div class='row' >
     <div class='col-md-4'>
-        <img class='pull-left' src="/assets/images/lab_5_5.jpg" width='100%' alt="lab 5 1">
+        <img class='pull-left' src="/security-assignments/assets/images/lab_5_5.jpg" width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img class='pull-left' src="/assets/images/lab_5_6.png" width='100%' alt="lab 5 1">
+        <img class='pull-left' src="/security-assignments/assets/images/lab_5_6.png" width='100%' alt="lab 5 1">
     </div>
 </div>
 
@@ -73,10 +73,10 @@ Example:
 
 <div class='row'>
     <div class='col-md-4'>
-        <img src="/assets/images/lab_5_10.jpg"  width='100%' alt="lab 5 1">
+        <img src="/security-assignments/assets/images/lab_5_10.jpg"  width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img src="/assets/images/lab_5_11.jpg"  width='100%' alt="lab 5 1">
+        <img src="/security-assignments/assets/images/lab_5_11.jpg"  width='100%' alt="lab 5 1">
     </div>
 </div>
 
@@ -91,13 +91,13 @@ Example:
 
 <div class='row'>
     <div class='col-md-4'>
-        <img src="/assets/images/lab_5_7.jpg"  width='100%' alt="lab 5 1">
+        <img src="/security-assignments/assets/images/lab_5_7.jpg"  width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img src="/assets/images/lab_5_8.jpg" width='100%' alt="lab 5 1">
+        <img src="/security-assignments/assets/images/lab_5_8.jpg" width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img src="/assets/images/lab_5_9.jpg" width='100%' alt="lab 5 1">
+        <img src="/security-assignments/assets/images/lab_5_9.jpg" width='100%' alt="lab 5 1">
     </div>
 </div>
 
@@ -167,7 +167,7 @@ and www.oxid.it is the official site to obtain the file from. But you can use Ca
 
 
 <div markdown='1' style='width:30%'>
-<img src="/assets/images/lab_5_1.jpg" width='100%' alt="lab 5 1">
+<img src="/security-assignments/assets/images/lab_5_1.jpg" width='100%' alt="lab 5 1">
 </div>
 
 Obtain the password hashes from an unattended public computer. In Windows 7/10, the password hashes are contained in two files (you’ll need both):
@@ -189,7 +189,7 @@ Include a screen shot of the hashes below to prove that you’ve done it.
 Example:
 
 <div markdown='1' style='width:30%'>
-<img src="/assets/images/lab_5_2.jpg" width='100%' alt="lab 5 1">
+<img src="/security-assignments/assets/images/lab_5_2.jpg" width='100%' alt="lab 5 1">
 </div>
 
 <div class='alert alert-info'><strong>Note:</strong> This attack will not work on any computer in Leeds. A student of mine who worked for LTS tried it out (successfully) and showed his LTS buds, 
