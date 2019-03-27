@@ -85,8 +85,6 @@ Example:
 
 Take a picture of yourself in the restricted area and document how you did it (e.g., tailgaiting). Get permission from a manager, etc. before entering the restricted area. For example, you might explain to a manager that you are doing a class assignment and you would like to test whether their employees will prohibit you from entering the restricted area. Only proceed with the test with the manager's approval.
 
-**Note:** You have my permission to attempt to gain access to my office without picking the lock (please lock the door on your way out). It doesn't count if I am in the office. Otherwise, it counts.
-
 Example:
 
 <div class='row'>
