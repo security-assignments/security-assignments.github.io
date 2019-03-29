@@ -153,9 +153,6 @@ Example:
 <img src="/security-assignments/assets/images/lab_5_2.jpg" width='100%' alt="lab 5 1">
 </div>
 
-<div class='alert alert-info'><strong>Note:</strong> This attack will not work on any computer in Leeds. A student of mine who worked for LTS tried it out (successfully) and showed his LTS buds, 
-who have since password-protected the boot process for... <em>most</em> physical computers in the building.</div>
-
 # Item 11: Boot a Macintosh or Linux computer in single user mode and dump the hash
 
 **Note:** You must have own the computer or have permission from the owner to do this. 
