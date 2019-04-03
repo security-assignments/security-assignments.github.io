@@ -121,29 +121,37 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
 1.	Navigate to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
     
-    ![]({{ "/assets/images/lab_11_2.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_2.png" | relative_url }}){: .img-responsive width='50%'}
 
 2.	Enter option `1` for social-engineering attacks. That should display this menu:
     
-    ![]({{ "/assets/images/lab_11_3.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_3.png" | relative_url }}){: .img-responsive width='50%'}
     
 3.	Select option `2` for website attack vectors. The next menu will list the various web attack vectors:
 
-    ![]({{ "/assets/images/lab_11_4.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_4.png" | relative_url }}){: .img-responsive width='50%'}
     
 4.	Select number `3` for a credential harvesting attack. This brings you to the following screen:
 
-    ![]({{ "/assets/images/lab_11_5.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_5.png" | relative_url }}){: .img-responsive width='50%'}
 
 5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to `192.168.55.101`, the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address in brackets (e.g., "[192.168.55.101]"), just push enter.
 
     Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`.
     
     **Note:** Be sure you enter "https" and "www" in the Facebook URL.
+    
+    You should see the message:
+    
+    	You may need to copy /var/www/* into /var/www/html depending on where your directory structure is.
+		Press {return} if you understand what we're saying here.
+
+    
+    Press enter to continue.  
 
     If all has gone well, you should see a screen like the following:
 
-    ![]({{ "/assets/images/lab_11_6.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_6.png" | relative_url }}){: .img-responsive width='50%'}
     
 6.	Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
 
@@ -185,7 +193,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 2.  `9` for `PowerShell Attack Vectors`
 3.  within this option, you will find four different features. Select `1` for `PowerShell Alphanumeric Shellcode Injector`
 
-    ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
+[//]: # Needs image:   ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
 
 4.	Enter your Kali VM IP address and port `443`. Choose `yes` to start the listener. This will automatically open `msfconsole`, so it will take a minute or two.
 
@@ -196,7 +204,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
         apt install leafpad     # if necessary
         leafpad x86_powershell_injection.txt
     
-    ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
+[//]: # Needs image:   ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
     
 7.	Copy the entire script you found on leafpad to the clipboard. On Windows, open a Paste the script on the windows command line as the figure depicts below. Then press enter.
 8.  You should see an opened Meterpreter session. Get the session id with `sessions` if you don't already see it, and then interact with that session with `sessions [id]`
