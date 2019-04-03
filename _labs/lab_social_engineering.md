@@ -135,9 +135,11 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
     ![]({{ "/assets/images/lab_11_5.png" | relative_url }}){: .img-responsive width='30%'}
 
-5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to the IP address of Kali Linux for the host-only network.
+5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to `192.168.55.101`, the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address in brackets (e.g., "[192.168.55.101]"), just push enter.
 
-    Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`
+    Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`.
+    
+    **Note:** Be sure you enter "https" and "www" in the Facebook URL.
 
     If all has gone well, you should see a screen like the following:
 
@@ -147,7 +149,7 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
     > “You are receiving this email because there is a problem with your account. Please go to www.facebook.com and login to verify your account."
 
-    Use rich text formatting to make `www.facebook.com` a hyperlink that points to `http://[IP of your Kali VM]`.
+    Use rich text formatting to make `www.facebook.com` a hyperlink that points to the IP of your Kali VM: `http://192.168.55.101`.
 
 7. Open the email in your Windows 10 VM. When you receive the email, click the link, which should forward you to this page:
 
@@ -159,6 +161,8 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
     ![]({{ "/assets/images/lab_set_facebook.png" | relative_url }}){: .img-responsive width='50%'}
         
+        
+    **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
 
 ## <span class='label label-success'>Deliverable</span>
 
