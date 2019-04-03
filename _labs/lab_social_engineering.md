@@ -169,6 +169,7 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
     ![]({{ "/assets/images/lab_set_facebook.png" | relative_url }}){: .img-responsive width='50%'}
         
+    **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
         
     **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
 
@@ -258,7 +259,7 @@ Download and install a vulnerable version of Adobe Reader to the Windows 10 vm. 
     
 3.  On the Windows 10 VM, save the PDF to the desktop by browsing to `http://192.168.55.101:8888`. Open the downloaded file with Adobe Reader
 
-    * Right-click the downloaded file > `Open with...` > 'Adobe Reader 9.0`
+    * Right-click the downloaded file > `Open with...` > `Adobe Reader 9.0`
     
 4.  Adobe Reader will open a dialog asking you whether you want to save a file that the document is attempting to extract. Do so, <span class='label label-info'>saving the file to a locaiton such as the desktop</span>.
 5.  Adobe Reader will then ask if you want to run a script embedded in the pdf document. Let it do so.
@@ -329,7 +330,7 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
 
     2.  From the Developer ribbon, select “Visual Basic” to open the Visual Basic editor.
     
-        ![]({{ "/assets/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
+		[//]: # Needs image:   ![]({{ "/assets/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
     
         Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the text file with the exploit code that you copied over from Kali. 
         Paste in all of the code in the "Macro" section (**but not the payload**) into the Visual Basic module you just inserted. 
@@ -340,7 +341,7 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
         
         Save it as a Word macro-enabled document (`.docm`) and close the VB editor.
         
-        ![]({{ "/assets/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
+        [//]: # Needs image:   ![]({{ "/assets/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
     
 5.  In the main body of the Word document, paste the payload hex code from the kali output. Above the hex code, type a simple memo as the ostensible content of the 
     memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white. 
