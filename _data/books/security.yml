@@ -1,4 +1,24 @@
 -
+    title: "Unmasking the Social Engineer"
+    author: Chris Hadnagy
+    img: https://images-na.ssl-images-amazon.com/images/I/515b75fHQ3L._SX331_BO1,204,203,200_.jpg
+    comment: “The Human Element of Security focuses on combining the science of understanding non-verbal communications with the knowledge of how social engineers, scam artists and con men use these skills to build feelings of trust and rapport in their targets.” 
+    links:
+        -
+            type: Amazon
+            link: http://amzn.com/1118608577
+
+-
+    title: "Click Here to Kill Everybody: Security and Survival in a Hyper-connected World"
+    author: Bruce Schneier
+    img: https://images-na.ssl-images-amazon.com/images/I/5199NYWvceL._SY346_B01,204,203,200_.jpg
+    comment: \"Everything is a computer. Ovens are computers that make things hot; refrigerators are computers that keep things cold. These computers—from home thermostats to chemical plants—are all online. The Internet, once a virtual abstraction, can now sense and touch the physical world.\" This book is about the inherrent security issues in the Internet of Things. 
+    links:
+        -
+            type: Amazon
+            link: http://amzn.com/B07BLMQKZK
+            
+-
     title: "The Art of Deception: Controlling the Human Element of Security"
     author: Kevin Mitnick
     img: https://images-na.ssl-images-amazon.com/images/I/41QLfYlRxWL._SX331_BO1,204,203,200_.jpg

@@ -86,7 +86,7 @@ You will need to reconfigure the network adapter for each VM that you imported b
 # The Virtual Machines
 
 <div class='alert alert-info'>All VMs can be found here: 
-    <a class='btn btn-primary' href='https://canvas.colorado.edu/courses/21392/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
+    <a class='btn btn-primary' href='https://templeu.instructure.com/courses/54116/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
 </div>
 
 ## `infosec-net` Network Map
@@ -164,7 +164,7 @@ Add two network adapters to the machine. I set my first one to be NATNetwork wit
 
 
 
-<h2 class='language-ascii-noshadows' id='windows-10'>
+<h2 class='language-ascii-noshadows' id='kali'>
  ____  __.      .__  .__ 
 |    |/ _|____  |  | |__|
 |      < \__  \ |  | |  |
@@ -183,7 +183,7 @@ Add two network adapters to the machine. I set my first one to be NATNetwork wit
 
 ### Building your own Kali instead of using mine
 
-<div class='alert alert-danger'><strong>Warning: </strong>If you are in my class and you do this, <strong>you are crazy <i class='fa fa-sign-language'></i></strong> yet I salute you.</div>
+<div class='alert alert-danger'><strong>Warning: </strong>The steps below are technical and not for beginners. Proceed only if you are willing to spend a lot of time doing your own troubleshooting.</div>
 
 1.  Download Kali Linux Light 64 Bit from [here](https://www.kali.org/downloads/). It's less than 1GB.
 2.  Follow the instructions [here](http://www.wikigain.com/install-kali-linux-virtualbox-pc/) to create the VM, except:

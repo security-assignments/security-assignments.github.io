@@ -121,33 +121,43 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
 1.	Navigate to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
     
-    ![]({{ "/assets/images/lab_11_2.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_2.png" | relative_url }}){: .img-responsive width='50%'}
 
 2.	Enter option `1` for social-engineering attacks. That should display this menu:
     
-    ![]({{ "/assets/images/lab_11_3.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_3.png" | relative_url }}){: .img-responsive width='50%'}
     
 3.	Select option `2` for website attack vectors. The next menu will list the various web attack vectors:
 
-    ![]({{ "/assets/images/lab_11_4.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_4.png" | relative_url }}){: .img-responsive width='50%'}
     
 4.	Select number `3` for a credential harvesting attack. This brings you to the following screen:
 
-    ![]({{ "/assets/images/lab_11_5.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_5.png" | relative_url }}){: .img-responsive width='50%'}
 
-5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to the IP address of Kali Linux for the host-only network.
+5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to `192.168.55.101`, the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address in brackets (e.g., "[192.168.55.101]"), just push enter.
 
-    Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`
+    Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`.
+    
+    **Note:** Be sure you enter "https" and "www" in the Facebook URL.
+    
+    You should see the message:
+    
+    	You may need to copy /var/www/* into /var/www/html depending on where your directory structure is.
+		Press {return} if you understand what we're saying here.
+
+    
+    Press enter to continue.  
 
     If all has gone well, you should see a screen like the following:
 
-    ![]({{ "/assets/images/lab_11_6.png" | relative_url }}){: .img-responsive width='30%'}
+    ![]({{ "/assets/images/lab_11_6.png" | relative_url }}){: .img-responsive width='50%'}
     
 6.	Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
 
     > “You are receiving this email because there is a problem with your account. Please go to www.facebook.com and login to verify your account."
 
-    Use rich text formatting to make `www.facebook.com` a hyperlink that points to `http://[IP of your Kali VM]`.
+    Use rich text formatting to make `www.facebook.com` a hyperlink that points to the IP of your Kali VM: `http://192.168.55.101`.
 
 7. Open the email in your Windows 10 VM. When you receive the email, click the link, which should forward you to this page:
 
@@ -159,6 +169,9 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
     ![]({{ "/assets/images/lab_set_facebook.png" | relative_url }}){: .img-responsive width='50%'}
         
+    **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
+        
+    **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
 
 ## <span class='label label-success'>Deliverable</span>
 
@@ -181,7 +194,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 2.  `9` for `PowerShell Attack Vectors`
 3.  within this option, you will find four different features. Select `1` for `PowerShell Alphanumeric Shellcode Injector`
 
-    ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
+[//]: # Needs image:   ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
 
 4.	Enter your Kali VM IP address and port `443`. Choose `yes` to start the listener. This will automatically open `msfconsole`, so it will take a minute or two.
 
@@ -192,7 +205,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
         apt install leafpad     # if necessary
         leafpad x86_powershell_injection.txt
     
-    ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
+[//]: # Needs image:   ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
     
 7.	Copy the entire script you found on leafpad to the clipboard. On Windows, open a Paste the script on the windows command line as the figure depicts below. Then press enter.
 8.  You should see an opened Meterpreter session. Get the session id with `sessions` if you don't already see it, and then interact with that session with `sessions [id]`
@@ -228,25 +241,25 @@ Download and install a vulnerable version of Adobe Reader to the Windows 10 vm. 
     * `1) Social-Engineering Attacks`
     * `3) Infectious Media Generator`
     * `1) File-Format Exploits`
-    * enter kali ip address
+    * Enter the Kali IP address: `192.168.55.101`
     * `13) Adobe PDF Embedded EXE Social Engineering`
-    * `2. Use built-in BLANK PDF for attack` (unless you're feelinga adventurous, in which case you can create your own)
+    * `2. Use built-in BLANK PDF for attack` (unless you're feeling adventurous, in which case you can create your own)
     * `2) Windows Meterpreter Reverse_TCP`
-    * Accept default for payload listener LHOST
-    * Accept default for port to connect back on
-    * Let `set` create a listener right now (`yes`)
+    * Accept default for payload listener LHOST by pressing enter.
+    * Accept default for port to connect back on by pressing enter.
+    * Let `SET` create a listener right now (`yes`)
     
 2.  SET will have put the created payload in `/root/.set/template.pdf`. Your goal now is to get this pdf onto the victim machine. 
-    If you still have the python server running in the `/tmp` dir from the fake adobeupdate part of this lab, then you can just move this payload there and download it
-    to the victim machine as before. From a different Kali terminal than the `set` one:
+    If you still have the Python server running in the `/tmp` dir from the fake adobeupdate part of this lab, then you can just move this payload there and download it
+    to the victim machine as before. From a different Kali terminal than the `SET` one:
     
         mv /root/.set/template.pdf /tmp
         
     You can rename it to whatever you like.
     
-3.  On the victim machine, open the downloaded file with Adobe Reader
+3.  On the Windows 10 VM, save the PDF to the desktop by browsing to `http://192.168.55.101:8888`. Open the downloaded file with Adobe Reader
 
-    * Right-click the downloaded file > `Open with...` > 'Adobe Reader 9.0`
+    * Right-click the downloaded file > `Open with...` > `Adobe Reader 9.0`
     
 4.  Adobe Reader will open a dialog asking you whether you want to save a file that the document is attempting to extract. Do so, <span class='label label-info'>saving the file to a locaiton such as the desktop</span>.
 5.  Adobe Reader will then ask if you want to run a script embedded in the pdf document. Let it do so.
@@ -317,7 +330,7 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
 
     2.  From the Developer ribbon, select “Visual Basic” to open the Visual Basic editor.
     
-        ![]({{ "/assets/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
+		[//]: # Needs image:   ![]({{ "/assets/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
     
         Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the text file with the exploit code that you copied over from Kali. 
         Paste in all of the code in the "Macro" section (**but not the payload**) into the Visual Basic module you just inserted. 
@@ -328,7 +341,7 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
         
         Save it as a Word macro-enabled document (`.docm`) and close the VB editor.
         
-        ![]({{ "/assets/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
+        [//]: # Needs image:   ![]({{ "/assets/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
     
 5.  In the main body of the Word document, paste the payload hex code from the kali output. Above the hex code, type a simple memo as the ostensible content of the 
     memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white. 

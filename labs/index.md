@@ -5,7 +5,7 @@ title: Information Security Management | Labs
 # {{ page.title }}
  
  
-## The Labs
+## Labs
 
 {% assign assignments = site.labs | sort: 'number' %}
 {% for assignment in assignments %} 
@@ -15,7 +15,11 @@ title: Information Security Management | Labs
 {% endfor %}
 
 
+## Tutorials
 
+[Tutorial: Introduction to Linux](/security-assignments/intro-to-linux.html)
+
+[Tutorial: Introduction to Networking](/security-assignments/intro-to-networking.html)
 
 ## Virtual Machines for the labs
 
