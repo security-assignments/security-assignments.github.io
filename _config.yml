@@ -24,6 +24,9 @@ twitter_username: deargle
 github_username:  deargle
 repository: 'deargle/security-assignments'
 
+instructorcollab_username: deargle
+instructorcollab_domain: colorado.edu
+
 # Build settings
 markdown: kramdown
 #theme: minima
