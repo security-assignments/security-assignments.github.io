@@ -17,11 +17,11 @@ title: Information Security Management | Labs
 
 ## Tutorials
 
-[Tutorial: Introduction to Linux](/security-assignments/intro-to-linux.html)
+[Tutorial: Introduction to Linux]( {{ '/tutorials/intro-to-linux.html' | relative_url }} )
 
-[Tutorial: Introduction to Google Cloud Platform](/security-assignments/intro-to-gcp.html)
+[Tutorial: Introduction to Google Cloud Platform]( {{ '/tutorials/intro-to-gcp.html' | relative_url }} )
 
-[Tutorial: Introduction to Networking](/security-assignments/intro-to-networking.html)
+[Tutorial: Introduction to Networking]( {{ '/tutorials/intro-to-networking.html' | relative_url }})
 
 
 ## Lab Supplementary Files
