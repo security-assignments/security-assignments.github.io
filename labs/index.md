@@ -19,11 +19,9 @@ title: Information Security Management | Labs
 
 [Tutorial: Introduction to Linux](/security-assignments/intro-to-linux.html)
 
+[Tutorial: Introduction to Google Cloud Platform](/security-assignments/intro-to-gcp.html)
+
 [Tutorial: Introduction to Networking](/security-assignments/intro-to-networking.html)
-
-## Virtual Machines for the labs
-
-Follow instructions [here]( {{ '/labs/virtual-machines' | relative_url }}) for setting up the virtual machines referenced in some of the labs.
 
 
 ## Lab Supplementary Files

@@ -65,7 +65,7 @@ Follow the steps above, and make sure that your key is discoverable on `pgp.circ
 	
 For this, use `GPA` (gnu-privacy-assistant), which is installed on the Windows 10 VM. `GPA` has access to the same keyring on your machine as does `Kleopatra`.
     
-You will send an <span class='label label-info'>encrypted <strong>and</strong> signed</span>email to <a href='mailto:ryan.mccreesh@gmail.com'>ITA Ryan McCreesh (ryan.mccreesh@gmail.com)</a> (Key-id: `720D38A6`). 
+You will send an <span class='label label-info'>encrypted <strong>and</strong> signed</span>email to (TBA). 
 
 <div class='alert alert-danger'>
     <p><strong>Q:</strong> But how can we trust this key?</p>
@@ -75,10 +75,10 @@ You will send an <span class='label label-info'>encrypted <strong>and</strong> s
 You will receive a response encrypted with your key which contants a secret code. This secret code will be the deliverable for this question. You will not receive the code if:
 * Your public key cannot be found.
 * You did not sign your message with your key.
-* You did not encrypt your message with the public key of `ryan.mccreesh@gmail.com`.
+* You did not encrypt your message with the public key of TBA.
 
 1. Launch `GPA` on the Windows 10 vm. It opens with the `Clipboard` view.
-1. In this view, type a message for Ryan McCreesh.
+1. In this view, type a message for TBA.
 1. Click "Encrypt". Choose _at least_ the public key for `ryan.mccreesh@gmail.com`.
     * If you also want to be able to decrypt what you encrypt, then also select your public key.
 1. Check the box for `Sign`. Select with which key you will sign the message.
