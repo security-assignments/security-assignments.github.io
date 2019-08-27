@@ -19,11 +19,14 @@ You should complete the first lesson-set within each module:
 
 You do _not_ need to do any of the "projects" or multiple choice quizzes. Just the lesson-sets.
   
+  
+  
 # Part 2. Play the Bandit wargame on OvertheWire.org
 
 Play the [Bandit wargame on OvertheWire.org](http://overthewire.org/wargames/bandit/). Start at Level 0 and complete Level 15 (which gives you the password for Level 16).
 
 To play, you'll need to connect to the Bandit server using an SSH client. SSH stands for **S**ecure **SH**ell, and allows you to remotely control a server using a command line interface. SSH is secure because your connection to the server is encrypted using a symmetric cipher like AES. It also uses asymmetric cryptography such as RSA to establish the server's identity.
+
 
 ## Using SSH on Windows
 
@@ -41,6 +44,7 @@ This message tells you that you haven't connected to this server before. The Ban
 
 To continue logging in, click the `Yes` button.
 
+
 ## Using SSH on MacOS
 
 If you're using a Mac, open `Terminal.app` and use the `ssh` command to connect to the Bandit server, like so:
@@ -55,14 +59,29 @@ This message tells you that you haven't connected to this server before. The Ban
 
 To continue logging in, type `yes` and press `enter`.
 
+
 ## Instructions
 
 * When you type in your password, you won't see any characters. This is a security feature to prevent [shoulder surfing](https://en.wikipedia.org/wiki/Shoulder_surfing_(computer_security)). Enter the password `bandit0` and press `enter` to login.
 * Start at [Level 0](http://overthewire.org/wargames/bandit/bandit0.html) which requires you to login to the Bandit server using SSH. Next, visit [the Level 0 -> Level 1](http://overthewire.org/wargames/bandit/bandit1.html) for instructions on how to get to the next level. Continue until you successfully complete [Level 15 -> Level 16](http://overthewire.org/wargames/bandit/bandit16.html), which gives you the password for Level 16.
 * Use the `man` command and search the web to learn about the recommended commands (i.e., "Commands you may need to solve this level") to help you reach the next level. Learning for yourself how to use new commands is a key part of this tutorial.
 
-## Deliverable
 
+# Deliverable
+
+{% if site.instructorcollab_username == 'deargle' %}
+
+Make it all the way to level 16. When you have reached level 16, prove it by taking a screenshot of your ssh terminal session showing:
+* you logged in as `bandit16@bandit` in the prompt. 
+* your name
+* the date. 
+
+For example:
+
+![]( {{ '/assets/images/bandit-level-16-deliverable.png' | relative_url }} )
+
+
+{% elsif site.instructorcollab_username == 'aov' %}
 For each level you complete, take a screenshot of your terminal screen showing the following: 
 
 * Show the password for the next level.
@@ -73,16 +92,20 @@ Add all of the screenshots to Word document and submit the document in the Linux
 
 ![img]( {{ "/assets/images/bandit0.png" | relative_url }})
 
+{% endif %}
 
 
 
-# Supplementary -- Learn a Linux text editor
+
+
+# Supplementary -- Optional
+
+## Learn a different Linux text editor
 
 The CodeAcademy lessons above give you basic exposure to the `nano` text editor. However, you are free to use whatever text editor you like, such as `Vim` ([see tutorial here](https://danielmiessler.com/study/vim/)). However, `nano` is good for beginners.
 
 
-
-# Optional—More thorough walkthrough, but also more difficult
+## More thorough walkthrough, but also more difficult
 
 - Using your Kali VM, go through the following sections of <a href='http://www.tldp.org/LDP/intro-linux/intro-linux.pdf'>this Linux tutorial:</a>
 	- Chapter 2
@@ -123,5 +146,3 @@ The CodeAcademy lessons above give you basic exposure to the `nano` text editor.
 	- man 5 passwd
 	- man 5 group
 	- ssh & scp
-    
-    
