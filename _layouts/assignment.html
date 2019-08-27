@@ -3,13 +3,20 @@ layout: default
 exclude_nav: true
 ---
 
-<h1 class='title'>{{ page.title }}</h1>
 
-{% include attribution.html %}
+<!-- sidebar, which will move to the top on a small screen -->
+<div class='row'>
+    <div class="col-sm-3">
+        <nav id="toc" class='sticky-top' data-spy="affix" data-toggle="toc"></nav>
+    </div>
+    <!-- main content area -->
+    <div class="col-sm-9">
+    <h1 
+        data-toc-skip 
+        class='title'
+    >{{ page.title }}</h1>
 
-{% include vm-setup-boilerplate.html %}
-
-
-{{ content }}
-
-{% include nav-pills.html %}
+    {% include attribution.html %}
+    {{ content }}
+    </div>
+</div>
