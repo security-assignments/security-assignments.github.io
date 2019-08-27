@@ -61,7 +61,7 @@ To continue logging in, type `yes` and press `enter`.
 * Start at [Level 0](http://overthewire.org/wargames/bandit/bandit0.html) which requires you to login to the Bandit server using SSH. Next, visit [the Level 0 -> Level 1](http://overthewire.org/wargames/bandit/bandit1.html) for instructions on how to get to the next level. Continue until you successfully complete [Level 15 -> Level 16](http://overthewire.org/wargames/bandit/bandit16.html), which gives you the password for Level 16.
 * Use the `man` command and search the web to learn about the recommended commands (i.e., "Commands you may need to solve this level") to help you reach the next level. Learning for yourself how to use new commands is a key part of this tutorial.
 
-## Deliverable 1
+## Deliverable
 
 For each level you complete, take a screenshot of your terminal screen showing the following: 
 
@@ -73,28 +73,14 @@ Add all of the screenshots to Word document and submit the document in the Linux
 
 ![img]( {{ "/assets/images/bandit0.png" | relative_url }})
 
-# Part 3. Set up the Kali VM
 
-## Deliverable 2
 
-See [here](https://templeu.instructure.com/courses/54116/pages/virtual-machine-links) for the download link, and [here](/security-assignments/labs/virtual-machines#kali) for the login credentials. 
 
-Using the Kali VM for the steps below shows both that you got your Kali VM up and running, and that you have basic skills with the Linux terminal. You _must use your Kali VM for the following_. 
-
-* Make a directory called `linux-tutorial`
-* In that directory, create a file called `i-did-it.txt` with the following contents: `Hello, world!`
-* Submit a screenshot showing:
-    * The contents of that file (`cat`)
-    * A string with your name and uni email, e.g., `echo "Anthony Vance anthony.vance@temple.edu"`
-    * Run the `date` command
-    
-For example:
-
-![img]( {{ "/assets/images/intro-linux-lab-TV.png" | relative_url }})
-
-# Learn a Linux text editor
+# Supplementary -- Learn a Linux text editor
 
 The CodeAcademy lessons above give you basic exposure to the `nano` text editor. However, you are free to use whatever text editor you like, such as `Vim` ([see tutorial here](https://danielmiessler.com/study/vim/)). However, `nano` is good for beginners.
+
+
 
 # Optional—More thorough walkthrough, but also more difficult
 
