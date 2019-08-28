@@ -25,6 +25,7 @@ Submit <span class='label label-info'>one single solitary pdf <i class='fa fa-ex
 
 You need to show me or the TA, and you have to do each method twice. This demonstrates that you know what you are doing and it wasn't just luck.
 
+
 # Item 2: Take a photo of screen
 
 Do either 2a or 2b, but not both.
@@ -36,7 +37,7 @@ Do either 2a or 2b, but not both.
 Example:
 
 <div markdown='1' style='width:30%'>
-<img src="/security-assignments/assets/images/lab_5_3.jpg" width='100%' alt="lab 5 1">
+<img src="{{ "/assets/images/lab_5_3.jpg" | relative_url }}" width='100%' alt="lab 5 1">
 </div>
 
 
@@ -45,7 +46,7 @@ Example:
 Example:
 
 <div markdown='1' style='width:30%'>
-<img src="/security-assignments/assets/images/lab_5_4.jpg" width='100%' alt="lab 5 1">
+<img src="{{ "/assets/images/lab_5_4.jpg" | relative_url }}" width='100%' alt="lab 5 1">
 </div>
 
 
@@ -53,16 +54,26 @@ Example:
 
 **Note:** Please specify the information, but redact the information in the attached photo.
 
+{% if site.instructorcollab_domain == 'colorado.edu' %}
+
+<div class='alert alert-warning'>While it is not illegal to dumpster dive in CO, you can still get in trouble for trespassing, so be mindful and don't trespass. See Colorado : State v. Hillman, 834 P.2d. 1271 (1992), which says that trash
+curbside / in front of house / outside fenced area of property is public.</div>
+
+{% elsif site.instructorcollab_domain == 'temple.edu' %}
+
 <div class='alert alert-warning'>While it is not illegal to dumpster dive in PA, you can still get in trouble for trespassing, so be mindful and don't trespass.</div>
+
+{% endif %}
+
 
 Example:
 
 <div class='row' >
     <div class='col-md-4'>
-        <img class='pull-left' src="/security-assignments/assets/images/lab_5_5.jpg" width='100%' alt="lab 5 1">
+        <img class='pull-left' src="{{ "/assets/images/lab_5_5.jpg" | relative_url }}" width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img class='pull-left' src="/security-assignments/assets/images/lab_5_6.png" width='100%' alt="lab 5 1">
+        <img class='pull-left' src="{{ "/assets/images/lab_5_6.png" | relative_url }}" width='100%' alt="lab 5 1">
     </div>
 </div>
 
@@ -73,10 +84,10 @@ Example:
 
 <div class='row'>
     <div class='col-md-4'>
-        <img src="/security-assignments/assets/images/lab_5_10.jpg"  width='100%' alt="lab 5 1">
+        <img src="{{ "/assets/images/lab_5_10.jpg" | relative_url }}"  width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img src="/security-assignments/assets/images/lab_5_11.jpg"  width='100%' alt="lab 5 1">
+        <img src="{{ "/assets/images/lab_5_11.jpg" | relative_url }}"  width='100%' alt="lab 5 1">
     </div>
 </div>
 
@@ -89,13 +100,13 @@ Example:
 
 <div class='row'>
     <div class='col-md-4'>
-        <img src="/security-assignments/assets/images/lab_5_7.jpg"  width='100%' alt="lab 5 1">
+        <img src="{{ "/assets/images/lab_5_7.jpg" | relative_url }}"  width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img src="/security-assignments/assets/images/lab_5_8.jpg" width='100%' alt="lab 5 1">
+        <img src="{{ "/assets/images/lab_5_8.jpg" | relative_url }}" width='100%' alt="lab 5 1">
     </div>
     <div class='col-md-4'>
-        <img src="/security-assignments/assets/images/lab_5_9.jpg" width='100%' alt="lab 5 1">
+        <img src="{{ "/assets/images/lab_5_9.jpg" | relative_url }}" width='100%' alt="lab 5 1">
     </div>
 </div>
 
@@ -104,19 +115,23 @@ Example:
 
 For example, use a clipboard or fake ID. You can double-count this one with #5.
 
+
 # Item 7: Get a photo of an ID badge that is good enough to make a duplicate, and make a duplicate
 
 **Note:** Bonus points if you actually make a _passable_ counterfeit badge.
 
+
 # Item 8: Photo document the security cameras in a building and establish a route through the building without being recorded
 
 The route-map can be drawn out, but it's cooler if you video-record yourself doing it.
+
 
 # Item 9: Install a false keylogger on a public computer
 
 Pretend that a USB drive is a keylogger. Plug it into the back of a public computer, and leave it there for a day. Retrieve it later. Take a picture of when you leave it and when you retrieve it. 
 
 **Important:** Do _**not**_ use an actual keylogger unless you have prior approval from the device owner.
+
 
 # Item 10: Obtain the password hashes from an unattended public computer
 
@@ -128,7 +143,7 @@ and www.oxid.it is the official site to obtain the file from. But you can use Ca
 </div>
 
 <div markdown='1' style='width:30%'>
-<img src="/security-assignments/assets/images/lab_5_1.jpg" width='100%' alt="lab 5 1">
+<img src="{{ "/assets/images/lab_5_1.jpg" | relative_url }}" width='100%' alt="lab 5 1">
 </div>
 
 Obtain the password hashes from an unattended public computer. In Windows 7/10, the password hashes are contained in two files (you’ll need both):
@@ -150,18 +165,19 @@ Include a screen shot of the hashes below to prove that you’ve done it.
 Example:
 
 <div markdown='1' style='width:30%'>
-<img src="/security-assignments/assets/images/lab_5_2.jpg" width='100%' alt="lab 5 1">
+<img src="{{ "/assets/images/lab_5_2.jpg" | relative_url }}" width='100%' alt="lab 5 1">
 </div>
+
 
 # Item 11: Boot a Macintosh or Linux computer in single user mode and dump the hash
 
-**Note:** You must have own the computer or have permission from the owner to do this. 
+**Note:** You must own the computer or have permission from the owner to do this. 
 
 Boot a Mac or Linux computer (or VM) in [single user mode](https://en.wikipedia.org/wiki/Single_user_mode) and dump the password.
 
 On Linux (such as your Metasploitable VM), enter the keyword "single" at the end of the kernel boot options.
 
-On a Mac, you can boot into single user mode by holding down the keys “⌘” and “s”.
+On a Mac, you can boot into single user mode by holding down the keys "&#8984;" and "s".
 
 Search online for how to dump the hash for your particular operating system. List your operating system, the commands you ran, and the password hash below.
 
@@ -169,9 +185,10 @@ Note: You won’t be able to enter single user mode on a Macintosh or Linux comp
 
 `fdesetup status`
 
+
 # Item 12: Install a reverse shell payload on a powered-off Windows computer
 
-**Note:** You must have own the computer or have permission from the owner to do this. 
+**Note:** You must own the computer or have permission from the owner to do this. 
 
 Follow the instructions below to install a reverse shell payload on a power-off Windows computer:
 

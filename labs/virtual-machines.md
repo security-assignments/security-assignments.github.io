@@ -3,6 +3,8 @@ title: Virtual Machines for the Security Labs
 layout: assignment
 ---
 
+<div class='alert alert-danger'><strong>Deprecation notice: </strong> The virtual machines for this class have been moved to Google Cloud Platform – ergo, the instructions on this page are no longer applicable to students taking this class.</div>
+
 <style>
 .language-ascii-noshadows {
     display: block;
@@ -84,10 +86,6 @@ You will need to reconfigure the network adapter for each VM that you imported b
 * High Sierra Mac users: if you try to launch the VM and get the following error message: **Kernel driver not installed (rc=-1908)** Then follow the instructions [here](https://apple.stackexchange.com/a/300518) then try launching the VM again.
 
 # The Virtual Machines
-
-<div class='alert alert-info'>All VMs can be found here: 
-    <a class='btn btn-primary' href='https://templeu.instructure.com/courses/54116/pages/virtual-machine-links'><i class='fa fa-download'></i> VM Download Page</a>
-</div>
 
 ## `infosec-net` Network Map
 

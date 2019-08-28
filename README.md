@@ -1,3 +1,40 @@
+# Configuring to your instructional style branding and university-specific data
+
+Set values for `instructorcollab_username` and `instructorcollab_domain` in `_config.yml`. E.g., I set:
+
+```
+instructorcollab_username: deargle
+instructorcollab_domain: colorado.edu
+```
+
+Then, you can use flow control to conditionally set variable values. E.g., if Dave said something wild and inappropriate that Tony does not want to say,
+Tony could set Dave's content to only render for Dave, referencing the `_config.yml` variables via `site.<variable>`:
+
+
+        {% if site.instructorcollab_username == 'deargle' %}
+        Something wild, inappropriate, and inflammatory!
+        {% endif %}
+
+
+At other times, a uni-specific email address domain can be referenced:
+
+        Students should use their `firstname.lastname@{{ site.instructorcollab_domain }}}` email address.
+
+
+To avoid unnecessarily repeating `if-then-else` statements, single-page-scope variables can be set at the top of a file:
+
+        {% if site.instructorcollab_domain == 'colorado.edu' %}
+            {% assign user_id_label == 'identikey' %}
+        {% elsif site.instructorcollab_domain = 'temple.edu' %}
+            {% assign user_id_label == 'TUid' %}
+        {% endif %}
+
+... and then later...
+
+        Echo out your {{ user_id_label }} for the deliverable.
+
+
+
 # Getting started for development
 
 
@@ -18,4 +55,5 @@ it locally.
 
 * If there was a build error, you will get an email from github about it. Do not commit the `_site` folder
 to github -- it will be ignored if you are allowing github to build for you.
+
 

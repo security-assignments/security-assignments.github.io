@@ -6,19 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/plain" rel="author" href="{{ site.baseurl }}/humans.txt" />
   <link rel="shortcut icon" href="/favicon.ico?v={{ site.github.build_revision }}">
-
-  <link href="{{ site.baseurl }}/assets/css/bootstrap-custom.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
+  
   <link href="{{ site.baseurl }}/assets/css/style.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"
+    />
+  
+  <script src="https://kit.fontawesome.com/c20024392b.js"></script>
 
   <script src="{{ site.baseurl }}/assets/vendor/jquery/dist/jquery.min.js"></script>
-
+  
   {% if jekyll.environment == "production" %}
       {% include seo_stuff.html %}      
   {% endif %}
 
 </head>
-<body class="{{ page.layout }} post{{ page.id | replace:'/','-' }}" id="{{ page.id }}">
+<body 
+    class="{{ page.layout }} post{{ page.id | replace:'/','-' }}" 
+    id="{{ page.id }}"
+    data-spy="scroll" data-target="#toc"
+    >
 
 <div class="container">
 
@@ -47,6 +55,7 @@
 <script>anchors.add('h3, h4, h5, h6');</script>
 
 <script src="{{ '/assets/vendor/bootstrap-sass/assets/javascripts/bootstrap.min.js' | relative_url }}"></script>
+<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
 
 </body>
 </html>

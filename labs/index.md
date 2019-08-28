@@ -17,13 +17,13 @@ title: Information Security Management | Labs
 
 ## Tutorials
 
-[Tutorial: Introduction to Linux](/security-assignments/intro-to-linux.html)
+[Tutorial: Introduction to Linux]( {{ '/tutorials/intro-to-linux.html' | relative_url }} )
 
-[Tutorial: Introduction to Networking](/security-assignments/intro-to-networking.html)
+[Tutorial: Introduction to Linux -- Supplemental Cowsay Miniadventure]( {{ '/tutorials/intro-to-linux-cowsay.html' | relative_url }} )
 
-## Virtual Machines for the labs
+[Tutorial: Introduction to Google Cloud Platform]( {{ '/tutorials/intro-to-gcp.html' | relative_url }} )
 
-Follow instructions [here]( {{ '/labs/virtual-machines' | relative_url }}) for setting up the virtual machines referenced in some of the labs.
+[Tutorial: Introduction to Networking]( {{ '/tutorials/intro-to-networking.html' | relative_url }})
 
 
 ## Lab Supplementary Files
