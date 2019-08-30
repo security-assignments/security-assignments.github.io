@@ -16,8 +16,7 @@ Complete [this intro-to-linux tutorial]( {{ '/tutorials/intro-to-linux' | relati
 *   Step 1 of 2: Agree to the terms
 *   Step 2 of 2: Choose "Account type" > "Individual". Complete the sign-up form. Provide a credit card.
 
-    <div class='alert alert-info'><strong>Why a credit card?</strong> If you are mindful, you shouldn't need more than the $300 in free credits you receive for signing
-    up for GCP. But Google still requires a credit card in order to activate your trial.</div>
+    <div class='alert alert-info'><strong>Why a credit card?</strong> Google still requires a credit card to make sure you are not a robot. Google will not autocharge your account unless you manually upgrade to a paid plan.</div>
 
 * Create a "project" which will house all of the material for this class.
 
@@ -140,5 +139,5 @@ For example:
 {%- if site.instructorcollab_domain == 'colorado.edu' -%}
 ![img]( {{ "/assets/images/gcp-kali-chrome-remote-proof.png" | relative_url }})
 {%- elsif site.instructorcollab_domain == 'temple.edu' -%}
-![img]( {{ "/assets/images/gcp-kali-chrome-remote-proof.png" | relative_url }})
+![img]( {{ "/assets/images/gcp-kali-chrome-remote-proof-tv.png" | relative_url }})
 {%- endif %}
