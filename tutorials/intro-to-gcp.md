@@ -138,8 +138,9 @@ Using the Kali VM for the steps below shows both that you got your Kali VM up an
         * Output of the `date` command
     
 For example:
-{%- if site.instructorcollab_domain == 'colorado.edu' -%}
+
+{% if site.instructorcollab_domain == 'colorado.edu' %}
 ![img]( {{ "/assets/images/gcp-kali-chrome-remote-proof.png" | relative_url }})
-{%- elsif site.instructorcollab_domain == 'temple.edu' -%}
+{% elsif site.instructorcollab_domain == 'temple.edu' %}
 ![img]( {{ "/assets/images/gcp-kali-chrome-remote-proof-tv.png" | relative_url }})
-{%- endif %}
+{% endif %}
