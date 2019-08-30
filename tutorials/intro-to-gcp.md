@@ -88,7 +88,9 @@ Launch your new instance with the following specs:
   ![]( {{ '/assets/images/gcp-ssh-run-in-cloud-shell.png' | relative_url }} )
   
   ![]( {{ '/assets/images/gcp-ssh-connected.png' | relative_url }} )
-
+  
+* After successfully connecting to Kali command line using the `gcloud` method, follow the steps in the walkthrough for the Chrome Remote Desktop on [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/solutions/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service) to connect the graphical XFCE desktop on Kali.
+	* Set the name to "Kali VM"
 
 # Part 5: Set up budget alerts
 
