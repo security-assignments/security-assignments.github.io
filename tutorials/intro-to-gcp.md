@@ -71,7 +71,7 @@ Launch your new instance with the following specs:
   ![]( {{ '/assets/images/kali-instance-specs.png' | relative_url }} )
 
 * For boot disk
-    * click `Change` > `Custom Images` > `Show Images from "deargle infosec"` > choose the most recent Kali version that you can see.
+    * click `Change` > `Custom Images` > `Show Images from "infosec management"` > choose the most recent Kali version that you can see.
     * Down towards the bottom of the boot disk selection screen, give your drive something like 500GB or 1,000 GB storage space. We won't use anywhere near that much,
       but on cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._ So 
       beef up, storage space is cheap!
