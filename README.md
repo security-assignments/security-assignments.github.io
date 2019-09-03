@@ -59,5 +59,8 @@ to github -- it will be ignored if you are allowing github to build for you.
 * Add the following line to a `.gitattributes` file in the root of your repo:
 
     _config.yml merge=ours
-
+    
+  And anytime you want to merge in changes from another person's repo, if tony's remote fork were called `tony`, run e.g. `git pull tony/master --no-ff`
+  
+  This is necessary because (1) we are lazy and want github to build our jekyll site for us, and (2) we don't want to have to keep redoing our `_config.yml` every time we pull from each other's forks.
 
