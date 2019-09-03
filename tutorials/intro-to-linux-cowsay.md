@@ -28,6 +28,12 @@ we need to learn some basic commands that’ll help us move around the terminal.
 
     ![]({{ '/assets/images/cowsay-kali-terminal-button.jpg' | relative_url }})
 
+3.  For this tutorial, get a shell running as user `root` by running this within your terminal:
+
+        sudo -s
+        
+    This launches a shell (`-s`) as root via the `sudo` command.
+
 3.  Let’s see where we are right now.  Enter the following command to show our current directory
     `pwd`: print working directory
     
@@ -68,7 +74,7 @@ we need to learn some basic commands that’ll help us move around the terminal.
         cowsay <something you want the cow to say>
         
 10. Oh dear, that didn’t work. When applications are installed via `apt`, they often install themselves into a location that makes them discover-able and therefore 
-    run-able via just their standalone names. Apparently not so for `cowsay`. We'll have to do it ourselves.
+    run-able via just their standalone names. But this doesn't work when using user `root` (it does work for non-root users). We'll have to do it ourselves.
 
     First, find where the `cowsay` application was installed on the filesystem.
     
@@ -127,7 +133,7 @@ we need to learn some basic commands that’ll help us move around the terminal.
     This is nice, but we would have to run this every time we opened a new shell. Let's make our updated `PATH` permanent. We can do that for our shell (terminal) by entering commands
     that will be run on each launch, in the `.bashrc` file located in our home directory.
 
-    Move back to the root folder
+    Move back to the home folder
     
         cd
         
