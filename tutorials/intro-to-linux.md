@@ -11,7 +11,7 @@ You should complete the first lesson-set within each module:
 1. Navigating the File System
     1. [Navigation](https://www.codecademy.com/courses/learn-the-command-line/lessons/navigation/resume)
 2. Viewing and Changing the File System
-    1. [Manipulation](https://www.codecademy.com/courses/learn-the-command-line/lessons/manipulation/resume)
+    1. [Manipulation](https://www.codecademy.com/courses/learn-the-command-line/lessons/command-line-manipulation/exercises/ls-revisited)
 3. Redirecting Input and Output
     1. [Redirection](https://www.codecademy.com/courses/learn-the-command-line/lessons/redirection/resume)
 4. Configuring the Environment
