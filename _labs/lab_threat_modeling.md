@@ -7,11 +7,15 @@ published: true
  
 **Note:** You can do this assignment alone or in groups of 2–3.
 
+
+# Assignment Description
+
 In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010).
 
 **Note:** I recommend using Microsoft Word’s SmartArt function and the "hierarchy" template to quickly generate an attack tree from an outline. You can enter multiple lines into one box by using `shift+enter`.
 
 ![image_4]({{ "/assets/images/lab_threatmodel_smartart.PNG" | relative_url }}){: width="500px" }
+
 
 **Minimum requirement for each attack tree:**
 
@@ -35,7 +39,8 @@ In this lab, you will create attack trees for different attacker goals to help y
 4.  Create an attack tree for learning someone’s online banking account username and password. Assign dollar values to each attack node, per 'Schneier Chapter 21'. Which attack is cheapest for the attacker? Which attack is most expensive?
 
     _Required metrics_: Each node has a metric for "dollar value".
+
     
-## Deliverable:
+# Deliverable
 
 Submit a PDF document on Canvas with one page for each of the attack trees along with answers to the associated questions. If working as a team, join a "group" on Canvas, and make only one submission per team. To do this, on the course page in Canvas, select "People" and the "Lab: Threat Modeling" tab. Then, drag the names of class members on the left into one of the available groups.
