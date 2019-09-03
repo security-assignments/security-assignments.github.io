@@ -1,6 +1,8 @@
 ---
 layout: assignment
 title: Introduction to Linux
+number: 1
+published: true
 ---
 
 # Part 1. Complete this very gentle introduction to the Linux terminal

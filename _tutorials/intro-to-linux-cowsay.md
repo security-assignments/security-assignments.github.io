@@ -1,5 +1,7 @@
 ---
 title: Introduction to Linux - Cowsay Mini-adventure
+published: true
+number: 2
 ---
 
 <h1>{{page.title}}</h1>

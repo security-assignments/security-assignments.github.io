@@ -2,6 +2,7 @@
 title: "Lab: Threat Modeling with Attack Trees"
 number: 1
 description: Practice with attack trees
+published: true
 ---
  
 **Note:** You can do this assignment alone or in groups of 2–3.

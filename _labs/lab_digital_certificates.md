@@ -3,6 +3,7 @@
 title: "Lab: Digital Certificates"
 number: 4
 description: PGP key party, contrasted with Signal
+published: false
 ---
 
 <div class='alert alert-info'>I recommend using the Windows 10 VM for this lab. Alternatively, you can install <a href="https://www.gpg4win.org/">GPG4Win</a> for Windows or the excellent <a href="https://gpgtools.org/">GPG Suite</a> for Mac. However, you're responsible to figure out the below steps if you do.</div>

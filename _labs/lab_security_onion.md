@@ -4,6 +4,7 @@ number: 12
 vms:
     - SecurityOnion
 description: Learn your network before an intruder does
+published: false
 ---
 
 	

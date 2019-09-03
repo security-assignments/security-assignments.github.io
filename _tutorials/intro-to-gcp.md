@@ -1,6 +1,8 @@
 ---
 layout: assignment
 title: Introduction to Google Cloud Platform
+published: true
+number: 3
 ---
 
 

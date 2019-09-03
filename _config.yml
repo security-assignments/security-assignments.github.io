@@ -59,6 +59,8 @@ collections:
         output: true
     activities:
         output: true
+    tutorials:
+        output: true
         
 defaults:
     -
