@@ -56,4 +56,8 @@ it locally.
 * If there was a build error, you will get an email from github about it. Do not commit the `_site` folder
 to github -- it will be ignored if you are allowing github to build for you.
 
+* Add the following line to a `.gitattributes` file in the root of your repo:
+
+    _config.yml merge=ours
+
 
