@@ -4,6 +4,8 @@ title: Information Security Management | Tutorials
 
 # {{ page.title }}
 
+{% include attribution.html %}
+
 {% assign tutorials = site.tutorials | sort: 'number' %}
 {% for tutorial in tutorials %}
 

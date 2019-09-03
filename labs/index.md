@@ -3,6 +3,8 @@ title: Information Security Management | Labs
 ---
  
 # {{ page.title }}
+
+{% include attribution.html %}
  
  
 ## Labs
