@@ -5,7 +5,7 @@ number: 2
 description: Fundamentals of symmetric encryption, cryptanalysis, and of hashing
 vms:
     - Windows 10
-published: false
+published: true
 ---
 
 {% assign know_this_warning = "<div class='alert alert-danger'><strong>Heads up! </strong> You should understand this well enough to be able to do it by hand.</div>" %}
@@ -29,7 +29,7 @@ published: false
     
     As a general rule for shift ciphers, *the modulus is always the size of the alphabet, but you must start your alphabet at 0*.
     
-    You may use [an online vignere cipher calculator](https://crypto.interactive-maths.com/vigenegravere-cipher.html) to check your work.
+    You may use [an online vignere cipher calculator](https://cryptii.com/pipes/vigenere-cipher) to check your work.
     
     {{ know_this_warning }}
     
@@ -143,10 +143,23 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 Imagine that you are sending the following message to a web design contractor who you have hired. For contractual purposes, you want to hash the message as part of ensuring its integrity -- so that your client cannot claim that 
 you sent an altered version of the message.
 
-Hash the following plaintext using multiple hashing algorithms.
+Hash the following [plaintext](https://en.wikipedia.org/wiki/Zimmermann_Telegram) using multiple hashing algorithms.
 
-    We intend to begin on the first of February unrestricted submarine warfare. We shall endeavor in spite of this to keep the United States of America neutral. In the event of this not succeeding, we make Mexico a proposal of alliance on the following basis: make war together, make peace together, generous financial support and an understanding on our part that Mexico is to reconquer the lost territory in Texas, New Mexico, and Arizona. The settlement in detail is left to you. You will inform the President of the above most secretly as soon as the outbreak of war with the United States of America is certain, and add the suggestion that he should, on his own initiative, invite Japan to immediate adherence and at the same time mediate between Japan and ourselves. Please call the President's attention to the fact that the ruthless employment of our submarines now offers the prospect of compelling England in a few months to make peace. 
-    Signed, ZIMMERMANN https://en.wikipedia.org/wiki/Zimmermann_Telegram
+    We intend to begin on the first of February unrestricted submarine warfare. 
+    We shall endeavor in spite of this to keep the United States of America neutral. 
+    In the event of this not succeeding, we make Mexico a proposal of alliance on 
+    the following basis: make war together, make peace together, generous financial 
+    support and an understanding on our part that Mexico is to reconquer the lost 
+    territory in Texas, New Mexico, and Arizona. The settlement in detail is left to 
+    you. You will inform the President of the above most secretly as soon as the 
+    outbreak of war with the United States of America is certain, and add the 
+    suggestion that he should, on his own initiative, invite Japan to immediate 
+    adherence and at the same time mediate between Japan and ourselves. Please call 
+    the President's attention to the fact that the ruthless employment of our 
+    submarines now offers the prospect of compelling England in a few months to 
+    make peace.
+    
+    Signed, ZIMMERMANN 
 	
 You may use a tool such as [cryptii.com](https://cryptii.com). For example:
 

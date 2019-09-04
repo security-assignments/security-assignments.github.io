@@ -3,7 +3,7 @@
 title: "Lab: Social Engineering"
 number: 11
 description: "Only amateurs attack machines; professionals target people."
-published: false
+published: true
 ---
 
 Today, social engineering attacks represent a major primary vector for hackers. As Bruce Schneier said, “Only amateurs attack machines; professionals target people.”[1](https://www.schneier.com/crypto-gram-0010.html)  

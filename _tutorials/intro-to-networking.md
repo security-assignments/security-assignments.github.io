@@ -2,7 +2,7 @@
 layout: assignment
 title: Introduction to Networking
 number: 4
-published: false
+published: true
 ---
 
 **Attribution:** This page is based on an activity developed by Jennifer Urban and Chris Hoofnagle at UC Berkley.

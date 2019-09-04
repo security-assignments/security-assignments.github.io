@@ -3,7 +3,7 @@
 title: "Lab: Asymmetric Encryption"
 number: 3
 description: PGP setup and RSA practice
-published: false
+published: true
 ---
 
 {% assign user_email_domain = site.instructorcollab_domain %}
