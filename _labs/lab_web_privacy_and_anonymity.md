@@ -3,7 +3,7 @@
 title: "Lab: Web Privacy and Anonymity"
 number: 13
 description: Overview of trackers, third party cookies, and Tor
-published: false
+published: true
 ---
 
 # Part 1: Visualize Web Trackers

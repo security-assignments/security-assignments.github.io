@@ -5,7 +5,7 @@ number: 5
 vms:
     - Kali
 description: hydra, hashcat, rockyou, hashcat rules, cewl wordlists
-published: false
+published: true
 ---
 
 # Part 0: Introduction to Linux Tutorial
