@@ -56,11 +56,5 @@ it locally.
 * If there was a build error, you will get an email from github about it. Do not commit the `_site` folder
 to github -- it will be ignored if you are allowing github to build for you.
 
-* Add the following line to a `.gitattributes` file in the root of your repo:
-
-    _config.yml merge=ours
-    
-  And anytime you want to merge in changes from another person's repo, if tony's remote fork were called `tony`, run e.g. `git pull tony/master --no-ff`
-  
-  This is necessary because (1) we are lazy and want github to build our jekyll site for us, and (2) we don't want to have to keep redoing our `_config.yml` every time we pull from each other's forks.
-
+* Github needs `_config.yml` to be committed to the repo in order for it to build the jekyll site. But this borks with the _config.yml of anyone else who forks the repo. For convenience,
+  whenever you want to merge with someone else's fork, use `script/merge-with-remote REMOTE_NAME`, which will make a local copy of your _config.yml and restore it after the merge.
