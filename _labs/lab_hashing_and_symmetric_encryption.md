@@ -29,7 +29,7 @@ published: false
     
     As a general rule for shift ciphers, *the modulus is always the size of the alphabet, but you must start your alphabet at 0*.
     
-    You may use [an online vignere cipher calculator](https://crypto.interactive-maths.com/vigenegravere-cipher.html) to check your work.
+    You may use [an online vignere cipher calculator](https://cryptii.com/pipes/vigenere-cipher) to check your work.
     
     {{ know_this_warning }}
     
