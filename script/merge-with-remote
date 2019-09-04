@@ -7,8 +7,9 @@ fi
 
 REMOTE=$1
 
-cp _config.yml _config.yml.dave
+cp _config.yml _config.yml.backup
 git pull $REMOTE master
-cp _config.yml.dave _config.yml
+cp _config.yml.backup _config.yml
 git add _config.yml
 git commit -m 'reverting back _config.yml'
+rm _config.yml.backup
