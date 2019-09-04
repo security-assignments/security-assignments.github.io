@@ -145,36 +145,9 @@ you sent an altered version of the message.
 
 Hash the following plaintext using multiple hashing algorithms.
 
-    I was wondering if my cat could be placed over the logo in the flyer this red is too red and make it look like Apple you 
-    can get my logo from facebook for can you punch up the fun level on these icons. Start on it today and we will talk about 
-    what i want next time we need to make the new version clean and sexyyet can it be more retro. Remember, everything is the 
-    same or better can you put "find us on facebook" by the facebook logo? can you make pink a little more pinkish, for make it 
-    look like Apple, for try making it a bit less blah can you lower the price for the website? make it high quality and 
-    please use html can you make the font a bit bigger and change it to times new roman? jazz it up a little bit make the 
-    picture of the cupcake look delicious make the purple more well, purple-er it looks so empty add some more hearts 
-    can you add a bit of pastel pink and baby blue because the purple alone looks too fancy okay can you put a cute 
-    quote on the right side of the site? oh no it looks messed up! i think we need to start from scratch. 
-    We are a non-profit organization can you make it stand out more? can the black be darker use a kpop logo that's not a kpop 
-    logo! ugh what is a hamburger menu. This was not according to brief i was wondering if my cat could be placed over the 
-    logo in the flyer. Can you make the logo bigger yes bigger bigger still the logo is too big give us a complimentary 
-    logo along with the website are you busy this weekend? I have a new project with a tight deadline it looks a bit empty, 
-    try to make everything bigger can you make the logo bigger yes bigger bigger still the logo is too bigor I got your invoice...
-    it seems really high, why did you charge so much. That's great, but we need to add this 2000 line essay. 
-    Can you punch up the fun level on these icons start on it today and we will talk about what i want next time will 
-    royalties in the company do instead of cash thanks for taking the time to make the website, but i 
-    already made it in wix can the black be darkeror the hair is just too polarising. Can you rework to make the 
-    pizza look more delicious I want you to take it to the next level, so could you solutionize that for me. I have an 
-    awesome idea for a startup, i need you to build it for me I really think this could go viral, nor can it handle a million 
-    in one go,do less with more is this the best we can do make it sexy. I need a website. How much will it cost we don't need a contract, 
-    do we so thanks for taking the time to make the website, but i already made it in wix so labrador. Can you make the font bigger? 
-    jazz it up a little make the font bigger what is a hamburger menu so can you pimp this powerpoint, need more geometry patterns. 
-    We are a big name to have in your portfolio try making it a bit less blah so could you solutionize that for me, but this looks perfect. 
-    Just Photoshop out the dog, add a baby, and make the curtains blue. We are your relatives low resolution? It looks ok on my screen, 
-    nor you can get my logo from facebook I like it, but can the snow look a little warmer, for we are a startup can you help me out? 
-    you will get a lot of free exposure doing this or it looks a bit empty, try to make everything bigger. What is a hamburger menu try making 
-    it a bit less blah for low resolution? It looks ok on my screen i was wondering if my cat could be placed over the logo in the flyer. 
-    Can you make it stand out more?.
-
+    We intend to begin on the first of February unrestricted submarine warfare. We shall endeavor in spite of this to keep the United States of America neutral. In the event of this not succeeding, we make Mexico a proposal of alliance on the following basis: make war together, make peace together, generous financial support and an understanding on our part that Mexico is to reconquer the lost territory in Texas, New Mexico, and Arizona. The settlement in detail is left to you. You will inform the President of the above most secretly as soon as the outbreak of war with the United States of America is certain, and add the suggestion that he should, on his own initiative, invite Japan to immediate adherence and at the same time mediate between Japan and ourselves. Please call the President's attention to the fact that the ruthless employment of our submarines now offers the prospect of compelling England in a few months to make peace. 
+    Signed, ZIMMERMANN https://en.wikipedia.org/wiki/Zimmermann_Telegram
+	
 You may use a tool such as [cryptii.com](https://cryptii.com). For example:
 
 ![]( {{ '/assets/images/cryptii-hashing-text.png' | relative_url }} )
