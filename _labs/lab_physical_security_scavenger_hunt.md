@@ -3,6 +3,7 @@
 title: "Lab: Physical Security Scavenger Hunt"
 description: There can be no cybersecurity without physical security
 number: 9
+published: false
 ---
 
 <h3><em>There can be no cybersecurity without physical security.</em></h3>

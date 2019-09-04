@@ -2,6 +2,7 @@
 
 title: "Lab: System Hardening"
 number: 8
+published: false
 ---
 
 

@@ -3,6 +3,8 @@ title: Information Security Management | Labs
 ---
  
 # {{ page.title }}
+
+{% include attribution.html %}
  
  
 ## Labs
@@ -17,13 +19,13 @@ title: Information Security Management | Labs
 
 ## Tutorials
 
-[Tutorial: Introduction to Linux]( {{ '/tutorials/intro-to-linux.html' | relative_url }} )
 
-[Tutorial: Introduction to Linux -- Supplemental Cowsay Miniadventure]( {{ '/tutorials/intro-to-linux-cowsay.html' | relative_url }} )
+{% assign tutorials = site.tutorials | sort: 'number' %}
+{% for tutorial in tutorials %}
 
-[Tutorial: Introduction to Google Cloud Platform]( {{ '/tutorials/intro-to-gcp.html' | relative_url }} )
+[Tutorial: {{ tutorial.title }}]( {{ tutorial.url | relative_url }} )
 
-[Tutorial: Introduction to Networking]( {{ '/tutorials/intro-to-networking.html' | relative_url }})
+{% endfor %}
 
 
 ## Lab Supplementary Files

@@ -1,7 +1,10 @@
 ---
-layout: assignment
-title: Information Security Management
+title: Information Security Management | Assignments
 ---
+
+# {{ page.title }}
+
+{% include attribution.html %}
 
 ## [Labs]( {{ '/labs/' | relative_url }} )
 
