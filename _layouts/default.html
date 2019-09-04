@@ -7,7 +7,13 @@
   <link type="text/plain" rel="author" href="{{ site.baseurl }}/humans.txt" />
   <link rel="shortcut icon" href="/favicon.ico?v={{ site.github.build_revision }}">
   
-  <link href="{{ site.baseurl }}/assets/css/bootstrap-custom.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
+  {% if site.instructorcollab_username == 'deargle' %}
+      <link href="{{ site.baseurl }}/assets/css/bootstrap-custom-darkly.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
+      {% assign navbar-class = 'navbar-dark bg-primary' %}
+  {% elsif site.instructorcollab_username == 'aov' %}
+      <link href="{{ site.baseurl }}/assets/css/bootstrap-custom-litera.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
+      {% assign navbar-class = 'navbar-light bg-light' %}
+  {% endif %}
   <link href="{{ site.baseurl }}/assets/css/style.css?v={{ site.github.build_revision }}" rel="stylesheet" media="screen">
   <link
     rel="stylesheet"
@@ -27,7 +33,7 @@
     data-spy="scroll" data-target="#toc"
     >
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg {{navbar-class}}">
   <a class="navbar-brand" href="{{ '/' | relative_url }}">Infosec Management</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">

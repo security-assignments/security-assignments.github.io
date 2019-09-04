@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+    echo "Please specify the name of the remote with which to merge"
+    exit 1
+fi
+
+REMOTE=$1
+
+cp _config.yml _config.yml.dave
+git pull $REMOTE master
+cp _config.yml.dave _config.yml
+git add _config.yml
+git commit -m 'reverting back _config.yml'
