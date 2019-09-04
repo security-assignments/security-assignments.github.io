@@ -21,7 +21,11 @@ You should complete the first lesson-set within each module:
 
 You do _not_ need to do any of the "projects" or multiple choice quizzes. Just the lesson-sets.
   
-  
+<div class='alert alert-info'><strong>Heads up! </strong>Codeacademy recently started charging for access to this set of lessons. As of 9/4/2019, you get free access for seven days, after which 
+you can pay for access for $40 per month. These lessons are not strictly necessary for completing this class, but you may opt to pay if you enjoy the learning style. Alternatively, Udacity
+has a <a href='https://www.udacity.com/course/linux-command-line-basics--ud595'>free set of follow-along video lecture demonstrations</a> which you may enjoy.</div>
+
+
   
 # Part 2. Play the Bandit wargame on OvertheWire.org
 
