@@ -60,7 +60,7 @@ collections:
     activities:
         output: true
     tutorials:
-	output: true
+        output: true
         
 defaults:
     -
