@@ -5,7 +5,7 @@ number: 2
 description: Fundamentals of symmetric encryption, cryptanalysis, and of hashing
 vms:
     - Windows 10
-published: false
+published: true
 ---
 
 {% assign know_this_warning = "<div class='alert alert-danger'><strong>Heads up! </strong> You should understand this well enough to be able to do it by hand.</div>" %}
