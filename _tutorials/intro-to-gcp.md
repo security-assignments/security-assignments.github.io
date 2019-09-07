@@ -14,7 +14,7 @@ Complete [this intro-to-linux tutorial]( {{ '/tutorials/intro-to-linux' | relati
 # Part 1: Sign up for Google Cloud Platform (GCP)
 
 * Visit [https://cloud.google.com](cloud.google.com) and click "Get started for free."
-*   Sign in to google with your @{{ site.instructorcollab_domain }} email address.
+*   Sign in to Google with your personal account (not your Temple Google account).
 *   Step 1 of 2: Agree to the terms
 *   Step 2 of 2: Choose "Account type" > "Individual". Complete the sign-up form. Provide a credit card.
 
