@@ -24,7 +24,7 @@ published: true
 
         Decryption: plaintext = (ciphertext - key) mod 28
 	
-    Number your alphabet so that it starts with zero, e.g., `A = 0, Z=25, [space] = 26, . = 27'. 
+    Number your alphabet so that it starts with zero, e.g., `A = 0, Z=25, [space] = 26, . = 27`. 
     This means that your alphabet will be `abcdefghijklmnopqrstuvwxyz_.`
     
     As a general rule for shift ciphers, *the modulus is always the size of the alphabet, but you must start your alphabet at 0*.
