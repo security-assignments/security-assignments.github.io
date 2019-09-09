@@ -14,18 +14,18 @@ published: true
 
 ## Polyalphabetic substitution and Transposition Ciphers 
 
-1.  Using polyalphabetic substitution, with alphabet a–z (no caps) and a space (as the last character of the alphabet), use the private key `security` to encrypt the plaintext message:
+1.  Using polyalphabetic substitution, with alphabet a–z (no caps), a space (denoted by "_"), and a period (".", as the last character of the alphabet), use the private key `security` to encrypt the plaintext message:
      
          send money
 	
     To help you, use the following formula:
 	
-        Encryption: ciphertext = (plaintext + key) mod 27
+        Encryption: ciphertext = (plaintext + key) mod 28
 
-        Decryption: plaintext = (ciphertext - key) mod 27
+        Decryption: plaintext = (ciphertext - key) mod 28
 	
-    Number your alphabet so that it starts with zero, e.g., `A = 0, Z=25, [space] = 26`. 
-    This means that your alphabet will be `abcdefghijklmnopqrstuvwxyz ` <span class='badge badge-danger'><= mind the invisible trailing space!!!</span>
+    Number your alphabet so that it starts with zero, e.g., `A = 0, Z=25, [space] = 26, . = 27'. 
+    This means that your alphabet will be `abcdefghijklmnopqrstuvwxyz_.`
     
     As a general rule for shift ciphers, *the modulus is always the size of the alphabet, but you must start your alphabet at 0*.
     
