@@ -14,9 +14,9 @@ published: true
 
 ## Polyalphabetic substitution and Transposition Ciphers 
 
-1.  Using polyalphabetic substitution, with alphabet a–z (no caps), a space (denoted by "_"), and a period (".", as the last character of the alphabet), use the private key `security` to encrypt the plaintext message:
+1.  Using polyalphabetic substitution, with alphabet a–z (no caps), spaces translated to an underscore character (`_`), and a period (`.`, as the last character of the alphabet), use the private key `security` to encrypt the plaintext message:
      
-         send money
+         send_money
 	
     To help you, use the following formula:
 	
@@ -24,7 +24,7 @@ published: true
 
         Decryption: plaintext = (ciphertext - key) mod 28
 	
-    Number your alphabet so that it starts with zero, e.g., `A = 0, Z=25, [space] = 26, . = 27`. 
+    Number your alphabet so that it starts with zero, e.g., `A = 0, Z=25, _ = 26, . = 27`. 
     This means that your alphabet will be `abcdefghijklmnopqrstuvwxyz_.`
     
     As a general rule for shift ciphers, *the modulus is always the size of the alphabet, but you must start your alphabet at 0*.
@@ -33,7 +33,7 @@ published: true
     
     {{ know_this_warning }}
     
-    {% include lab_question.html question='What is the ciphertext when encrypting "send money" with the key "security"?' %}
+    {% include lab_question.html question='What is the ciphertext when encrypting "send_money" with the key "security" and alphabet <code>abcdefghijklmnopqrstuvwxyz_.</code>?' %}
     
     
 2.	Consider the transposition method discussed in class.  Assume the plaintext is
@@ -139,9 +139,6 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 # Part 2
 
 ## Hashing
-
-Imagine that you are sending the following message to a web design contractor who you have hired. For contractual purposes, you want to hash the message as part of ensuring its integrity -- so that your client cannot claim that 
-you sent an altered version of the message.
 
 Hash the following [plaintext](https://en.wikipedia.org/wiki/Zimmermann_Telegram) using multiple hashing algorithms.
 
