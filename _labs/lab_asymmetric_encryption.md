@@ -2,7 +2,7 @@
 
 title: "Lab: Asymmetric Encryption"
 number: 3
-description: PGP setup and RSA practice
+description: Understanding asymmetric encryption and RSA practice
 published: true
 ---
 
