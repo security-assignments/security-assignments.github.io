@@ -43,18 +43,6 @@ you to remotely connect to a graphical user interface for this server.
 Notes for the walkthrough:
 
 *   Choose the XFCE desktop. It's more lightweight.
-*   When you get to the "Configure Chrome Remote Desktop to use XFCE by default:" step, there is an error in the documentation. Files under `/etc/` have restricted edit permissions. Normally we can run `sudo` to run a command with elevated permissions, but redirecting text via the `>` command will not work with sudo.
-
-    Instead of the command listed in the docs, you can run:
-        
-        echo "exec /usr/bin/xfce4-session" | sudo tee /etc/chrome-remote-desktop-session
-        
-    Alternatively, before running the `echo` command in the docs, launch an elevated shell with `sudo -s`, run the command in the docs, and then exit the elevated shell:
-    
-        sudo -s
-        echo "exec /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session
-        exit
-        
 *   When the tutorial prompts you to destroy all tutorial instances, do so.
 
 
