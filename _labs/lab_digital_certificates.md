@@ -7,8 +7,8 @@ published: true
 
 # Part 1: Understanding Digital Certificates
 
-A digital certificate “is essentially a public key accompanied by a signature of that key and associated information” (Aumasson 2018, _Serious Cryptography_)[https://nostarch.com/seriouscrypto].
-For TLS (X.509)[https://en.wikipedia.org/wiki/X.509] certificates, this information includes the domain name, optionally alternative domain names that a cert is valid for, 
+A digital certificate “is essentially a public key accompanied by a signature of that key and associated information” [(Aumasson 2018, _Serious Cryptography_)](https://nostarch.com/seriouscrypto).
+For TLS [(X.509)](https://en.wikipedia.org/wiki/X.509) certificates, this information includes the domain name, optionally alternative domain names that a cert is valid for, 
 issue and expiration dates, and other details.
 
 ## Examining details of IBM.com's Certificate
