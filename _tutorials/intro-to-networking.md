@@ -35,7 +35,7 @@ On Windows, search for `cmd` and press enter. A terminal window should open. On 
        
     Can you ascertain anything about the location of each of the "hops" mapped on your traceroute? Look, for example, for airport codes or other geographic identifiers (e.g., "oak" in the above example, or "lhr" for London Heathrow, "jfk" for John F. Kennedy airport in New York, "iad" for Dulles airport in DC, etc).
         
-    You can also use tools to help decipher this. The website [http://www.monitis.com/traceroute/](http://www.monitis.com/traceroute/) has a visual trace route tool that links location to each of those IP addresses. Try a few traces using websites you routinely visit. Do the hops on the route ever leave the United States?
+    You can also use tools to help decipher this. The websites [http://www.monitis.com/traceroute/](http://www.monitis.com/traceroute/) and [https://www.yougetsignal.com/tools/visual-tracert/](https://www.yougetsignal.com/tools/visual-tracert/) have visual trace route tools that links location to each of those IP addresses. Try a few traces using websites you routinely visit. Do the hops on the route ever leave the United States?
     
 # Email Headers
 
