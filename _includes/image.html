@@ -1,0 +1,5 @@
+{%- assign image_path = '/assets/images/' | append: include.image | relative_url -%}
+{%- if include.width -%}
+{%- assign width_style = 'width="{{ include.width }}"' -%}
+{%- endif -%}
+<img {{width_style}} src="{{image_path}}" />
