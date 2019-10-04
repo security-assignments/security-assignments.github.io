@@ -58,3 +58,9 @@ to github -- it will be ignored if you are allowing github to build for you.
 
 * Github needs `_config.yml` to be committed to the repo in order for it to build the jekyll site. But this borks with the _config.yml of anyone else who forks the repo. For convenience,
   whenever you want to merge with someone else's fork, use `script/merge-with-remote REMOTE_NAME`, which will make a local copy of your _config.yml and restore it after the merge.
+
+
+## _includes scripts
+
+*   image.html, shorthand for embedding an image
+        {% include image.html image='virt-manager-running.PNG' %}

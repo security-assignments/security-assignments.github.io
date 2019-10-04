@@ -3,8 +3,6 @@ title: Virtual Machines for the Security Labs
 layout: assignment
 ---
 
-<div class='alert alert-danger'><strong>Deprecation notice: </strong> The virtual machines for this class have been moved to Google Cloud Platform – ergo, the instructions on this page are no longer applicable to students taking this class.</div>
-
 <style>
 .language-ascii-noshadows {
     display: block;
@@ -18,74 +16,17 @@ layout: assignment
 
 </style>
 
-<div id='nav-bar'></div>
-
 I prepare virtual machines for students in my class to use, which communicate over a `infosec-net` NatNetwork. This page documents the virtual machines, along with how to install and configure virtualbox to use the network.
 
-# Setting up Virtualbox and the infoset-net network
 
-I pre-prepare the virtual machines to be on the same virtual network so that they have internet access and so that they can talk to one another. However, you must initialize the virtualbox network after you install virtualbox. To do so:
 
-**Note:** Ideally you will have at least 8 GB memory (RAM)
+# Setting up your virtual lab
 
-1.  First, install one of the VirtualBox platform packages from [here](https://www.virtualbox.org/wiki/Downloads).
-2.  Then, create the virtual network.
-    * If on Windows, download and run [this script](https://www.dropbox.com/s/923mt76knrherrm/create-infosec-natnetwork.bat?dl=0)
-    * If on Mac:
-        * Open `Terminal` application
-        * Copy-paste the following lines into the terminal, and press `enter`
+I have created a Kali virtual machine image on Google Cloud Platform which is using nested virtualization to host within it several virtual machines: 
+a Windows instance, a Metasploitable2 instance, and a security onion instance. They are hosted using `kvm` and `libvirt` and accessed using `virt-manager`.
 
-                vboxmanage natnetwork add --netname infosec-net --network 192.168.55.0/24 --enable --dhcp off
-                vboxmanage natnetwork start --netname infosec-net
-
-    You can test whether the scripts were successful by navigating to `Virtuabox > File > Preferences > Network`, where you should see "infosec-net" in the list of networks. If you don't see that network, then you can manually create the network from this dialog prompt by clicking the `plus` and using the following options:
-    
-    Then click 'ok', 'ok'. 
-    
-        * Enable Network: `checked`
-        * Network Name: `infosec-net` (case-sensitive!)
-        * Network CIDR: `192.168.55.0/24`
-        * Network Options:
-            * Supports DHCP: `unchecked`
-            * Supports IPv6: `unchecked`
-            
-    ![img]( {{ '/assets/images/virtualbox-infosecnet-config.png' | relative_url }})
-            
-            
-## Troubleshooting
-
-If you are a mac user and virtualbox fails to install with the ever-so-helpful message that "Virtualbox Failed to Install", then I have no idea how to help you, stupid Macs. Let me know if you figure out a solution. There is a computer science help desk in the engineering school who can help you set up virtualization.
-
-## "I forgot to do this before importing the VM, what should I do?"
-
-You will need to reconfigure the network adapter for each VM that you imported before creating the `infosec-net` network. To do this, shut down the virtual machine (_shut down_, not _power off_!), then select the virtual machine from the virtualbox manager, click `Settings` > `Network` > `Adapter 1` > attached to `Nat Network' > name `infosec-net`. Then, start up the VM again. You should hopefully now have a working internet connection.
-
-![img]( {{ '/assets/images/infosec-net-specific-device.png' | relative_url }}){: width="500px"}
-            
-            
-# Importing Virtual Machine (VM) `.ova` files
-
-**Note:** Ideally you will have at least 8 GB memory (RAM)
-
-2. Obtain the `.ova` files for the lab from [this section](#the-virtual-machines)
-3. Launch Virtualbox > "File" > "Import appliance"
-    * select your downloaded .ova file
-    * go through the prompts
-4. Launch the newly-created VM by double-clicking it in the list on the left.
-5. You can now delete the `.ova` file if you're disk-space-starved.
-
-## Troubleshooting
-
-* If you get an error message like this: "VT-x is disabled in the BIOS for both all CPU modes (VERR_VMX_MSR_ALL_VMX_DISABLED)"...
-    * ... then you need to go into your BIOS to enable virtualization for your CPU.
-    * If you are brave, you can Google for instructions specific to your machine. For example, if you had a Dell Precision 7520 laptop, you might google: "Dell Precision 7520 enable cpu virtualization bios"
-        * Don't brick you laptop.
-
-* There is a computer science help desk in the engineering school who can help you set up virtualization.
-
-* High Sierra Mac users: if you try to launch the VM and get the following error message: **Kernel driver not installed (rc=-1908)** Then follow the instructions [here](https://apple.stackexchange.com/a/300518) then try launching the VM again.
-
-# The Virtual Machines
+Read [these instructions]( {{ '/tutorials/intro-to-gcp.html' | relative_url }}) to get oriented to and set up on Google Cloud Platform, and to get access to the Kali virtual machine. 
+Anyone should be able to see and use the custom class kali image if they join [this Google Group](https://groups.google.com/a/daveeargle.com/forum/#!forum/infosec-management) (public access):
 
 ## `infosec-net` Network Map
 
@@ -101,24 +42,20 @@ The network map is as follows:
         </thead>
         <tbody>
         <tr>
-            <td>192.168.55.1</td>
-            <td>Gateway</td>
+            <td>192.168.55.101</td>
+            <td>Kali (the host)</td>
         </tr>        
         <tr>
             <td>192.168.55.100</td>
-            <td><a href='#windows-10'>Windows 10</a></td>
+            <td>Windows 7</td>
         </tr>        
         <tr>
-            <td>192.168.55.101</td>
-            <td><a href='#kali'>Kali</a></td>
-        </tr>
-        <tr>
             <td>192.168.55.102</td>
-            <td><a href='#metasploitable2'>Metasploitable2</a></td>
+            <td>Metasploitable2</td>
         </tr>
         <tr>
             <td>192.168.55.103</td>
-            <td><a href='#SecurityOnion'>Security Onion</a></td>
+            <td>Security Onion</td>
         </tr>
         </tbody>
     </table>
@@ -127,129 +64,133 @@ The network map is as follows:
 IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 
 
-<h2 class='language-ascii-noshadows' id='windows-10'>
- _    _ _           _                     __  _____ 
-| |  | (_)         | |                   /  ||  _  |
-| |  | |_ _ __   __| | _____      _____  `| || |/' |
-| |/\| | | '_ \ / _` |/ _ \ \ /\ / / __|  | ||  /| |
-\  /\  / | | | | (_| | (_) \ V  V /\__ \ _| |\ |_/ /
- \/  \/|_|_| |_|\__,_|\___/ \_/\_/ |___/ \___/\___/ 
-                                                    
-</h2>
+# Using the virtual machines within Kali
 
-<span class='label label-info'>Download link ready! See above</span>
+The virtual machines are accessed using `virt-manager`. First, you should make
+sure that your user account is a member of the `libvirt` group.
 
-|-|-|
-| username: | `labuser` |
-| password: | `Password1` |
-
-### Building your own Vuln Windows 10 vm instead of using mine
-
-lol good luck.
-
-I installed:
-
-* [WannaCry](https://github.com/fabrimagic72/malware-samples/tree/master/Ransomware/Wannacry)
-* [CryptTool2](https://www.cryptool.org/de/ct2-downloads)
-* [HxD](https://mh-nexus.de/en/hxd/)
-* [hashdeep](http://md5deep.sourceforge.net/)
-* [IceCast 2.0.1](https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.0.1.tar.gz)
-* [Microsoft Word 2003](https://softfamous.com/postdownload-file/microsoft-office-2007/455/314/) (because it has an acceptable trial length, and because it is VBA-exploitable)
-* Add a script that can pull down windows defender easily.
-* [Notepad++](https://notepad-plus-plus.org/)
-
-Add two network adapters to the machine. I set my first one to be NATNetwork with a static ip set in windows.
-
-
-
-<h2 class='language-ascii-noshadows' id='kali'>
- ____  __.      .__  .__ 
-|    |/ _|____  |  | |__|
-|      < \__  \ |  | |  |
-|    |  \ / __ \|  |_|  |
-|____|__ (____  /____/__|
-        \/    \/         
-</h2>
-
-
-<span class='label label-info'>Download link ready! See above</span>
-
-|-|-|
-| username: | `root` |
-| password: | `toor` |
-
-
-### Building your own Kali instead of using mine
-
-<div class='alert alert-danger'><strong>Warning: </strong>The steps below are technical and not for beginners. Proceed only if you are willing to spend a lot of time doing your own troubleshooting.</div>
-
-1.  Download Kali Linux Light 64 Bit from [here](https://www.kali.org/downloads/). It's less than 1GB.
-2.  Follow the instructions [here](http://www.wikigain.com/install-kali-linux-virtualbox-pc/) to create the VM, except:
-
-    * Use 40GB instead of 15GB for the dynamic disk size (just to be safe).
-    * Choose whatever for the "Configure the Network" step. My scripts below reset all that anyway.
-    * For Step 7 "Partition disks" step, choose "Guided - use entire disk" to save yourself extra work. Choose "All files in one partition" a few steps later on, too. Continue the instructions with Step 16.
+    usermod -a -G libvirt $(whoami)
     
-3.  Confirm that Network Adapter 1 is set to `NATNetwork` pointed to the `infosec-net` network, and set Network Adapter 2 to be `NAT`.    
-3.  In a `terminal` in Kali, run the following commands.
-    
-        # confirm that the apt repositories are set up
-        
-        cat <<EOF > /etc/apt/sources.list
-        deb http://http.kali.org/kali kali-rolling main non-free contrib
+Then, from a terminal, run `virt-manager` to get an interface such as the following:
+
+{% include image.html image='virt-manager-all-off.PNG' %}
+
+This shows that three virtual machines are available, but that none are running.
+
+<div class='alert alert-info'><strong>Virt Manager interface shows no vms?</strong><p>In the <code>virt-manager</code> interface, 
+try running:</p>
+<ul>
+<li><code>File</code></li>
+<li><code>Add Connection...</code></li>
+<li><code>Connect (accept defaults)</code></li>
+</ul>
+</div>
+
+Start a virtual machine by selecting it, and pressing the "play" icon. The virtual machine should
+then update to show that it is running.
+
+{% include image.html image='virt-manager-running.PNG' %}
+
+To view the running virtual machine, highlight it and click "Open". A new window
+will appear.
+
+{% include image.html image='virt-manager-running-open.jpg' %}
+
+You can click into this window and interact with it via keyboard, and mouse if it has a GUI.
+
+{% include image.html image='virt-manager-running-open-interact.jpg' %}
+
+Details of a virtual machine can be viewed and edited from the "details" pane.
+
+{% include image.html image='virt-manager-running-open-details.jpg' %}
+
+A network is set up to enable the host (Kali) and the guests (e.g., Metasploitable2, Windows 7) to network with one another.
+Try `ping`ing metasploitable2 from Kali, and Kali from metasploitable2, using the network map ip addresses above.
+
+
+{% include image.html image='virt-manager-running-ping.jpg' %}
+
+# How I set up the kali image
+[TODO: fill out this documentation]
+
+
+
+
+## Import base kali image into GCP
+
+* Start with a [64-bit prepared Kali VirtualBox .ova from Offensive Security](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/)
+* Prepare it for importing into GCP following these instructions:
+    * [Automated process](https://cloud.google.com/compute/docs/import/importing-virtual-disks). Or,
+    * [Manual import](https://cloud.google.com/compute/docs/import/import-existing-image) and [manual optimization](https://cloud.google.com/compute/docs/import/configuring-imported-images)
+        * Install the [guest environment](https://cloud.google.com/compute/docs/images/install-guest-environment)
+        * Grab the `gce-disk-expand` package, too, from [here](https://github.com/GoogleCloudPlatform/compute-image-packages)
+* Add the [nested virtualization license](https://cloud.google.com/compute/docs/instances/enable-nested-virtualization-vm-instances)
+* [Manage image family versioning](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#setting_families)
+
+## Futher Kali Image Customization
+*   install xfce desktop
+*   install chrome remote desktop tools
+*   Set up nested virtualization
+    *   install virt-manager
+    *   add user to libvirt group
+            usermod -a -G libvirt $(whoami)
+    *   add virtual network for security-network
+            cat <<EOF > infosec-net.xml
+            <network>
+              <name>infosec-net</name>
+              <uuid>b61773a5-0d63-4415-a922-6caca824f1f7</uuid>
+            <forward mode='nat'/>
+            <bridge name='virbr1'/>
+              <ip address='192.168.55.101' netmask='255.255.255.0'/>
+            </network>
+            EOF
+
+    *   configure libvirt networks to start by default
+            sudo virsh net-define infosec-net.xml
+            sudo virsh net-start infosec-net
+            sudo virsh net-autostart infosec-net
+
+            sudo virsh net-start default
+            sudo virsh net-autostart default
+*   Set up Kali to pipe audio back over a chrome remote desktop session (very important for rick rolling the windows vm!)
+        # audio piping
+
+        deargle@kali:~$ cat pulseaudio.sh 
+        #!/usr/bin/bash
+        # nu11secur1ty - http://nu11secur1ty.com/
+        # Taken from: https://github.com/nu11secur1ty/pulseaudio
+
+        ##### Running pulseaudio autostart ~ gui desktop audio
+        echo -e "\n\e[01;32m[+]\e[00m Preparing pulseaudio-user"
+        file=/usr/local/bin/pulseaudio.sh; [ -e $file ] && cp -n $file{,.bkup} 
+
+        cat <<EOF> $file
+        #!/bin/bash
+        timeout 10 pulseaudio -D
+        sleep 15
+        exit 0;
         EOF
-        
-        #############
-        # virtualbox guest additions
-        # for fullscreen and shared clipboard
-        #################
-        
-        apt-get update && apt-get upgrade -y                # This might take a while. It will make sure your system is up-to-date.
-        
-        DEBIAN_FRONTEND=noninteractive \
-        APT_LISTCHANGES_FRONTEND=none \
-        apt-get \
-        -o Dpkg::Options::="--force-confnew" \
-        --force-yes \
-        -fuy \
-        dist-upgrade
-        
-        reboot
-        
-        apt-get install -y virtualbox-guest-x11 && reboot   # This should give you nice things like shared clipboard between your host and Kali, and fullscreen.
-        
-        # speaking of shared clipboard, do 'Devices' > 'Shared Clipboard' > 'Bidirectional'.
-        
-        ########
-        # fix networking
-        ########
-        
-        # first, make sure that 
-        #   * your machine has network interface 1 set to NATNetwork and infosec-net
-        #   * your machine has network interface 2 set to NAT
-        # then, 
-        
-        apt-get purge network-manager   # banish the horrible mess that is the network-manager
-        apt-get install net-tools       # go back to the glory days of ifconfig
 
-        cat <<EOF >> /etc/network/interfaces
-        auto eth0
-        iface eth0 inet static
-            address 192.168.55.101
-            netmask 255.255.255.0
-            gateway 192.168.55.1
+        chmod 0755 $file
 
-        auto eth1
-        iface eth1 inet dhcp
+        file=/etc/xdg/autostart/pulseaudioscript.sh.desktop; [ -e $file ] && cp -n $file{,.bkup}
+        cat <<EOF> $file
+        [Desktop Entry]
+        Type=Application
+        Exec=/usr/local/bin/pulseaudio.sh
+        Hidden=false
+        NoDisplay=false
+        X-GNOME-Autostart-enabled=true
+        Name[en_US]=pulseaudio-user
+        Name=pulseaudio-user
+        Comment[en_US]=
+        Comment=
         EOF
 
-        cat <<EOF > /etc/resolv.conf
-        nameserver 192.168.55.1
-        nameserver 8.8.8.8
-        nameserver 8.8.4.4
-        EOF
-
-        service networking restart
+        sleep 5;
+        exit 0;
+        
+*   Package installations
 
         ###########
         # Package installations
@@ -257,11 +198,11 @@ Add two network adapters to the machine. I set my first one to be NATNetwork wit
 
         apt-get install -y libssl-dev libssh-dev
         apt-get install -y hashcat hydra wordlists vim metasploit-framework cewl openvpn leafpad mirage xtightvncviewer
-        
+
         ####
         # metasploit framework database setup
         ###
-        
+
         msfdb init
         systemctl enable postgresql
         service postgresql start
@@ -278,10 +219,7 @@ Add two network adapters to the machine. I set my first one to be NATNetwork wit
         git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
         cd set
         python setup.py install
-    
-4.  You should now have a pretty good Kali install for this class.
 
-<section id='install-nessus'></section>    
 #### Install the Nessus vulnerability scanner (wait to do this step until you actually need Nessus -- it takes 1+ hrs to complete)
 
 1.	Register for a Nessus Home license. Browse to the URL below and enter your name and email address:
@@ -304,24 +242,47 @@ Add two network adapters to the machine. I set my first one to be NATNetwork wit
 5.	For consistency with my lab, create user `root` password `toor` when prompted by Nesssus. Click “reload” if the page fails to load.
 
 
-<h2 class='language-ascii-noshadows' id='metasploitable2'>
-  __  __      _                  _       _ _        _     _      ___  
- |  \/  |    | |                | |     (_) |      | |   | |    |__ \ 
- | \  / | ___| |_ __ _ ___ _ __ | | ___  _| |_ __ _| |__ | | ___   ) |
- | |\/| |/ _ \ __/ _` / __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ / / 
- | |  | |  __/ || (_| \__ \ |_) | | (_) | | || (_| | |_) | |  __// /_ 
- |_|  |_|\___|\__\__,_|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|____|
-                          | |                                         
-                          |_|                                         
-</h2>
 
-<span class='label label-info'>Download link ready! See above</span>
+## Customize Windows 7 Image
+
+Windows 7 IE8 preview from [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/)
+
+    apt-get install rtorrent
+
+* start with a developer preview Windows 7 VM from 
+* change audio sampling to 48k
+* install spice guest additions
+* 	switch drivers to virtio
+* set adapter 1 to static
+* install microsoft office 2007
+* install icecast
+* run all windows updates
+* add spice channel so that copy-paste works
+
+
+
+
+
+
+In old versions, I installed:
+
+* [WannaCry](https://github.com/fabrimagic72/malware-samples/tree/master/Ransomware/Wannacry)
+* [IceCast 2.0.1](https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.0.1.tar.gz)
+* [Microsoft Word 2003](https://softfamous.com/postdownload-file/microsoft-office-2007/455/314/) (because it has an acceptable trial length, and because it is VBA-exploitable)
+* Add a script that can pull down windows defender easily.
+* [Notepad++](https://notepad-plus-plus.org/)
+
+
+
+## Customize metasploitable2
 
 |-|-|
 | username: | `msfadmin` |
 | password: | `msfadmin` |
 
-### Configure your own Metasploitable2 instead of using mine.
+
+I don't remember. 
+* For KVM, I think switch hard disk drivers and network to use virtio. 
 
 The only change that I made was to the network interfaces so that they would connecto the `infosec-net`. If you want to make the same changes, do the following from within Metasploitable2:
 
@@ -337,30 +298,21 @@ The only change that I made was to the network interfaces so that they would con
     EOF
 
     cat <<EOF > /etc/resolv.conf
-    nameserver 192.168.55.1
+    nameserver 192.168.55.101
     nameserver 8.8.8.8
     nameserver 8.8.4.4
     EOF
 
     /etc/init.d/networking restart
 
-    
-<h2 class='language-ascii-noshadows' id='SecurityOnion'>
- ___  ____  ___  __  __  ____  ____  ____  _  _    _____  _  _  ____  _____  _  _ 
-/ __)( ___)/ __)(  )(  )(  _ \(_  _)(_  _)( \/ )  (  _  )( \( )(_  _)(  _  )( \( )
-\__ \ )__)( (__  )(__)(  )   / _)(_   )(   \  /    )(_)(  )  (  _)(_  )(_)(  )  ( 
-(___/(____)\___)(______)(_)\_)(____) (__)  (__)   (_____)(_)\_)(____)(_____)(_)\_)
-</h2>
 
 
-<span class='label label-info'>Download link ready! See above</span>
+## Customize security onion
 
 |-|-|
 | username: | `securityonion` |
 | password: | `Password1` |
 
-
-### Setting up your own instead of using mine
 
 Download and install Security Onion following [these instructions](https://github.com/Security-Onion-Solutions/security-onion/wiki/QuickISOImage) and [these instructions](https://askubuntu.com/questions/64915/how-do-i-install-ubuntu-on-a-virtualbox-client-from-an-iso-image). [Make note](https://github.com/Security-Onion-Solutions/security-onion/wiki/Hardware): 
 
@@ -387,3 +339,5 @@ Download and install Security Onion following [these instructions](https://githu
 	* `gzip -d -c SiLK-LBNL-05-nonscan.tar.gz | tar xf -`
     * `gzip -d -c SiLK-LBNL-05-scanners.tar.gz | tar xf -`
 * Install SiLK on Security Onion, [following this guide](http://www.appliednsm.com/silk-on-security-onion/), stopping before the "Configuring SiLK" section.
+
+
