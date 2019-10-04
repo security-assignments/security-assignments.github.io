@@ -28,7 +28,9 @@ title: Information Security Management | Labs
 {% endfor %}
 
 
-## Lab Supplementary Files
+## Other
 
-[Hosted on github, here.](https://github.com/{{ site.repository }}/tree/master/labs/files) To download any one of them, click its link
+[Virtual Network notes]({{'/labs/virtual-machines' | relative_url }})
+
+[Lab Supplementary Files](https://github.com/{{ site.repository }}/tree/master/labs/files) To download any one of them, click its link
 on that page, and then click "Download." 
