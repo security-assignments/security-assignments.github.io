@@ -13,7 +13,7 @@ issue and expiration dates, and other details.
 
 ## Examining details of IBM.com's Certificate
 
-Browse to [ibm.com](ibm.com) and inspect the certificate details. For example, in Firefox:
+Browse to [ibm.com](https://ibm.com) and inspect the certificate details. For example, in Firefox:
     
 *   Click on the padlock icon in the URL bar.
 *   Click on the arrow to the right of the domain name.
@@ -59,16 +59,17 @@ _Certificate chain image from [DigiCert](https://knowledge.digicert.com/solution
     {% include lab_question.html question="What can this DigiCert root certificate be used for?" %}
     
 4.  Now find any of the root certificates for Symantec Corporation. Select one and click "Edit Trust."
+    What can this Symantec root certificate be used for? What can it _not_ be used for? Examine other certs in the list to see what a "normal" cert in Firefox's store can do.
 
     {% include lab_question.html question="What can this Symantec root certificate be used for?" %}
     
-    Why does Firefox trust Symantec's Certificates in this way?
-    
-    To help you answer this question, look at one or more of the following resources:
+    Why is the trust for Symantec's cert anomalous? To help you answer this question, look at one or more of the following resources:
     
     * [https://security.googleblog.com/2017/09/chromes-plan-to-distrust-symantec.html](https://security.googleblog.com/2017/09/chromes-plan-to-distrust-symantec.html)
     * [https://arstechnica.com/information-technology/2017/03/google-takes-symantec-to-the-woodshed-for-mis-issuing-30000-https-certs/](https://arstechnica.com/information-technology/2017/03/google-takes-symantec-to-the-woodshed-for-mis-issuing-30000-https-certs/)
     * [https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/](https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/)
+    
+    {% include lab_question.html question="Why does Firefox trust Symantec's Certificates in this way?" %}
     
     
     
@@ -118,7 +119,7 @@ submitted to bankofamerica.com.
     
     {% include image.html image='kali-light-theme.png' %} 
     
-2.  Now, download and install `mono`, which can run Windows applications from Linux. From a Terminal, run the following command:
+2.  Now, download and install `mono`, which can run `.net` applications from Linux. From a Terminal, run the following command:
 
         sudo apt install mono-complete
         
@@ -142,11 +143,11 @@ submitted to bankofamerica.com.
     
 4.  Configure Firefox to route all internet traffic through Fiddler.
 
-        Firefox > 
-        Hamburger on upper-right > 
-        Preferences > 
-        (scroll to the bottom) Network Proxy - Settings > 
-        Manual proxy configuration, HTTP Proxy localhost Port 8888, check box for "use this proxy server for all protocols"
+    * Firefox > 
+    * Hamburger on upper-right > 
+    * Preferences > 
+    * (scroll to the bottom) Network Proxy - Settings > 
+    * Manual proxy configuration, HTTP Proxy localhost Port 8888, check box for "use this proxy server for all protocols"
     
     Firefox is now proxying all web requests through Fiddler.
     
@@ -192,14 +193,14 @@ submitted to bankofamerica.com.
         
     2.  Import the cert into Firefox's cert store.
     
-            Firefox > 
-            Preferences > 
-            "Privacy & Security" > 
-            Certificates > 
-            "View Certificates" > 
-            "Import..." > 
-            desktop, select "FiddlerRoot.cer", 
-            check "Trust this CA to identify websites."
+        * Firefox > 
+        * Preferences > 
+        * "Privacy & Security" > 
+        * Certificates > 
+        * "View Certificates" > 
+        * "Import..." > 
+        * desktop, select "FiddlerRoot.cer", 
+        * check "Trust this CA to identify websites."
         
         {% include image.html image='firefox-view-certificates.png' %}
         {% include image.html image='fiddler-firefox-import-certificate.png' %}
@@ -211,10 +212,10 @@ submitted to bankofamerica.com.
     
     Examine the HTTPS SSL connection:
     
-        Firefox > 
-        click lock next to url in addressbar > 
-        click `>` button > 
-        click `More Information`
+    * Firefox > 
+    * click lock next to url in addressbar > 
+    * click `>` button > 
+    * click `More Information`
     
     {% include image.html image='firefox-boa-secure-connection1.PNG' %}
     {% include image.html image='firefox-boa-secure-connection-2.PNG' %}
@@ -241,13 +242,12 @@ submitted to bankofamerica.com.
     
         In the Request area, select “WebForms.” This will show a user-friendly view of the data that was submitted in the form. Scroll in this form until you find the “onlineId” and “passcode” fields. You should see your identikey and fake password.
         
+        {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Fiddler window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
+        
         {% include image.html image='Fiddler-bankofamerica-post-username-password.PNG' %}
         
-        {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Fiddler window for the Bank of America login attempt. Show your entire Kali view in your screenshot." %}
-        
-12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username|password) should have been encrypted -- how could Fiddler have decrypted it?
-
+12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted -- how could Fiddler have decrypted it?
+    
     This is the essence of a man-in-the-middle attack -- a secure connection to an evil server which talks to your intended server on your behalf. 
     In our pretend case, Fiddler is the evil server, and Bankofamerica is the intended server. All secure content is visible as plaintext to the attacker, 
     because the attacker’s SSL cert was used to establish the secure HTTPS connection.
-        
