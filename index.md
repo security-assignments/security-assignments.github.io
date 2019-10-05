@@ -8,7 +8,9 @@ title: Information Security Management | Assignments
 
 ## [Labs]( {{ '/labs/' | relative_url }} )
 
-## [Reading and Film Lists]( {{ '/security-reading-and-film-list/' | relative_url }})
+## [Book and Film Lists]( {{ '/security-reading-and-film-list/' | relative_url }})
+
+## [Reading Topics]( {{ '/readings/' | relative_url }})
 
 ## [In-class Activities]({{ '/activities/' | relative_url }})
 

@@ -1,5 +1,5 @@
 ---
-title: Security Readings and Films list
+title: Security Book and Films list
 layout: default
 id: security-readings-and-films-list
 ---
