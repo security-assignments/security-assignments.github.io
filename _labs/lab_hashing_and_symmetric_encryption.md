@@ -4,7 +4,7 @@ title: "Lab: Symmetric Encryption and Hashing"
 number: 2
 description: Fundamentals of symmetric encryption, cryptanalysis, and of hashing
 vms:
-    - Windows 10
+    - Kali
 published: true
 ---
 
