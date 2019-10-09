@@ -198,6 +198,7 @@ submitted to bankofamerica.com.
         * "Privacy & Security" > 
         * Certificates > 
         * "View Certificates" > 
+        * Click "Authorities" tab >
         * "Import..." > 
         * desktop, select "FiddlerRoot.cer", 
         * check "Trust this CA to identify websites."
