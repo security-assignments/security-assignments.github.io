@@ -132,7 +132,7 @@ submitted to bankofamerica.com.
     
     Unzip the download into a new directory called “fiddler-linux”, and change into that directory
     
-        unzip fiddler-linuz.zip -d fiddler-linux
+        unzip fiddler-linux.zip -d fiddler-linux
         cd fiddler-linux
 
     Use `mono` to run Fiddler.exe
