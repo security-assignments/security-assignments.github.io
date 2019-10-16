@@ -16,8 +16,7 @@ layout: assignment
 
 </style>
 
-I prepare virtual machines for students in my class to use, which communicate over a `infosec-net` NatNetwork. This page documents the virtual machines, along with how to install and configure virtualbox to use the network.
-
+This page documents virtual machines that I have prepared for students in my class to use to complete the labs.
 
 
 # Setting up your virtual lab
@@ -66,51 +65,56 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 
 # Using the virtual machines within Kali
 
-The virtual machines are accessed using `virt-manager`. First, you should make
-sure that your user account is a member of the `libvirt` group.
+1.  The virtual machines are accessed using `virt-manager`. First, you should make
+    sure that your user account is a member of the `libvirt` group.
 
-    usermod -a -G libvirt $(whoami)
+        usermod -a -G libvirt $(whoami)
     
-Then, from a terminal, run `virt-manager` to get an interface such as the following:
+2.  Then, from a terminal, run `virt-manager` to get an interface such as the following:
 
-{% include image.html image='virt-manager-all-off.PNG' %}
+    {% include image.html image='virt-manager-all-off.PNG' %}
 
-This shows that three virtual machines are available, but that none are running.
+    This shows that three virtual machines are available, but that none are running.
 
-<div class='alert alert-info'><strong>Virt Manager interface shows no vms?</strong><p>In the <code>virt-manager</code> interface, 
-try running:</p>
-<ul>
-<li><code>File</code></li>
-<li><code>Add Connection...</code></li>
-<li><code>Connect (accept defaults)</code></li>
-</ul>
-</div>
+    <div class='alert alert-info'><strong>Virt Manager interface shows no vms?</strong><p>In the <code>virt-manager</code> interface, 
+    try running:</p>
+    <ul>
+    <li><code>File</code></li>
+    <li><code>Add Connection...</code></li>
+    <li><code>Connect (accept defaults)</code></li>
+    </ul>
+    </div>
 
-Start a virtual machine by selecting it, and pressing the "play" icon. The virtual machine should
-then update to show that it is running.
+3.  Start a virtual machine by selecting it, and pressing the "play" icon. The virtual machine should
+    then update to show that it is running.
 
-{% include image.html image='virt-manager-running.PNG' %}
+    {% include image.html image='virt-manager-running.PNG' %}
 
-To view the running virtual machine, highlight it and click "Open". A new window
-will appear.
+4.  To view the running virtual machine, highlight it and click "Open". A new window
+    will appear.
 
-{% include image.html image='virt-manager-running-open.jpg' %}
+    {% include image.html image='virt-manager-running-open.jpg' %}
 
-You can click into this window and interact with it via keyboard, and mouse if it has a GUI.
+    You can click into this window and interact with it via keyboard, and mouse if it has a GUI.
 
-{% include image.html image='virt-manager-running-open-interact.jpg' %}
+    {% include image.html image='virt-manager-running-open-interact.jpg' %}
 
-Details of a virtual machine can be viewed and edited from the "details" pane.
+5.  Details of a virtual machine can be viewed and edited from the "details" pane.
 
-{% include image.html image='virt-manager-running-open-details.jpg' %}
+    {% include image.html image='virt-manager-running-open-details.jpg' %}
 
-A network is set up to enable the host (Kali) and the guests (e.g., Metasploitable2, Windows 7) to network with one another.
-Try `ping`ing metasploitable2 from Kali, and Kali from metasploitable2, using the network map ip addresses above.
+6.  A network is set up to enable the host (Kali) and the guests (e.g., Metasploitable2, Windows 7) to network with one another.
+    Try `ping`ing metasploitable2 from Kali, and Kali from metasploitable2, using the network map ip addresses above.
 
 
-{% include image.html image='virt-manager-running-ping.jpg' %}
+    {% include image.html image='virt-manager-running-ping.jpg' %}
 
-# How I set up the kali image
+
+
+# How I created the virtual machines
+
+<div class='alert alert-danger'><strong>Heads up!</strong> Students in my class do <em>not</em> need to do any of the following! These are notes for creating from scratch the VMs that I have already provided to you!</div>
+
 [TODO: fill out this documentation]
 
 
