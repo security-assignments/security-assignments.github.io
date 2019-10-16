@@ -14,18 +14,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Security Assignments
-email: anthony@vance.name
+email: dave@daveeargle.com
 description: >- # this means to ignore newlines until "baseurl:"
   Security labs for a university course, "Information Security Management."
-  Authors Anthony Vance and Dave Eargle
+  Authors Dave Eargle and Anthony Vance
 baseurl: "/security-assignments" # the subpath of your site, e.g. /blog
 url: "https://daveeargle.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: anthonyvance
-github_username:  anthonyvance
-repository: 'anthonyvance/security-assignments'
+twitter_username: deargle
+github_username:  deargle
+repository: 'deargle/security-assignments'
 
-instructorcollab_username: aov
-instructorcollab_domain: temple.edu
+instructorcollab_username: deargle
+instructorcollab_domain: colorado.edu
 
 # Build settings
 markdown: kramdown
@@ -61,7 +61,7 @@ collections:
         output: true
     tutorials:
         output: true
-    
+        
 defaults:
     -
         scope:
