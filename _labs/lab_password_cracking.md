@@ -71,11 +71,18 @@ Take a screenshot of your password manager showing **saved entries for at least 
 
 ![img]( {{ "/assets/images/1Password-web.png" | relative_url }}){: width="500px" }
 
+
+
+
 # Part 5: Online Password Attack
 
 **Note:** This section uses the [Kali VM](/security-assignments/labs/virtual-machines#kali). 
 
 This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all unique passwords from the [32 million RockYou password breach](https://www.nytimes.com/2010/01/21/technology/21password.html).
+
+1.  Elevate to a root shell (or, alternatively, run all commands below with `sudo`):
+
+        sudo -s
 
 1.  First, if the file `/usr/share/wordlists/rockyou.txt` is not present, unzip the password list.
         
