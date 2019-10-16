@@ -224,26 +224,7 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
         cd set
         python setup.py install
 
-#### Install the Nessus vulnerability scanner (wait to do this step until you actually need Nessus -- it takes 1+ hrs to complete)
 
-1.	Register for a Nessus Home license. Browse to the URL below and enter your name and email address:
-    
-    [https://www.tenable.com/products/nessus-home](https://www.tenable.com/products/nessus-home)
-
-2.	(Note: Nessus is already installed on the lab VM, skip this step if you're using the VM I provided.) Download Nessus to your Kali machine from [here](https://www.tenable.com/products/nessus/select-your-operating-system#tos). 
-    Navigate to your Download directory and run `dpkg -i <filename of your download>` to install Nessus. 
-    
-2.	After you receive the email from Tenable containing your serial number, type in the following command in the Kali terminal:
-
-        /opt/nessus/sbin/nessuscli fetch --register <serial>
-
-    Where `<serial>` is the serial number you received in the email from Tenable. You should see a message saying that your activation code has been registered properly. 
-
-3.	In the Kali VM, open a terminal and type `service nessusd start`
-
-4.	Open a web browser in Kali and navigate to `https://kali:8834` to open the Nessus web interface (note the “s”). (Click 'Advanced' > 'Add Security Exception' > 'Confirm Security Exception' to get past the SSL warning.)
-
-5.	For consistency with my lab, create user `root` password `toor` when prompted by Nesssus. Click “reload” if the page fails to load.
 
 
 
