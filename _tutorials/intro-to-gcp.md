@@ -69,10 +69,32 @@ Launch your new instance with the following specs:
 
   ![]( {{ '/assets/images/kali-custom-image.png' | relative_url }} )
 
-* Once your image has booted (wait a few minutes), connect to it via `ssh`, using the `gloud` method -- _not_ the default browser-based method.
+* Once your image has booted (wait a few minutes), connect to it via `ssh`, using the `gcloud` method -- _not_ the default browser-based method.
+  The `gcloud` command will paste ssh connect code down into a gcloud terminal -- <strong>you have to press "enter" to run that code and establish the ssh connection</code>.
+  
+  If you are still in `gcloud`, and not `kali`, the prompt will be yellow. If you have a connection to kali, the prompt will be red.
+  Look closely at the last image below -- it shows username@kali in red. That is important -- that means that a successful <code>ssh</code> connection to kali
+  has been made. You have to hit "enter"
+  
+  <div class='alert alert-info'><strong>Are you being asked for a passphrase when you run the gcloud connect command?</strong> When you first try to connect to an instance using <code>gcloud</code>,
+  gcp generates ssh keys for you. ssh keys may optionally have an associated passphrase encrypting them. If you set a passphrase and cannot remember it, you can wipe out your keys and attempt another
+  connection -- gcp will then prompt you to regenerate your keys. I personally leave the passphrases for gcp keys 'blank' when prompted.
+  
+  <div>
+  To wipe out your keys, you can run the following from a gcloud prompt:
+  
+    <code>
+    rm ~/.ssh/*
+    </code>
+  </div>
+  </div>
+  
+  
   
   <div class='alert alert-danger'><strong>Heads up! </strong> The `ssh` browser-based connection method is not working for this image. 
-  But connecting via gcloud console <em>is</em> working. To do so, click the drop-down next to "ssh" from the instances dashboard, as shown below. </div>
+  But connecting via gcloud console <em>is</em> working. To do so, click the drop-down next to "ssh" from the instances dashboard, as shown below. 
+  
+  </div>
 
   ![]( {{ '/assets/images/gcp-ssh-view-gcloud-command.png' | relative_url }} )
   
@@ -81,7 +103,9 @@ Launch your new instance with the following specs:
   ![]( {{ '/assets/images/gcp-ssh-connected.png' | relative_url }} )
   
 * After successfully connecting to Kali command line using the `gcloud` method, follow the steps in the walkthrough for the Chrome Remote Desktop on [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/solutions/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service) to connect the graphical XFCE desktop on Kali.
-	* Set the name to "Kali VM"
+	* Set the name to something like "Kali VM"
+
+
 
 # Part 5: Set up budget alerts
 
