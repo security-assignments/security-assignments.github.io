@@ -24,18 +24,18 @@ or other server files.
 3. For both 1 and 2 above, suggest ways that vulnerabilities exploited
 or sensitive information obtained could be protected.
 
-<div class='alert alert-danger'>The scope of your project is restricted to the computer belonging to the
-IP address communicated to you via Canvas.</div>
+<div class='alert alert-danger'>The scope of your project is restricted to the single computer running the webserver on the 192.168.10.0/24 vpn network.</div>
 
 The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN. 
 Download `client.conf` to kali from Canvas. Open a separate Terminal session, and run `openvpn client.conf`. 
 Leave this terminal running for as long as you need to connect to the midterm vm. Running this will give you an ip address on VPN in the `10.8.` network space. 
 
-**Use this new ip address as your LHOST whenever needed, not your `192.` one.** 
+**Use this new ip address as your LHOST in `metasploit` whenever needed.** 
 
 You can view your ip address by running `ifconfig`. 
-You will be able to connect to the private `172.32.0.0/16` address of your target server even though it is on a different subnet, 
-because the VPN server passes traffic through for you.
+You will be able to connect to the private `192.168.10.0/24` address of your target server because the VPN server passes traffic through for you.
+
+
 
 ## Written Report Deliverable
 
