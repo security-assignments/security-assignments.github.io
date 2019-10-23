@@ -68,7 +68,9 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 1.  The virtual machines are accessed using `virt-manager`. First, you should make
     sure that your user account is a member of the `libvirt` group.
 
-        usermod -a -G libvirt $(whoami)
+        sudo usermod -a -G libvirt $(whoami)
+        
+    <div class='alert alert-danger'><strong>Heads up!</strong> This will need to be run each time you create a new Kali instance.</div>
     
 2.  Then, from a terminal, run `virt-manager` to get an interface such as the following:
 
