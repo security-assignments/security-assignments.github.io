@@ -24,16 +24,15 @@ or other server files.
 3. For both 1 and 2 above, suggest ways that vulnerabilities exploited
 or sensitive information obtained could be protected.
 
-<div class='alert alert-danger'>The scope of your project is restricted to the single computer running the webserver on the 192.168.10.0/24 vpn network.</div>
+<div class='alert alert-danger'>The scope of your project is restricted to the single server with IP address `192.168.10.107`, accessible by connecting to the vpn network.</div>
 
-The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN. 
-Download `client.conf` to kali from Canvas. Open a separate Terminal session, and run `openvpn client.conf`. 
-Leave this terminal running for as long as you need to connect to the midterm vm. Running this will give you an ip address on VPN in the `10.8.` network space. 
+The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN.
+I uploaded a vpn config file to each of your Canvas Midterm Group's pages -- download your team's `client.conf` file from there into Kali. Open a separate Terminal session, and run `sudo openvpn <name of your config file>`. 
+Leave this terminal running for as long as you need to connect to the midterm vm. 
 
-**Use this new ip address as your LHOST in `metasploit` whenever needed.** 
+Connecting to the vpn network will give you a new ip address on the VPN network in the `10.8.0.0/24` space. **Use this new ip address as your LHOST in `metasploit` whenever needed.**
 
-You can view your ip address by running `ifconfig`. 
-You will be able to connect to the private `192.168.10.0/24` address of your target server because the VPN server passes traffic through for you.
+You can view your ip address by running `ifconfig` or `ip addr` in Kali. You will be able to connect to the private `192.168.10.0/24` address of your target server because the VPN server passes traffic through for you.
 
 
 
