@@ -15,7 +15,7 @@ Your assignment is to create a risk assessment and mitigation report for the ser
 
 # Objectives 
 
-1. For each information type listed in section C.3.2 of [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf), complete the following table: 
+1. For each information type listed in section C.3.2 of [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf), complete a row like the following: 
 
     ![img]( {{ "/assets/images/Impact-table.png" | relative_url }}){: width="700px" }
     
