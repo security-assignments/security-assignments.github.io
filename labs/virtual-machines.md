@@ -87,6 +87,10 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
     </ul>
     </div>
 
+
+
+## Starting and accessing virtual machines
+
 3.  Start a virtual machine by selecting it, and pressing the "play" icon. The virtual machine should
     then update to show that it is running.
 
@@ -112,6 +116,74 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
     {% include image.html image='virt-manager-running-ping.jpg' %}
 
 
+## Using snapshots
+
+Virtual machines in `virt-manager` can be "snapshotted", which lets you restore the virtual machine to a previous state if you mess it up by doing something such as deploying malware to it.
+
+To create a snapshot:
+
+{% include image.html image='virt-manager-snapshots.PNG' %}
+
+
+To restore to a snapshot:
+
+{% include image.html image='virt-manager-snapshot-restore.PNG' %}
+
+
+
+# Miscellaneous how-tos
+
+
+
+## Disabling Windows Defender and Windows Firewall in Windows 7
+
+
+### Disabling Windows Defender
+
+Search for and open the Windows Defender dialog:
+
+{% include image.html image='windows-defender-search-open.PNG' %}
+
+Click the "tools" ribbon button, and then open the "options" menu pane:
+
+{% include image.html image='windows-defender-tools-options.PNG' %}
+
+Disable automatic scanning:
+
+{% include image.html image='windows-defender-automatic-scanning-off.PNG' %}
+
+Disable real-time protection:
+
+{% include image.html image='windows-defender-realtime-off.PNG' %}
+
+Then, click "Save".
+
+
+### Disabling Windows Firewall
+
+Search for and open the Windows Firewall dialog:
+
+{% include image.html image='windows-firewall-search-open.PNG' %}
+
+Click the "turn off-on" sidebar menu:
+
+{% include image.html image='windows-firewall-turn-off-sidebar.PNG' %}
+
+Turn off the firewall for both public and private networks:
+
+{% include image.html image='windows-firewall-off.PNG' %}
+
+
+## Enabling copy-paste for security-onion
+
+If copy-paste is not working for security-onion, do the following: Shut down security onion. Then, from the "device info" menu for security onion (see above), 
+"add hardware" bottom towards bottom-left > select "channel" use the default "spice agent." Start security onion again. This works because I already installed the `spice-vdagent` package into security-onion.
+
+{% include image.html image='add-spice-channel.png' %}
+
+
+
+<hr/>
 
 # How I created the virtual machines
 
