@@ -7,6 +7,7 @@ description: Learn your network before an intruder does
 published: true
 ---
 
+<div class='alert alert-info'>All commands, tools, and files for this lab should be run and are found in the Security Onion virtual machine -- username: <code>securityonion</code> password: <code>Password1</code></div>
 	
 # Part 1: Analyzing NetFlow information
 
@@ -25,7 +26,7 @@ Read the below article and use Google to answer the following questions:
 Now that you have basic understandings of NetFlow, we will use YAF and SiLK (open-source incident response tools for Linux) to analyze NetFlow data. 
 Further documentation can be found at http://www.appliednsm.com/silk-on-security-onion/.
 
-We will analyze sample data hosted [here](https://tools.netsa.cert.org/silk/referencedata.html#), which says the following about the data source:
+We will analyze sample data hosted [here](https://tools.netsa.cert.org/silk/referencedata.html#) (already downloaded to my security-onion virtual machine), which says the following about the data source:
 
 {: style="font-size:16px"}
 > This sample data is derived from anonymized enterprise packet header traces obtained from Lawrence Berkeley National Laboratory and ICSI, 
@@ -42,9 +43,17 @@ and is used here with their permission. This data covers selected hours on selec
     it's just text!
     </div>
     
+    <div class='alert alert-danger' markdown='1'>
+    These <code>export</code> commands will only persist for the current terminal session. If you open a new terminal and use any of the commands in this section
+    that rely on the <code>$sd</code> variable, you will get a cryptic error.
+    </div>
+    
     We can now start querying the sample data to find some interesting and important information about the sample network. 
     
     All commands that start with `rw` are part of the SiLK Tool Suite. `rwfilter` first selects records from netflow files, and `rwstats` summarises those records. 
+    
+    
+    
     
 4.	Query the top “talkers” (those host-pairs that send and receive the most traffic) <span class='label label-info'>by bytes</span>.
 
@@ -134,6 +143,8 @@ and is used here with their permission. This data covers selected hours on selec
 # Part 2: Examining PCAP Files
 
 In this section, you’ll examine the network traffic for a Windows VM that browsed to a compromised website that in turn referred the Windows VM to a server that delivered malware to the Windows VM. You’ll use Squert and Wireshark to investigate these events.
+
+<div class='alert alert-info'>If you get a blank screen while trying to use Squert, then copy-paste the squert web address into an "incognito" window within security onion's web browser.</div>
 
 1.  Ensure that a IDS signature rule 2000419 is enabled.
 
@@ -251,6 +262,8 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
 5.	But what was this host doing that led to them downloading malware? What sent them to that malicious domain? Let's investigate!
 
     In Wireshark’s File menu, choose “Open,” navigate to `/data/cases/case.pcap` file, click “Open.” This will load the entire traffic file -- not just the traffic directly associated with the malware download.
+    
+    <div class='alert alert-info'><strong>Pay attention!</strong> In the above step, we opened the _entire_ case pcap file in wireshark. If you forget to do this and are still looking at a .pcap from CapME, you will have a bad time.</div>
 
     Note the source IP address for packet number 1. This is the Windows VM that gets infected. This entire network trace only pertains to web-based traffic associated with our victim for a certain time window.
 
@@ -319,8 +332,8 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     This will create a directory `name.of.the.directory.where.you.want.to.save.the.carved_files` containing all of the files that Foremost carved out of the network stream.
     
     <div class='alert alert-info'><strong>Foremost stuck on "reading from stdin"?</strong> This happens when foremost cannot find the file you reference on <code>-i</code>. It will never end. 
-        <code>stdin</code> means that it is sitting there waiting for you to enter something, because it couldn't find an input otherwise. It's an odd behavior, but makes sense I guess in some programmer's mind.
-        Navigate to the directory where your input file is located, and <em>then</em> run foremost.
+        <code>stdin</code> means that it is sitting there waiting for you to enter something, because it couldn't find an input otherwise. 
+        It's an odd behavior, but makes sense I guess in some programmer's mind. Kill the process (<code>Ctrl+c</code>). Then, navigate to the directory where your input file is located, and <em>then</em> run <code>foremost</code>.
     </div>
 
     Inside your carved files directory, you will find a subdirectory for each file type recovered. For this analysis, you should see two subdirectories -- one for extracted `png` files,
@@ -394,6 +407,7 @@ Seeing an opportunity that could get him that Vice President of Product Developm
 
     {% include lab_question.html question="What was the full URI of Alex Stephens' original web request? (Please include the port in your URI.)" %}
 
+    <div class='alert alert-info'><p><strong>Hint:</strong> Squert will not help you here -- instead, use Wireshark skills on the entire <code>.pcap</code> file. Look for <code>http</code> traffic.</p><p>The reason why the Squert alerts will not help to find the original HTTP request will be more clear in Step 4</p></div>
     
 2.	In response, the malicious web server sent back obfuscated JavaScript, which contained a zero-day exploit. Near the beginning of this JavaScript code, the attacker 
     created a javascript array named “UWnHADOfYHiHDDXj” with 1300 “COMMENT” HTML elements, then set the `data` property of each of those elements to a string. 
@@ -430,7 +444,7 @@ Seeing an opportunity that could get him that Vice President of Product Developm
     {% include lab_question.html question="What is the MD5 hash of the second file requested (the second HTTP response object)?" %}
     
     <div class='alert alert-info'><strong>Hint:</strong>
-        <p>You can first filter to `http` traffic with `GET` requests, and note the name and properties of the second one. Then, You can use <code>foremost</code> to extract the http response object from a saved copy of the http tcp stream.</p>
+        <p>You can first filter to <code>http</code> traffic with <code>GET</code> requests, and note the name and properties of the second one. Then, You can use <code>foremost</code> to extract the http response object from a saved copy of the http tcp stream.</p>
         
         <p>
         Alternatively and equivalently, you can export HTTP response objects in Wireshark by going to the wireshark <code>File</code> menu, and selecting “Export Objects” > HTTP. You should see two "HTTP"-requested objects. The first is the initial 
@@ -440,19 +454,24 @@ Seeing an opportunity that could get him that Vice President of Product Developm
     </div>
     
 
-4.	This new malicious object opened a TCP session on port 4444 between Alex' computer and Claire’s machine.
+4.	The exploit javascript from the first HTTP object did some over-my-head crazy magic with the second HTTP object that involved overwriting its location in memory with a payload.
+    The javascript gets the payload to execute, and the payload opened a TCP session on port 4444 between Alex' computer and Claire’s machine.
+    
+    <div class='alert alert-info'>This is the heart of the trick -- javascript is not supposed to be able to write programs to memory and get them to execute, the browser is supposed to be sandboxed from the rest of the system. Yet, the vulnerability lets the javascript write a program to memory and get it to run outside of the browser.</div>
 
     Find the packet for when the TCP session on port 4444 opened, and also find the one when it closed. Use the timestamp difference between these two to determine
     how long the port was open. This is significant because it tells us how long the attackers had to perform their attack.
 
     <div class='alert alert-info'>
-        <strong>Hint</strong> Use the Wireshark filter “tcp.port == 4444”. For the time, see the value in Wireshark’s “Time” column for the first row in the filtered results.
+        <strong>Hint</strong> Use the Wireshark filter <code>tcp.port == 4444</code>. For the time, see the value in Wireshark’s “Time” column for the first row in the filtered results.
         Right-click the first packet in the filtered results, and choose <code>Set Time Reference</code>. 
         Then note the time value for the last row in the filtered results. With the first set
         as the time reference, the last packet will indicate how long this tcp stream was open.
     </div>
     
     {% include lab_question.html question="How long was the TCP session on port 4444 open?" %}
+    
+    <div class='alert alert-info'>The reason why Squert would not show any HTTP request information for this malware download is because... this malware was not directly downloaded via an HTTP request! This malware was downloaded by a program written to memory and executed by javascript, which javascript was sent in the original web request.</div>
     
     
 5.	In packet 17, the malicious server began to send a file to the client over the port 4444 TCP session. What type of file was it?
