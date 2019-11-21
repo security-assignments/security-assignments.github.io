@@ -6,58 +6,79 @@ description: Overview of trackers, third party cookies, and Tor
 published: true
 ---
 
-# Part 1: Visualize Web Trackers
+This lab will help you learn more about how to protect your privacy on the Web. Perform the steps below on your personal computer, not your Kali VM on Google Cloud.
 
-Install the Firefox Lightbeam browser add-on (if needed, first install Firefox) to visualize how web-tracking companies monitor your browsing behavior.
+# Part 1: Check Out Your Data
 
-1.	Install Lightbeam at:
+Several major companies allow you to check out and examine the data they have on file for you. This can be very revealing.
 
-    [https://addons.mozilla.org/en-US/firefox/addon/lightbeam/](https://addons.mozilla.org/en-US/firefox/addon/lightbeam/)
+[Use this link](https://www.makeuseof.com/tag/make-backups-online-social-media-accounts-windows/) to learn how to download your data from one or more of the following services:
 
-2.	Open the Lightbeam tab by selecting Show Lightbeam from the Tools menu. Browse around the web visiting sites you typically frequent. 
+* Facebook (highly recommended)
+* Instagram
+* Google (If you use Gmail or Google Drive, note that downloads can be large)
+* Instagram
+* LinkedIn
+* Pinterest
+* Twitter
 
-    **Question:** How many connections between sites via third-party trackers do you see after browsing 10 popular sites?
-    
-# Part 2: Turn on Do Not Track in your Web Browser
+Alternatively, see the links below to download your data from these companies:
 
-Turn on Do Not Track in your web browser.
+* [Amazon](https://www.usatoday.com/story/tech/columnist/saltzman/2018/04/04/amazon-and-alexa-know-whole-lot-you-heres-how-download-and-delete-info/482286002/)
+* [Apple](https://support.apple.com/en-us/HT208502)
+* [Snapchat](https://support.snapchat.com/en-US/a/download-my-data)
 
-1.	Turn on Do Not Track (DNT) in your web browser. Search the Web for instructions on how to do so for your browser favorite browser.
+If you aren’t a customer for any of the above companies, try to check out your data for another company you use.
 
-2.	Visit [http://donottrack.us](http://donottrack.us) to see if DNT is enabled in your browser.
+**Questions:**
 
-    **Question:** Did you turn on Do Not Track in your browser (yes/no)?
-    
-# Part 3: Blocking Web Trackers
+* What service did you download data for?
+* What types of information had this online service collected about you?
+* Did anything you found in the data about yourself surprise you?
 
-While DNT politely asks web trackers not to track you, you can install software that blocks trackers. 
+**Deliverable:**
 
-1.	Visit [https://www.ghostery.com/products/](https://www.ghostery.com/products/) and install the Ghostery extension in your browser.
-2.	Choose whether you're going to allow Ghostery to sell your browsing information (I said "No Thanks")
-3. By default, Ghostery won't actually block _anything_ anymore. Let's change that.
-    1. Click the Ghostery icon in your browser, and click the three vertical dots to open the settings menu.
-    1. Click "Settings". Check "Block new trackers added to Ghostery by default
-    1. Click the three dots again, choose "Advanced Blocking".
-    1. Click "Block All" if you're feeling saucy. Or, be selective.
-3.	Browse to your favorite sites and click the Ghostery icon after each page load. Which of your favorite sites uses the most web trackers?
-4.	Click on the struck-through name of an add tracker and click the “Continue to full tracker profile” link on Chrome or the “Click here for more information about…” link in Safari to learn more about the add tracker (see figure below).
+* Submit to Canvas as screenshot of the files you obtained from the online service. Don't submit a screenshot of the contents of these files.
 
-![]({{ "/assets/images/lab_13_1.png" | relative_url }}){: width='40%'}
+# Part 2: Blocking Web Trackers
+
+Although ad trackers are seemingly everywhere on the Web, the good news is that the newest versions of several major web browsers--such as [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Brave](https://brave.com), and [Safari](https://www.apple.com/safari/) for Apple devices--have built-in privacy protections.
+
+**Setup Firefox**
+
+For this section of the lab, you'll configure Firefox on your laptop to block and examine web trackers of various kinds.
+
+1. Watch this [one-minute video](https://www.youtube.com/watch?v=dKmoubR-nVg) about the new privacy protections in Firefox 70.
+2. Download the [latest version of Firefox](https://www.mozilla.org/en-US/firefox/new/). If you already have Firefox installed on your laptop, check to see that you have Firefox 70 or later installed. 
+* On a Mac, go to the Firefox menu and select "About Firefox."
+* On Windows, go to the "Help" menu and select "About Firefox."
+
+    After the update downloads, click the "Restart to update Firefox" button.
+
+3. Turn on fingerprint blocking.
+* Open Firefox preferences by clicking the icon with three horizontal lines (the so-called "hamburger" icon) in the top-right-hand corner of Firefox.
+* Select "Privacy & Security"
+* Under "Enhanced Tracking Protection," select "Custom," and make sure that all four boxes are checked ("cookies," "Tracking content," "Cryptominers," and "Fingerprinters".
+
+**Use Ghostery to Learn about Web Trackers**
+
+Firefox now blocks third-party cookies and fingerprinting techniques. However, to get more information about web trackers, you'll next install Ghostery, a browser extension that blocks ads and trackers.
+
+1. Visit [https://www.ghostery.com/products/](https://www.ghostery.com/products/) and install the Ghostery extension in Firefox.
+2. Choose the free basic plan.
+3. In "Customize Setup," select "Block Everything" and click the "Next" button. Uncheck the box for sending anonymous analytics to Ghostery.
+4.	Browse to your favorite sites and click the Ghostery icon after each page load. Which of your favorite sites uses the most web trackers?
+5. Click on the Ghostery icon and select the "Detailed View" tab. Click on the struck-through name of an add tracker and click the “Continue to full tracker profile” to learn more about the ad tracker (see figure below).
+
+    ![]({{ "/assets/images/lab_13_1.png" | relative_url }}){: width='70%'}
 
 5.	While viewing one of the "full tracker profiles", click on the down arrow next to “Privacy Information” to learn about the tracker’s privacy policy. 
 
     **Question:** What is the name of the third-party tracker you read about, and what kinds of information is its company collecting about you? 
     
-    <div class='alert alert-info'><strong>Note: </strong> while Ghostery has fun visuals, I don't use it. I prefer <a href='https://www.eff.org/privacybadger'>Privacy Badger</a> + uBlock Origin. Privacy Badger is smarter and less draconian about what it blocks, and requires no hoop-jumping to actually get it to block something. I customize uBlock Origin in "advanced mode" to get it to block what I want. Customizing is not for the feint of heart, the default works pretty well.</div>
+    <div class='alert alert-info'><strong>Note: </strong> while Ghostery has fun visuals, I don't use it. I prefer <a href='https://www.eff.org/privacybadger'>Privacy Badger</a> + uBlock Origin. Privacy Badger is smarter and less draconian about what it blocks, and requires no hoop-jumping to actually get it to block something. I customize uBlock Origin in "advanced mode" to get it to block what I want. Customizing is not for the faint of heart, the default works pretty well.</div>
 
-# Part 4: Disable Third-party Cookies in Your Browser
-
-1.	Search the web for instructions for how to disable third-party cookies in your browser of choice.
-2.	Disable third-party cookies in your browser.
-    
-    **Question:** Did you disable-third party cookies in your browser (yes/no)?
-    
-# Part 5: Browser Fingerprinting
+# Part 3: Browser Fingerprinting
 
 1.	Visit [https://panopticlick.eff.org](https://panopticlick.eff.org) and test your browser (note -- it won't work with uBlock Origin without some tweaking)
 
@@ -79,17 +100,23 @@ While DNT politely asks web trackers not to track you, you can install software 
 
     **Question:** How many bits of information does Panopticlick report for your browser?
 
-# Part 6: Anonymous Web Browsing
+# Part 4: Anonymous Web Browsing
 
 1.	Go to [http://whatismyip.com/](http://whatismyip.com/) and note your IP address.
 2.	Turn on your browser’s privacy mode (e.g., “Incognito Mode” in Chrome, “Private Browsing” in Firefox and Safari).
 3.	Go to [http://whatismyip.com/](http://whatismyip.com/) again and note your IP address.
 
-    Note that your IP address didn’t change.
+    Note that your IP address didn’t change. Why not?
 
-    **Question:** If your true IP address can still be seen by webservers, what does your browser’s privacy mode do? (Ask the internet if you're not sure)
+    **Question:** If your true IP address can still be seen by web servers, what does your browser’s privacy mode do? (Ask the internet if you're not sure.)
 
-4.	Run the **Tor Browser** (install if necessary) available for Linux, Mac, and Windows [here](https://www.torproject.org/download/download-easy.html)
+4.	Run the **Tor Browser** (install if necessary) available for Linux, Mac, and Windows [here](https://www.torproject.org/download/download-easy.html).
+
+    {% if site.instructorcollab_username == 'aov' %}
+        Note: You can't download or use Tor Browser on Temple University's 
+        campus unless you use a VPN service. For this part of the lab, visit 
+        a restaurant or store with public wi-fi to use the Tor browser.
+    {% endif %}
 
     Note: If you’re using a Mac and MacOS refuses to open the Tor Browser app because it is from an unknown developer, hold the control key and right-click the Tor Browser app and then select “open.” This will create an exception for the Tor Browser app and open it.
 
@@ -111,14 +138,17 @@ While DNT politely asks web trackers not to track you, you can install software 
     
 11.	Access the legitimate TOR services using the Tor browser:
 
+    The New York Times:
+    : [https://www.nytimes3xbfgragh.onion](https://www.nytimes3xbfgragh.onion/)
+
     ProPublica (non-profit news site):
-    : http://www.propub3r6espa33w.onion
+    : [https://www.propub3r6espa33w.onion](https://www.propub3r6espa33w.onion)
 
     The Federalist Papers (originally published pseudonymously in 1787–1788):
-    : http://duskgytldkxiuqc6.onion/fedpapers/federa00.htm
+    : [http://duskgytldkxiuqc6.onion/fedpapers/federa00.htm](http://duskgytldkxiuqc6.onion/fedpapers/federa00.htm)
 
-    The Washington Post’s SecureDrop site for whistleblowers:
-    : http://vbmwh445kf3fs2v4.onion
+    The Washington Post's SecureDrop site for whistleblowers:
+    : [https://jcw5q6uyjioupxcc.onion](https://jcw5q6uyjioupxcc.onion)
 
     SecureDrop uses the Tor network to allow whistleblowers to securely share information with the news media:
 
@@ -127,10 +157,10 @@ While DNT politely asks web trackers not to track you, you can install software 
     **Note:** If you’re interested in how SecureDrop works, see here: [https://securedrop.org/faq](https://securedrop.org/faq)
     
     Visit the Duck Duck Go TOR service search engine, and search for something:
-    : http://3g2upl4pq6kufc4m.onion 
+    : [http://3g2upl4pq6kufc4m.onion](http://3g2upl4pq6kufc4m.onion)
 
     If you have a Facebook account, access Facebook using their TOR service:
-    : https://facebookcorewwwi.onion/
+    : [https://facebookcorewwwi.onion](https://facebookcorewwwi.onion)
 
     Note: Facebook says that as of April 2016, [more than 1 million people access Facebook via Tor](https://www.facebook.com/notes/facebook-over-tor/1-million-people-use-facebook-over-tor/865624066877648/)
     
