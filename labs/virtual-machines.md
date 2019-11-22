@@ -120,12 +120,12 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
 
 Virtual machines in `virt-manager` can be "snapshotted", which lets you restore the virtual machine to a previous state if you mess it up by doing something such as deploying malware to it.
 
-To create a snapshot:
+To create a snapshot, **first, shut down the virtual machine**. Then, click the "snapshot" button on the virtual machine pane, then `+`, then set a name, and "Finish."
 
 {% include image.html image='virt-manager-snapshots.PNG' %}
 
 
-To restore to a snapshot:
+To restore to a snapshot, select your snapshot, and then "play" it. You do not need to shut down the virtual machine before restoring a snapshot.
 
 {% include image.html image='virt-manager-snapshot-restore.PNG' %}
 
@@ -172,6 +172,34 @@ Click the "turn off-on" sidebar menu:
 Turn off the firewall for both public and private networks:
 
 {% include image.html image='windows-firewall-off.PNG' %}
+
+
+## Install md5deep and sha256deep into Windows
+
+*   From within your windows vm, [download md5deep-4.4.zip](https://github.com/jessek/hashdeep/releases/download/v4.4/md5deep-4.4.zip), and extract it.
+
+    {% include image.html image='md5deep-download-extract-all.PNG' %}
+
+*   Open the extracted folder, and dig down until you find the directory with all of the '.exe' files.
+    {% include image.html image='md5deep-extracted.PNG' %}
+    {% include image.html image='md5deep-copy-path.PNG' %}
+    
+*   Click in the Windows Explorer nav bar and select the current path. Copy it to the clipboard.
+    
+*   We want to be able to run these .exe files from anywhere within a `cmd` shell, so we will edit the accounts's `PATH` environment variable to include this directory. 
+    *   Search for and open a dialog to edit the account's "Environment variables."
+        {% include image.html image='windows-path-search.PNG' %}
+        
+    *   Create a new variable called `PATH`, and set it to the directory on your clipboard (just paste it).
+        {% include image.html image='windows-path-new.PNG' %}
+        
+        *   If your account `PATH` variable already exists, then _edit_ it, and append your new path with a `;` delimiter after the current PATH string value.
+    *   Open a new `cmd.exe` terminal, and confirm that you can run `md5deep` by passing an argument such as `-h`, e.g., `md5deep -h`. 
+            
+        If you do not get an error, then you have successfully added the md5deep .exe folder to your path.
+        
+        {% include image.html image='windows-md5deep-without-full-path.PNG' %}
+
 
 
 ## Enabling copy-paste for security-onion
