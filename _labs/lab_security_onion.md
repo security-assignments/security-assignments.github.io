@@ -343,7 +343,7 @@ In this section, you’ll examine the network traffic for a Windows VM that brow
     
     {% include lab_question.html question='What is the <code>sha256</code> hash of the exe payload?' %}
     
-    Browse to a website such as [virustotal.com](virustotal.com) or [hybrid-analysis.com](hybrid-analysis.com) and search the site using the payload's hash. This can tell you more about what you're 
+    Browse to a website such as [virustotal.com](https://virustotal.com) or [hybrid-analysis.com](https://hybrid-analysis.com) and search the site using the payload's hash. This can tell you more about what you're 
     dealing with in your network and potentially how to clean it up.
     
     {% include lab_question.html question='As shown on virustotal.com, what does Kaspersky antivirus report the exe to likely be?' %}
