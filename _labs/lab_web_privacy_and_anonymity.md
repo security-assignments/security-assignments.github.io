@@ -30,21 +30,19 @@ Alternatively, see the links below to download your data from these companies:
 
 If you aren’t a customer for any of the above companies, try to check out your data for another company you use.
 
-**Questions:**
 
-* What service did you download data for?
-* What types of information had this online service collected about you?
-* Did anything you found in the data about yourself surprise you?
+{% include lab_question.html question='What types of information had this online service collected about you?' %}
+{% include lab_question.html question='Did anything you found in the data about yourself surprise you?' %}
 
-**Deliverable:**
+{% include lab_question.html question='Submit to Canvas as screenshot of the files you obtained from the online service. Don\'t submit a screenshot of the contents of these files.' %}
 
-* Submit to Canvas a screenshot of the files you obtained from the online service. Don't submit a screenshot of the contents of these files.
+
 
 # Part 2: Blocking Web Trackers
 
 Although ad trackers are seemingly everywhere on the Web, the good news is that the newest versions of several major web browsers--such as [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Brave](https://brave.com), and [Safari](https://www.apple.com/safari/) for Apple devices--have built-in privacy protections.
 
-**Setup Firefox**
+## Setup Firefox
 
 For this section of the lab, you'll configure Firefox on your laptop to block and examine web trackers of various kinds.
 
@@ -60,7 +58,7 @@ For this section of the lab, you'll configure Firefox on your laptop to block an
 * Select "Privacy & Security"
 * Under "Enhanced Tracking Protection," select "Custom," and make sure that all four boxes are checked ("cookies," "Tracking content," "Cryptominers," and "Fingerprinters".
 
-**Use Ghostery to Learn about Web Trackers**
+## Use Ghostery to Learn about Web Trackers
 
 Firefox now blocks third-party cookies and fingerprinting techniques. However, to get more information about web trackers, you'll next install Ghostery, a browser extension that blocks ads and trackers.
 
@@ -74,21 +72,18 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 
 5.	While viewing one of the "full tracker profiles", click on the down arrow next to “Privacy Information” to learn about the tracker’s privacy policy. 
 
-    **Question:** What is the name of the third-party tracker you read about, and what kinds of information is its company collecting about you? 
+    {% include lab_question.html question='What is the name of the third-party tracker you read about, and what kinds of information is its company collecting about you?' %}
     
-    <div class='alert alert-info'><strong>Note: </strong> while Ghostery has fun visuals, I don't use it. I prefer <a href='https://www.eff.org/privacybadger'>Privacy Badger</a> + uBlock Origin. Privacy Badger is smarter and less draconian about what it blocks, and requires no hoop-jumping to actually get it to block something. I customize uBlock Origin in "advanced mode" to get it to block what I want. Customizing is not for the faint of heart, the default works pretty well.</div>
 
 # Part 3: Browser Fingerprinting
 
-1.	Visit [https://panopticlick.eff.org](https://panopticlick.eff.org) and test your browser (note -- it won't work with uBlock Origin without some tweaking)
+1.	Visit [https://panopticlick.eff.org](https://panopticlick.eff.org) and test your browser.
 
-    **Question:** Is your browser blocking tracking ads?
-    
-    **Question:** Is your browser blocking invisible trackers?
-    
-    **Question:** Does your browser unblock 3rd parties that promise to honor Do Not Track?
-    
-    **Question:** Does your browser protect against fingerprinting?
+    {% include lab_question.html question='Is your browser blocking tracking ads?' %}
+    {% include lab_question.html question='Is your browser blocking invisible trackers?' %}
+    {% include lab_question.html question='Does your browser unblock 3rd parties that promise to honor Do Not Track?' %}
+    {% include lab_question.html question='Does your browser protect against fingerprinting?' %}
+
 
 2.	Click on the link, “Show full results for fingerprinting.” Look over the browser characteristics and how many bits of identifying information each one provides. 
 
@@ -98,7 +93,9 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 
     [https://panopticlick.eff.org/static/browser-uniqueness.pdf](https://panopticlick.eff.org/static/browser-uniqueness.pdf)
 
-    **Question:** How many bits of information does Panopticlick report for your browser?
+    {% include lab_question.html question='How many bits of information does Panopticlick report for your browser?' %}
+
+
 
 # Part 4: Anonymous Web Browsing
 
@@ -107,8 +104,8 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 3.	Go to [http://whatismyip.com/](http://whatismyip.com/) again and note your IP address.
 
     Note that your IP address didn’t change. Why not?
-
-    **Question:** If your true IP address can still be seen by web servers, what does your browser’s privacy mode do? (Ask the internet if you're not sure.)
+    
+    {% include lab_question.html question='If your true IP address can still be seen by web servers, what does your browser\’s privacy mode do? (Ask the internet if you\'re not sure.)' %}
 
 4.	Run the **Tor Browser** (install if necessary) available for Linux, Mac, and Windows [here](https://www.torproject.org/download/download-easy.html).
 
@@ -126,7 +123,7 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 
 7.	Look up the location of each IP address you noted in step 6 using a service like [https://www.wolframalpha.com/](https://www.wolframalpha.com/).
 
-    **Question:** To which parts of the world do the IPs you noted in step 6 belong?
+    {% include lab_question.html question='To which parts of the world do the IPs you noted in step 6 belong?' %}
 
 8.	Read the about how to use Tor effectively: [https://www.torproject.org/download/download-easy.html#warning](https://www.torproject.org/download/download-easy.html#warning)
 
@@ -166,6 +163,6 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
     
 12.	Try to load the same URL in a browser other than the Tor Browser. 
 
-    **Question:** What error message do you receive?
+    {% include lab_question.html question='What error message do you receive?' %}
 
-**Question:** What do you think about the experience of accessing TOR services? 
+{% include lab_question.html question='What do you think about the experience of accessing TOR services?' %}

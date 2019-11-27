@@ -1,6 +1,6 @@
 ---
 layout: assignment
-title: Milestone 2 Instructions
+title: Midterm instructions
 ---
 
 Your assignment is to write a
@@ -24,18 +24,17 @@ or other server files.
 3. For both 1 and 2 above, suggest ways that vulnerabilities exploited
 or sensitive information obtained could be protected.
 
-<div class='alert alert-danger'>The scope of your project is restricted to the computer belonging to the
-IP address communicated to you via Slack.</div>
+<div class='alert alert-danger'>The scope of your project is restricted to the single server with IP address `192.168.10.107`, accessible by connecting to the vpn network.</div>
 
-The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN. 
-Download `client.conf` to Kali from Canvas (under the "Files" page). Open a separate Terminal session, and run `openvpn client.conf`. 
-Leave this terminal running for as long as you need to connect to the Milestone 2 VM. Running this will give you an ip address on VPN in the `10.8.` network space. 
+The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN.
+I uploaded a vpn config file to each of your Canvas Midterm Group's pages -- download your team's `client.conf` file from there into Kali. Open a separate Terminal session, and run `sudo openvpn <name of your config file>`. 
+Leave this terminal running for as long as you need to connect to the midterm vm. 
 
-**Use this new ip address as your LHOST whenever needed, not your `192.` one.** 
+Connecting to the vpn network will give you a new ip address on the VPN network in the `10.8.0.0/24` space. **Use this new ip address as your LHOST in `metasploit` whenever needed.**
 
-You can view your ip address by running `ifconfig`. 
-You will be able to connect to the private `172.32.0.0/16` address of your target server even though it is on a different subnet, 
-because the VPN server passes traffic through for you.
+You can view your ip address by running `ifconfig` or `ip addr` in Kali. You will be able to connect to the private `192.168.10.0/24` address of your target server because the VPN server passes traffic through for you.
+
+
 
 ## Written Report Deliverable
 
@@ -94,18 +93,18 @@ I look forward to reading your report. Let me know if you have any questions.
 
 ## Tips -- General
 
-* Did your scan show that the server is running something on port 80? It's probably a web page! Try browsing to it by using Kali's firefox, and put your server's ip address into the address bar.
+* Did your scan show that the server is running something on port 80? It's probably a web page! Try browsing to it by using kali's firefox, and put your server's ip address into the address bar.
 *   You will want to read up on using the following tools:
-	*   `scp` - one way to copy files from one computer to another, including from your server to Kali. You could also use a meterpreter shell to download files if you have one.
+	*   `scp` - one way to copy files from one computer to another, including from your server to kali. You could also use a meterpreter shell to download files if you have one.
         
         Example `scp` code (from Kali):
             
-            scp Milestone2-server-username@Milestone2-server-ip-address:/full/path/to/file/on/Milestone2/server .
+            scp midterm-server-username@midterm-server-ip-address:/full/path/to/file/on/midterm/server .
             
-        That will open an `ssh` connection to the Milestone 2 server as the specified user, and copy a file (that the user must have permission to read!) from the specified path down to the current directory 
+        That will open an `ssh` connection to the midterm server as the specified user, and copy a file (that the user must have permission to read!) from the specified path down to the current directory 
         (`.` means 'current directory that I'm in on Kali').
         
-        Note that this must be run on Kali. Meaning it cannot be run from within an exploited shell on the Milestone 2 server or from within an ssh connection to the Milestone 2 server. You cannot scp a file _from_ the Milestone 2 server _to_ Kali, because you cannot open an ssh session from the Milestone 2 server to Kali, because there is no 
+        Note that this must be run on Kali. Meaning it cannot be run from within an exploited shell on the midterm server or from within an ssh connection to the midterm server. You cannot scp a file _from_ the midterm server _to_ Kali, because you cannot open an ssh session from the midterm server to kali, because there is no 
         ssh server listening on Kali. (If there were, you all could ssh into each others' Kali VMs while connected to the VPN, and we can't have that!).
         
 	*   `ssh` - for logging into remote servers
