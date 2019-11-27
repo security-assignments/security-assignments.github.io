@@ -38,7 +38,7 @@ If you aren’t a customer for any of the above companies, try to check out your
 
 **Deliverable:**
 
-* Submit to Canvas as screenshot of the files you obtained from the online service. Don't submit a screenshot of the contents of these files.
+* Submit to Canvas a screenshot of the files you obtained from the online service. Don't submit a screenshot of the contents of these files.
 
 # Part 2: Blocking Web Trackers
 
