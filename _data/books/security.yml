@@ -1,4 +1,24 @@
 -
+    title: "Permanent Record"
+    author: Edward Snowden
+    img: https://images-na.ssl-images-amazon.com/images/I/51z1ZaEn6sL._SX327_BO1,204,203,200_.jpg    
+    comment: “Edward Snowden's autobiography and story of how and why he exposed the US governments mass surveillance system of the internet.” 
+    links:
+        -
+            type: Amazon
+            link: https://amzn.com/1250237238
+
+-
+    title: "Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most Dangerous Hackers"
+    author: Andy Greenberg
+    img: https://images-na.ssl-images-amazon.com/images/I/613VM4hOVNL._SX329_BO1,204,203,200_.jpg    
+    comment: “From Wired senior writer Andy Greenberg comes the true story of the most devastating cyberattack in history and the desperate hunt to identify and track the elite Russian agents behind it.” 
+    links:
+        -
+            type: Amazon
+            link: https://amzn.com/0385544405
+
+-
     title: "Unmasking the Social Engineer"
     author: Chris Hadnagy
     img: https://images-na.ssl-images-amazon.com/images/I/515b75fHQ3L._SX331_BO1,204,203,200_.jpg
@@ -6,7 +26,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/1118608577
+            link: https://amzn.com/1118608577
 
 -
     title: "Click Here to Kill Everybody: Security and Survival in a Hyper-connected World"
@@ -16,7 +36,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/B07BLMQKZK
+            link: https://amzn.com/B07BLMQKZK
             
 -
     title: "The Art of Deception: Controlling the Human Element of Security"
@@ -27,7 +47,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/076454280X
+            link: https://amzn.com/076454280X
 
 -
     title: "Beyond Fear: Thinking Sensibly About Security in an Uncertain World"
@@ -49,7 +69,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/077043617X
+            link: https://amzn.com/077043617X
 
 -
     title: "Crypto: How the Code Rebels Beat the Government Saving Privacy in
@@ -62,7 +82,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0140244328
+            link: https://amzn.com/0140244328
 
 -
     title: "The Cuckoo's Egg: Tracking a Spy Through the Maze of Computer Espionage"
@@ -72,7 +92,7 @@
     links:
       -
         type: Amazon
-        link: http://amzn.com/1416507787
+        link: https://amzn.com/1416507787
 
 -
     title: "Data and Goliath: The Hidden Battles to Collect your Data and Control your World"
@@ -82,7 +102,7 @@
     links:
       -
         type: Amazon
-        link: http://amzn.com/0393244814
+        link: https://amzn.com/0393244814
 
 -
     title: "Dragnet Nation: A Quest for Privacy, Security, and Freedom in a
@@ -97,7 +117,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0805098070
+            link: https://amzn.com/0805098070
 
 -
     title: "Ghost in the Wires: My Adventures as the World's Most Wanted Hacker"
@@ -110,7 +130,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0316037729
+            link: https://amzn.com/0316037729
 
 -
     title: "Keys to the Kingdom: Impressioning, Privilege Escalation, Bumping,
@@ -122,7 +142,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/1597499838
+            link: https://amzn.com/1597499838
 
 
 
@@ -133,7 +153,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0307588696
+            link: https://amzn.com/0307588696
 
 
 -
@@ -154,7 +174,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0674035070
+            link: https://amzn.com/0674035070
 
 -
     title: "Practical Lock Picking, Second Edition: A Physical Penetration
@@ -165,7 +185,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/1597499897
+            link: https://amzn.com/1597499897
 
 
 -
@@ -187,7 +207,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0470639539
+            link: https://amzn.com/0470639539
 
 -
     title: "Spam Nation: The Inside Story of Organized Cybercrime-from Global
@@ -204,7 +224,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0805098070
+            link: https://amzn.com/0805098070
 
 -
     title: The Code Book
@@ -215,7 +235,7 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/0470474246
+            link: https://amzn.com/0470474246
 
 -
     title: The Practice of Network Security Monitoring
@@ -226,4 +246,4 @@
     links:
         -
             type: Amazon
-            link: http://amzn.com/1593275099
+            link: https://amzn.com/1593275099
