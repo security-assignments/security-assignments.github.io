@@ -45,8 +45,33 @@ discuss the most serious vulnerabilities first.
 
 ## Report Sections
 
-1. Executive summary (1 page)
-2. Briefly summarize the vulnerabilities reported in Section 3 of your penetration test report. Discuss why the likelihood is high that these vulnerabilities could be exploited in the future.
-3. Present and describe the impact rating table you created in Step 1 above and discuss the impact for each information type.
-4. Describe mitigating controls you identified in Step 3 above for the vulnerabilities you reported in Section 3 of your Milestone 2 report.
+1. Executive summary (1 page). In this section, state that the report:
+    * Is an assessment of risk to information stored on financial management systems, part of which is the server examined in your penetration test report.
+    * Discusses the likelihood that this information will be compromised, given the results of your penetration test report.
+    * Classifies impacts to different information types, in terms of confidentiality, integrity, and availability, following [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf).
+    * Classifies these potential impacts as "low," "moderate," and "high," which correspond to "limited," "serious," "severe" or "catastrophic" adverse effects, per [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
+    *  Proposes controls to mitigate the vulnerabilities identified in your penetration report, in accordance with the Security Control Baselines from [NIST Special Publication 800-53: "Security and Privacy Controls for Federal Information Systems and Organizations"](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf).
+
+
+2. In Section 1, briefly summarize the vulnerabilities reported in Section 3 of your penetration test report. *Discuss why the likelihood is high that these vulnerabilities could be exploited in the future.*
+3. In Section 2, 
+    * Present and describe the impact rating table you created in Step 1 above and discuss the impact for each information type. 
+    * Bold the items in the right-most column.
+    * State that these impact ratings come from [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf).
+    * In section 2.1, briefly define integrity, confidentiality, and availability, per FIPS 199. You're welcome to quote from [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
+    * In section 2.2, briefly define each impact category: "low," "moderate," and "high," which correspond to "limited," "serious," "severe" or "catastrophic" adverse effects, per [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
+    * In section 2.3, create a subsection for each information type (e.g., Asset and Liability Management, C.3.2.1).
+        * For each subsection, explain why it has the impact rating that it does for confidentiality, integrity, and availability. You're welcome to quote from [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf) with attribution. 
+        * Give emphasis to the most serious impacts.
+
+4. In section 3, describe mitigating controls you identified in Step 3 above for the vulnerabilities you reported in Section 3 of your penetration test report.
+    * List the specific controls from [NIST Special Publication 800-53: "Security and Privacy Controls for Federal Information Systems and Organizations"](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) (e.g., "IA-1: Identification and Authentication Policy and Procedures").
+    * Explains each control. You're welcome to to quote from NIST 800-53, with attribution.
+    * Group your controls by control family (e.g., group all "IA" controls together).
+    * *Be explicit how each control would mitigate the vulnerabilities you found*.
+    
+5. Add a reference section where you can list the title, author or agency name (e.g., NIST), URL, and access date for the works you cite.
+
+
+
 
