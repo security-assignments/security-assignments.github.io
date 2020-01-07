@@ -25,7 +25,7 @@ I have created a Kali virtual machine image on Google Cloud Platform which is us
 a Windows instance, a Metasploitable2 instance, and a security onion instance. They are hosted using `kvm` and `libvirt` and accessed using `virt-manager`.
 
 Read [these instructions]( {{ '/tutorials/intro-to-gcp.html' | relative_url }}) to get oriented to and set up on Google Cloud Platform, and to get access to the Kali virtual machine. 
-Anyone should be able to see and use the custom class kali image if they join [this Google Group](https://groups.google.com/a/daveeargle.com/forum/#!forum/infosec-management) (public access):
+Anyone should be able to see and use the custom class kali image if they join [this Google Group](https://groups.google.com/forum/#!forum/infosec-management/join) (public access):
 
 ## `infosec-net` Network Map
 
