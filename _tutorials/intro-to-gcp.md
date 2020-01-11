@@ -5,11 +5,6 @@ published: true
 number: 3
 ---
 
-
-# Part 0: Complete Intro to Linux Tutorial
-
-Complete [this intro-to-linux tutorial]( {{ '/tutorials/intro-to-linux' | relative_url }})
-
 # Part 1: Join the class Google Group
 
 To get access to the Kali virtual machine created for this class:
