@@ -43,9 +43,7 @@ published: true
     and the key is `security`
         
     Create the ciphertext using columnar transposition (demonstrated in class). Remove spaces from the plaintext. 
-    Pad the message so that there is an even block of characters, meaning that each column will have the same number of characters. 
-    One way to do this is to pad the block by repeating the message a character at a time until the block is complete. Or, you can fill out the block with random letters from the alphabet. Show your result.
-    
+        
     You may use [an online columnar transposition calculator](https://crypto.interactive-maths.com/columnar-transposition-cipher.html) to check your work.
     
     {{ know_this_warning }}
