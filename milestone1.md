@@ -2,6 +2,7 @@
 layout: assignment
 title: Milestone 1 Writing Assignment Instructions
 ---
+With Dr. [David Lanter](https://community.mis.temple.edu/dlanter/)
 
 Financial management involves the aggregate set of accounting practices and procedures that allow for the accurate and effective handling of all a business’ revenues, funding, and expenditures. A financial management information system supports the following business functions and associated datasets:
 
