@@ -67,6 +67,19 @@ And if one uses a [Virtual Private Network (VPN)](https://en.wikipedia.org/wiki/
 
 Now, consider what it means that one could use multiple VPNs, or a browsing system that automatically routes service traffic in circuitous ways, such as [Tor](https://www.torproject.org/) (this site is not accessible on Temple's network).
 
+# More about IP addresses
+
+Open a Microsoft Word document and record your answers to the following questions. You can also take screen shots and paste it into your document to explain your answers.
+
+1. What is the public IP address for Temple.edu?
+1. What class of IP address is the IP address for Temple.edu?
+1. What is the IP address for your Metaploitable2 VM?
+1. What is the IP address for your Windows 7 VM?
+1. Is the IP address for your Windows 7 and Metasploitable 2 VMs public or private?
+1. How would you test communication between two devices?
+1. What protocol is commonly used on the internet?
+1. Use the following tools--netstat, dig, nslookup, and ping--to examine the IP address for Temple.edu and explain how these tools can be beneficial to a security professional. Take screenshots to show you have answered the above questions and add them to document you will submit.
+
 # Shodan
 
 As we connect more and more devices to the Internet, we create an "Internet of Things" (IoT). These things include webcams, doorbells, thermostats, and anything else that can connect over IP.
