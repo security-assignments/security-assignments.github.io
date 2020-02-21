@@ -26,9 +26,9 @@ With respect to the three security objectives:
 
 Your objectives are to:
 
-1. Identify the types of sensitive information that might reside on the server hosting the financial management information system that you will seek to extract.
-2. Create a list of attacks your team will try against the server given what you have learned in the class so far.
-3. Create one or more attack trees with “Gain access to server” at the base and at least five different types of attacks listed as nodes. For each node, indicate the difficulty of the attack (e.g., “easy”, “medium”, “hard”). The attack tree should help you prioritize your efforts.
+1. Identify and describe the types of sensitive information that might reside on the server hosting the financial management information system that you will seek to extract.
+2. Document different attacks your team will try against the server given what you have learned in the class so far.
+3. Create one or more attack trees that documents different types of attacks to the server. Place "Gain access to server” at the base and describe at least five different types of attacks listed as nodes. For each node, indicate the difficulty of the attack (e.g., “easy”, “medium”, “hard”). The attack tree should help you to prioritize your efforts.
 
 ## Written Report Deliverable
 

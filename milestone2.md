@@ -21,8 +21,9 @@ root. Document each exploit that you are able to successfully launch.
 obtain from the server. These could include user files or web, database,
 or other server files.
 
-3. For both 1 and 2 above, suggest ways that vulnerabilities exploited
-or sensitive information obtained could be protected.
+3. For both 1 and 2 above, articulate the managerial implications for these vulnerabilities and sensitive information and how they could impact the business.
+
+4. For both 1 and 2 above, argue for methods that could protect the vulnerabilities and sensitive information from exploitation.
 
 <div class='alert alert-danger'>The scope of your project is restricted to the computer belonging to the
 IP address communicated to you via Slack.</div>
@@ -45,8 +46,7 @@ explain the concepts in terms that can be easily understood by managers
 without technical experience. If you use technical or unfamiliar terms,
 include a glossary of the terms used.
 
-There is no length requirement for the report, but your report must not
-exceed 20 pages (not including appendices).
+The suggested length requirement for the report is 10 pages, but your report must not exceed 15 pages (not including appendices).
 
 In writing your report, organize for impact. This means you should
 discuss the most serious vulnerabilities first. Further, in your
@@ -80,7 +80,7 @@ Your report will be graded using the following rubric:
 | 5% | One page executive summary that highlights the most important findings of your report. |
 | 5% | Description of the scope of the project, objectives, and your authorization to perform the assessment (i.e., my instructions to you in this document and in your email). |
 | 5% | Information about the server examined (OS, user accounts, applications installed, databases stored). |
-| 25% | High-level description of vulnerabilities successfully exploited and sensitive data obtained. |
+| 25% | High-level description of vulnerabilities successfully exploited and sensitive data obtained. Articulation of the managerial implications for these vulnerabilities and sensitive information and how they could impact the business.|
 | 30% | Supporting details of successful exploits and sensitive data obtained. The detail should be sufficient for another person to replicate the results of your main findings using your report. |
 | 25% | Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps. |
 | 5% | Clarity of writing for a managerial audience. |

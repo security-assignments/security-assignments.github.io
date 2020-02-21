@@ -23,11 +23,11 @@ Your assignment is to create a risk assessment and mitigation report for the ser
     
     You can use [this Excel spreadsheet file](/security-assignments/assets/files/Risk_assessment_table.xlsx) as a template.
 
-2. For each information type, use the information in [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf) (particularly Table 1) to write about the potential impact to the organization if the Milestone 2 server was breached containing these information types.
+2. For each information type, use the information in [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf) (particularly Table 1) to describe the potential impact to the organization if the Milestone 2 server was breached containing these information types.
 
-3. For each weakness you identified in Section 3 of your penetration test report, find controls that mitigate these weaknesses from Table D-2: "Security Control Baselines" from [NIST Special Publication 800-53: "Security and Privacy Controls for Federal Information Systems and Organizations"](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf).
+3. For each weakness you identified in Section 3 of your penetration test report, research controls that mitigate these weaknesses from Table D-2: "Security Control Baselines" from [NIST Special Publication 800-53: "Security and Privacy Controls for Federal Information Systems and Organizations"](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf), as well as other outside sources.
 
-    Explain in your assessment how these controls would mitigate each vulnerability you identified in Milestone 2.
+    Explain and justify in your assessment how these controls would mitigate each vulnerability you identified in Milestone 2.
 
 ## Written Report Deliverable
 
@@ -37,8 +37,7 @@ explain the concepts in terms that can be easily understood by managers
 without technical experience. If you use technical or unfamiliar terms,
 include a glossary of the terms used.
 
-There is no length requirement for the report, but your report must not
-exceed 20 pages (not including appendices).
+The suggested length requirement for the report is 10 pages, but your report must not exceed 15 pages (not including appendices).
 
 In writing your report, organize for impact. This means you should
 discuss the most serious vulnerabilities first. 
