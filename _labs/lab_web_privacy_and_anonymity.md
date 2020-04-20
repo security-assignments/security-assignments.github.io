@@ -111,8 +111,8 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 
     {% if site.instructorcollab_username == 'aov' %}
         Note: You can't download or use Tor Browser on Temple University's 
-        campus unless you use a VPN service. For this part of the lab, visit 
-        a restaurant or store with public wi-fi to use the Tor browser.
+        campus unless you use a VPN service. For this part of the lab, use 
+        the Tor browser from an off-campus network.
     {% endif %}
 
     Note: If you’re using a Mac and MacOS refuses to open the Tor Browser app because it is from an unknown developer, hold the control key and right-click the Tor Browser app and then select “open.” This will create an exception for the Tor Browser app and open it.
