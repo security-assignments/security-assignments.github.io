@@ -21,17 +21,17 @@ This page documents virtual machines that I have prepared for students in my cla
 
 # Setting up your virtual lab
 
-I have created a Kali virtual machine image on Google Cloud Platform which is using nested virtualization to host within it several virtual machines: 
+I have created a Kali virtual machine image on Google Cloud Platform which is using nested virtualization to host within it several virtual machines:
 a Windows instance, a Metasploitable2 instance, and a security onion instance. They are hosted using `kvm` and `libvirt` and accessed using `virt-manager`.
 
-Read [these instructions]( {{ '/tutorials/intro-to-gcp.html' | relative_url }}) to get oriented to and set up on Google Cloud Platform, and to get access to the Kali virtual machine. 
+Read [these instructions]( {{ '/tutorials/intro-to-gcp.html' | relative_url }}) to get oriented to and set up on Google Cloud Platform, and to get access to the Kali virtual machine.
 Anyone should be able to see and use the custom class kali image if they join [this Google Group](https://groups.google.com/forum/#!forum/infosec-management/join) (public access):
 
 ## `infosec-net` Network Map
 
 The network map is as follows:
-        
-<div style='width:40%'> 
+
+<div style='width:40%'>
     <table class='table'>
         <thead>
             <tr>
@@ -69,16 +69,16 @@ IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
     sure that your user account is a member of the `libvirt` group.
 
         sudo usermod -a -G libvirt $(whoami)
-        
+
     <div class='alert alert-danger'><strong>Heads up!</strong> This will need to be run each time you create a new Kali instance.</div>
-    
+
 2.  Then, from a terminal, run `virt-manager` to get an interface such as the following:
 
     {% include image.html image='virt-manager-all-off.PNG' %}
 
     This shows that three virtual machines are available, but that none are running.
 
-    <div class='alert alert-info'><strong>Virt Manager interface shows no vms?</strong><p>In the <code>virt-manager</code> interface, 
+    <div class='alert alert-info'><strong>Virt Manager interface shows no vms?</strong><p>In the <code>virt-manager</code> interface,
     try running:</p>
     <ul>
     <li><code>File</code></li>
@@ -183,28 +183,28 @@ Turn off the firewall for both public and private networks:
 *   Open the extracted folder, and dig down until you find the directory with all of the '.exe' files.
     {% include image.html image='md5deep-extracted.PNG' %}
     {% include image.html image='md5deep-copy-path.PNG' %}
-    
+
 *   Click in the Windows Explorer nav bar and select the current path. Copy it to the clipboard.
-    
-*   We want to be able to run these .exe files from anywhere within a `cmd` shell, so we will edit the accounts's `PATH` environment variable to include this directory. 
+
+*   We want to be able to run these .exe files from anywhere within a `cmd` shell, so we will edit the accounts's `PATH` environment variable to include this directory.
     *   Search for and open a dialog to edit the account's "Environment variables."
         {% include image.html image='windows-path-search.PNG' %}
-        
+
     *   Create a new variable called `PATH`, and set it to the directory on your clipboard (just paste it).
         {% include image.html image='windows-path-new.PNG' %}
-        
+
         *   If your account `PATH` variable already exists, then _edit_ it, and append your new path with a `;` delimiter after the current PATH string value.
-    *   Open a new `cmd.exe` terminal, and confirm that you can run `md5deep` by passing an argument such as `-h`, e.g., `md5deep -h`. 
-            
+    *   Open a new `cmd.exe` terminal, and confirm that you can run `md5deep` by passing an argument such as `-h`, e.g., `md5deep -h`.
+
         If you do not get an error, then you have successfully added the md5deep .exe folder to your path.
-        
+
         {% include image.html image='windows-md5deep-without-full-path.PNG' %}
 
 
 
 ## Enabling copy-paste for security-onion
 
-If copy-paste is not working for security-onion, do the following: Shut down security onion. Then, from the "device info" menu for security onion (see above), 
+If copy-paste is not working for security-onion, do the following: Shut down security onion. Then, from the "device info" menu for security onion (see above),
 "add hardware" bottom towards bottom-left > select "channel" use the default "spice agent." Start security onion again. This works because I already installed the `spice-vdagent` package into security-onion.
 
 {% include image.html image='add-spice-channel.png' %}
@@ -239,8 +239,10 @@ If copy-paste is not working for security-onion, do the following: Shut down sec
 *   Set up nested virtualization
     *   install virt-manager
     *   add user to libvirt group
+
             usermod -a -G libvirt $(whoami)
     *   add virtual network for security-network
+
             cat <<EOF > infosec-net.xml
             <network>
               <name>infosec-net</name>
@@ -252,6 +254,7 @@ If copy-paste is not working for security-onion, do the following: Shut down sec
             EOF
 
     *   configure libvirt networks to start by default
+
             sudo virsh net-define infosec-net.xml
             sudo virsh net-start infosec-net
             sudo virsh net-autostart infosec-net
@@ -259,16 +262,17 @@ If copy-paste is not working for security-onion, do the following: Shut down sec
             sudo virsh net-start default
             sudo virsh net-autostart default
 *   Set up Kali to pipe audio back over a chrome remote desktop session (very important for rick rolling the windows vm!)
+
         # audio piping
 
-        deargle@kali:~$ cat pulseaudio.sh 
+        deargle@kali:~$ cat pulseaudio.sh
         #!/usr/bin/bash
         # nu11secur1ty - http://nu11secur1ty.com/
         # Taken from: https://github.com/nu11secur1ty/pulseaudio
 
         ##### Running pulseaudio autostart ~ gui desktop audio
         echo -e "\n\e[01;32m[+]\e[00m Preparing pulseaudio-user"
-        file=/usr/local/bin/pulseaudio.sh; [ -e $file ] && cp -n $file{,.bkup} 
+        file=/usr/local/bin/pulseaudio.sh; [ -e $file ] && cp -n $file{,.bkup}
 
         cat <<EOF> $file
         #!/bin/bash
@@ -295,7 +299,7 @@ If copy-paste is not working for security-onion, do the following: Shut down sec
 
         sleep 5;
         exit 0;
-        
+
 *   Package installations
 
         ###########
@@ -336,10 +340,10 @@ Windows 7 IE8 preview from [here](https://developer.microsoft.com/en-us/microsof
 
     apt-get install rtorrent
 
-* start with a developer preview Windows 7 VM from 
+* start with a developer preview Windows 7 VM from
 * change audio sampling to 48k
 * install spice guest additions
-* 	switch drivers to virtio
+* switch drivers to virtio
 * set adapter 1 to static
 * install microsoft office 2007
 * install icecast
@@ -368,8 +372,8 @@ In old versions, I installed:
 | password: | `msfadmin` |
 
 
-I don't remember. 
-* For KVM, I think switch hard disk drivers and network to use virtio. 
+I don't remember.
+* For KVM, I think switch hard disk drivers and network to use virtio.
 
 The only change that I made was to the network interfaces so that they would connecto the `infosec-net`. If you want to make the same changes, do the following from within Metasploitable2:
 
@@ -401,13 +405,13 @@ The only change that I made was to the network interfaces so that they would con
 | password: | `Password1` |
 
 
-Download and install Security Onion following [these instructions](https://github.com/Security-Onion-Solutions/security-onion/wiki/QuickISOImage) and [these instructions](https://askubuntu.com/questions/64915/how-do-i-install-ubuntu-on-a-virtualbox-client-from-an-iso-image). [Make note](https://github.com/Security-Onion-Solutions/security-onion/wiki/Hardware): 
+Download and install Security Onion following [these instructions](https://github.com/Security-Onion-Solutions/security-onion/wiki/QuickISOImage) and [these instructions](https://askubuntu.com/questions/64915/how-do-i-install-ubuntu-on-a-virtualbox-client-from-an-iso-image). [Make note](https://github.com/Security-Onion-Solutions/security-onion/wiki/Hardware):
 
 {: style='font-size:16px;'}
 > If you just want to quickly evaluate Security Onion in a VM, the bare minimum amount of RAM needed is 3GB. More is obviously better!
-	
+
 * I gave mine a 15 GB hard disk.
-* Give it two network cards. 
+* Give it two network cards.
 	* **Important:** Set Adapter 1 to "Host-only" or to "Internal Network", click the "Advanced" triangle, and (this is the important part) change "Promiscuous Mode" to "Allow All".
 	* On the Adapter 2 tab, select "Enable Network Adapter," and select "NAT."
 * I installed with username:password `securityonion:Password1`
@@ -426,5 +430,3 @@ Download and install Security Onion following [these instructions](https://githu
 	* `gzip -d -c SiLK-LBNL-05-nonscan.tar.gz | tar xf -`
     * `gzip -d -c SiLK-LBNL-05-scanners.tar.gz | tar xf -`
 * Install SiLK on Security Onion, [following this guide](http://www.appliednsm.com/silk-on-security-onion/), stopping before the "Configuring SiLK" section.
-
-
