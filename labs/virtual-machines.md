@@ -41,26 +41,26 @@ The network map is as follows:
         </thead>
         <tbody>
         <tr>
-            <td>192.168.55.101</td>
+            <td>192.168.56.101</td>
             <td>Kali (the host)</td>
         </tr>        
         <tr>
-            <td>192.168.55.100</td>
+            <td>192.168.56.100</td>
             <td>Windows 7</td>
         </tr>        
         <tr>
-            <td>192.168.55.102</td>
+            <td>192.168.56.102</td>
             <td>Metasploitable2</td>
         </tr>
         <tr>
-            <td>192.168.55.103</td>
+            <td>192.168.56.103</td>
             <td>Security Onion</td>
         </tr>
         </tbody>
     </table>
 </div>
 
-IPv4 network block in CIDR block notation: <code>192.168.55.0/24</code>
+IPv4 network block in CIDR block notation: <code>192.168.56.0/24</code>
 
 
 # Using the virtual machines within Kali
@@ -249,7 +249,7 @@ If copy-paste is not working for security-onion, do the following: Shut down sec
               <uuid>b61773a5-0d63-4415-a922-6caca824f1f7</uuid>
             <forward mode='nat'/>
             <bridge name='virbr1'/>
-              <ip address='192.168.55.101' netmask='255.255.255.0'/>
+              <ip address='192.168.56.101' netmask='255.255.255.0'/>
             </network>
             EOF
 
@@ -380,16 +380,16 @@ The only change that I made was to the network interfaces so that they would con
     cat <<EOF >> /etc/network/interfaces
     auto eth0
     iface eth0 inet static
-        address 192.168.55.102
+        address 192.168.56.102
         netmask 255.255.255.0
-        gateway 192.168.55.1
+        gateway 192.168.56.1
 
     auto eth1
     iface eth1 inet dhcp
     EOF
 
     cat <<EOF > /etc/resolv.conf
-    nameserver 192.168.55.101
+    nameserver 192.168.56.101
     nameserver 8.8.8.8
     nameserver 8.8.4.4
     EOF
