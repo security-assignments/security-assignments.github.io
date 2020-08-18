@@ -49,9 +49,9 @@ To get access to the Kali virtual machine created for this class:
         * In the "Show images from" field, select, "infosec management"
         * Select the most recent Kali version that you see.
         * Leave "Boot disk type" "Standard persistent disk"
-        * Under the "Size (GB)" field, change the size to "1000". 
+        * Under the "Size (GB)" field, select the default size of "500". 
 
-            We won't use anywhere near that much, but on cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._ So beef up, storage space is cheap!
+            We won't use anywhere near that much, but on cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
                 
         Your boot disk settings should look like this:
 
@@ -65,23 +65,15 @@ To get access to the Kali virtual machine created for this class:
 ![]( {{ '/assets/images/kali-custom-image2.png' | relative_url }} )
 
 * Click the "Create" button.
-* Wait a few minutes for your image to boot. Once it does, connect to it via `ssh`, using the `gcloud` method -- _not_ the default browser-based method. To do this, click the arrow to open a dropdown menu and select "View gcloud command":
+* Wait a few minutes for your image to boot. Once it does, connect to it via `ssh`:
 
-  ![]( {{ '/assets/images/gcloud-ssh.jpg' | relative_url }} )
+  ![]( {{ '/assets/images/gcloud-ssh-v2.png' | relative_url }} )
 
-* Click "Run in Cloud Shell". 
+* You should see a browser window pop up that looks like the following: 
 
-  ![]( {{ '/assets/images/gcp-ssh-run-in-cloud-shell.png' | relative_url }} )
+  ![]( {{ '/assets/images/gcp-ssh-connected.png' | relative_url }} )
 
-The `gcloud` command will paste an "ssh connect" command into a gcloud terminal -- <strong>you have to press "enter" to run that code and establish the ssh connection</strong>.
-  
-* When prompted for a passphrase, hit "enter" twice to leave the passphrase blank.
-  
-  If you are still in `gcloud`, and not `kali`, the prompt will be yellow. If you have a connection to Kali, the prompt will be red.
-  Look closely at the last image below -- it shows username@kali in red. That is important -- that means that a successful <code>ssh</code> connection to kali
-  has been made. You have to hit "enter".
-  
-   ![]( {{ '/assets/images/gcp-ssh-connected.jpg' | relative_url }} )
+    The "@kali" after your username shows that you are connected to your Kali VM workstation.
   
 # Part 4: Connect to your Kali Linux VM using Chrome Remote Desktop
 
@@ -107,7 +99,17 @@ The `gcloud` command will paste an "ssh connect" command into a gcloud terminal 
   ![]( {{ '/assets/images/Kali-remote.png' | relative_url }} )
 
 * Type in your six-digit pin, and check the box so that your browser remembers the pin.
-* You should see a screen like the following:
+
+* If a screen asks you to select a session type, click "OK" to accept the default.
+
+  ![]( {{ '/assets/images/default-session.png' | relative_url }} )
+  
+  * Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
+  
+
+  ![]( {{ '/assets/images/color-management.png' | relative_url }} )
+
+* After you finish logging in, you should see a screen like the following:
 
   ![]( {{ '/assets/images/Kali-setup.png' | relative_url }} )
   
