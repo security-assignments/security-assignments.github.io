@@ -24,9 +24,9 @@ At other times, a uni-specific email address domain can be referenced:
 To avoid unnecessarily repeating `if-then-else` statements, single-page-scope variables can be set at the top of a file:
 
         {% if site.instructorcollab_domain == 'colorado.edu' %}
-            {% assign user_id_label == 'identikey' %}
-        {% elsif site.instructorcollab_domain = 'temple.edu' %}
-            {% assign user_id_label == 'TUid' %}
+            {% assign user_id_label = 'identikey' %}
+        {% elsif site.instructorcollab_domain == 'temple.edu' %}
+            {% assign user_id_label = 'TUid' %}
         {% endif %}
 
 ... and then later...

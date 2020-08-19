@@ -5,27 +5,20 @@ number: 1
 published: true
 ---
 
-# Part 1. Complete this very gentle introduction to the Linux terminal
+# Part 0. Complete the Introduction to Google Cloud Platform
 
-CodeAcademy has an [introductory set of lessons](https://www.codecademy.com/learn/learn-the-command-line) that teach the Linux Terminal. 
-You should complete the first lesson-set within each module:
+Complete [this introduction to Google Cloud Platform tutorial]( {{ '/tutorials/intro-to-gcp.html' | relative_url }}) to set up your Kali Linux instance.
 
-1. Navigating the File System
-    1. [Navigation](https://www.codecademy.com/courses/learn-the-command-line/lessons/navigation/resume)
-2. Viewing and Changing the File System
-    1. [Manipulation](https://www.codecademy.com/courses/learn-the-command-line/lessons/command-line-manipulation/exercises/ls-revisited)
-3. Redirecting Input and Output
-    1. [Redirection](https://www.codecademy.com/courses/learn-the-command-line/lessons/redirection/resume)
-4. Configuring the Environment
-    1. [Environment](https://www.codecademy.com/courses/learn-the-command-line/lessons/environment/resume)
+# Part 1. Complete a gentle introduction to the Linux terminal
 
-You do _not_ need to do any of the "projects" or multiple choice quizzes. Just the lesson-sets.
-  
-<div class='alert alert-info'><strong>Heads up! </strong>Codeacademy recently started charging for access to this set of lessons. As of 9/4/2019, you get free access for seven days, after which 
-you can pay for access for $40 per month. These lessons are not strictly necessary for completing this class, but you may opt to pay if you enjoy the learning style. Alternatively, Udacity
-has a <a href='https://www.udacity.com/course/linux-command-line-basics--ud595'>free set of follow-along video lecture demonstrations</a> which you may enjoy.</div>
+Once you have your Kali Linux instance set up in GCP, open a terminal Window in Kali by clicking the terminal icon in the application dock:
 
+![img]( {{ "/assets/images/Kali-dock.jpg" | relative_url }})
 
+Next, using the terminal in Kali, complete pages 1–19 of [this gentle introduction to the Linux terminal, aka shell](https://linuxjourney.com/lesson/the-shell).
+
+Alternatively, Udacity
+has a [free set of follow-along video lecture demonstrations](https://www.udacity.com/course/linux-command-line-basics--ud595) that you might prefer instead.
   
 # Part 2. Play the Bandit wargame on OvertheWire.org
 
@@ -36,19 +29,17 @@ To play, you'll need to connect to the Bandit server using an SSH client. SSH st
 
 ## Using SSH on Windows
 
-If you're using Windows, download [Putty](https://www.putty.org) for Windows.
+If you're using Windows, open a PowerShell window by typing `powershell` in Windows search and pressing enter.
 
-Enter the username (bandit0), server address, and port (2220) into putty like so:
+Enter the username (bandit0), server address, and port (2220) into PowerShell like so:
 
-![img]( {{ "/assets/images/putty-connection.png" | relative_url }})
+![img]( {{ "/assets/images/powershell-connection.png" | relative_url }})
 
-Click the `Open` button. You'll be presented with a message like the following:
+The password is `bandit0`.
 
-![img]( {{ "/assets/images/putty-public-key.png" | relative_url }})
+The first time you connect to a server, SSH tells you that you haven't connected to this server before, and shows you a "fingerprint" of the server. Every server should have a unique fingerprint. To learn more about verifying SSH fingerprints, see [here](https://www.phcomp.co.uk/Tutorials/Unix-And-Linux/ssh-check-server-fingerprint.html).
 
-This message tells you that you haven't connected to this server before. The Bandit server is using a ECDSA asymmetric key pair, which is similar to RSA. The fingerprint is a hash of the server's public key. To learn more about verifying SSH fingerprints, see [here](https://www.phcomp.co.uk/Tutorials/Unix-And-Linux/ssh-check-server-fingerprint.html).
-
-To continue logging in, click the `Yes` button.
+To continue logging in, type `yes` (that's three letters: y-e-s) and press `enter`.
 
 
 ## Using SSH on MacOS
@@ -63,8 +54,7 @@ When you first connect to a sever using SSH, you'll see a message like the follo
 
 This message tells you that you haven't connected to this server before. The Bandit server is using a ECDSA asymmetric key pair, which is similar to RSA. The fingerprint is a hash of the server's public key. To learn more about verifying SSH fingerprints, see [here](https://www.phcomp.co.uk/Tutorials/Unix-And-Linux/ssh-check-server-fingerprint.html).
 
-To continue logging in, type `yes` and press `enter`.
-
+To continue logging in, type `yes` (that's three letters: y-e-s) and press `enter`.
 
 ## Instructions
 

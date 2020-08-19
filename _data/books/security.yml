@@ -19,16 +19,6 @@
             link: https://amzn.com/0385544405
 
 -
-    title: "Unmasking the Social Engineer"
-    author: Chris Hadnagy
-    img: https://images-na.ssl-images-amazon.com/images/I/515b75fHQ3L._SX331_BO1,204,203,200_.jpg
-    comment: “The Human Element of Security focuses on combining the science of understanding non-verbal communications with the knowledge of how social engineers, scam artists and con men use these skills to build feelings of trust and rapport in their targets.” 
-    links:
-        -
-            type: Amazon
-            link: https://amzn.com/1118608577
-
--
     title: "Click Here to Kill Everybody: Security and Survival in a Hyper-connected World"
     author: Bruce Schneier
     img: https://images-na.ssl-images-amazon.com/images/I/5199NYWvceL._SY346_B01,204,203,200_.jpg
@@ -199,15 +189,14 @@
         link: https://amzn.com/0471453803
 
 -
-    title: "Social Engineering: The Art of Human Hacking"
+    title: "Social Engineering: The Science of Human Hacking"
     author: Christopher Hadnagy
-    img: https://images-na.ssl-images-amazon.com/images/I/41HpNgCrStL._SX332_BO1,204,203,200_.jpg
-    comment: Another well-regarded book on social engineering, from the
-        organization that operates the Social Engineer Village at DEF CON.
+    img: https://images-na.ssl-images-amazon.com/images/I/5175YkYe16L._SX331_BO1,204,203,200_.jpg
+    comment: A well-regarded book from a leading expert on social engineering. Hadnagy organizes the Social Engineer Village at DEF CON.
     links:
         -
             type: Amazon
-            link: https://amzn.com/0470639539
+            link: https://amzn.com/B07F24YV2M
 
 -
     title: "Spam Nation: The Inside Story of Organized Cybercrime-from Global

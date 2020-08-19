@@ -33,7 +33,7 @@ Browse to [ibm.com](https://ibm.com) and inspect the certificate details. For ex
 
 What are some of the other domains for which this certificate is valid?' In Firefox, these are listed under "Certificate Subject Alt Name."
 
-{% include lab_question.html question='What are some of the other domains for which this certificate is valid?' %}
+{% include lab_question.html question='What are some of the other domains for which the ibm.com certificate is valid?' %}
 
 For TLS X.509 certificates, the signature in the certificate is signed by the public key included in an intermediate or root certificate authority certificate (see figure below). 
 An intermediary certificate, if any, is signed by the public key included in a root certificate. The root certificate is signed using the public key in its own certificate (a self-signed certificate). 
@@ -50,10 +50,10 @@ _Certificate chain image from [DigiCert](https://knowledge.digicert.com/solution
     
 ## Root Certificate Authorities
 
-1.  In your Kali VM, open Firefox. Click on the hamburger icon in the top-right, and select "Preferences."
+1.  In your Kali VM, open Firefox. Click on the "hamburger" icon in the top-right, and select "Preferences."
 
     ![image]( {{ '/assets/images/firefox-hamburger.png' | relative_url }} ){: width="150px" }
-2.  Select "Privacy & Security" on the left-hand side of the preferences window, and scroll down to the bottom of the "Certificates" section. Click the "View Certificates" button.
+2.  Select "Privacy & Security" on the left-hand side of the preferences window, and scroll down to the bottom to see the "Certificates" section. Click the "View Certificates" button.
 3.  Under the 'Authorities' tab, find the "DigiCert Global Root CA" certificate that was ultimately used to verify the authenticity of IBM's certificate. Click "Edit Trust."
 
     {% include lab_question.html question="What can this DigiCert root certificate be used for?" %}
@@ -76,8 +76,7 @@ _Certificate chain image from [DigiCert](https://knowledge.digicert.com/solution
     
 ## Untrusted Root CA
 
-1.  In your Kali VM, open Firefox. As before, launch the "View Certificates" dialog found under the "Preferences."
-2.  Under the "Servers" tab, certificates for what organization are listed? Click on one of the certificates and click the "View" button.
+1.  Under the “Servers” tab of the View Certificates” dialog, certificates for what organization are listed? Click on one of the certificates and click the "View" button.
 3.  What does Firefox say about the trust of this Root Certificate authority? Why does Firefox say this?
 
     To help you answer this question, look at one or more of the following resources:
@@ -90,7 +89,7 @@ _Certificate chain image from [DigiCert](https://knowledge.digicert.com/solution
     
 ## Perfect Forward Secrecy
 
-1.  Using the Chrome web browser, browse to [https://static-rsa.badssl.com](https://static-rsa.badssl.com)
+1.  On any computer with Google Chrome installed (your Kali VM does not have Chrome), browse to [https://static-rsa.badssl.com](https://static-rsa.badssl.com)
 2.  From the hamburger icon in the top right-hand corner, select "More Tools" > "Developer Tools." 
 
     {% include image.html image='pfs-badssl-rsa-keyexchange.png' %} 
@@ -144,7 +143,7 @@ submitted to bankofamerica.com.
 4.  Configure Firefox to route all internet traffic through Fiddler.
 
     * Firefox > 
-    * Hamburger on upper-right > 
+    * "Hamburger" icon on upper-right > 
     * Preferences > 
     * (scroll to the bottom) Network Proxy - Settings > 
     * Manual proxy configuration, HTTP Proxy localhost Port 8888, check box for "use this proxy server for all protocols"
@@ -175,19 +174,19 @@ submitted to bankofamerica.com.
 7.  Inspect the cert. Normally, it is possible to inspect certificates from within Firefox, but for some reason, that is not working for this invalid SSL certificate. 
     So use another tool to parse the certificate to examine it.
     
-    1.  On the SSL error page, click “Advanced”, then click the Error code. Copy the ---BEGIN CERTIFICATE-- block to your clipboard.
+    1.  On the SSL error page, click “Advanced”, then click the link to the error code, "SEC_ERROR_UNKNOWN_ISSUER". Copy the ---BEGIN CERTIFICATE-- block to your clipboard.
     
         {% include image.html image='firefox-ssl-error-2.png' %}
         {% include image.html image='firefox-ssl-error-3-copy-cert.png' %}
 
-    2.  Google-search for “ssl cert decoder” and use a site such as [https://www.sslchecker.com/certdecoder](https://www.sslchecker.com/certdecoder) or [https://www.sslshopper.com/certificate-decoder.html](https://www.sslshopper.com/certificate-decoder.html) 
+    2.  Google-search for “ssl cert decoder” and use a site such as [https://certlogik.com/decoder/](https://certlogik.com/decoder/) or [https://www.sslshopper.com/certificate-decoder.html](https://www.sslshopper.com/certificate-decoder.html) 
         to decode the base64-encoded cert that you copied in the previous step.
         
 8.  Configure Firefox to trust Fiddler's self-signed certificate.
 
     1.  Go back to Fiddler (Progress Telerik Fiddler in taskbar). 
             
-            Tools > Options > Actions > Export Root Certificate to Desktop
+            Tools > Options > HTTPS > Actions > Export Root Certificate to Desktop
     
         {% include image.html image='fiddler-export-cert.PNG' %}
         
@@ -223,7 +222,7 @@ submitted to bankofamerica.com.
     {% include image.html image='firefox-boa-secure-connection-3-view-cert.PNG' %}
     {% include image.html image='firefox-boa-secure-connection-4-view-cert-details.PNG' %}
         
-10. Pretend that you are logging in to Bankofamerica.com. Enter as your username your identikey, and enter anything as your password. Click “Sign in.”
+10. Pretend that you are logging in to Bankofamerica.com. Enter as your username your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if site.instructorcollab_username == 'aov' %}TUid{% endif %}.
 
 11. Now, go back to Fiddler. The sign-in attempt should have been intercepted -- let's find it.
 
@@ -237,18 +236,20 @@ submitted to bankofamerica.com.
         *   Host `secure.bankofam...`
         *   URL `/login/sign-in/signOnV...`
         
-        (I found the last two by guided guess-and-check)
         
     4.  On the right side of the Fiddler window, the top half shows the details for browser’s web “request” for the select network transmission. The bottom half shows the web server’s “response.” 
     
-        In the Request area, select “WebForms.” This will show a user-friendly view of the data that was submitted in the form. Scroll in this form until you find the “onlineId” and “passcode” fields. You should see your identikey and fake password.
+        In the Request area, select “WebForms.” This will show a user-friendly view of the data that was submitted in the form. Scroll in this form until you find the “onlineId” and “passcode” fields. You should see your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if site.instructorcollab_username == 'aov' %}TUid{% endif %} and fake password.
         
         {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Fiddler window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
         
         {% include image.html image='Fiddler-bankofamerica-post-username-password.PNG' %}
         
-12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted -- how could Fiddler have decrypted it?
+12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted. How could Fiddler have decrypted it?
     
     This is the essence of a man-in-the-middle attack -- a secure connection to an evil server which talks to your intended server on your behalf. 
+    
+    {% include image.html image='500px-Man_in_the_middle_attack.svg.png' %}
+    
     In our pretend case, Fiddler is the evil server, and Bankofamerica is the intended server. All secure content is visible as plaintext to the attacker, 
     because the attacker’s SSL cert was used to establish the secure HTTPS connection.

@@ -35,7 +35,7 @@ On Windows, search for `cmd` and press enter. A terminal window should open. On 
        
     Can you ascertain anything about the location of each of the "hops" mapped on your traceroute? Look, for example, for airport codes or other geographic identifiers (e.g., "oak" in the above example, or "lhr" for London Heathrow, "jfk" for John F. Kennedy airport in New York, "iad" for Dulles airport in DC, etc).
         
-    You can also use tools to help decipher this. The websites [http://www.monitis.com/traceroute/](http://www.monitis.com/traceroute/) and [https://www.yougetsignal.com/tools/visual-tracert/](https://www.yougetsignal.com/tools/visual-tracert/) have visual trace route tools that links location to each of those IP addresses. Try a few traces using websites you routinely visit. Do the hops on the route ever leave the United States?
+    You can also use tools to help decipher this. The website [traceroute-online.com](https://traceroute-online.com/) has visual trace route tools that links location to each of those IP addresses. Try a few traces using websites you routinely visit. Do the hops on the route ever leave the United States?
     
 # Email Headers
 
@@ -47,7 +47,7 @@ Focus on the "Received: from" lines. Your email makes hops on the internet, prob
 
 ![img]( {{ "/assets/images/received-by.png" | relative_url }}){: width="500px" }
 
-Compare several different messages. Are there more or less "Received" lines on your email sent by other people who use bMail/Google than competing services? What does it mean for cybersecurity that most email now goes from one Google user to another Google user?
+Compare several different messages. Are there more or less "Received" lines on your email sent by other people who use Gmail than competing services? What does it mean for cybersecurity that most email now goes from one Google user to another Google user?
 
 As a comparison, here are two old email headers. Notice how more servers are listed in the "Received from" lines? This means that more parties unrelated to the communication had the opportunity to "read" or otherwise infer knowledge from the email.
 
@@ -66,6 +66,19 @@ And if one uses a [Virtual Private Network (VPN)](https://en.wikipedia.org/wiki/
 ![img]( {{ "/assets/images/Denmark.png" | relative_url }}){: width="600px" }
 
 Now, consider what it means that one could use multiple VPNs, or a browsing system that automatically routes service traffic in circuitous ways, such as [Tor](https://www.torproject.org/) (this site is not accessible on Temple's network).
+
+# More about IP addresses
+
+Open a Microsoft Word document and record your answers to the following questions. You can also take screen shots and paste it into your document to explain your answers.
+
+1. What is the public IP address for Temple.edu?
+1. What class of IP address is the IP address for Temple.edu?
+1. What is the IP address for your Metaploitable2 VM?
+1. What is the IP address for your Windows 7 VM?
+1. Is the IP address for your Windows 7 and Metasploitable 2 VMs public or private?
+1. How would you test communication between two devices?
+1. What protocol is commonly used on the internet?
+1. Use the following tools--netstat, dig, nslookup, and ping--to examine the IP address for Temple.edu and explain how these tools can be beneficial to a security professional. Take screenshots to show you have answered the above questions and add them to document you will submit.
 
 # Shodan
 

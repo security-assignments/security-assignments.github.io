@@ -5,107 +5,117 @@ published: true
 number: 3
 ---
 
+# Part 1: Join the class Google Group
 
-# Part 0: Complete Intro to Linux Tutorial
+To get access to the Kali virtual machine created for this class:
 
-Complete [this intro-to-linux tutorial]( {{ '/tutorials/intro-to-linux' | relative_url }})
+{% if site.instructorcollab_username == 'aov' %}
+1. If you don't already have one, create a personal Google account by signing up for one [here](https://accounts.google.com/SignUp).
+<div class='alert alert-danger'><strong>Heads up!</strong> Your TUmail Google account will not work with Google Cloud Platform. You'll need to use a personal Google account.</div>
+{% endif %}
+1. While logged into your personal Google account, visit [this link](https://groups.google.com/forum/#!forum/infosec-management/join) to join the Google Group (public access) for this class.
+2. Click "Join this group."
 
+![]( {{ '/assets/images/Join-Google-Group.png' | relative_url }} )
 
-# Part 1: Sign up for Google Cloud Platform (GCP)
+# Part 2: Sign up for Google Cloud Platform (GCP)
 
-* Visit [https://cloud.google.com](cloud.google.com) and click "Get started for free."
-*   Sign in to Google with your personal account (not your Temple Google account).
-*   Send your personal Gmail address via email or Slack to I can make the Kali Linux VM available to you.
-*   Step 1 of 2: Agree to the terms
-*   Step 2 of 2: Choose "Account type" > "Individual". Complete the sign-up form. Provide a credit card.
+* Visit [https://cloud.google.com](https://cloud.google.com) and click "Get started for free."
+* Make sure you are signed in to Google with your personal account {% if site.instructorcollab_username == 'aov' %} (not your TUmail Google account).{% endif %}
+* Step 1 of 2: Agree to the terms of service.
+* Step 2 of 2: Choose "Account type" > "Individual". Complete the sign-up form. Provide a credit card.
 
     <div class='alert alert-info'><strong>Why a credit card?</strong> Google still requires a credit card to make sure you are not a robot. Google will not autocharge your account unless you manually upgrade to a paid plan.</div>
+    
+* Click "Start my free trial".
 
-* Create a "project" which will house all of the material for this class.
+# Part 3: Create a new Kali Linux instance
 
+* Click "[Go to Compute Engine](https://console.cloud.google.com/compute?project=zinc-interface-264705)". Wait a few minutes for Compute Engine to set up.
+* Click "Create".
+* In the "name" field, enter a name like "kali-linux-vm" (must be all lowercase).
+* Give your new virtual machine instance the following specs:
+    * **Important:** Leave the "Region" field set to "us-central1".
+    * Leave the "Series" field set to "N1"
+    * Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
+    * Click the "CPU platform and GPU" link.
+    
+    ![]( {{ '/assets/images/GCP-CPU-platform.jpg' | relative_url }} )
+    * Give it at least 4 vCPU and 15 GB memory
+    * For the "CPU platform" field, select "Intel Haswell or later" for CPU platform.
+ 
+    * For the "Boot disk" field, click "Change".
+        * Select the "Custom images" tab.
+        * In the "Show images from" field, select, "infosec management"
+        * Select the most recent Kali version that you see.
+        * Leave "Boot disk type" "Standard persistent disk"
+        * Under the "Size (GB)" field, select the default size of "500". 
 
+            We won't use anywhere near that much, but on cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
+                
+        Your boot disk settings should look like this:
 
-# Part 2: Complete the "Try Compute Engine" tutorial.
-
-Complete the "try compute engine" tutorial. This tutorial will give you experience with launching, connecting to, and destroying virtual instances. 
-
-When the tutorial prompts you to destroy all tutorial instances, do so.
-
-<img src='{{ '/assets/images/try_compute_engine.png' | relative_url }}' />
-
-
-# Part 3: Complete walkthrough for "Chrome Remote Desktop on GCP"
-
-Complete [this walkthrough](https://cloud.google.com/solutions/chrome-desktop-remote-on-compute-engine). This tutorial will step you through
-launching a "headless" (graphical-desktop-less) server, installing a desktop suite, and then configuring Chrome Remote Desktop, which will allow
-you to remotely connect to a graphical user interface for this server.
-
-Notes for the walkthrough:
-
-*   Choose the XFCE desktop. It's more lightweight.
-*   When the tutorial prompts you to destroy all tutorial instances, do so.
-
-
-
-
-# Part 4: Create a new instance based on a custom Kali images prepared for this class
-
-A customized image of the Kali penetration-testing operating system, based on Debian, has been prepared for this class for your use.
-
-<strong>Please note:</strong> It already has chrome remote desktop services installed, as well as the XFCE desktop.
-
-Launch your new instance with the following specs:
-
-* Give it at least 4 vCPU and 15 GB memory
-* Specify "Intel Haswell or later" for CPU platform
-
-  ![]( {{ '/assets/images/kali-instance-specs.png' | relative_url }} )
-
-* For boot disk
-    * click `Change` > `Custom Images` > `Show Images from "infosec management"` > choose the most recent Kali version that you can see.
-    * Down towards the bottom of the boot disk selection screen, give your drive something like 500GB or 1,000 GB storage space. We won't use anywhere near that much,
-      but on cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._ So 
-      beef up, storage space is cheap!
-
-  ![]( {{ '/assets/images/kali-custom-image.png' | relative_url }} )
-
-* Once your image has booted (wait a few minutes), connect to it via `ssh`, using the `gcloud` method -- _not_ the default browser-based method.
-  The `gcloud` command will paste ssh connect code down into a gcloud terminal -- <strong>you have to press "enter" to run that code and establish the ssh connection</code>.
-  
-  If you are still in `gcloud`, and not `kali`, the prompt will be yellow. If you have a connection to kali, the prompt will be red.
-  Look closely at the last image below -- it shows username@kali in red. That is important -- that means that a successful <code>ssh</code> connection to kali
-  has been made. You have to hit "enter"
-  
-  <div class='alert alert-info'><strong>Are you being asked for a passphrase when you run the gcloud connect command?</strong> When you first try to connect to an instance using <code>gcloud</code>,
-  gcp generates ssh keys for you. ssh keys may optionally have an associated passphrase encrypting them. If you set a passphrase and cannot remember it, you can wipe out your keys and attempt another
-  connection -- gcp will then prompt you to regenerate your keys. I personally leave the passphrases for gcp keys 'blank' when prompted.
-  
-  <div>
-  To wipe out your keys, you can run the following from a gcloud prompt:
-  
-    <code>
-    rm ~/.ssh/*
-    </code>
-  </div>
-  </div>
+        ![]( {{ '/assets/images/kali-custom-image.png' | relative_url }} )
+        
+        * Click the "Select" button.
   
   
+* Your overall settings should look like this:
   
-  <div class='alert alert-danger'><strong>Heads up! </strong> The `ssh` browser-based connection method is not working for this image. 
-  But connecting via gcloud console <em>is</em> working. To do so, click the drop-down next to "ssh" from the instances dashboard, as shown below. 
-  
-  </div>
+![]( {{ '/assets/images/kali-custom-image2.png' | relative_url }} )
 
-  ![]( {{ '/assets/images/gcp-ssh-view-gcloud-command.png' | relative_url }} )
-  
-  ![]( {{ '/assets/images/gcp-ssh-run-in-cloud-shell.png' | relative_url }} )
-  
+* Click the "Create" button.
+* Wait a few minutes for your image to boot. Once it does, connect to it via `ssh`:
+
+  ![]( {{ '/assets/images/gcloud-ssh-v2.png' | relative_url }} )
+
+* You should see a browser window pop up that looks like the following: 
+
   ![]( {{ '/assets/images/gcp-ssh-connected.png' | relative_url }} )
+
+    The "@kali" after your username shows that you are connected to your Kali VM workstation.
   
-* After successfully connecting to Kali command line using the `gcloud` method, follow the steps in the walkthrough for the Chrome Remote Desktop on [Configuring and starting the Chrome Remote Desktop service](https://cloud.google.com/solutions/chrome-desktop-remote-on-compute-engine#configuring_and_starting_the_chrome_remote_desktop_service) to connect the graphical XFCE desktop on Kali.
-	* Set the name to something like "Kali VM"
+# Part 4: Connect to your Kali Linux VM using Chrome Remote Desktop
 
+* Open another browser window, and visit [https://remotedesktop.google.com/headless](https://remotedesktop.google.com/headless).
+* Click the "Begin" button.
+* Click the "Next" button.
+* Click the "Authorize" button.
+* Select your personal Google account and click the "Allow" button.
+* Click the icon to the right of the Debian Linux command to copy the command:
 
+  ![]( {{ '/assets/images/Debian-copy.jpg' | relative_url }} )
+  
+* Switch to your browser window with Google Cloud Platform open, and right-click in the gcloud terminal to paste in the command you copied into the Kali Linux command line. Press enter.
+
+  ![]( {{ '/assets/images/Kali_connect.png' | relative_url }} )
+
+* Enter a name for this image, e.g., "Kali".
+* Enter and re-enter a six-digit pin. Press enter.
+* Switch back to the window with **remotedesktop.google.com** open. Click the "Remote Access" link at the top or visit [this link](https://remotedesktop.google.com/access).
+
+* Click on your Kali instance.
+
+  ![]( {{ '/assets/images/Kali-remote.png' | relative_url }} )
+
+* Type in your six-digit pin, and check the box so that your browser remembers the pin.
+
+* If a screen asks you to select a session type, click "OK" to accept the default.
+
+  ![]( {{ '/assets/images/default-session.png' | relative_url }} )
+  
+  * Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
+  
+
+  ![]( {{ '/assets/images/color-management.png' | relative_url }} )
+
+* After you finish logging in, you should see a screen like the following:
+
+  ![]( {{ '/assets/images/Kali-setup.png' | relative_url }} )
+  
+* Note that if you click the blue arrow tab on the right hand of the screen, it opens additional options in Chrome Remote Desktop:
+
+  ![]( {{ '/assets/images/Kali-remote-options.png' | relative_url }} )
 
 # Part 5: Set up budget alerts
 
@@ -134,8 +144,6 @@ The semester is about four months long, so set up a budget planning to spend (no
     ![]( {{ '/assets/images/gcp-budget-3-actions.png' | relative_url }} )
   
 These budget reminders will help you to keep an eye on your costs, and will help remind you to shut down an instance that could otherwise cost you a lot of money.
-
-
 
 # Deliverable
 
