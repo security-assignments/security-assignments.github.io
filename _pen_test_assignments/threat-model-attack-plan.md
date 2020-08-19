@@ -1,6 +1,7 @@
 ---
 layout: assignment
-title: Milestone 1 Writing Assignment Instructions
+title: Threat Model and Attack Plan
+order: 1
 ---
 With Dr. [David Lanter](https://community.mis.temple.edu/dlanter/)
 
@@ -16,13 +17,13 @@ Financial management involves the aggregate set of accounting practices and proc
 
 With respect to the three security objectives:
 
-* *Confidentiality*: The impacts of a breach of confidentiality of financial management information are generally associated with the sensitivity of the existence of projects, programs, and/or technologies; and customers, suppliers, contractors and employees that might be revealed by unauthorized disclosure of information. 
-* *Integrity*: The impacts of a breach of integrity of financial management information may result from temporary successful frauds that can affect the business’ image, while corrective actions may disrupt the business’ operations. 
+* *Confidentiality*: The impacts of a breach of confidentiality of financial management information are generally associated with the sensitivity of the existence of projects, programs, and/or technologies; and customers, suppliers, contractors and employees that might be revealed by unauthorized disclosure of information.
+* *Integrity*: The impacts of a breach of integrity of financial management information may result from temporary successful frauds that can affect the business’ image, while corrective actions may disrupt the business’ operations.
 * *Availability*: The impacts of a permanent loss of availability of financial management information can cripple business operations.
 
 *Assignment*: Create and document a threat model and attack plan for a financial management information system of a company that you will attack as part of [Milestone 2](/security-assignments/milestone2).  
 
-# Objectives 
+# Objectives
 
 Your objectives are to:
 

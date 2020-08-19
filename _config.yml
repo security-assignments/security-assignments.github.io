@@ -56,13 +56,14 @@ exclude:
 host: 0.0.0.0
 
 # Collections
-#collections_dir: common
 collections:
     labs:
         output: true
     activities:
         output: true
     tutorials:
+        output: true
+    pen_test_assignments:
         output: true
     books:
     films:

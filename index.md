@@ -14,5 +14,4 @@ title: Information Security Management | Assignments
 
 ## [In-class Activities]({{ '/activities/' | relative_url }})
 
-
-
+## [Pen Test Assignments]({{ '/pen-test/' | relative_url }})
