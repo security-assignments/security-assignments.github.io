@@ -74,7 +74,7 @@ IPv4 network block in CIDR block notation: <code>192.168.56.0/24</code>
 
 2.  Then, from a terminal, run `virt-manager` to get an interface such as the following:
 
-    {% include image.html image='virt-manager-all-off.PNG' %}
+    {% include lab-image.html image='virt-manager-all-off.PNG' %}
 
     This shows that three virtual machines are available, but that none are running.
 
@@ -94,26 +94,26 @@ IPv4 network block in CIDR block notation: <code>192.168.56.0/24</code>
 3.  Start a virtual machine by selecting it, and pressing the "play" icon. The virtual machine should
     then update to show that it is running.
 
-    {% include image.html image='virt-manager-running.PNG' %}
+    {% include lab-image.html image='virt-manager-running.PNG' %}
 
 4.  To view the running virtual machine, highlight it and click "Open". A new window
     will appear.
 
-    {% include image.html image='virt-manager-running-open.jpg' %}
+    {% include lab-image.html image='virt-manager-running-open.jpg' %}
 
     You can click into this window and interact with it via keyboard, and mouse if it has a GUI.
 
-    {% include image.html image='virt-manager-running-open-interact.jpg' %}
+    {% include lab-image.html image='virt-manager-running-open-interact.jpg' %}
 
 5.  Details of a virtual machine can be viewed and edited from the "details" pane.
 
-    {% include image.html image='virt-manager-running-open-details.jpg' %}
+    {% include lab-image.html image='virt-manager-running-open-details.jpg' %}
 
 6.  A network is set up to enable the host (Kali) and the guests (e.g., Metasploitable2, Windows 7) to network with one another.
     Try `ping`ing metasploitable2 from Kali, and Kali from metasploitable2, using the network map ip addresses above.
 
 
-    {% include image.html image='virt-manager-running-ping.jpg' %}
+    {% include lab-image.html image='virt-manager-running-ping.jpg' %}
 
 
 ## Using snapshots
@@ -122,12 +122,12 @@ Virtual machines in `virt-manager` can be "snapshotted", which lets you restore 
 
 To create a snapshot, **first, shut down the virtual machine**. Then, click the "snapshot" button on the virtual machine pane, then `+`, then set a name, and "Finish."
 
-{% include image.html image='virt-manager-snapshots.PNG' %}
+{% include lab-image.html image='virt-manager-snapshots.PNG' %}
 
 
 To restore to a snapshot, select your snapshot, and then "play" it. You do not need to shut down the virtual machine before restoring a snapshot.
 
-{% include image.html image='virt-manager-snapshot-restore.PNG' %}
+{% include lab-image.html image='virt-manager-snapshot-restore.PNG' %}
 
 
 
@@ -142,19 +142,19 @@ To restore to a snapshot, select your snapshot, and then "play" it. You do not n
 
 Search for and open the Windows Defender dialog:
 
-{% include image.html image='windows-defender-search-open.PNG' %}
+{% include lab-image.html image='windows-defender-search-open.PNG' %}
 
 Click the "tools" ribbon button, and then open the "options" menu pane:
 
-{% include image.html image='windows-defender-tools-options.PNG' %}
+{% include lab-image.html image='windows-defender-tools-options.PNG' %}
 
 Disable automatic scanning:
 
-{% include image.html image='windows-defender-automatic-scanning-off.PNG' %}
+{% include lab-image.html image='windows-defender-automatic-scanning-off.PNG' %}
 
 Disable real-time protection:
 
-{% include image.html image='windows-defender-realtime-off.PNG' %}
+{% include lab-image.html image='windows-defender-realtime-off.PNG' %}
 
 Then, click "Save".
 
@@ -163,42 +163,42 @@ Then, click "Save".
 
 Search for and open the Windows Firewall dialog:
 
-{% include image.html image='windows-firewall-search-open.PNG' %}
+{% include lab-image.html image='windows-firewall-search-open.PNG' %}
 
 Click the "turn off-on" sidebar menu:
 
-{% include image.html image='windows-firewall-turn-off-sidebar.PNG' %}
+{% include lab-image.html image='windows-firewall-turn-off-sidebar.PNG' %}
 
 Turn off the firewall for both public and private networks:
 
-{% include image.html image='windows-firewall-off.PNG' %}
+{% include lab-image.html image='windows-firewall-off.PNG' %}
 
 
 ## Install md5deep and sha256deep into Windows
 
 *   From within your windows vm, [download md5deep-4.4.zip](https://github.com/jessek/hashdeep/releases/download/v4.4/md5deep-4.4.zip), and extract it.
 
-    {% include image.html image='md5deep-download-extract-all.PNG' %}
+    {% include lab-image.html image='md5deep-download-extract-all.PNG' %}
 
 *   Open the extracted folder, and dig down until you find the directory with all of the '.exe' files.
-    {% include image.html image='md5deep-extracted.PNG' %}
-    {% include image.html image='md5deep-copy-path.PNG' %}
+    {% include lab-image.html image='md5deep-extracted.PNG' %}
+    {% include lab-image.html image='md5deep-copy-path.PNG' %}
 
 *   Click in the Windows Explorer nav bar and select the current path. Copy it to the clipboard.
 
 *   We want to be able to run these .exe files from anywhere within a `cmd` shell, so we will edit the accounts's `PATH` environment variable to include this directory.
     *   Search for and open a dialog to edit the account's "Environment variables."
-        {% include image.html image='windows-path-search.PNG' %}
+        {% include lab-image.html image='windows-path-search.PNG' %}
 
     *   Create a new variable called `PATH`, and set it to the directory on your clipboard (just paste it).
-        {% include image.html image='windows-path-new.PNG' %}
+        {% include lab-image.html image='windows-path-new.PNG' %}
 
         *   If your account `PATH` variable already exists, then _edit_ it, and append your new path with a `;` delimiter after the current PATH string value.
     *   Open a new `cmd.exe` terminal, and confirm that you can run `md5deep` by passing an argument such as `-h`, e.g., `md5deep -h`.
 
         If you do not get an error, then you have successfully added the md5deep .exe folder to your path.
 
-        {% include image.html image='windows-md5deep-without-full-path.PNG' %}
+        {% include lab-image.html image='windows-md5deep-without-full-path.PNG' %}
 
 
 
@@ -207,7 +207,7 @@ Turn off the firewall for both public and private networks:
 If copy-paste is not working for security-onion, do the following: Shut down security onion. Then, from the "device info" menu for security onion (see above),
 "add hardware" bottom towards bottom-left > select "channel" use the default "spice agent." Start security onion again. This works because I already installed the `spice-vdagent` package into security-onion.
 
-{% include image.html image='add-spice-channel.png' %}
+{% include lab-image.html image='add-spice-channel.png' %}
 
 
 

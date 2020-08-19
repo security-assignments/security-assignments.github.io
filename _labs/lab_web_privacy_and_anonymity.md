@@ -47,7 +47,7 @@ Although ad trackers are seemingly everywhere on the Web, the good news is that 
 For this section of the lab, you'll configure Firefox on your laptop to block and examine web trackers of various kinds.
 
 1. Watch this [one-minute video](https://www.youtube.com/watch?v=dKmoubR-nVg) about the new privacy protections in Firefox 70.
-2. Download the [latest version of Firefox](https://www.mozilla.org/en-US/firefox/new/). If you already have Firefox installed on your laptop, check to see that you have Firefox 70 or later installed. 
+2. Download the [latest version of Firefox](https://www.mozilla.org/en-US/firefox/new/). If you already have Firefox installed on your laptop, check to see that you have Firefox 70 or later installed.
 * On a Mac, go to the Firefox menu and select "About Firefox."
 * On Windows, go to the "Help" menu and select "About Firefox."
 
@@ -68,12 +68,12 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 4.	Browse to your favorite sites and click the Ghostery icon after each page load. Which of your favorite sites uses the most web trackers?
 5. Click on the Ghostery icon and select the "Detailed View" tab. Click on the struck-through name of an add tracker and click the “Continue to full tracker profile” to learn more about the ad tracker (see figure below).
 
-    ![]({{ "/assets/images/lab_13_1.png" | relative_url }}){: width='70%'}
+    {% include lab-image.html image='lab_13_1.png' width="70%" %}
 
-5.	While viewing one of the "full tracker profiles", click on the down arrow next to “Privacy Information” to learn about the tracker’s privacy policy. 
+5.	While viewing one of the "full tracker profiles", click on the down arrow next to “Privacy Information” to learn about the tracker’s privacy policy.
 
     {% include lab_question.html question='What is the name of the third-party tracker you read about, and what kinds of information is its company collecting about you?' %}
-    
+
 
 # Part 3: Browser Fingerprinting
 
@@ -85,7 +85,7 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
     {% include lab_question.html question='Does your browser protect against fingerprinting?' %}
 
 
-2.	Click on the link, “Show full results for fingerprinting.” Look over the browser characteristics and how many bits of identifying information each one provides. 
+2.	Click on the link, “Show full results for fingerprinting.” Look over the browser characteristics and how many bits of identifying information each one provides.
 
     Note: The bits of identifying information means that your browser can be uniquely identified out of a set of 2^bits of identifying information. A lower score is better, because it means that you can be less precisely identified. For example:
 
@@ -104,20 +104,20 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 3.	Go to [http://whatismyip.com/](http://whatismyip.com/) again and note your IP address.
 
     Note that your IP address didn’t change. Why not?
-    
+
     {% include lab_question.html question='If your true IP address can still be seen by web servers, what does your browser\’s privacy mode do? (Ask the internet if you\'re not sure.)' %}
 
 4.	Run the **Tor Browser** (install if necessary) available for Linux, Mac, and Windows [here](https://www.torproject.org/download/download-easy.html).
 
     {% if site.instructorcollab_username == 'aov' %}
-        Note: You can't download or use Tor Browser on Temple University's 
-        campus unless you use a VPN service. For this part of the lab, use 
+        Note: You can't download or use Tor Browser on Temple University's
+        campus unless you use a VPN service. For this part of the lab, use
         the Tor browser from an off-campus network.
     {% endif %}
 
     Note: If you’re using a Mac and MacOS refuses to open the Tor Browser app because it is from an unknown developer, hold the control key and right-click the Tor Browser app and then select “open.” This will create an exception for the Tor Browser app and open it.
 
-5.	Reload [http://whatismyip.com/](http://whatismyip.com/) inside of the Tor Browser and verify that your IP address has changed. 
+5.	Reload [http://whatismyip.com/](http://whatismyip.com/) inside of the Tor Browser and verify that your IP address has changed.
 
 6.	Determine your IP address using three different websites (e.g., [https://www.whatismyip.com/](https://www.whatismyip.com/), [http://www.whatsmyip.org](http://www.whatsmyip.org), and [https://whatismyipaddress.com/](https://whatismyipaddress.com/)). Note what IP addresses each site reports for your browser.
 
@@ -132,7 +132,7 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 10.	Read this short article about the dark web:
 
     [https://www.wired.com/2014/11/hacker-lexicon-whats-dark-web/](https://www.wired.com/2014/11/hacker-lexicon-whats-dark-web/)
-    
+
 11.	Access the legitimate TOR services using the Tor browser:
 
     The New York Times:
@@ -149,10 +149,10 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 
     SecureDrop uses the Tor network to allow whistleblowers to securely share information with the news media:
 
-    ![]({{ "/assets/images/lab_13_2.png" | relative_url }}){: width='60%'}
+    {% include lab-image.html image='lab_13_2.png' width="60%" %}
     
     **Note:** If you’re interested in how SecureDrop works, see here: [https://securedrop.org/faq](https://securedrop.org/faq)
-    
+
     Visit the Duck Duck Go TOR service search engine, and search for something:
     : [http://3g2upl4pq6kufc4m.onion](http://3g2upl4pq6kufc4m.onion)
 
@@ -160,8 +160,8 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
     : [https://facebookcorewwwi.onion](https://facebookcorewwwi.onion)
 
     Note: Facebook says that as of April 2016, [more than 1 million people access Facebook via Tor](https://www.facebook.com/notes/facebook-over-tor/1-million-people-use-facebook-over-tor/865624066877648/)
-    
-12.	Try to load the same URL in a browser other than the Tor Browser. 
+
+12.	Try to load the same URL in a browser other than the Tor Browser.
 
     {% include lab_question.html question='What error message do you receive?' %}
 

@@ -16,7 +16,7 @@ To get access to the Kali virtual machine created for this class:
 1. While logged into your personal Google account, visit [this link](https://groups.google.com/forum/#!forum/infosec-management/join) to join the Google Group (public access) for this class.
 2. Click "Join this group."
 
-![]( {{ '/assets/images/Join-Google-Group.png' | relative_url }} )
+{% include lab-image.html image='Join-Google-Group.png' %}
 
 # Part 2: Sign up for Google Cloud Platform (GCP)
 
@@ -26,7 +26,7 @@ To get access to the Kali virtual machine created for this class:
 * Step 2 of 2: Choose "Account type" > "Individual". Complete the sign-up form. Provide a credit card.
 
     <div class='alert alert-info'><strong>Why a credit card?</strong> Google still requires a credit card to make sure you are not a robot. Google will not autocharge your account unless you manually upgrade to a paid plan.</div>
-    
+
 * Click "Start my free trial".
 
 # Part 3: Create a new Kali Linux instance
@@ -39,42 +39,42 @@ To get access to the Kali virtual machine created for this class:
     * Leave the "Series" field set to "N1"
     * Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
     * Click the "CPU platform and GPU" link.
-    
-    ![]( {{ '/assets/images/GCP-CPU-platform.jpg' | relative_url }} )
+
+    {% include lab-image.html image='GCP-CPU-platform.jpg' %}
     * Give it at least 4 vCPU and 15 GB memory
     * For the "CPU platform" field, select "Intel Haswell or later" for CPU platform.
- 
+
     * For the "Boot disk" field, click "Change".
         * Select the "Custom images" tab.
         * In the "Show images from" field, select, "infosec management"
         * Select the most recent Kali version that you see.
         * Leave "Boot disk type" "Standard persistent disk"
-        * Under the "Size (GB)" field, select the default size of "500". 
+        * Under the "Size (GB)" field, select the default size of "500".
 
             We won't use anywhere near that much, but on cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
-                
+
         Your boot disk settings should look like this:
 
-        ![]( {{ '/assets/images/kali-custom-image.png' | relative_url }} )
-        
+        {% include lab-image.html image='kali-custom-image.png' %}
+
         * Click the "Select" button.
-  
-  
+
+
 * Your overall settings should look like this:
-  
-![]( {{ '/assets/images/kali-custom-image2.png' | relative_url }} )
+
+{% include lab-image.html image='kali-custom-image2.png' %}  
 
 * Click the "Create" button.
 * Wait a few minutes for your image to boot. Once it does, connect to it via `ssh`:
 
-  ![]( {{ '/assets/images/gcloud-ssh-v2.png' | relative_url }} )
+  {% include lab-image.html image='gcloud-ssh-v2.png' %}
 
-* You should see a browser window pop up that looks like the following: 
+* You should see a browser window pop up that looks like the following:
 
-  ![]( {{ '/assets/images/gcp-ssh-connected.png' | relative_url }} )
+  {% include lab-image.html image='gcp-ssh-connected.png' %}
 
-    The "@kali" after your username shows that you are connected to your Kali VM workstation.
-  
+  The "@kali" after your username shows that you are connected to your Kali VM workstation.
+
 # Part 4: Connect to your Kali Linux VM using Chrome Remote Desktop
 
 * Open another browser window, and visit [https://remotedesktop.google.com/headless](https://remotedesktop.google.com/headless).
@@ -84,11 +84,11 @@ To get access to the Kali virtual machine created for this class:
 * Select your personal Google account and click the "Allow" button.
 * Click the icon to the right of the Debian Linux command to copy the command:
 
-  ![]( {{ '/assets/images/Debian-copy.jpg' | relative_url }} )
-  
+  {% include lab-image.html image='Debian-copy.jpg' %}
+
 * Switch to your browser window with Google Cloud Platform open, and right-click in the gcloud terminal to paste in the command you copied into the Kali Linux command line. Press enter.
 
-  ![]( {{ '/assets/images/Kali_connect.png' | relative_url }} )
+  {% include lab-image.html image='Kali_connect.png' %}
 
 * Enter a name for this image, e.g., "Kali".
 * Enter and re-enter a six-digit pin. Press enter.
@@ -96,30 +96,29 @@ To get access to the Kali virtual machine created for this class:
 
 * Click on your Kali instance.
 
-  ![]( {{ '/assets/images/Kali-remote.png' | relative_url }} )
+  {% include lab-image.html image='Kali-remote.png' %}
 
 * Type in your six-digit pin, and check the box so that your browser remembers the pin.
 
 * If a screen asks you to select a session type, click "OK" to accept the default.
 
-  ![]( {{ '/assets/images/default-session.png' | relative_url }} )
-  
-  * Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
-  
+  {% include lab-image.html image='default-session.png' %}
 
-  ![]( {{ '/assets/images/color-management.png' | relative_url }} )
+  * Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
+
+  {% include lab-image.html image='color-management.png' %}
 
 * After you finish logging in, you should see a screen like the following:
 
-  ![]( {{ '/assets/images/Kali-setup.png' | relative_url }} )
-  
+  {% include lab-image.html image='Kali-setup.png' %}
+
 * Note that if you click the blue arrow tab on the right hand of the screen, it opens additional options in Chrome Remote Desktop:
 
-  ![]( {{ '/assets/images/Kali-remote-options.png' | relative_url }} )
+  {% include lab-image.html image='Kali-remote-options.png' %}
 
 # Part 5: Set up budget alerts
 
-You get $300 in free credits when you sign up for google cloud platform. As of 8/27/2019, the Kali instance that you launch will cost almost $200 per month 
+You get $300 in free credits when you sign up for google cloud platform. As of 8/27/2019, the Kali instance that you launch will cost almost $200 per month
 if you run it continuously. _So do not run it continuously._ Shut down the instance when you are not using it. You are only billed by GCP for time that your instance
 is _running_.
 
@@ -128,28 +127,28 @@ The semester is about four months long, so set up a budget planning to spend (no
 *   Click the hamburger menu on the upper left > `Billing` > `Budgets & alerts`.
 *   `Create Budget`
 
-    ![]( {{ '/assets/images/gcp-budget-create.png' | relative_url }} )
+    {% include lab-image.html image='gcp-budget-create.png' %}
 
 *   `(1) Scope` > Projects => "All projects"
 
-    ![]( {{ '/assets/images/gcp-budget-1-scope.png' | relative_url }} )
-    
+    {% include lab-image.html image='gcp-budget-1-scope.png' %}
+
 *   `(2) Amount` > `Budget type` => "Specified amount", `Target amount` => $75, _uncheck_ "Include credits in cost."
 
-    ![]( {{ '/assets/images/gcp-budget-2-amount.png' | relative_url }} )
+    {% include lab-image.html image='gcp-budget-2-amount.png' %}
 
 *   `(3) Actions` > I recommend setting four thresholds -- one for each week of the month -- at 25%, 50%, 75%, and 100%. When you have hit these thresholds within
     a month, you will receive a budget notificaiton email.
-    
-    ![]( {{ '/assets/images/gcp-budget-3-actions.png' | relative_url }} )
-  
+
+    {% include lab-image.html image='gcp-budget-3-actions.png' %}
+
 These budget reminders will help you to keep an eye on your costs, and will help remind you to shut down an instance that could otherwise cost you a lot of money.
 
 # Deliverable
 
-Using the Kali VM for the steps below shows both that you got your Kali VM up and running, and that you have basic skills with the Linux terminal. You _must use your Kali GCP instance for the following_. 
+Using the Kali VM for the steps below shows both that you got your Kali VM up and running, and that you have basic skills with the Linux terminal. You _must use your Kali GCP instance for the following_.
 
-* Using a terminal, 
+* Using a terminal,
     * make a directory called `linux-tutorial`
     * In that directory, create a file called `i-did-it.txt` with the following contents: `Hello, world!`
 * Submit a screenshot showing:
@@ -159,11 +158,11 @@ Using the Kali VM for the steps below shows both that you got your Kali VM up an
         * The contents of `i-did-it.txt`
         * A string with your name and uni email, e.g., `echo "Anthony Vance anthony.vance@temple.edu"`
         * Output of the `date` command
-    
+
 For example:
 
 {% if site.instructorcollab_domain == 'colorado.edu' %}
-![img]( {{ "/assets/images/gcp-kali-chrome-remote-proof.png" | relative_url }})
+{% include lab-image.html image='gcp-kali-chrome-remote-proof.png' %}
 {% elsif site.instructorcollab_domain == 'temple.edu' %}
-![img]( {{ "/assets/images/gcp-kali-chrome-remote-proof-tv.png" | relative_url }})
+{% include lab-image.html image='gcp-kali-chrome-remote-proof-tv.png' %}
 {% endif %}

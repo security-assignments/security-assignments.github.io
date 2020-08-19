@@ -5,7 +5,7 @@ layout: assignment
 ---
 
 <h2>Topics</h2>
-{% for topic in site.data.readings %}
+{% for topic in site.readings %}
 <div>
 <h3>{{ topic.topic }}</h3>
 <ul>

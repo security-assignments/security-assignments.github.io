@@ -7,9 +7,9 @@ id: security-readings-and-films-list
 # Security Films
 
 
-{% assign films = site.data.films.security %}
+{% assign films = site.films %}
 {% for film in films %}
- 
+
 <div class='row bottom-divider'>
 
 <div class='col-md-2'>
@@ -31,14 +31,14 @@ _"{{ film.title }},"_ by {{ film.director }}
 </div>
 
 </div>
-    
+
 {% endfor %}
 
 
 
 # Security Books
 
-{% assign books = site.data.books.security | sort: 'author' %}
+{% assign books = site.books | sort: 'author' %}
 
 {% for book in books %}
 

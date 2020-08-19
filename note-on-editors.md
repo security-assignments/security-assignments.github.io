@@ -1,7 +1,6 @@
 ---
 layout: assignment
 title: A note on choosing a text editor to learn
-
 ---
 
 Many of the security assignment labs require you to edit text files on a Linux machine. You'll want to become proficient in using a text editor.

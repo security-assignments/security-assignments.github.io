@@ -62,5 +62,5 @@ to github -- it will be ignored if you are allowing github to build for you.
 
 ## _includes scripts
 
-*   image.html, shorthand for embedding an image
-        {% include image.html image='virt-manager-running.PNG' %}
+*   lab-image.html, shorthand for embedding an image
+        {% include lab-image.html image='virt-manager-running.PNG' %}
