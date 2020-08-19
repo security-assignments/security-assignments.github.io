@@ -27,6 +27,8 @@ repository: 'deargle/security-assignments'
 instructorcollab_username: deargle
 instructorcollab_domain: colorado.edu
 
+theme: security-assignments-theme
+
 # Build settings
 markdown: kramdown
 #theme: minima
@@ -61,7 +63,7 @@ collections:
         output: true
     tutorials:
         output: true
-        
+
 defaults:
     -
         scope:
@@ -80,4 +82,3 @@ defaults:
             type: "activities"
         values:
             layout: assignment
-        
