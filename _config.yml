@@ -53,6 +53,8 @@ exclude:
 
 host: 0.0.0.0
 
+remote_theme: deargle/security-assignments-theme
+
 # Collections
 collections:
     labs:
@@ -61,6 +63,11 @@ collections:
         output: true
     tutorials:
         output: true
+    projects:
+        output: true
+    books:
+    films:
+    readings:
     
 defaults:
     -
