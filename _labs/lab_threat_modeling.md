@@ -36,9 +36,13 @@ In this lab, you will create attack trees for different attacker goals to help y
 
     _Required metrics_: Each node has a metric for "difficulty", "sophistication", and "expertise."
 
-4.  Create an attack tree for learning someone’s online banking account username and password. Assign dollar values to each attack node, per 'Schneier Chapter 21'. Which attack is cheapest for the attacker? Which attack is most expensive?
+# Example
 
-    _Required metrics_: Each node has a metric for "dollar value".
+Example 1.  Create an attack tree for learning someone’s online banking account username and password. Assign dollar values to each attack node, per 'Schneier Chapter 21'. Which attack is cheapest for the attacker? Which attack is most expensive?
+
+Example _Required metrics_: Each node has a metric for "dollar value".
+
+{% include lab-image.html image='attack-tree.PNG' %}
 
 
 # Deliverable
