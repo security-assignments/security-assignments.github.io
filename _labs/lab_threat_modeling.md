@@ -10,7 +10,14 @@ published: true
 
 # Assignment Description
 
-In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010).
+In this lab, you will create attack trees for different attacker goals to help you systematically think through various attacks. You can represent your attack tree graphically (like those depicted in Schneier, "Secrets and Lies", Chapter 21), or as a numbered list (e.g., 1, 1.1, 1.2, 1.2.1, 1.3, …). The below questions are in part from Cryptography Engineering, 2nd edition, by Ferguson, Schneier and Kohno (2010).
+
+You are required to include certain metrics for each attack tree. Refer to Schneier chapter 21
+for examples of including metrics on attack trees. You do not need to
+do research to choose metric values for your nodes -- but your metric value choices
+should still be loosely justifiable. The main point of adding metrics is to give
+the attack tree creator a way to sort, prioritize, etc the attack vectors, however
+they want to do that.
 
 **Note:** I recommend using Microsoft Word’s SmartArt function and the "hierarchy" template to quickly generate an attack tree from an outline. You can enter multiple lines into one box by using `shift+enter`.
 
