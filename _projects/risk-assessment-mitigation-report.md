@@ -52,7 +52,7 @@ To start, consider that financial management systems is an integral part of proc
 
     You can use [this Excel spreadsheet file](/security-assignments/assets/files/Risk_assessment_table.xlsx) as a template.
 
-2. For each information type, use the information in [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf) (particularly Table 1) to describe the potential impact to the organization if the Milestone 2 server was breached containing these information types.
+2. For each information type, use the information in [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf) (particularly Table 1) to describe the potential impact to the organization if the financial management information system was breached containing these information types.
 
 ## Written Report Deliverable
 
