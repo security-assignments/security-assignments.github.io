@@ -1,12 +1,28 @@
 ---
 layout: assignment
-title: Risk Assessment and Mitigation Report
+title: Risk Assessment Report
 order: 3
 ---
 
 with *Dr.* [*David Lanter*](https://community.mis.temple.edu/dlanter/)
 
-Your assignment is to create a risk assessment and mitigation report for managers of a (fictitious) company that owns and depends on financial management information and information system running on the server you examined in the penetration test you conducted in Milestone 2.
+Your assignment is to create a risk assessment report for managers of a (fictitious) company that owns and depends on financial information contained in a financial management system.
+
+Financial management involves the aggregate set of accounting practices and procedures that allow for the accurate and effective handling of all a business’ revenues, funding, and expenditures. A financial management information system supports the following business functions and associated datasets:
+
+* Accounting
+* Funds Control
+* Payments
+* Collections and Receivables
+* Asset and Liability Management
+* Reporting and Information
+* Cost Accounting/ Performance
+
+The following three security objectives are critical to these business functions and associated datasets:
+
+* *Confidentiality*: The impacts of a breach of confidentiality of financial management information are generally associated with the sensitivity of the existence of projects, programs, and/or technologies; and customers, suppliers, contractors and employees that might be revealed by unauthorized disclosure of information.
+* *Integrity*: The impacts of a breach of integrity of financial management information may result from temporary successful frauds that can affect the business’ image, while corrective actions may disrupt the business’ operations.
+* *Availability*: The impacts of a permanent loss of availability of financial management information can cripple business operations.
 
 The purpose of your risk assessment is to clarify the level of concern for confidentiality, integrity, and availability and the potential impact on the business’ operations should the information and information system be compromised through unauthorized access, use, disclosure, disruption, modification, or destruction.
 
@@ -16,9 +32,7 @@ Your risk assessment will be based on:
 3.	Provisional security categorizations assigned to the financial management information types by [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf),
 4.	Determination of an overall security categorization for the financial management information system based on the provisional security categorization of the information types (from 3 above)
 
-The security risk categorization you present in your risk assessment will enable you to use [NIST Special Publication 800-53r4](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) to select security controls to mitigate the vulnerabilities you identified in your penetration test report of Milestones 2 and 3 for the financial management information and information system.
-
-To start, consider that the Milestone 2 server was an integral part of processing the following financial management information types (e.g., the C.3.2 “Financial Management” category in Table 6 of [NIST Special Publication 800-60 Volume I](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v1r1.pdf)):
+To start, consider that financial management systems is an integral part of processing the following financial management information types (e.g., the C.3.2 “Financial Management” category in Table 6 of [NIST Special Publication 800-60 Volume I](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v1r1.pdf)):
 
 * Asset and Liability Management (C.3.2.1)
 * Reporting and Information (C.3.2.2)
@@ -28,7 +42,7 @@ To start, consider that the Milestone 2 server was an integral part of processin
 * Collections and Receivables (C.3.2.6)
 * Cost Accounting/ Performance Measurement (C.3.2.7)
 
-# Objectives
+# Instructions
 
 1. For each information type listed in section C.3.2 of [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf), complete a row like the following:
 
@@ -40,10 +54,6 @@ To start, consider that the Milestone 2 server was an integral part of processin
 
 2. For each information type, use the information in [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf) (particularly Table 1) to describe the potential impact to the organization if the Milestone 2 server was breached containing these information types.
 
-3. For each weakness you identified in Section 3 of your penetration test report, research controls that mitigate these weaknesses from Table D-2: "Security Control Baselines" from [NIST Special Publication 800-53: "Security and Privacy Controls for Federal Information Systems and Organizations"](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf), as well as other outside sources.
-
-    Explain and justify in your assessment how these controls would mitigate each vulnerability you identified in Milestone 2.
-
 ## Written Report Deliverable
 
 You should write the report for a managerial audience, one that isn't
@@ -52,36 +62,24 @@ explain the concepts in terms that can be easily understood by managers
 without technical experience. If you use technical or unfamiliar terms,
 include a glossary of the terms used.
 
-The suggested length requirement for the report is 10 pages, but your report must not exceed 15 pages (not including appendices).
-
-In writing your report, organize for impact. This means you should
-discuss the most serious vulnerabilities first.
+The suggested length requirement for the report is 4–5 pages (not including appendices).
 
 ## Report Sections
 
 1. Executive summary (1 page). In this section, state that the report:
-    * Is an assessment of risk to information stored on financial management systems, part of which is the server examined in your penetration test report.
-    * Discusses the likelihood that this information will be compromised, given the results of your penetration test report.
+    * Is an assessment of risk to information stored on financial management systems.
     * Classifies impacts to different information types, in terms of confidentiality, integrity, and availability, following [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf).
     * Classifies these potential impacts as "low," "moderate," and "high," which correspond to "limited," "serious," "severe" or "catastrophic" adverse effects, per [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
-    *  Proposes controls to mitigate the vulnerabilities identified in your penetration report, in accordance with the Security Control Baselines from [NIST Special Publication 800-53: "Security and Privacy Controls for Federal Information Systems and Organizations"](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf).
 
-
-2. In Section 1, briefly summarize the vulnerabilities reported in Section 3 of your penetration test report. *Discuss why the likelihood is high that these vulnerabilities could be exploited in the future.*
-3. In Section 2,
-    * Present and describe the impact rating table you created in Step 1 above and discuss the impact for each information type.
+2. Main body:
+    * Present and describe the impact rating table you created in Step 1 of the instructions above and discuss the impact for each information type.
     * Bold the items in the right-most column.
     * State that these impact ratings come from [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf).
-    * In section 2.1, briefly define integrity, confidentiality, and availability, per FIPS 199. You're welcome to quote from [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
-    * In section 2.2, briefly define each impact category: "low," "moderate," and "high," which correspond to "limited," "serious," "severe" or "catastrophic" adverse effects, per [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
-    * In section 2.3, create a subsection for each information type (e.g., Asset and Liability Management, C.3.2.1).
+    * In section 1, briefly define integrity, confidentiality, and availability, per FIPS 199. You're welcome to quote from [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
+    * In section 2, briefly define each impact category: "low," "moderate," and "high," which correspond to "limited," "serious," "severe" or "catastrophic" adverse effects, per [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
+    * In section 3, create a subsection for each information type (e.g., Asset and Liability Management, C.3.2.1).
         * For each subsection, explain why it has the impact rating that it does for confidentiality, integrity, and availability. You're welcome to quote from [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf) with attribution.
         * Give emphasis to the most serious impacts.
 
-4. In section 3, describe mitigating controls you identified in Step 3 above for the vulnerabilities you reported in Section 3 of your penetration test report.
-    * List the specific controls from [NIST Special Publication 800-53: "Security and Privacy Controls for Federal Information Systems and Organizations"](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) (e.g., "IA-1: Identification and Authentication Policy and Procedures").
-    * Explain each control. You're welcome to quote from NIST 800-53, with attribution.
-    * Group your controls by control family (e.g., group all "IA" controls together).
-    * *Be explicit how each control would mitigate the vulnerabilities you found*.
-
-5. Add a reference section where you can list the title, author or agency name (e.g., NIST), URL, and access date for the works you cite.
+3. Optionally, add a glossary section that defines the technology terms you use for a managerial audience. 
+4. Add a reference section where you can list the title, author or agency name (e.g., NIST), URL, and access date for the works you cite.
