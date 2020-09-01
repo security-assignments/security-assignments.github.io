@@ -9,7 +9,7 @@ published: true
 
 Complete [this introduction to Google Cloud Platform tutorial]( {{ '/tutorials/intro-to-gcp.html' | relative_url }}) to set up your Kali Linux instance.
 
-# Part 1. Complete a gentle introduction to the Linux terminal
+# Part 1.1. Complete a gentle introduction to the Linux terminal
 
 Once you have your Kali Linux instance set up in GCP, open a terminal Window in Kali by clicking the terminal icon in the application dock:
 
@@ -19,6 +19,18 @@ Next, using the terminal in Kali, complete pages 1–19 of [this gentle introduc
 
 Alternatively, Udacity
 has a [free set of follow-along video lecture demonstrations](https://www.udacity.com/course/linux-command-line-basics--ud595) that you might prefer instead.
+
+# Part 1.2. Learn a command-line text editor
+
+You can use command-line text editors to edit textfiles from a terminal connection.
+Search for and complete an introductory tutorial to a command-line text editor,
+such as [this one for `nano`](https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/).
+
+{% if site.instructorcollab_username == 'deargle' %}
+I use `vim` because I'm l33t. But I don't recommend that you use vim unless you
+enjoy insane learning curves and l33t-ism.
+{% endif %}
+
 
 # Part 2. Play the Bandit wargame on OvertheWire.org
 
