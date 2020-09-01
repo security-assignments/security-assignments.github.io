@@ -9,7 +9,7 @@ published: true
 
 First, complete [this introduction to Google Cloud Platform tutorial]( {{ '/tutorials/intro-to-gcp.html' | relative_url }}),
 up to but not including the deliverable, to set up your Kali Linux instance for
-use in Part 1.
+use in the rest of Part 1.
 
 
 # Part 1.1. Complete a gentle introduction to the Linux terminal
