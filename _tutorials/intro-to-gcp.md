@@ -144,6 +144,11 @@ The semester is about four months long, so set up a budget planning to spend (no
 
 These budget reminders will help you to keep an eye on your costs, and will help remind you to shut down an instance that could otherwise cost you a lot of money.
 
+# Part 6: Complete the Introduction to Linux Tutorial
+
+Complete [this introduction to Linux tutorial]( {{ '/tutorials/intro-to-linux.html' | relative_url }}).
+Then, come back and complete the deliverable for this tutorial.
+
 # Deliverable
 
 Using the Kali VM for the steps below shows both that you got your Kali VM up and running, and that you have basic skills with the Linux terminal. You _must use your Kali GCP instance for the following_.
