@@ -52,6 +52,28 @@ enjoy insane learning curves and l33t-ism. If you are morbidly curious,
 [see the vim tutorial here](https://danielmiessler.com/study/vim/)
 {% endif %}
 
+{% if site.instructorcollab_username == 'deargle' %}
+## Part 1.4. Tips.
+
+* **Tab-completion** is available in many shells. Use it! It will save you from typos
+  and make it look like you can type at the speed of a wizard. If I ever see you
+	not using tab completion, I will tsk-tsk you and have you do it again.
+
+	See [this tutorial](https://www.howtogeek.com/195207/use-tab-completion-to-type-commands-faster-on-any-operating-system/)
+
+* **Copy-paste** is also often available, and is a lifesaver. The trouble is
+  that it can be different for each shell, and it's rarely the OS-usual
+	`ctrl\cmd+c` and `ctrl+v`.
+
+	* Pasting is often a right-click of the mouse, or the `shift+insert`
+		key combination.
+	* Copying is often highlighting the text with your cursor and then hitting
+		`enter`.
+
+	Try clicking the shell app icon on the top-left of your screen and searching
+	the `Edit` menu there to see a list of commands and their keyboard shortcuts
+	next to them.
+{% endif %}
 
 # Part 2. Play the Bandit wargame on OvertheWire.org
 
