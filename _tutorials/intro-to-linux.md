@@ -12,7 +12,7 @@ up to but not including the deliverable, to set up your Kali Linux instance for
 use in the rest of Part 1.
 
 
-# Part 1.1. Complete a gentle introduction to the Linux terminal
+## Part 1.1. Complete a gentle introduction to the Linux terminal
 
 Once you have your Kali Linux instance set up in GCP, open a terminal Window in Kali by clicking the terminal icon in the application dock:
 
@@ -24,7 +24,7 @@ Alternatively, Udacity
 has a [free set of follow-along video lecture demonstrations](https://www.udacity.com/course/linux-command-line-basics--ud595)
 that you might prefer instead.
 
-## Text manipulation
+## Part 1.2. Text manipulation
 
 In addition to the above tutorial, complete the following short pages
 from [this set about text manipulation](https://linuxjourney.com/lesson/stdout-standard-out-redirect#)
@@ -37,9 +37,9 @@ from [this set about text manipulation](https://linuxjourney.com/lesson/stdout-s
 	* 16. grep
 
 
-# Part 1.2. Learn a command-line text editor
+## Part 1.3. Learn a text editor
 
-You can use command-line text editors to edit textfiles from a shell.
+You can use text editors to edit text files from a shell.
 Search for and complete an introductory tutorial to a command-line text editor,
 such as [this one for `nano`](https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/).
 
