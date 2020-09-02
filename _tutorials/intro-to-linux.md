@@ -24,6 +24,18 @@ Alternatively, Udacity
 has a [free set of follow-along video lecture demonstrations](https://www.udacity.com/course/linux-command-line-basics--ud595)
 that you might prefer instead.
 
+## Text manipulation
+
+In addition to the above tutorial, complete the following short pages
+from [this set about text manipulation](https://linuxjourney.com/lesson/stdout-standard-out-redirect#)
+
+	* 1. stdout
+	* 2. stdin
+	* 3. stderr
+	* 4. pipe and tee
+	* 15. wc and nl
+	* 16. grep
+
 
 # Part 1.2. Learn a command-line text editor
 
