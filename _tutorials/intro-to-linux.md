@@ -43,6 +43,9 @@ You can use text editors to edit text files from a shell.
 Search for and complete an introductory tutorial to a command-line text editor,
 such as [this one for `nano`](https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/).
 
+Better yet, [watch this intro nano video first](https://www.youtube.com/watch?v=5RAdNa7kJr0),
+from the Udacity courses mentioned above.
+
 {% if site.instructorcollab_username == 'deargle' %}
 I use `vim` because I'm l33t. But I don't recommend that you use vim unless you
 enjoy insane learning curves and l33t-ism. If you are morbidly curious,
