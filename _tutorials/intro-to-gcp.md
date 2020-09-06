@@ -29,9 +29,11 @@ To get access to the Kali virtual machine created for this class:
 
 * Click "Start my free trial".
 
-# Part 3: Create a new Kali Linux instance
+# Part 3: Create a new project and launch a new Kali Linux instance
 
-* Click "[Go to Compute Engine](https://console.cloud.google.com/compute?project=zinc-interface-264705)". Wait a few minutes for Compute Engine to set up.
+* First, create a new "project" which will house all of the material for this class.
+* Then, expand the hamburger menu and navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. Wait a few minutes for Compute Engine to set up.
+  {% include lab-image.html image='gcp-go-to-compute.PNG' %}
 * Click "Create".
 * In the "name" field, enter a name like "kali-linux-vm" (must be all lowercase).
 * Give your new virtual machine instance the following specs:
