@@ -79,22 +79,32 @@ To get access to the Kali virtual machine created for this class:
 
 # Part 4: Connect to your Kali Linux VM using Chrome Remote Desktop
 
+Setting up Chrome Remote Desktop (CRD) will enable you to graphically connect
+to your Kali instance, from your browser, using a Google account to sign in. You
+should be able to log in as long as your Kali instance is running on GCP.
+
 * Open another browser window, and visit [https://remotedesktop.google.com/headless](https://remotedesktop.google.com/headless).
 * Click the "Begin" button.
-* Click the "Next" button.
+* Click the "Next" button. (Chrome Remote Desktop is already installed on Kali).
 * Click the "Authorize" button.
 * Select your personal Google account and click the "Allow" button.
 * Click the icon to the right of the Debian Linux command to copy the command:
 
   {% include lab-image.html image='Debian-copy.jpg' %}
 
-* Switch to your browser window with Google Cloud Platform open, and right-click in the gcloud terminal to paste in the command you copied into the Kali Linux command line. Press enter.
+* Switch to your browser window with the ssh connection to Kali, paste in the command you copied into the Kali Linux command line. Press enter.
 
   {% include lab-image.html image='Kali_connect.png' %}
 
 * Enter a name for this image, e.g., "Kali".
 * Enter and re-enter a six-digit pin. Press enter.
-* Switch back to the window with **remotedesktop.google.com** open. Click the "Remote Access" link at the top or visit [this link](https://remotedesktop.google.com/access).
+
+  <div class='alert alert-warning'><strong>Did you get an OAuth error?</strong> This
+  may happen if something went wrong when you ran the command copied , and if you tried
+  to run it again. The copied command is only valid for one attempt. You will need to start this section over again, to obtain another authorization url, which will have a new auth token embedded.</div>
+
+* Switch back to the window with **remotedesktop.google.com** open. Click the "Remote
+  Access" link at the top or visit [this link](https://remotedesktop.google.com/access).
 
 * Click on your Kali instance.
 
@@ -117,6 +127,17 @@ To get access to the Kali virtual machine created for this class:
 * Note that if you click the blue arrow tab on the right hand of the screen, it opens additional options in Chrome Remote Desktop:
 
   {% include lab-image.html image='Kali-remote-options.png' %}
+
+ <div class='alert alert-info'><strong>Enabling copy-paste.</strong> It is possible
+ to enable copy-paste between your host computer and your Kali instance. Look in
+ the above-shown sidebar
+ additional options for a related option if you are having trouble copy-pasting. The
+ specific enabling method changes from time to time, but is usually accessible through
+ the sidebar.</div>
+
+<div class='alert alert-info'>If you have suspended or stopped your instance,
+you will need to navigate to the GCP console and start it again before attempting
+to connect with CRD.</strong>
 
 # Part 5: Set up budget alerts
 
@@ -151,6 +172,13 @@ The semester is about four months long, so set up a budget planning to spend (no
     {% include lab-image.html image='gcp-budget-3-actions.png' %}
 
 These budget reminders will help you to keep an eye on your costs, and will help remind you to shut down an instance that could otherwise cost you a lot of money.
+
+# Part 6: Install a GCP Console app on a mobile device
+
+You can manage your GCP instances from the
+[Cloud Console Mobile App](https://cloud.google.com/console-app).
+This can be handy if you realize that you have
+accidentally left an instance running -- you can easily shut it down from the app.
 
 # Part 6: Complete the Introduction to Linux Tutorial
 
