@@ -135,9 +135,9 @@ should be able to log in as long as your Kali instance is running on GCP.
  specific enabling method changes from time to time, but is usually accessible through
  the sidebar.</div>
 
-<div class='alert alert-info'>If you have suspended or stopped your instance,
+<div class='alert alert-warning'>If you have suspended or stopped your instance,
 you will need to navigate to the GCP console and start it again before attempting
-to connect with CRD.</strong>
+to connect with CRD.</div>
 
 # Part 5: Set up budget alerts
 
@@ -180,7 +180,7 @@ You can manage your GCP instances from the
 This can be handy if you realize that you have
 accidentally left an instance running -- you can easily shut it down from the app.
 
-# Part 6: Complete the Introduction to Linux Tutorial
+# Part 7: Complete the Introduction to Linux Tutorial
 
 Complete [this introduction to Linux tutorial]( {{ '/tutorials/intro-to-linux.html' | relative_url }}).
 Then, come back and complete the deliverable for this tutorial.
