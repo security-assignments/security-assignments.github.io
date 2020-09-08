@@ -112,6 +112,9 @@ should be able to log in as long as your Kali instance is running on GCP.
 
 * Type in your six-digit pin, and check the box so that your browser remembers the pin.
 
+  <div class='alert alert-info'><strong>Can't get to the pin-entry screen?</strong>Try a different web browser, such as Google Chrome.
+  Also try disabling any browser extensions that may be interfering.</div>
+
 * If a screen asks you to select a session type, click "OK" to accept the default.
 
   {% include lab-image.html image='default-session.png' %}
