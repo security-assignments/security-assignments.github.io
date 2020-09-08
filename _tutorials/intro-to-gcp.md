@@ -124,6 +124,12 @@ You get $300 in free credits when you sign up for google cloud platform. As of 8
 if you run it continuously. _So do not run it continuously._ Shut down the instance when you are not using it. You are only billed by GCP for time that your instance
 is _running_.
 
+You can either suspend, shut down, or delete an instance. Which you choose will
+depend on your needs, but be aware that suspended instances
+[still incur some costs](https://cloud.google.com/compute/vm-instance-pricing).
+
+{% include lab-image.html image='gcp-shutdown-suspend.png' %}
+
 The semester is about four months long, so set up a budget planning to spend (no more than) $75 per month. To do so:
 
 *   Click the hamburger menu on the upper left > `Billing` > `Budgets & alerts`.
