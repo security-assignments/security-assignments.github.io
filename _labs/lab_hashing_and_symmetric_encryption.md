@@ -177,7 +177,7 @@ In cryptii, you can switch to a hex view thusly in order to make your single-bit
 
 {% include lab-image.html image='cryptii-hashing-hex.png' %}
 
-{% include lab_question.html question='If only one bit is changed on a 10 GB file how different will the hash be?' %}
+{% include lab_question.html question='Assume a 10 GB file is hashed. If only one bit is changed on a 10 GB file and then it is hashed again, how will the second hash compare to the first?' %}
 {% include lab_question.html question='Which property of cryptographic hash functions is most related to the previous question?' %}
 
 
