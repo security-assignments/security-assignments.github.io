@@ -5,7 +5,8 @@ layout: assignment
 ---
 
 <h2>Topics</h2>
-{% for topic in site.readings %}
+{% assign topics = site.readings | sort: "topic" %}
+{% for topic in topics %}
 <div>
 <h3>{{ topic.topic }}</h3>
 <ul>
@@ -13,6 +14,7 @@ layout: assignment
     <li> {{ reading | markdownify }} </li>
 {% endfor %}
 </ul>
+{{ topic.content | markdownify }}
 </div>
 {% endfor %}
 
