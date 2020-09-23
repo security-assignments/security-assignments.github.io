@@ -162,31 +162,29 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 4.  Configure Firefox to route all internet traffic through BurpSuite.
 
     * Firefox >
-    * "Hamburger" icon on upper-right >
-    * Preferences >
+      {% include lab-image.html image='firefox-launch.png' %}
+    * "Hamburger" icon on upper-right > Preferences
+      {% include lab-image.html image='firefox-open-hamburger-preferences.png' %}
     * (scroll to the bottom or search) Network Proxy - Settings >
-    * Manual proxy configuration, HTTP Proxy `localhost` (or equivalently `127.0.0.1`), Port 8080, check box for "use this proxy server for all protocols"
+      {% include lab-image.html image='firefox-search-network-settings.png' %}
+    * Manual proxy configuration, HTTP Proxy `localhost` (or equivalently `127.0.0.1`), Port
+      8080, check box for "use this proxy server for all protocols"
+      {% include lab-image.html image='firefox-set-proxy-localhost-8080.png' %}
 
     Firefox is now proxying all web requests through BurpSuite.
 
-    {% include lab-image.html image='firefox-launch.png' %}
-
-    {% include lab-image.html image='firefox-open-hamburger-preferences.png' %}
-
-    {% include lab-image.html image='firefox-search-network-settings.png' %}
-
-    {% include lab-image.html image='firefox-set-proxy-localhost-8080.png' %}
 
     Note: the above instructions are also described when the following link is clicked:
 
     {% include lab-image.html image='burpsuite-open-proxy-documentation.png' %}
+
+## Attempt to visit a secure website
 
 6.  Now that Firefox is passing all traffic to BurpSuite, try to visit an https-site. The following will work against _any_ https site,
     but we will visit [https://bankofamerica.com](https://bankofamerica.com)
 
     You receive an SSL connection error!
 
-    {% include lab-image.html image='burpsuite-boa-ssl-error.png' %}
     {% include lab-image.html image='burpsuite-boa-ssl-error.png' %}
 
     1.  Inspect the cert. You can do this by clicking the "View Certificate" button.
@@ -198,7 +196,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
         {% include lab-image.html image='burpsuite-cert-details-base64.png' %}
 
-        Google-search for “ssl cert decoder” and use a site such as [https://certlogik.com/decoder/](https://certlogik.com/decoder/) or [https://www.sslshopper.com/certificate-decoder.html](https://www.sslshopper.com/certificate-decoder.html)
+        Search the internet for an "ssl cert decoder", such as [https://certlogik.com/decoder/](https://certlogik.com/decoder/) or [https://www.sslshopper.com/certificate-decoder.html](https://www.sslshopper.com/certificate-decoder.html),
         to decode the base64-encoded cert that you copied in the previous step.
 
 8.  Configure Firefox to trust BurpSuite's self-signed certificate.
@@ -220,9 +218,8 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
     Examine the HTTPS SSL connection:
 
-    * Firefox >
-    * click lock next to url in addressbar >
-    * click `>` button >
+    * In the Firefox address bar, click the lock next to url
+    * click the `>` button on the resultant popup dialog
     * click `More Information`
 
     {% include lab-image.html image='burpsuite-secure-connection-boa.png' %}
@@ -232,22 +229,23 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
 ## Capture Login
 
-10. Pretend that you are logging in to Bankofamerica.com. **Enter as your username
+10. Pretend that you are logging in to Bankofamerica.com. <strong>Enter as your username
     your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if
-    site.instructorcollab_username == 'aov' %}TUid{% endif %}**. Choose any **fake
-    password**.
+    site.instructorcollab_username == 'aov' %}TUid{% endif %}</strong>. Choose any **fake
+    password**. Submit your login request. It will fail.
 
-11. Now, go back to BurpSuite. The sign-in attempt should have been recorded -- let's find it.
+11. BurpSuite should have logged the login attempt -- Let's find it. Go back to BurpSuite.
 
-    1.  Navigate to the "Proxy" > "HTTP history" tab. Click the "Filter" bar to
-        open the filter dialog.
+    1.  Within BurpSuite, navigate to the "Proxy" > "HTTP history" tab. Click the "Filter"
+        bar to open the filter dialog, and change the settings as follows to make the
+        visual search easier.
 
         * Login requests submit fields such as usernames and passwords using "parameters",  
           so select "Filter by request type" > "Show only parameterized results."
         * Login requests -- at least for this site -- use MIME type "html", so
           in "Filter by MIME type," uncheck all except for HTML.
 
-        That should be sufficient to easily find the single POST method which was
+        That should be sufficient to easily find the HTTP POST request which was
         the attempted login.
 
         <div class='alert alert-info'>A POST request allows parameters to send
@@ -262,7 +260,8 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
         Select it, and then in the populated view beneath the list entries, select
         "Request" tab and then "Params" tab. Scroll down until you can see the
-        "passcode" and "onlineid" named entries.
+        "passcode" and "onlineid" named entries. These should be the values you
+        submitted on your login attempt.
 
         You should see your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if site.instructorcollab_username == 'aov' %}TUid{% endif %} and fake password.
 
@@ -276,13 +275,18 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
     {% include lab-image.html image='500px-Man_in_the_middle_attack.svg.png' %}
 
-    In our pretend case, BurpSuite is the evil server, and Bankofamerica is the intended server. All secure content is visible as plaintext to the attacker,
+    In our pretend case, BurpSuite is the evil server, and Bank Of America's server
+    is the intended server. All secure content is visible as plaintext to the attacker,
     because the attacker’s SSL cert was used to establish the secure HTTPS connection.
 
-# Part 3. Experience PGP
+13. Finally, clean up by reconfiguring Firefox to no longer use a network proxy. To do this,
+    revisit Firefox's "Network Settings" page under the Preferences view, and select
+    "No Proxy".
 
-For a long time, PGP was the best technology available for email privacy. Watch
-the following video tutorial created by Edward Snowden for how to use gpg,
+# Part 3. Experience secure messaging with the bygone PGP
+
+For a long time, PGP was the best technology available for messaging (email) privacy.
+Watch the following video tutorial created by Edward Snowden for how to use gpg,
 the open source version of pgp: [https://vimeo.com/56881481](https://vimeo.com/56881481)
 
 The above video tutorial is for Windows users. Mac users can use [GPG Suite](https://gpgtools.org/).
@@ -290,8 +294,9 @@ The above video tutorial is for Windows users. Mac users can use [GPG Suite](htt
 {% if site.instructorcollab_username == 'deargle' %}
 
 <div class='alert alert-info'><strong>Extra challenge:</strong> Follow along
-with the tutorial and send Dr. Eargle a signed, encrypted message, using the
-public key available <a href='http://daveeargle.com/key.asc'>here</a></div>
+with the tutorial and send Dr. Eargle a signed, encrypted message, along with
+your public key, using Dr. Eargle's public key available
+<a href='http://daveeargle.com/key.asc'>here</a>.</div>
 
 {% endif %}
 
@@ -299,10 +304,12 @@ public key available <a href='http://daveeargle.com/key.asc'>here</a></div>
 
 1.  Watch the following clips from an Al Jazeera Fault Lines documentary about the
 crypto wars:
-    * Moxie Marlinspike starting at 9:00, but start at [8:23](https://youtu.be/j7VA4H8m4uk?t=502) for context
-    * Many attacks that do not depend on cracking E2E, [Morgan Marquis-Boire at 16:18](https://youtu.be/j7VA4H8m4uk?t=978) and [Bill Marczak of The Citizen Lab at 18:37](https://youtu.be/j7VA4H8m4uk?t=1097)
+    * Interview with Moxie Marlinspike starting at 9:00, but start at [8:23](https://youtu.be/j7VA4H8m4uk?t=502) for context
+    * Many attacks that do not depend on cracking E2E, Interviews with [Morgan Marquis-Boire at 16:18](https://youtu.be/j7VA4H8m4uk?t=978) and [Bill Marczak of The Citizen Lab at 18:37](https://youtu.be/j7VA4H8m4uk?t=1097)
 1.	Watch this [video](https://video.vice.com/en_us/video/motherboard-hacking-week-how-to-use-signal-encryption/5a0f6547177dd45aee30e663) and read about the Signal app [here](https://signal.org/) and [here](https://theintercept.com/2017/05/01/cybersecurity-for-the-people-how-to-keep-your-chats-truly-private-with-signal/).
 1.  Also read about the cryptographic primitives that the Signal protocol uses, [here](https://medium.com/@justinomora/demystifying-the-signal-protocol-for-end-to-end-encryption-e2ee-ad6a567e6cb4).
+
+Use what you read and watched above to answer the following questions:
 
 {% include lab_question.html question='What attacks does Signal protect you against? Which does it not protect you against?' %}
 
