@@ -283,13 +283,16 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     revisit Firefox's "Network Settings" page under the Preferences view, and select
     "No Proxy".
 
-# Part 3. Experience secure messaging with the bygone PGP
+# Part 3. Appreciate secure messaging with the bygone PGP
 
 For a long time, PGP was the best technology available for messaging (email) privacy.
-Watch the following video tutorial created by Edward Snowden for how to use gpg,
+To gain an appreciation of the pain invovled in using PGP, watch the following
+video tutorial created by Edward Snowden for how to use gpg,
 the open source version of pgp: [https://vimeo.com/56881481](https://vimeo.com/56881481)
 
-The above video tutorial is for Windows users. Mac users can use [GPG Suite](https://gpgtools.org/).
+You do not need to follow along, but you may if you want to{% if site.instructorcollab_username == 'deargle' %}, for your health{% endif %}.
+The above video tutorial is for Windows users. For Mac,
+the [GPG Suite](https://gpgtools.org/) can be used.
 
 {% if site.instructorcollab_username == 'deargle' %}
 
@@ -300,7 +303,11 @@ your public key, using Dr. Eargle's public key available
 
 {% endif %}
 
-# Part 4. Communicate Securely with Signal
+# Part 4. Understand Secure Communication via Signal
+
+The Signal app and Signal protocol intend to make pgp-like levels of message
+confidentiality invisible to the end-user. This section intends to orient you
+to the Signal app and protocol. 
 
 1.  Watch the following clips from an Al Jazeera Fault Lines documentary about the
 crypto wars:
