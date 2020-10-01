@@ -1,5 +1,5 @@
 ---
-title: "Lab: Digital Certificates"
+title: "Lab: Digital Certificates and Trust"
 number: 4
 description: Understanding digital certificates and their drawbacks
 published: true
@@ -307,7 +307,7 @@ your public key, using Dr. Eargle's public key available
 
 The Signal app and Signal protocol intend to make pgp-like levels of message
 confidentiality invisible to the end-user. This section intends to orient you
-to the Signal app and protocol. 
+to the Signal app and protocol.
 
 1.  Watch the following clips from an Al Jazeera Fault Lines documentary about the
 crypto wars:
