@@ -29,19 +29,23 @@ Browse to [ibm.com](https://ibm.com) and inspect the certificate details. For ex
 
 {% include lab_question.html question='What is the root certificate authority for ibm.com?' %}
 
-{% include lab_question.html question='What is the intermediary certificate authority?' %}
+{% include lab_question.html question='What is the intermediate certificate authority?' %}
+
+The purpose of an intermediate authority is the following:
+
+"Every publicly-trusted Certificate Authority (such as Let’s Encrypt) has at least one root certificate which is                 incorporated into various browser and OS vendors’ (e.g. Mozilla, Google) trusted root stores. This is what allows users who receive a certificate from a website to confirm that the certificate was issued by an organization that their browser trusts. But root certificates, by virtue of their widespread trust and long lives, must have their corresponding private key carefully protected and stored offline, and therefore can’t be used to sign things all the time. So every Certificate Authority (CA) also has some number of “intermediates”, certificates which are able to issue additional certificates but are not roots, which they use for day-to-day issuance" [(Let's Encrypt 2020)](https://letsencrypt.org/2020/09/17/new-root-and-intermediates.html).
 
 What are some of the other domains for which this certificate is valid?' In Firefox, these are listed under "Certificate Subject Alt Name."
 
 {% include lab_question.html question='What are some of the other domains for which the ibm.com certificate is valid?' %}
 
 For TLS X.509 certificates, the signature in the certificate is signed by the public key included in an intermediate or root certificate authority certificate (see figure below).
-An intermediary certificate, if any, is signed by the public key included in a root certificate. The root certificate is signed using the public key in its own certificate (a self-signed certificate).
+An intermediate certificate, if any, is signed by the public key included in a root certificate. The root certificate is signed using the public key in its own certificate (a self-signed certificate).
 Linking certificates in this way forms a certificate chain.
 
-{% include lab-image.html image='ssl-digicert-chain.png' %}
+{% include lab-image.html image='ssl-cert-chain.png' %}
 
-_Certificate chain image from [DigiCert](https://knowledge.digicert.com/solution/SO16297.html)_
+_Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_key_certificate)_
 
 {% include lab_question.html question="For IBM's certificate, what algorithm do they use for their public key?" %}
 {% include lab_question.html question="What is the keysize of their public key?" %}
@@ -282,26 +286,24 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 13. Finally, clean up by reconfiguring Firefox to no longer use a network proxy. To do this,
     revisit Firefox's "Network Settings" page under the Preferences view, and select
     "No Proxy".
+    
+{% if site.instructorcollab_username == 'deargle' %}
 
 # Part 3. Appreciate secure messaging with the bygone PGP
 
 For a long time, PGP was the best technology available for messaging (email) privacy.
-To gain an appreciation of the pain invovled in using PGP, watch the following
+To gain an appreciation of the pain involved in using PGP, watch the following
 video tutorial created by Edward Snowden for how to use gpg,
 the open source version of pgp: [https://vimeo.com/56881481](https://vimeo.com/56881481)
 
-You do not need to follow along, but you may if you want to{% if site.instructorcollab_username == 'deargle' %}, for your health{% endif %}.
+You do not need to follow along, but you may if you want to, for your health.
 The above video tutorial is for Windows users. For Mac,
 the [GPG Suite](https://gpgtools.org/) can be used.
-
-{% if site.instructorcollab_username == 'deargle' %}
 
 <div class='alert alert-info'><strong>Extra challenge:</strong> Follow along
 with the tutorial and send Dr. Eargle a signed, encrypted message, along with
 your public key, using Dr. Eargle's public key available
 <a href='http://daveeargle.com/key.asc'>here</a>.</div>
-
-{% endif %}
 
 # Part 4. Understand Secure Communication via Signal
 
@@ -321,3 +323,5 @@ Use what you read and watched above to answer the following questions:
 {% include lab_question.html question='What attacks does Signal protect you against? Which does it not protect you against?' %}
 
 {% include lab_question.html question='On a high level, how does the Signal protocol work?' %}
+
+{% endif %} {% if site.instructorcollab_username == 'aov' %}{% endif %}
