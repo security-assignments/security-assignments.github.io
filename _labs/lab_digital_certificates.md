@@ -35,7 +35,7 @@ The purpose of an intermediate authority is the following:
 
 "Every publicly-trusted Certificate Authority (such as Let’s Encrypt) has at least one root certificate which is                 incorporated into various browser and OS vendors’ (e.g. Mozilla, Google) trusted root stores. This is what allows users who receive a certificate from a website to confirm that the certificate was issued by an organization that their browser trusts. But root certificates, by virtue of their widespread trust and long lives, must have their corresponding private key carefully protected and stored offline, and therefore can’t be used to sign things all the time. So every Certificate Authority (CA) also has some number of “intermediates”, certificates which are able to issue additional certificates but are not roots, which they use for day-to-day issuance" [(Let's Encrypt 2020)](https://letsencrypt.org/2020/09/17/new-root-and-intermediates.html).
 
-What are some of the other domains for which this certificate is valid?' In Firefox, these are listed under "Certificate Subject Alt Name."
+    What are some of the other domains for which this certificate is valid?' In Firefox, these are listed under "Certificate Subject Alt Name."
 
 {% include lab_question.html question='What are some of the other domains for which the ibm.com certificate is valid?' %}
 
