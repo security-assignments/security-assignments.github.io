@@ -112,6 +112,11 @@ You may use an online tool such as [cryptii.com](https://cryptii.com). For examp
 
 {% include lab-image.html image='cryptii-otp.png' %}
 
+<div class='alert alert-info'><strong>Heads up!</strong> When using cryptii for this XOR,
+leave it on <i>encode</i>, <strong>not</strong> <i>decode</i>. This is because to undo
+XOR for decryption, the same operation is done as to do it in the encryption. Again,
+leave it on <i>encode</i> for XOR even though you are decrypting.</div>
+
 Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 
 1. One-time pad 1: `A1 B1 C1 D1 E1 F1 AA BB CC DD EE FF 10 34 76`
@@ -177,7 +182,7 @@ In cryptii, you can switch to a hex view thusly in order to make your single-bit
 
 {% include lab-image.html image='cryptii-hashing-hex.png' %}
 
-{% include lab_question.html question='If only one bit is changed on a 10 GB file how different will the hash be?' %}
+{% include lab_question.html question='Assume a 10 GB file is hashed. If only one bit is changed on a 10 GB file and then it is hashed again, how will the second hash compare to the first?' %}
 {% include lab_question.html question='Which property of cryptographic hash functions is most related to the previous question?' %}
 
 

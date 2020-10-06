@@ -8,17 +8,17 @@ description: hydra, hashcat, rockyou, hashcat rules, cewl wordlists
 published: true
 ---
 
-# Part 0: Introduction to Linux Tutorial
-
-1.  Complete the ["Intro to Linux" tutorial]( {{'/intro-to-linux' | relative_url }}). There is a deliverable associated with this tutorial which counts towards your participation grade.
-
-
-
 # Part 1: Test Password Security
 
 1.	Visit the following URL:
 
     [https://lowe.github.io/tryzxcvbn/](https://lowe.github.io/tryzxcvbn/)
+
+    This website estimates the strength of passwords you enter. Passwords never
+    leave your browser -- if you are so inclined, you can confirm as much by
+    perusing the [source code](https://github.com/dropbox/zxcvbn) and/or by
+    opening your browser developer tools and observing the (java)script that runs
+    when you enter passwords.
 
 2.	Try out different passwords to see how strong they are.
 
@@ -51,9 +51,12 @@ Sign up for 2FA for at least one account.
 
 # Part 4. Install and Set up a Password Manager
 
-If you're not already using one, set up a password manager. I recommend creating an account with [LastPass](https://www.lastpass.com/) (free, or premium version $24 per year), or my favorite, [1Password](https://1password.com) (first six months free for students using this [link](https://www.studentappcentre.com/discounts/1password), $36 per year). See [here](https://thewirecutter.com/reviews/best-password-managers/) for a comparison of leading password managers.
+If you're not already using one, set up a password manager. I recommend creating an account with [LastPass](https://www.lastpass.com/) (free, or premium version $24 per year), or my favorite, [1Password](https://1password.com) (first six months free for students using this [link](https://www.studentappcentre.com/discounts/1password)[^1], $36 per year). See [here](https://thewirecutter.com/reviews/best-password-managers/) for a comparison of leading password managers.
 
-Next, install the browser extension for your password manager (see [here](https://lastpass.com/misc_download2.php) for LastPass; see [here](https://1password.com/downloads/mac/) for 1Password). With the browser extension installed, log into a website for which you have an account. Your password manager will ask to save the password after each login. Do this for three sites.
+[^1]: The studentappcentre.com link was vetted and recommended by a
+      [1password Support Team member](https://www.reddit.com/r/1Password/comments/8zhik5/any_student_discount_for_1password/).
+
+Next, install the browser extension for your password manager (see [here](https://lastpass.com/misc_download2.php) for LastPass; see [here](https://1password.com/downloads/) for 1Password). With the browser extension installed, log into a website for which you have an account. Your password manager will ask to save the password after each login. Do this for three sites.
 
 ## Deliverable:
 
@@ -76,11 +79,17 @@ Take a screenshot of your password manager showing **saved entries for at least 
 
 # Part 5: Online Password Attack
 
+In this section, you will launch attacks over the network against login services,
+in an attempt to brute-force a username/password.
+
 **Note:** This section uses the [Kali VM](/security-assignments/labs/virtual-machines#kali).
+
+<div class='alert alert-info'><strong>Heads up!</strong> Pay careful attention to each step
+in this section.</div>
 
 This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all unique passwords from the [32 million RockYou password breach](https://www.nytimes.com/2010/01/21/technology/21password.html).
 
-1.  Elevate to a root shell (or, alternatively, run all commands below with `sudo`):
+1.  Open a terminal and elevate to a root shell (or, alternatively, run all commands below with `sudo`):
 
         sudo -s
 
@@ -88,15 +97,24 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
         gunzip /usr/share/wordlists/rockyou.txt.gz
 
-2.	We will use the rockyou password list to launch an online password attack using `THC-Hydra`.
+2.	We will use the 'rockyou' password list to launch an online password attack using
+    [`THC-Hydra`](https://github.com/vanhauser-thc/thc-hydra). The attack will be
+    launched against a website that is managed by Dr. Eargle, who authorizes you
+    to launch the attack only as specified in the instructions below.
 
-    Visit [https://is.theorizeit.org](https://is.theorizeit.org) in a browser. Let's say that you wanted to crack the password for this site.
+    Visit [https://is.theorizeit.org](https://is.theorizeit.org) in a browser,
+    and note that it is an installation of mediawiki. Now browse to subdirectory
+    <https://is.theorizeit.org/auth/>. It requires a login. Let's say that you
+    wanted to crack the password for this route. Imagine that you knew, or guessed,
+    that one of the usernames was `istheory`.
 
-    Open a terminal in your Kali VM. Type the following (all on one line):
+    Open a terminal in your Kali VM. Read the explanation below for each command
+    argument. Then, type the following, all on one line (remember that you can
+    use tab-completion for the rockyou path):
 
         hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt https-get://is.theorizeit.org/auth/
 
-    **Note:** The trailing slash (‘/’) is needed.
+    **Note:** The trailing slash (`/`) in the final argument is needed.
 
     Where:
 
@@ -104,8 +122,16 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
     * `-V` means verbose, and will show you the username and password combination being attempted.
     * `-l istheory` sets “istheory” as the login name. **Note:** that’s a lowercase ‘L.’
     * `-P /usr/share/wordlists/rockyou.txt` is the password dictionary file to use.
+      * the password is case-sensitive!
     * `https-get` means a [GET request](https://www.w3schools.com/tags/ref_httpmethods.asp) over HTTPS. Note that Hydra supports many protocols (e.g., ftp, ssh).
     * `is.theorizeit.org/auth/` is the password-protected URL to be accessed.
+
+    <div class='alert alert-info'><strong>Tip</strong> This is a good opportunity
+    to look at a command's built-in help documentation. Run <code>hydra -h</code>
+    and peruse the output to find each of the above arguments, and read what they
+    do. What would a lowercase <code>-p</code> have signified, instead of the
+    uppercase <code>-P</code> used? What would an uppercase <code>-L</code>
+    have signified? Argument casing matters for this program!</div>
 
 
     **Note:** you can also use THC-Hydra with web forms: [http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html](http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html)
@@ -127,7 +153,13 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
 # Part 6: Offline Attack Using Hashcat
 
-Cracking in Hashcat:
+While in the previous section attacks were launched over the network, in this
+section, you will start with a _password hash_ stored on your computer, and
+you will launch attacks against it locally. No authentication service such
+as a webserver sits in front of your attempts, potentially throttling
+the speed at which you can make guesses. Instead, you can make guesses as fast
+as your computer and the particular hash algorithm will allow.
+
 
 <div class='alert alert-info'>
 <p>If you're feeling adventurous, you can install Hashcat on your host computer, where you'll get massive speed improvements compared to running it in your Kali VM. Hashcast needs to be able to directly interface with
@@ -141,67 +173,109 @@ then run the command, <code>brew install hashcat</code>.</p>
 
 		hashcat --help
 
-4.  First, a dictionary attack will be performed against a password-protected Word document. The following command uses a Python script to obtain the hash of the Word document password:
+4.  First, a dictionary attack will be performed against a password-protected
+    Word document. The following command uses a Python script to obtain the hash of
+    the Word document password called `hashcat.doc`. This document has been prepared
+    specifically for this lab. The word document has been password-protected. The
+    hash of the password is stored within the metadata of the document file itself.
+    You can use the python script called `office2john.py` to extract the hash.
+    `john` in that script name refers to [JtR, John the Ripper](https://github.com/openwall/john),
+    and the python script prints the hash in a format that `john` can accept.
+    We will edit the output to prepare for its use with `hashcat`.
 
-		python office2john.py hashcat.doc
+    First, obtain the necessary files:
 
-	Note:
-	* office2john.py can be obtained [here](https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py). To obtain it in Kali, run:
+    * office2john.py can be obtained [here][jtr]. To obtain it in Kali, run:
 
-            wget https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py
+          wget https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py
 
-	* hashcat.doc is available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/hashcat.doc). To obtain it, run:
+      [jtr]: https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/office2john.py
 
-			wget https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/hashcat.doc
+    * hashcat.doc is available [here][hashcat.doc]. To obtain it, run:
 
+          wget https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/hashcat.doc
 
-5.  In the output you’ll see the name of the file followed by the type. The type is shown with a $ at the beginning and end of it. You’ll need to copy the type and everything until “:::”. For example, the hash looks like the following, all on one line:
+      [hashcat.doc]: https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/hashcat.doc
 
-		$oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a
+    Then, run the following command from the directory to where you downloaded `office2john.py`
+    and `hashcat.doc`:
 
-	Save the hash into a file in your home directory.
+        python office2john.py hashcat.doc
 
-	**Note:** make sure the entire hash is on one line within the text file. **Don't add extra spaces at the end.**
-	If you get a "line-length exception" in the next step, make sure there's not a typo in the beginning of the hash.
+5.  In the output, you'll see the name of the file, followed by the type. The type
+    is shown with a `$` at the beginning and end of it. You need to convert the output
+    to a format that `hashcat` can recognize. To do so, copy the
+    type and everything up until but not including `:::`.
 
-    <div class='alert alert-info'>If you want, you can use text redirection (e.g., <code>></code>) to put the output of office2john.py into a file for you. Then you would just have to open up the file and remove the extra stuff.</div>
-    <div class='alert alert-warning'>Also, if you want, you might attempt to <code>echo -n "thehash" > afile.txt</code> the hash into a file. But beware! The hash contains <code>$</code> signs, which in bash indicate
-    a variable when couched in double-quotes. Long story short, if you want to echo the hash into a file, use single quotes, and you won't be bitten by bash variable expansion. Just <code>cat</code> the contents of your hashfile after you made it to make sure it looks right.</div>
+    For example, if the script output the following:
 
+        hashcat.doc:$oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a:::::hashcat.doc
 
-6.  While still in your home directory, run the following command (all on one line). Reference the hash file you just created, and choose an arbitrary name for an output file. Once the password is cracked,
-    you will read your output file to see the cracked password. It will be appended to the end of the hash following a colon (`:`) symbol.
+    You would extract just the following:
 
-    <div class='alert alert-info'><strong>Note: </strong>In the commands below, the <code>< ></code> notation means to replace that text -- <strong>including replacing the <code>< ></code> symbols! </strong> -- with the names of the actual files you are using.</div>
+        $oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a
 
-		hashcat --force -a 0 -m 9700  -o <outputFileName.txt> <HashInputFileName.txt> /usr/share/wordlists/rockyou.txt
+    **Save the extracted hash into a file in your home directory.** Name the file whatever you like.
 
-	Or alternatively, if you prefer to do it without making an input file, put the hash string right in the terminal, surrounded by single quotes (not double-quotes! and type the quotes in yourself, do not copy-paste them, Macs can break them):  
+    **Note:** make sure the entire hash is on one line within the text file. **Don't add extra spaces at the end.**
+    If you get a "line-length exception" in the next step, make sure there's not a typo in the beginning of the hash.
 
-		hashcat --force -a 0 -m 9700  -o <outputFileName.txt> '<hash string>' /usr/share/wordlists/rockyou.txt
+    <div class='alert alert-info'>If you want, you can use text redirection
+    (e.g., <code>></code>) to put the output of office2john.py into a file for
+    you. Then you would just have to open up the file and remove the extra stuff.
+    </div>
 
-	Where the switches correspond to:
-
-	{: .table .table-condensed }
-	| `--force` | This is necssary to get hashcat to run in a VM environment (it doesn't normally like to). |
-	| `-a 0` | Straight dictionary attack against the hash |
-	| `-m <Office_Flag>` | The corresponding flag for the version of Office in use (see table in `hashcat --help`) |
-	| `--status` | Provides an update of the status of the process without giving a prompt |
-	| `-o <Output_File>` | The location where the cracked hashes will be saved. <br>The results will also be saved on the .pot file, unless otherwise specified. In our case, we disabled it. |
-	| `<Hash>` | The saved password hash. |
-	| `<Dictionary>` | The list of words that will be used to try and crack the password. |
-
-	<br/>
-
-    {% include lab_question.html question='What is the password for <code>hashcat.doc</code>?' %}
+    <div class='alert alert-warning'>Also, if you want, you might attempt to
+    <code>echo -n 'thehash' > afile.txt</code> the hash into a file. But beware!
+    The hash contains <code>$</code> signs, which in bash indicate
+    a variable when couched in double-quotes. If you want to echo the hash into
+    a file, use single quotes, and you won't be bitten by bash variable expansion.
+    Be sure to <code>cat</code> the contents of your hashfile after you made it to make sure it looks right.
+    </div>
 
 
-    Do the same for the file `john.doc` (available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc), use `wget` as above to obtain it from url `https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc`).
+6.  While still in your home directory, run the following command (all on one line).
+    Reference the hash file you just created, and choose an arbitrary name for
+    an output file. Once the password is cracked, you will read your output file
+    to see the cracked password. It will be appended to the end of the hash
+    following a colon (`:`) symbol.
+
+    <div class='alert alert-info'><strong>Note: </strong>In the commands below,
+    the <code>< ></code> notation indicates placeholders, because I do not know
+    what filenames you chose. Replace the placeholders, <strong>including replacing
+    the <code>< ></code> symbols! </strong> -- with the names of the actual files
+    you are using. Remember that you can use tab-completion to help you
+    spell out the filenames.</div>
+
+        hashcat --force -a 0 -m 9700  -o <outputFileName.txt> <HashInputFileName.txt> /usr/share/wordlists/rockyou.txt
+
+    Or alternatively, if you prefer to do it without making an input file, put the
+    hash string right in the terminal, surrounded by single quotes (**not double-quotes!**).
+    Type the quotes in yourself -- do not copy-paste them.
+
+        hashcat --force -a 0 -m 9700  -o <outputFileName.txt> '<hash string>' /usr/share/wordlists/rockyou.txt
+
+    Peruse `man hashcat` to get an idea of what the arguments do. In our particular instance,
+    the switches correspond to the following:
+
+    {: .table .table-condensed }
+    | `--force` | This is necssary to get hashcat to run in a VM environment (it doesn't normally like to do so). |
+    | `-a 0` | Straight dictionary attack against the hash |
+    | `-m <Office_Flag>` | The corresponding flag for the version of Office in use (see table in `hashcat --help`) |
+    | `--status` | Provides an update of the status of the process without giving a prompt |
+    | `-o <Output_File>` | The location where the cracked hashes will be saved. <br>The results will also be saved on the .pot file, unles  otherwise specified. In our case, we disabled it. |
+    | `<Hash>` | The saved password hash. |
+    | `<Dictionary>` | The list of words that will be used to try and crack the password. |
+
+      {% include lab_question.html question='What is the password for <code>hashcat.doc</code>?' %}
+
+
+7.  Follow the same process as above, but this time for word doc file `john.doc` (available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc), use `wget` as above to obtain it from url `https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc`).
 
     {% include lab_question.html question='What is the password for <code>john.doc</code>?' %}
 
 
-    Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/). The Brutals has 8 graphics cards, each of which
+8.  Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/). The Brutals has 8 graphics cards, each of which
     can simultaneously work on cracking hashes. The measured speed for each card is shown, along with a cumulative speed at the bottom (`Speed.Dev.#*`). Use the cumulative speed for all Brutalis-related calculations in this lab.
 
     Cracking speeds are in the following format:
@@ -226,36 +300,56 @@ then run the command, <code>brew install hashcat</code>.</p>
     {% include lab_question.html question='How does an offline password attack compare with the online hydra attack you attempted earlier?' %}
 
 
+# Part 7. Cracking LinkedIn Hashes Using Hashcat
 
-
-# Part 7. Cracking Linkedin Hashes Using Hashcat
-
-In this section, you’ll see how many hashes you can recover from the 2016 LinkedIn password breach. This breach of 177,500,189 unsalted SHA1 password hashes represents the data of all
+In this section, you’ll see how many hashes you can recover from the 2016 LinkedIn password breach.
+The LinkedIn hacker, a Russian, [was](https://www.rferl.org/a/30865604.html)
+[sentenced](https://www.courthousenews.com/russian-hacker-sentenced-for-2012-data-theft-of-linkedin-dropbox-users/)
+in US court to seven years in jail on September 29, 2020. This breach of 177,500,189
+unsalted SHA1 password hashes represents the data of all
 LinkedIn users as of 2012. Among these passwords, only 61,829,207 are unique.
 
-However, in interest of your time, this section will require you to crack only 500,000 of these passwords. After you complete this lab, you’re welcome to crack all of the LinkedIn
-hashes. Ask me for a copy.
+However, in interest of your time, this section will require you to crack only
+500,000 of these passwords. After you complete this lab, you're welcome to crack
+all of the LinkedIn hashes. Ask me for a copy.
 
-1.  Navigate to your home directory, where you will find a copy of the file `LinkedIn_HalfMillionHashes.txt` (also available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/LinkedIn_HalfMillionHashes.txt).
-    Right-click this link, select "copy link" , then paste it into Kali after `wget`).
+1.  Download a copy of the file `LinkedIn_HalfMillionHashes.txt` from [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/LinkedIn_HalfMillionHashes.txt).
+    * Right-click this link, select "copy link", then paste it into Kali after `wget`.
 
-2.  Open a terminal. To get your feet wet, perform a "straight" dictionary attack using the `rockyou.txt` wordlist again, as follows (one line):
+2.  To get your feet wet, perform a "straight" dictionary attack using the
+    `rockyou.txt` wordlist again. This attack will try each entry in the rockyou
+    dataset with no permutations.
 
-		hashcat --force -m 100 --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
+    Before you run the following command, read the `man` page to make sure you
+    understand what each argument/switch does. Once you have done so, run the command.
 
-	Note: This command may take 5–10 minutes to run. To see the status of a running job in Hashcat, press the “s” key (it might take up to 15 seconds for Hashcat to report its status).
+        hashcat --force -m 100 --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt /usr/share/wordlists/rockyou.txt
 
-    Hashcat will report how many passwords it "recovered" when it finishes.
+    **Note:** The above command may take 5–10 minutes to run. To see the status
+    of a running job in Hashcat, press the `s` key (it might take up to 15 seconds
+    for Hashcat to report its status).
 
-    <div class='alert alert-warning'>These commands use the <code>--remove</code> flag. This will remove cracked hashes from the input file. So, if you run these commands more than once without changing anything, it won't crack anything after the first time.</div>
+    `hashcat` will report how many passwords it "recovered" when it finishes.
+
+    <div class='alert alert-warning'>These commands use the <code>--remove</code> flag. This will remove cracked hashes from the input
+    file. So, if you run these commands more than once without changing anything, it won't crack anything after the first time.</div>
+
     <div class='alert alert-danger'>
-        <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile.</p>
-        <p>To do this, <code>rm ~/.hashcat/hashcat.potfile</code>.</p>
-        <p>Don't forget to also start with a fresh 500k hashlist.</p>
+
+    <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile. The <code>hashcat.potfile</code> is stored in a hidden direction in the home directory of
+        whomever you run the command as.</p>
+
+    <p>To do this, <code>rm ~/.hashcat/hashcat.potfile</code>.</p>
+
+    <p>Don't forget to also start with a fresh 500k hashlist, because the
+    <code>--remove</code> flag would have removed rows from that file as the hashes
+    were cracked and inserted into the potfile.</p>
+
     </div>
 
-
-    You can always count the number of lines in your outfile (`LinkedIn_cracked.txt`) to see how many you've cracked so far, total:
+    You can always **open another terminal session** and count the number of lines
+    in your outfile (`LinkedIn_cracked.txt`) to see how many you've cracked so far,
+    in total:
 
         wc -l LinkedIn_cracked.txt
 
@@ -269,26 +363,23 @@ hashes. Ask me for a copy.
     {% include lab_question.html question='How many passwords were you able to recover using the Hashcat command above?' %}
 
 
+6.  Run another attack that uses a rules-based method.
 
+    Rules apply common patterns to password dictionaries to crack even more hashes. You can read about rules in Hashcat here: [https://hashcat.net/wiki/doku.php?id=rule_based_attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack).
 
-6.  Run another attack that uses a rules-based method (one line):
+    The “best64.rule” is one of the most effective sets of Hashcat rules. It is continually refined using input and testing from the password cracking community. You can view the contents of the best64.rule here:
 
-		hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
+    [https://github.com/hashcat/hashcat/blob/master/rules/best64.rule](https://hashcat.net/wiki/doku.php?id=rule_based_attack])
 
-	Rules apply common patterns to password dictionaries to crack even more hashes. You can read about rules in Hashcat here: [https://hashcat.net/wiki/doku.php?id=rule_based_attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack).
+    You can read an explanation of these set of rules here:
 
-	The “best64.rule” is one of the most effective sets of Hashcat rules. It is continually refined using input and testing from the password cracking community. You can view the contents of the best64.rule here:
+    [http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html](http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html)
 
-	[https://github.com/hashcat/hashcat/blob/master/rules/best64.rule](https://hashcat.net/wiki/doku.php?id=rule_based_attack])
+    Run the following command once you understand what the `-r` flag does.
 
-	You can read an explanation of these set of rules here:
-
-	[http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html](http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html)
+        hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
 
     {% include lab_question.html question='How many total passwords were you able to recover after using this rules based attack in combination with the earlier straight attack?' %}
-
-
-
 
 
 
@@ -297,28 +388,32 @@ hashes. Ask me for a copy.
 
         hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 6 /usr/share/wordlists/rockyou.txt ?d?d
 
-	The `?d?d` at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
+    The `?d?d` at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
 
     {% include lab_question.html question='How many total passwords were you able to recover after using this hybrid attack combination with the earlier straight and rules-based attacks?' %}
 
 
 
 
-8.  If you would like to try using a different character set for your mask, you can use the following masks below. Note that each mask below is for one character. If you wanted to test four digits at the end of each password, the mask would be: ?d?d?d?d.
+8.  If you would like to try using a different character set for your mask, you
+    can use the following masks below. Note that each mask below is for one
+    character. If you wanted to test four digits at the end of each password,
+    the mask would be: `?d?d?d?d`.
 
-		?l = abcdefghijklmnopqrstuvwxyz
-		?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-		?d = 0123456789
-		?s =  !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
-		?a = ?l?u?d?s
-		?b = 0x00 - 0xff
+    ```
+?l = abcdefghijklmnopqrstuvwxyz
+?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
+?d = 0123456789
+?s =  !"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~
+?a = ?l?u?d?s
+?b = 0x00 - 0xff
+    ```
 
     **Optional:** Experiment with other rules found in `/usr/share/hashcast/rules`.
 
-	**Optional:** Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:
+    **Optional:** Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:
 
-        hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
-
+          hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -i -a 7 ?d?d /usr/share/wordlists/rockyou.txt
 
 
 <div class='alert alert-info'>Want even more practice? You can download the massive Troy Hunt haveibeenpwned SHA1 password hash list
@@ -346,44 +441,48 @@ Read about the Bcrypt algorithm [here](https://en.wikipedia.org/wiki/Bcrypt#Algo
 
 # Part 9. Create a Targeted Wordlist Using CeWL
 
-CeWL (Custom Word List Generator) is a command-line tool that creates custom wordlists from a target website. This can be useful for cracking a password of an organization or individual that also has a website or social media profile. Because people often use information about themselves or their organization when creating passwords, custom wordlists can be very effective.
+CeWL (Custom Word List Generator) is a command-line tool that creates custom
+wordlists from a target website. This can be useful for cracking a password of
+an organization or individual that also has a website or social media profile.
+Because people often use information about themselves or their organization when
+creating passwords, custom wordlists can be very effective.
 
-Imagine that you exfiltrated the following MD5 hash from a database on neurosecurity.byu.edu:
+Imagine that you exfiltrated the following MD5 hash from a database on <neurosecurity.byu.edu>:
 
     cf4aff530715824c055892438a1ab6b2
 
-You want to create a custom dictionary using the words on neurosecurity.byu.edu to see if you can crack the hash.
+You want to create a custom dictionary using the words on `neurosecurity.byu.edu` to see if you can crack the hash.
 
-1.	Create a custom dictionary using CeWL for the website neurosecurity.byu.edu:
+1.  Create a custom dictionary using CeWL for the website neurosecurity.byu.edu:
 
         cewl -v -d 2 -m 5 -w custom_dict.txt https://neurosecurity.byu.edu
 
     Where:
 
-    * 	`-v` runs CeWL in verbose mode.
-    * 	`-d` is the depth to “spider” or crawl the website
-    * 	`-m` is the minimum word length
-    * 	`-w custom_dict.txt` is the name of your new custom wordlist or dictionary.
+    * `-v` runs CeWL in verbose mode.
+    * `-d` is the depth to “spider” or crawl the website
+    * `-m` is the minimum word length
+    * `-w custom_dict.txt` is the name of your new custom wordlist or dictionary.
 
     Give the command a minute or two to complete.
 
-2.	Check how many entries are in the `custom_dict.txt` file:
+2.  Check how many entries are in the `custom_dict.txt` file:
 
         wc -l custom_dict.txt
 
-3.	Look at the words in `custom_dict.txt`:
+3.  Look at the words in `custom_dict.txt`:
 
         less custom_dict.txt
 
-4.	Permute the words in the `custom_dict.txt` wordlist using the “best64” rule, and append the output to `custom_dict.txt` (all one line):
+4.  Permute the words in the `custom_dict.txt` wordlist using the “best64” rule, and append the output to `custom_dict.txt` (all one line):
 
         hashcat custom_dict.txt -r /usr/share/hashcat/rules/best64.rule --stdout >> custom_dict.txt
 
-5.	Check how many entries are in the custom_dict.txt file now:
+5.  Check how many entries are in the custom_dict.txt file now:
 
         wc -l custom_dict.txt
 
-6.	Run Hashcat using custom_dict against the MD5 hash (all one line):
+6.  Run Hashcat using custom_dict against the MD5 hash (all one line):
 
         hashcat --force -a 0 -m 0 cf4aff530715824c055892438a1ab6b2 custom_dict.txt
 
