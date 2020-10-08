@@ -93,6 +93,14 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
         sudo -s
 
+    <div class='alert alert-info'><p><strong>Access denied?</strong>GCP is <em>supposed</em>
+    to set you up with the ability to run <code>sudo</code> without a password. If that's
+    not working and you get prompted for a password (there isn't one for your google login),
+    then instead, elevate to a root shell by logging in as root with password <code>toor</code> (root backwards), as follows:</p>
+    <p><code>su root</code></p></div>
+
+
+
 1.  First, if the file `/usr/share/wordlists/rockyou.txt` is not present, unzip the password list.
 
         gunzip /usr/share/wordlists/rockyou.txt.gz
