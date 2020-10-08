@@ -113,47 +113,45 @@ _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_k
 
 
 
-# Part 2: MITM with BurpSuite
+# Part 2: MITM with Burp Suite
 
-In this section, you will use a tool called BurpSuite in your Kali VM,
-and you will configure Kali's Firefox to route all traffic through BurpSuite.
-You will feign a MITM attack and intercept a username\|password that you submit to bankofamerica.com. This lab uses the free BurpSuite Community edition.
+In this section, you will use a tool called Burp Suite in your Kali VM,
+and you will configure Kali's Firefox to route all traffic through Burp Suite.
+You will feign a MITM attack and intercept a username\|password that you submit to bankofamerica.com. This lab uses the free Burp Suite Community edition.
 
-BurpSuite is commonly used in the infosec community for introspection and
+Burp Suite is a network traffic proxy application created by PortSwigger. The tool can be used by developers and researchers to inspect and manipulate any network traffic to which Burp Suite has access. It is commonly used in the cybersecurity community for inspection and
 manipulation of web requests. See articles such as [this one](https://research.digitalinterruption.com/2020/09/10/giggle-laughable-security/)
-which rely on BurpSuite for analysis of a smartphone
+which rely on Burp Suite for analysis of a smartphone
 app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Charles.
 
-## Configure BurpSuite as a proxy
+## Configure Burp Suite as a proxy
 
-1.  Launch BurpSuite, which is a network traffic proxy application created by PortSwagger. The tool can be used by developers and researchers to inspect and manipulate any network traffic to which BurpSuite has access.
+1.  Launch Burp Suite. Follow the steps displayed below to get through the launch process.
 
-    Follow the steps displayed below to get through the launch process.
+    * search for Burp Suite using the kali launcher, and click it.
 
-    * search for burpsuite using the kali launcher, and click it.
-
-      {% include lab-image.html image='burpsuite-launch-search.png' %}
+      {% include lab-image.html image='BurpSuite-launch-search.png' %}
 
     * ignore the warning about the jre version
 
-      {% include lab-image.html image='burpsuite-launch-ignore-jre.png' %}
+      {% include lab-image.html image='BurpSuite-launch-ignore-jre.png' %}
 
-    * skip the burpsuite update
+    * skip the Burp Suite update
 
-      {% include lab-image.html image='burpsuite-launch-skip-update.png' %}
+      {% include lab-image.html image='BurpSuite-launch-skip-update.png' %}
 
     * choose to launch a temporary project
 
-      {% include lab-image.html image='burpsuite-launch-temporary-project.png' %}
+      {% include lab-image.html image='BurpSuite-launch-temporary-project.png' %}
 
     * launch with the default settings
 
-      {% include lab-image.html image='burpsuite-launch-default-launch-burp.png' %}
+      {% include lab-image.html image='BurpSuite-launch-default-launch-burp.png' %}
 
 
-    When BurpSuite is started, it by default "listens" for incoming traffic on `localhost:8080`, as shown below.
+    When Burp Suite is started, it by default "listens" for incoming traffic on `localhost:8080`, as shown below.
 
-    {% include lab-image.html image='burpsuite-launch-default-listen.png' %}
+    {% include lab-image.html image='BurpSuite-launch-default-listen.png' %}
 
     Turn **off** interception from the "Proxy" > "Intercept" tab. Interception is
     used when the goal is to modify requests
@@ -161,9 +159,9 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     however, is to show that https traffic can be readily decrypted if a MITM attack
     is successful.
 
-    {% include lab-image.html image='burpsuite-turn-off-interception.png' %}
+    {% include lab-image.html image='BurpSuite-turn-off-interception.png' %}
 
-4.  Configure Firefox to route all internet traffic through BurpSuite.
+4.  Configure Firefox to route all internet traffic through Burp Suite.
 
     * Firefox >
       {% include lab-image.html image='firefox-launch.png' %}
@@ -175,46 +173,46 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
       8080, check box for "use this proxy server for all protocols"
       {% include lab-image.html image='firefox-set-proxy-localhost-8080.png' %}
 
-    Firefox is now proxying all web requests through BurpSuite.
+    Firefox is now proxying all web requests through Burp Suite.
 
 
     Note: the above instructions are also described when the following link is clicked:
 
-    {% include lab-image.html image='burpsuite-open-proxy-documentation.png' %}
+    {% include lab-image.html image='BurpSuite-open-proxy-documentation.png' %}
 
 ## Attempt to visit a secure website
 
-6.  Now that Firefox is passing all traffic to BurpSuite, try to visit an https-site. The following will work against _any_ https site,
+6.  Now that Firefox is passing all traffic to Burp Suite, try to visit an https-site. The following will work against _any_ https site,
     but we will visit [https://bankofamerica.com](https://bankofamerica.com)
 
     You receive an SSL connection error!
 
-    {% include lab-image.html image='burpsuite-boa-ssl-error.png' %}
+    {% include lab-image.html image='BurpSuite-boa-ssl-error.png' %}
 
     1.  Inspect the cert. You can do this by clicking the "View Certificate" button.
 
-        {% include lab-image.html image='firefox-burpsuite-certificate.png' %}
+        {% include lab-image.html image='firefox-BurpSuite-certificate.png' %}
 
     2.  Alternatively, you can copy the base64-encoded version and use a web cert decoder.
         To do this, on the SSL error page, click “Advanced”, then click the link to the error code. Copy the ---BEGIN CERTIFICATE-- block to your clipboard.
 
-        {% include lab-image.html image='burpsuite-cert-details-base64.png' %}
+        {% include lab-image.html image='BurpSuite-cert-details-base64.png' %}
 
         Search the internet for an "ssl cert decoder", such as [https://certlogik.com/decoder/](https://certlogik.com/decoder/) or [https://www.sslshopper.com/certificate-decoder.html](https://www.sslshopper.com/certificate-decoder.html),
         to decode the base64-encoded cert that you copied in the previous step.
 
-8.  Configure Firefox to trust BurpSuite's self-signed certificate.
+8.  Configure Firefox to trust Burp Suite's self-signed certificate.
 
-    BurpSuite generates a unique ssl keypair for each installation. We need to
-    instruct Firefox to trust BurpSuite's public key for authenticating websites.
+    Burp Suite generates a unique ssl keypair for each installation. We need to
+    instruct Firefox to trust Burp Suite's public key for authenticating websites.
     As seen earlier in this lab, Firefox maintains its own certificate authority list.
 
-    Follow the instructions on the following website to install BurpSuite's CA
+    Follow the instructions on the following website to install Burp Suite's CA
     certificate in Firefox: [link](https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/certificate/firefox)
 
-    <div class='alert alert-info'><strong>Note --</strong> when the instructions say: "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save As", and your file will be downloaded with filename "cacert.der".</div>
+    <div class='alert alert-info'><strong>Note:</strong> When the instructions say, "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save File", and your file will be downloaded with filename "cacert.der".</div>
 
-    {% include lab-image.html image='burpsuite-cacert-der.png' %}
+    {% include lab-image.html image='BurpSuite-cacert-der.png' %}
 
 9.  Use Firefox again. Close the Bank Of America error page, and use a new tab to attempt again to navigate to [https://bankofamerica.com](https://bankofamerica.com)
 
@@ -226,10 +224,10 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     * click the `>` button on the resultant popup dialog
     * click `More Information`
 
-    {% include lab-image.html image='burpsuite-secure-connection-boa.png' %}
-    {% include lab-image.html image='burpsuite-secure-connection-boa-2.png' %}
-    {% include lab-image.html image='burpsuite-secure-connection-boa-3.png' %}
-    {% include lab-image.html image='burpsuite-secure-connection-boa-4.png' %}
+    {% include lab-image.html image='BurpSuite-secure-connection-boa.png' %}
+    {% include lab-image.html image='BurpSuite-secure-connection-boa-2.png' %}
+    {% include lab-image.html image='BurpSuite-secure-connection-boa-3.png' %}
+    {% include lab-image.html image='BurpSuite-secure-connection-boa-4.png' %}
 
 ## Capture Login
 
@@ -238,9 +236,9 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     site.instructorcollab_username == 'aov' %}TUid{% endif %}</strong>. Choose any **fake
     password**. Submit your login request. It will fail.
 
-11. BurpSuite should have logged the login attempt -- Let's find it. Go back to BurpSuite.
+11. Burp Suite should have logged the login attempt -- Let's find it. Go back to Burp Suite.
 
-    1.  Within BurpSuite, navigate to the "Proxy" > "HTTP history" tab. Click the "Filter"
+    1.  Within Burp Suite, navigate to the "Proxy" > "HTTP history" tab. Click the "Filter"
         bar to open the filter dialog, and change the settings as follows to make the
         visual search easier.
 
@@ -252,11 +250,10 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
         That should be sufficient to easily find the HTTP POST request which was
         the attempted login.
 
-        <div class='alert alert-info'>A POST request allows parameters to send
-        data such as the username and password to be sent in the body of the
+        <div class='alert alert-info'>A POST request allows parameters such as the username and password to be sent in the body of the
         web request.</div>
 
-        {% include lab-image.html image='burpsuite-filter.png' %}
+        {% include lab-image.html image='BurpSuite-filter.png' %}
 
     3.  Look for and select (click) the entry with:
         * a POST method
@@ -269,17 +266,17 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
         You should see your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if site.instructorcollab_username == 'aov' %}TUid{% endif %} and fake password.
 
-        {% include lab_question.html question="Submit a screenshot showing your username and fake password within the BurpSuite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
+        {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Burp Suite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
 
-        {% include lab-image.html image='burpsuite-show-login-entry.png' %}
+        {% include lab-image.html image='BurpSuite-show-login-entry.png' %}
 
-12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted. How could BurpSuite have decrypted it?
+12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted. How could Burp Suite have decrypted it?
 
     This is the essence of a man-in-the-middle attack -- a secure connection to an evil server which talks to your intended server on your behalf.
 
     {% include lab-image.html image='500px-Man_in_the_middle_attack.svg.png' %}
 
-    In our pretend case, BurpSuite is the evil server, and Bank Of America's server
+    In our pretend case, Burp Suite is the evil server, and Bank Of America's server
     is the intended server. All secure content is visible as plaintext to the attacker,
     because the attacker’s SSL cert was used to establish the secure HTTPS connection.
 
