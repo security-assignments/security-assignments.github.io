@@ -130,28 +130,28 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
     * search for Burp Suite using the kali launcher, and click it.
 
-      {% include lab-image.html image='BurpSuite-launch-search.png' %}
+      {% include lab-image.html image='burpsuite-launch-search.png' %}
 
     * ignore the warning about the jre version
 
-      {% include lab-image.html image='BurpSuite-launch-ignore-jre.png' %}
+      {% include lab-image.html image='burpsuite-launch-ignore-jre.png' %}
 
     * skip the Burp Suite update
 
-      {% include lab-image.html image='BurpSuite-launch-skip-update.png' %}
+      {% include lab-image.html image='burpsuite-launch-skip-update.png' %}
 
     * choose to launch a temporary project
 
-      {% include lab-image.html image='BurpSuite-launch-temporary-project.png' %}
+      {% include lab-image.html image='burpsuite-launch-temporary-project.png' %}
 
     * launch with the default settings
 
-      {% include lab-image.html image='BurpSuite-launch-default-launch-burp.png' %}
+      {% include lab-image.html image='burpsuite-launch-default-launch-burp.png' %}
 
 
     When Burp Suite is started, it by default "listens" for incoming traffic on `localhost:8080`, as shown below.
 
-    {% include lab-image.html image='BurpSuite-launch-default-listen.png' %}
+    {% include lab-image.html image='burpsuite-launch-default-listen.png' %}
 
     Turn **off** interception from the "Proxy" > "Intercept" tab. Interception is
     used when the goal is to modify requests
@@ -159,7 +159,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     however, is to show that https traffic can be readily decrypted if a MITM attack
     is successful.
 
-    {% include lab-image.html image='BurpSuite-turn-off-interception.png' %}
+    {% include lab-image.html image='burpsuite-turn-off-interception.png' %}
 
 4.  Configure Firefox to route all internet traffic through Burp Suite.
 
@@ -178,7 +178,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
     Note: the above instructions are also described when the following link is clicked:
 
-    {% include lab-image.html image='BurpSuite-open-proxy-documentation.png' %}
+    {% include lab-image.html image='burpsuite-open-proxy-documentation.png' %}
 
 ## Attempt to visit a secure website
 
@@ -187,16 +187,16 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
     You receive an SSL connection error!
 
-    {% include lab-image.html image='BurpSuite-boa-ssl-error.png' %}
+    {% include lab-image.html image='burpsuite-boa-ssl-error.png' %}
 
     1.  Inspect the cert. You can do this by clicking the "View Certificate" button.
 
-        {% include lab-image.html image='firefox-BurpSuite-certificate.png' %}
+        {% include lab-image.html image='firefox-burpsuite-certificate.png' %}
 
     2.  Alternatively, you can copy the base64-encoded version and use a web cert decoder.
         To do this, on the SSL error page, click “Advanced”, then click the link to the error code. Copy the ---BEGIN CERTIFICATE-- block to your clipboard.
 
-        {% include lab-image.html image='BurpSuite-cert-details-base64.png' %}
+        {% include lab-image.html image='burpsuite-cert-details-base64.png' %}
 
         Search the internet for an "ssl cert decoder", such as [https://certlogik.com/decoder/](https://certlogik.com/decoder/) or [https://www.sslshopper.com/certificate-decoder.html](https://www.sslshopper.com/certificate-decoder.html),
         to decode the base64-encoded cert that you copied in the previous step.
@@ -212,7 +212,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
     <div class='alert alert-info'><strong>Note:</strong> When the instructions say, "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save File", and your file will be downloaded with filename "cacert.der".</div>
 
-    {% include lab-image.html image='BurpSuite-cacert-der.png' %}
+    {% include lab-image.html image='burpsuite-cacert-der.png' %}
 
 9.  Use Firefox again. Close the Bank Of America error page, and use a new tab to attempt again to navigate to [https://bankofamerica.com](https://bankofamerica.com)
 
@@ -224,10 +224,10 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     * click the `>` button on the resultant popup dialog
     * click `More Information`
 
-    {% include lab-image.html image='BurpSuite-secure-connection-boa.png' %}
-    {% include lab-image.html image='BurpSuite-secure-connection-boa-2.png' %}
-    {% include lab-image.html image='BurpSuite-secure-connection-boa-3.png' %}
-    {% include lab-image.html image='BurpSuite-secure-connection-boa-4.png' %}
+    {% include lab-image.html image='burpsuite-secure-connection-boa.png' %}
+    {% include lab-image.html image='burpsuite-secure-connection-boa-2.png' %}
+    {% include lab-image.html image='burpsuite-secure-connection-boa-3.png' %}
+    {% include lab-image.html image='burpsuite-secure-connection-boa-4.png' %}
 
 ## Capture Login
 
@@ -253,7 +253,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
         <div class='alert alert-info'>A POST request allows parameters such as the username and password to be sent in the body of the
         web request.</div>
 
-        {% include lab-image.html image='BurpSuite-filter.png' %}
+        {% include lab-image.html image='burpsuite-filter.png' %}
 
     3.  Look for and select (click) the entry with:
         * a POST method
@@ -268,7 +268,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
         {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Burp Suite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
 
-        {% include lab-image.html image='BurpSuite-show-login-entry.png' %}
+        {% include lab-image.html image='burpsuite-show-login-entry.png' %}
 
 12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted. How could Burp Suite have decrypted it?
 
