@@ -72,6 +72,10 @@ IPv4 network block in CIDR block notation: <code>192.168.56.0/24</code>
 
     <div class='alert alert-danger'><strong>Heads up!</strong> This will need to be run each time you create a new Kali instance.</div>
 
+    Alternatively, log in as root (password `toor`):
+
+        su root
+
 2.  Then, from a terminal, run `virt-manager` to get an interface such as the following:
 
     {% include lab-image.html image='virt-manager-all-off.PNG' %}
