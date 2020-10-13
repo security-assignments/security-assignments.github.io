@@ -42,10 +42,11 @@ published: true
 
 # Part 3. Sign-up for Two Factor Authentication
 
-Visit [https://twofactorauth.org](https://twofactorauth.org) and browse through the categories to find an online service that you regularly use
+Visit [twofactorauth.org](https://twofactorauth.org) and browse through the categories to find an online service that you regularly use
 (e.g., Gmail, Snapchat, Instagram, Facebook, etc.). Click the box-arrow icon in the “Docs” column to learn how to set two factor authentication for that service.
 Sign up for 2FA for at least one account.
 
+**Alternatively:** Visit [dongleauth.info](https://www.dongleauth.info/) to find an online service that allows you to use [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) or [Universal Second Factor (U2F)](https://en.wikipedia.org/wiki/Universal_2nd_Factor).
 
 {% include lab_question.html question='Which service did you enable 2FA for?' %}
 
