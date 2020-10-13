@@ -37,24 +37,34 @@ The network map is as follows:
             <tr>
                 <th>IP Address</th>
                 <th>Machine</th>
+                <th>Login</th>
+                <th>Password</td>
             </tr>
         </thead>
         <tbody>
         <tr>
             <td>192.168.56.101</td>
             <td>Kali (the host)</td>
+            <td>root</td>
+            <td>toor</td>
         </tr>        
         <tr>
             <td>192.168.56.100</td>
             <td>Windows 7</td>
+            <td>Labuser</td>
+            <td>Passw0rd!</td>
         </tr>        
         <tr>
             <td>192.168.56.102</td>
             <td>Metasploitable2</td>
+            <td>msfadmin</td>
+            <td>msfadmin</td>
         </tr>
         <tr>
             <td>192.168.56.103</td>
             <td>Security Onion</td>
+            <td>securityonion</td>
+            <td>Password1</td>
         </tr>
         </tbody>
     </table>
