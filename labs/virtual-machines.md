@@ -38,7 +38,7 @@ The network map is as follows:
                 <th>IP Address</th>
                 <th>Machine</th>
                 <th>Login</th>
-                <th>Password</td>
+                <th>Password</th>
             </tr>
         </thead>
         <tbody>
@@ -128,6 +128,34 @@ IPv4 network block in CIDR block notation: <code>192.168.56.0/24</code>
 
 
     {% include lab-image.html image='virt-manager-running-ping.jpg' %}
+
+
+
+## Updating the virtual machines
+
+The following scripts will update the respective lab virtual machines installed
+on the kali pentest lab image.
+
+### Update SecurityOnion
+
+To update Security Onion, run the following:
+
+    wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-securityonion.sh | sudo bash
+
+### Update Windows Server 2019
+
+To update Windows Server 2019, run the following:
+
+    wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-server2019.sh | sudo bash
+
+### Update Metasploitable2
+
+To update Metasploitable2, run the following:
+
+    wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-metasploitable2.sh | sudo bash
+
+
+
 
 
 ## Using snapshots
