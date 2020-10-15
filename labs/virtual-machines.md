@@ -50,7 +50,7 @@ The network map is as follows:
         </tr>        
         <tr>
             <td>192.168.56.100</td>
-            <td>Windows 7</td>
+            <td>Windows 19</td>
             <td>Labuser</td>
             <td>Passw0rd!</td>
         </tr>        
