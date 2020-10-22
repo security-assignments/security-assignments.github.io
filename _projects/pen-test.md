@@ -4,9 +4,78 @@ title: Penetration Test Assignment
 order: 2
 ---
 
-Your assignment is to write a
-security assessment report for the server belonging to your assigned IP address.
-You will submit your report on Canvas.
+You are a (team of) consultant(s), and you offer Information Security penetration
+testing risk assessment services. You have been retained by Humbleify, a company
+that describes itself thusly:
+
+> Humbleify is a place for people who enjoy humbling to connect. Find local humbling events or just share your favorite tips and stories with others who love to humble.
+
+Humbleify is in talks to connect their network systems with _Youmud_, who has
+required that Humbleify undergo a penetration testing assessment as part of the
+negotiations. Furthermore, Humbleify is seeking cybersecurity insurance, who
+also requires that Humbleify undergo a cybersecurity risk assessment, including
+a penetration test.
+
+Therefore, Humbleify has hired you to assess one of their public-facing webservers. In this
+project, the company has intentionally not given you very much background information on this
+asset -- they would like you to see what you can find out, going in "blind." But
+you are only authorized to perform an evaluation of this particular server.
+
+## Accessing the asset
+
+The company has launched a copy of their webserver behind a VPN network -- one
+copy per consultancy team. To access the webserver, you must connect your
+Kali instance to the provided vpn network.
+
+To connect Kali to the VPN network:
+
+* Download `client.conf` vpn client config
+  file to Kali from Canvas (under your team's the "Files" page).
+* Open a separate Terminal session, and run `openvpn client.conf` from the
+  directory where your `client.conf` is located.
+  * Running this will give your Kali instance an ip address on the VPN
+    network in the `10.8.0.0/24` CIDR.
+* Leave this terminal running for as long as you need to connect to the
+  Humbleify asset. If you ever kill it, you will lose your connection to
+  the vpn network.
+
+**Once you have connected to the vpn network**, you will be able to access the asset **at the following ip address**:
+
+    192.168.10.107
+
+**Somewhat-important technical details ahead!**
+
+Your kali instance, however, will not have an IP address on the `192.168.10.107/24` CIDR. Instead, you will get an address on the `10.8.0.0/24` network.
+When you connect Kali to the vpn server, your Kali instance is automatically
+configured to route traffic to `192.168.10.107/24` over the VPN server at
+`10.8.0.1`, which forwards your traffic.
+
+The VPN server is also configured to allow `client-to-client` traffic between
+clients connected to the vpn network. The asset you are assessing is also a
+client on the network. Therefore, you can access the asset from your Kali instance,
+and you can _also_ access your Kali instance from the asset. However! You will
+only be able to talk to Kali _from the asset_ using Kali's `10.8.0.0/24` address.
+
+<div class='alert alert-danger'>
+<strong>Heads up!</strong>
+
+<p>This means that, if
+you are configuring a reverse-connecting payload, you will need to specify
+Kali's <code>10.8.0.0/24</code> address, so that traffic can reach Kali from
+the asset.</p>
+
+<p>Your Kali's <code>10.8.0.0/24</code> address may change on subsequent
+connections, depending on if your teammates also connect to the vpn server.
+This is fine to do, but if you set the wrong <code>LHOST</code> Kali ip address,
+you may be telling your malware to reverse-connect back to one of your teammates'
+msf listeners! Just be mindful of your Kali VPN ip address before
+you run exploits -- you can check it by running <code>ip a</code> and looking
+for the vpn bridge interface and its ip address.</p>
+</div>
+
+
+You have signed a document agreeing to the following objectives for your
+penetration test assessment:
 
 # Objectives
 
@@ -26,34 +95,6 @@ or other server files.
 
 4. For both 1 and 2 above, argue for methods that could protect the vulnerabilities and sensitive information from exploitation.
 
-{% if site.instructorcollab_username == 'deargle' %}
-<div class='alert alert-danger'>The scope of your project is restricted to the single server with IP address `192.168.10.107`, accessible by connecting to the vpn network.</div>
-
-The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN.
-I uploaded a vpn config file to each of your Canvas Midterm Group's pages -- download your team's `client.conf` file from there into Kali. Open a separate Terminal session, and run `sudo openvpn <name of your config file>`.
-Leave this terminal running for as long as you need to connect to the midterm vm.
-
-Connecting to the vpn network will give you a new ip address on the VPN network in the `10.8.0.0/24` space. **Use this new ip address as your LHOST in `metasploit` whenever needed.**
-
-You can view your ip address by running `ifconfig` or `ip addr` in Kali. You will be able to connect to the private `192.168.10.0/24` address of your target server because the VPN server passes traffic through for you.
-
-{% elsif site.instructorcollab_username == 'aov' %}
-
-<div class='alert alert-danger'>The scope of your project is restricted to the computer belonging to the
-IP address communicated to you via Slack.</div>
-
-The server you are to evaluate is running on a private network that you can only get access to if you connect Kali to a VPN.
-Download `client.conf` to Kali from Canvas (under the "Files" page). Open a separate Terminal session, and run `openvpn client.conf`.
-Leave this terminal running for as long as you need to connect to the Milestone 2 VM. Running this will give you an ip address on VPN in the `10.8.` network space.
-
-**Use this new ip address as your LHOST whenever needed, not your `192.` one.**
-
-You can view your ip address by running `ifconfig`.
-You will be able to connect to the private `172.32.0.0/16` address of your target server even though it is on a different subnet,
-because the VPN server passes traffic through for you.
-
-{% endif %}
-
 
 ## Written Report Deliverable
 
@@ -66,7 +107,7 @@ include a glossary of the terms used.
 There is no length requirement for the report, but your report must not
 exceed 20 pages (not including appendices).
 
-In writing your report, organize for impact. This means you should
+In writing your report, _organize for impact_. This means you should
 discuss the most serious vulnerabilities first. Further, in your
 description, start by describing macro-level issues and then discuss
 micro-level details. This practice makes it easier for a readers to
@@ -106,37 +147,53 @@ Your report will be graded using the following rubric:
 Use [this report template]({{ "/pen-test/Midterm_template.docx" | relative_url }}) to create your report as a PDF file.
 For submission, have one person on your team submit the report on Canvas.
 
-I look forward to reading your report. Let me know if you have any questions.
+## Getting help
 
+Per the contract, the client will not answer most questions about the Humbleify server.
+However, you are welcome to ask *general questions about the lab material* to your
+friends and advisors.
 
 
 ## Tips -- General
 
-* Did your scan show that the server is running something on port 80? It's probably a web page! Try browsing to it by using kali's firefox, and put your server's ip address into the address bar.
-*   You will want to read up on using the following tools:
-	*   `scp` - one way to copy files from one computer to another, including from your server to kali. You could also use a meterpreter shell to download files if you have one.
+* Did your scan show that the server is running something on port 80? It's
+  probably a web page! Try browsing to it by using kali's firefox, and put your
+  server's ip address into the address bar.
+* You may find tools such as the following useful:
+  * `scp` - one way to copy files from one computer to another, including from
+  your server to kali. You could also use a meterpreter shell to download files if you have one.
 
-        Example `scp` code (from Kali):
+    Example `scp` code (from Kali):
 
-            scp midterm-server-username@midterm-server-ip-address:/full/path/to/file/on/midterm/server .
+        scp midterm-server-username@midterm-server-ip-address:/full/path/to/file/on/midterm/server .
 
-        That will open an `ssh` connection to the midterm server as the specified user, and copy a file (that the user must have permission to read!) from the specified path down to the current directory
-        (`.` means 'current directory that I'm in on Kali').
+    That will open an `ssh` connection to the midterm server as the specified user,
+  and copy a file (that the user must have permission to read!) from the
+  specified path down to the current directory
+    (`.` means 'current directory that I'm in on Kali').
 
-        Note that this must be run on Kali. Meaning it cannot be run from within an exploited shell on the midterm server or from within an ssh connection to the midterm server. You cannot scp a file _from_ the midterm server _to_ Kali, because you cannot open an ssh session from the midterm server to kali, because there is no
-        ssh server listening on Kali. (If there were, you all could ssh into each others' Kali VMs while connected to the VPN, and we can't have that!).
-
-	*   `ssh` - for logging into remote servers
-	*   `sudo` (including `sudo -l`)
-	*   `id`
-	*   `hydra` to crack ssh logins
-*   `hyrda` can try to bruteforce ssh logins. It has some nice flags for that task. Read the documentation for hydra's `-e` flag. For example, to try the reverse of a username of a password, you would pass `-e r`. You can pass multiple values for `-e`, like it shows in the documentation.
+    Note that this must be run on Kali. Meaning it cannot be run from within an
+  exploited shell on the midterm server or from within an ssh connection to the
+  midterm server. You cannot scp a file _from_ the midterm server _to_ Kali,
+  because you cannot open an ssh session from the midterm server to kali,
+  because there is no ssh server listening on Kali.
+  *   `ssh` - for logging into remote servers
+  *   `sudo` (including `sudo -l`)
+  *   `id`
+  *   `hydra` to crack ssh logins
+      * `hyrda` can try to bruteforce ssh logins. Read the documentation for hydra's `-e` flag.
+        For example, to try the reverse of a username of a password, you would pass `-e r`.
+        You can pass multiple values for `-e`, like it shows in the documentation.
 
 ## Tips -- Password Cracking
 
-*   hashcat expects hashes to be fed to it in a certain format. See [here](https://hashcat.net/wiki/doku.php?id=example_hashes) for guidance for that.
-*   Remember that you need to tell hashcat what type of hash you are trying to crack (with the `-m` flag). It can sometimes be tricky to know what kind of hash you are dealing with. Try installing and using the package `hash-identifier`.
-*   In your experience with hashcat, you passed it a hash, and then if it cracked it, it would by default match the plaintext with the hash. For example, if I had:
+*   hashcat expects hashes to be fed to it in a certain format. See
+  [here](https://hashcat.net/wiki/doku.php?id=example_hashes) for guidance for that.
+*   Remember that you need to tell hashcat what type of hash you are trying to
+  crack (with the `-m` flag). It can sometimes be tricky to know what kind of
+  hash you have. Try installing and using the package `hash-identifier`.
+*   In your experience with hashcat, you passed it a hash, and then if it cracked
+  it, it would by default match the plaintext with the hash. For example, if I had:
 
         user: foobar
         password: dogman
@@ -150,27 +207,36 @@ I look forward to reading your report. Let me know if you have any questions.
 
         a8uf33kljufd88:dogman
 
-    However, if you have several hashes you are trying to crack at once, it is convenient if hashcat also associates a hash with a username. You can do that by passing the username:hash to hashcat as follows:
+    However, if you have several hashes you are trying to crack at once, it is
+  convenient if hashcat also associates a hash with a username. You can do that
+  by passing the username:hash to hashcat as follows:
 
         foobar:a8uf33kljufd88
 
-    ... and also set the `--username` flag in your hashcat call, so that hashcat knows that you are feeding in a prepended username.
+    ... and also set the `--username` flag in your hashcat call, so that hashcat
+  knows that you are feeding in a prepended username.
 
     If you do this, hashcat will output the crack thusly:
 
         foobar:a8uf33kljufd88:dogman
 
-    Remember that you can view cracked passwords that are saved in hashcat's potfile by using the `--show` command. e.g.:
+    Remember that you can view cracked passwords that are saved in hashcat's
+  potfile by using the `--show` command. e.g.:
 
         hashcat --show a8uf33kljufd88
 
-*   If you want to crack usernames and passwords at the same time, you can 'unshadow' the files first. This puts the usernames and passwords into the same file.
+*   If you want to crack usernames and passwords at the same time, you can 'unshadow'
+    the files first. This puts the usernames and passwords into the same file.
 
     Example usage:
 
-		unshadow [passwd file] [shadow file] > myunshadowed_file
+        unshadow [passwd file] [shadow file] > myunshadowed_file
 
-*   Just like in the password-cracking lab, if you want to take a crack at hashes in `/etc/shadow`, you need to put them into a format that hashcat can understand. Read `man shadow`, and then read `man crypt`, to understand
-    how to interpret the values in `/etc/shadow`. `man crypt` will also help you figure out which hash type is being used.
-
-    *   You have to manually edit the unshadowed file and remove everything except for the username and the hash. See [here](https://samsclass.info/123/proj10/p12-hashcat.htm) (except, you can leave in the usernames, if you pass the `--username` flag)
+*   Just like in the password-cracking lab, if you want to take a crack at hashes
+    in `/etc/shadow`, you need to put them into a format that hashcat can
+    understand. Read `man shadow`, and then read `man crypt`, to understand
+    how to interpret the values in `/etc/shadow`. `man crypt` will also help you
+    figure out which hash type is being used.
+    *   You have to manually edit the unshadowed file and remove everything except
+        for the username and the hash. See [here](https://samsclass.info/123/proj10/p12-hashcat.htm)
+        (except, you can leave in the usernames, if you pass the `--username` flag)
