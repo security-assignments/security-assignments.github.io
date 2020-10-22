@@ -4,12 +4,13 @@ title: Penetration Test Assignment
 order: 2
 ---
 
-For this assignment, consider that your team is a group of consultants that offers cybersecurity penetration testing and risk assessment services. You have been retained by Humbleify, a company that describes itself thusly:
+For this assignment, consider that your team is a group of consultants that offers cybersecurity penetration testing and risk assessment services. You have been retained by Humbleify{% if site.instructorcollab_username == 'deargle' %}, a company that describes itself thusly:{% endif %}{% if site.instructorcollab_username == 'aov' %}.{% endif %}
 
+{% if site.instructorcollab_username == 'deargle' %}
 > Humbleify is a place for people who enjoy humbling to connect. Find local humbling events or just share your favorite tips and stories with others who love to humble.
+{% endif %}
 
-Humbleify is in talks to connect their network systems with _Youmud_, who has
-required that Humbleify undergo a penetration testing assessment as part of the
+Humbleify is in talks to connect their network systems with another company that has required that Humbleify undergo a penetration testing assessment as part of the
 negotiations. Furthermore, Humbleify is seeking cybersecurity insurance, who
 also requires that Humbleify undergo a cybersecurity risk assessment, including
 a penetration test.
@@ -141,7 +142,7 @@ Your report will be graded using the following rubric:
 | 25% | Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps. |
 | 5% | Clarity of writing for a managerial audience. |
 
-Use [this report template]({{ "/pen-test/Midterm_template.docx" | relative_url }}) to create your report as a PDF file.
+Use [this report template]({{ "/pen-test/Midterm_template.docx" | relative_url }}) to create your report as a {% if site.instructorcollab_username == 'deargle' %}PDF{% endif %}{% if site.instructorcollab_username == 'aov' %}.docx{% endif %} file.
 For submission, have one person on your team submit the report on Canvas.
 
 ## Getting help
