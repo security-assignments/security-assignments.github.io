@@ -12,7 +12,7 @@ The EFF has [created a set of Diceware lists](https://www.eff.org/deeplinks/2016
 
 ## Questions
 
-1. Using dice and the [EFF's instructions for generating passwords using dice](https://www.eff.org/dice), create two five-word Diceware passphrases. What passphrases did you create?
+1. Using five dice (either physcial dice or [virtual dice at random.org](https://www.random.org/dice/?num=5)) and the [EFF's instructions for generating passwords using dice](https://www.eff.org/dice), create two five-word Diceware passphrases. What passphrases did you create?
 
 1. What is the amount of entropy in bits for your five-word Diceware passphrases? How many possible passwords does that represent? Show your work.
 

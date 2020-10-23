@@ -29,19 +29,23 @@ Browse to [ibm.com](https://ibm.com) and inspect the certificate details. For ex
 
 {% include lab_question.html question='What is the root certificate authority for ibm.com?' %}
 
-{% include lab_question.html question='What is the intermediary certificate authority?' %}
+{% include lab_question.html question='What is the intermediate certificate authority?' %}
 
-What are some of the other domains for which this certificate is valid?' In Firefox, these are listed under "Certificate Subject Alt Name."
+The purpose of an intermediate authority is the following:
+
+"Every publicly-trusted Certificate Authority (such as Let’s Encrypt) has at least one root certificate which is                 incorporated into various browser and OS vendors’ (e.g. Mozilla, Google) trusted root stores. This is what allows users who receive a certificate from a website to confirm that the certificate was issued by an organization that their browser trusts. But root certificates, by virtue of their widespread trust and long lives, must have their corresponding private key carefully protected and stored offline, and therefore can’t be used to sign things all the time. So every Certificate Authority (CA) also has some number of “intermediates”, certificates which are able to issue additional certificates but are not roots, which they use for day-to-day issuance" [(Let's Encrypt 2020)](https://letsencrypt.org/2020/09/17/new-root-and-intermediates.html).
+
+    What are some of the other domains for which this certificate is valid?' In Firefox, these are listed under "Certificate Subject Alt Name."
 
 {% include lab_question.html question='What are some of the other domains for which the ibm.com certificate is valid?' %}
 
 For TLS X.509 certificates, the signature in the certificate is signed by the public key included in an intermediate or root certificate authority certificate (see figure below).
-An intermediary certificate, if any, is signed by the public key included in a root certificate. The root certificate is signed using the public key in its own certificate (a self-signed certificate).
+An intermediate certificate, if any, is signed by the public key included in a root certificate. The root certificate is signed using the public key in its own certificate (a self-signed certificate).
 Linking certificates in this way forms a certificate chain.
 
-{% include lab-image.html image='ssl-digicert-chain.png' %}
+{% include lab-image.html image='ssl-cert-chain.png' %}
 
-_Certificate chain image from [DigiCert](https://knowledge.digicert.com/solution/SO16297.html)_
+_Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_key_certificate)_
 
 {% include lab_question.html question="For IBM's certificate, what algorithm do they use for their public key?" %}
 {% include lab_question.html question="What is the keysize of their public key?" %}
@@ -109,24 +113,22 @@ _Certificate chain image from [DigiCert](https://knowledge.digicert.com/solution
 
 
 
-# Part 2: MITM with BurpSuite
+# Part 2: MITM with Burp Suite
 
-In this section, you will use a tool called BurpSuite in your Kali VM,
-and you will configure Kali's Firefox to route all traffic through BurpSuite.
-You will feign a MITM attack and intercept a username\|password that you submit to bankofamerica.com. This lab uses the free BurpSuite Community edition.
+In this section, you will use a tool called Burp Suite in your Kali VM,
+and you will configure Kali's Firefox to route all traffic through Burp Suite.
+You will feign a MITM attack and intercept a username\|password that you submit to bankofamerica.com. This lab uses the free Burp Suite Community edition.
 
-BurpSuite is commonly used in the infosec community for introspection and
+Burp Suite is a network traffic proxy application created by PortSwigger. The tool can be used by developers and researchers to inspect and manipulate any network traffic to which Burp Suite has access. It is commonly used in the cybersecurity community for inspection and
 manipulation of web requests. See articles such as [this one](https://research.digitalinterruption.com/2020/09/10/giggle-laughable-security/)
-which rely on BurpSuite for analysis of a smartphone
+which rely on Burp Suite for analysis of a smartphone
 app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Charles.
 
-## Configure BurpSuite as a proxy
+## Configure Burp Suite as a proxy
 
-1.  Launch BurpSuite, which is a network traffic proxy application created by PortSwagger. The tool can be used by developers and researchers to inspect and manipulate any network traffic to which BurpSuite has access.
+1.  Launch Burp Suite. Follow the steps displayed below to get through the launch process.
 
-    Follow the steps displayed below to get through the launch process.
-
-    * search for burpsuite using the kali launcher, and click it.
+    * search for Burp Suite using the kali launcher, and click it.
 
       {% include lab-image.html image='burpsuite-launch-search.png' %}
 
@@ -134,7 +136,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
       {% include lab-image.html image='burpsuite-launch-ignore-jre.png' %}
 
-    * skip the burpsuite update
+    * skip the Burp Suite update
 
       {% include lab-image.html image='burpsuite-launch-skip-update.png' %}
 
@@ -147,7 +149,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
       {% include lab-image.html image='burpsuite-launch-default-launch-burp.png' %}
 
 
-    When BurpSuite is started, it by default "listens" for incoming traffic on `localhost:8080`, as shown below.
+    When Burp Suite is started, it by default "listens" for incoming traffic on `localhost:8080`, as shown below.
 
     {% include lab-image.html image='burpsuite-launch-default-listen.png' %}
 
@@ -159,7 +161,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
     {% include lab-image.html image='burpsuite-turn-off-interception.png' %}
 
-4.  Configure Firefox to route all internet traffic through BurpSuite.
+4.  Configure Firefox to route all internet traffic through Burp Suite.
 
     * Firefox >
       {% include lab-image.html image='firefox-launch.png' %}
@@ -171,7 +173,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
       8080, check box for "use this proxy server for all protocols"
       {% include lab-image.html image='firefox-set-proxy-localhost-8080.png' %}
 
-    Firefox is now proxying all web requests through BurpSuite.
+    Firefox is now proxying all web requests through Burp Suite.
 
 
     Note: the above instructions are also described when the following link is clicked:
@@ -180,7 +182,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
 ## Attempt to visit a secure website
 
-6.  Now that Firefox is passing all traffic to BurpSuite, try to visit an https-site. The following will work against _any_ https site,
+6.  Now that Firefox is passing all traffic to Burp Suite, try to visit an https-site. The following will work against _any_ https site,
     but we will visit [https://bankofamerica.com](https://bankofamerica.com)
 
     You receive an SSL connection error!
@@ -199,16 +201,16 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
         Search the internet for an "ssl cert decoder", such as [https://certlogik.com/decoder/](https://certlogik.com/decoder/) or [https://www.sslshopper.com/certificate-decoder.html](https://www.sslshopper.com/certificate-decoder.html),
         to decode the base64-encoded cert that you copied in the previous step.
 
-8.  Configure Firefox to trust BurpSuite's self-signed certificate.
+8.  Configure Firefox to trust Burp Suite's self-signed certificate.
 
-    BurpSuite generates a unique ssl keypair for each installation. We need to
-    instruct Firefox to trust BurpSuite's public key for authenticating websites.
+    Burp Suite generates a unique ssl keypair for each installation. We need to
+    instruct Firefox to trust Burp Suite's public key for authenticating websites.
     As seen earlier in this lab, Firefox maintains its own certificate authority list.
 
-    Follow the instructions on the following website to install BurpSuite's CA
+    Follow the instructions on the following website to install Burp Suite's CA
     certificate in Firefox: [link](https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/certificate/firefox)
 
-    <div class='alert alert-info'><strong>Note --</strong> when the instructions say: "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save As", and your file will be downloaded with filename "cacert.der".</div>
+    <div class='alert alert-info'><strong>Note:</strong> When the instructions say, "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save File", and your file will be downloaded with filename "cacert.der".</div>
 
     {% include lab-image.html image='burpsuite-cacert-der.png' %}
 
@@ -234,9 +236,9 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     site.instructorcollab_username == 'aov' %}TUid{% endif %}</strong>. Choose any **fake
     password**. Submit your login request. It will fail.
 
-11. BurpSuite should have logged the login attempt -- Let's find it. Go back to BurpSuite.
+11. Burp Suite should have logged the login attempt -- Let's find it. Go back to Burp Suite.
 
-    1.  Within BurpSuite, navigate to the "Proxy" > "HTTP history" tab. Click the "Filter"
+    1.  Within Burp Suite, navigate to the "Proxy" > "HTTP history" tab. Click the "Filter"
         bar to open the filter dialog, and change the settings as follows to make the
         visual search easier.
 
@@ -248,8 +250,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
         That should be sufficient to easily find the HTTP POST request which was
         the attempted login.
 
-        <div class='alert alert-info'>A POST request allows parameters to send
-        data such as the username and password to be sent in the body of the
+        <div class='alert alert-info'>A POST request allows parameters such as the username and password to be sent in the body of the
         web request.</div>
 
         {% include lab-image.html image='burpsuite-filter.png' %}
@@ -265,43 +266,41 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
         You should see your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if site.instructorcollab_username == 'aov' %}TUid{% endif %} and fake password.
 
-        {% include lab_question.html question="Submit a screenshot showing your username and fake password within the BurpSuite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
+        {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Burp Suite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
 
         {% include lab-image.html image='burpsuite-show-login-entry.png' %}
 
-12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted. How could BurpSuite have decrypted it?
+12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted. How could Burp Suite have decrypted it?
 
     This is the essence of a man-in-the-middle attack -- a secure connection to an evil server which talks to your intended server on your behalf.
 
     {% include lab-image.html image='500px-Man_in_the_middle_attack.svg.png' %}
 
-    In our pretend case, BurpSuite is the evil server, and Bank Of America's server
+    In our pretend case, Burp Suite is the evil server, and Bank Of America's server
     is the intended server. All secure content is visible as plaintext to the attacker,
     because the attacker’s SSL cert was used to establish the secure HTTPS connection.
 
 13. Finally, clean up by reconfiguring Firefox to no longer use a network proxy. To do this,
     revisit Firefox's "Network Settings" page under the Preferences view, and select
     "No Proxy".
+    
+{% if site.instructorcollab_username == 'deargle' %}
 
 # Part 3. Appreciate secure messaging with the bygone PGP
 
 For a long time, PGP was the best technology available for messaging (email) privacy.
-To gain an appreciation of the pain invovled in using PGP, watch the following
+To gain an appreciation of the pain involved in using PGP, watch the following
 video tutorial created by Edward Snowden for how to use gpg,
 the open source version of pgp: [https://vimeo.com/56881481](https://vimeo.com/56881481)
 
-You do not need to follow along, but you may if you want to{% if site.instructorcollab_username == 'deargle' %}, for your health{% endif %}.
+You do not need to follow along, but you may if you want to, for your health.
 The above video tutorial is for Windows users. For Mac,
 the [GPG Suite](https://gpgtools.org/) can be used.
-
-{% if site.instructorcollab_username == 'deargle' %}
 
 <div class='alert alert-info'><strong>Extra challenge:</strong> Follow along
 with the tutorial and send Dr. Eargle a signed, encrypted message, along with
 your public key, using Dr. Eargle's public key available
 <a href='http://daveeargle.com/key.asc'>here</a>.</div>
-
-{% endif %}
 
 # Part 4. Understand Secure Communication via Signal
 
@@ -321,3 +320,5 @@ Use what you read and watched above to answer the following questions:
 {% include lab_question.html question='What attacks does Signal protect you against? Which does it not protect you against?' %}
 
 {% include lab_question.html question='On a high level, how does the Signal protocol work?' %}
+
+{% endif %} {% if site.instructorcollab_username == 'aov' %}{% endif %}

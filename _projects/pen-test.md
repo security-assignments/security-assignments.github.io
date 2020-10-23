@@ -4,14 +4,13 @@ title: Penetration Test Assignment
 order: 2
 ---
 
-You are a (team of) consultant(s), and you offer Information Security penetration
-testing risk assessment services. You have been retained by Humbleify, a company
-that describes itself thusly:
+For this assignment, consider that your team is a group of consultants that offers cybersecurity penetration testing and risk assessment services. You have been retained by Humbleify{% if site.instructorcollab_username == 'deargle' %}, a company that describes itself thusly:{% endif %}{% if site.instructorcollab_username == 'aov' %}.{% endif %}
 
+{% if site.instructorcollab_username == 'deargle' %}
 > Humbleify is a place for people who enjoy humbling to connect. Find local humbling events or just share your favorite tips and stories with others who love to humble.
+{% endif %}
 
-Humbleify is in talks to connect their network systems with _Youmud_, who has
-required that Humbleify undergo a penetration testing assessment as part of the
+Humbleify is in talks to connect their network systems with another company that has required that Humbleify undergo a penetration testing assessment as part of the
 negotiations. Furthermore, Humbleify is seeking cybersecurity insurance, who
 also requires that Humbleify undergo a cybersecurity risk assessment, including
 a penetration test.
@@ -25,33 +24,33 @@ you are only authorized to perform an evaluation of this particular server.
 
 The company has launched a copy of their webserver behind a VPN network -- one
 copy per consultancy team. To access the webserver, you must connect your
-Kali instance to the provided vpn network.
+Kali instance to the provided VPN network.
 
 To connect Kali to the VPN network:
 
-* Download `client.conf` vpn client config
-  file to Kali from Canvas (under your team's the "Files" page).
-* Open a separate Terminal session, and run `openvpn client.conf` from the
+* Download `client.conf` VPN client config
+  file to Kali from Canvas (under your team's "Files" page).
+* Open a separate Terminal session, and run `sudo openvpn client.conf` from the
   directory where your `client.conf` is located.
   * Running this will give your Kali instance an ip address on the VPN
     network in the `10.8.0.0/24` CIDR.
 * Leave this terminal running for as long as you need to connect to the
   Humbleify asset. If you ever kill it, you will lose your connection to
-  the vpn network.
+  the VPN network.
 
-**Once you have connected to the vpn network**, you will be able to access the asset **at the following ip address**:
+**Once you have connected to the VPN network**, you will be able to access the asset **at the following ip address**:
 
 <div class='alert alert-success'>192.168.10.107</div>
 
-_Somewhat-important technical details ahead!_
+**Important technical details ahead!**
 
-Your kali instance, however, will not have an IP address on the `192.168.10.107/24` CIDR. Instead, you will get an address on the `10.8.0.0/24` network.
-When you connect Kali to the vpn server, your Kali instance is automatically
+Your Kali instance, however, will not have an IP address on the `192.168.10.107/24` CIDR. Instead, you will get an address on the `10.8.0.0/24` network.
+When you connect Kali to the VPN server, your Kali instance is automatically
 configured to route traffic to `192.168.10.107/24` over the VPN server at
 `10.8.0.1`, which forwards your traffic.
 
 The VPN server is also configured to allow `client-to-client` traffic between
-clients connected to the vpn network. The asset you are assessing is also a
+clients connected to the VPN network. The asset you are assessing is also a
 client on the network. Therefore, you can access the asset from your Kali instance,
 and you can _also_ access your Kali instance from the asset. However! You will
 only be able to talk to Kali _from the asset_ using Kali's `10.8.0.0/24` address.
@@ -65,10 +64,10 @@ Kali's <code>10.8.0.0/24</code> address, so that traffic can reach Kali from
 the asset.</p>
 
 <p>Your Kali's <code>10.8.0.0/24</code> address may change on subsequent
-connections, depending on if your teammates also connect to the vpn server.
+connections, depending on if your teammates also connect to the VPN server.
 This is fine to do, but if you set the wrong <code>LHOST</code> Kali ip address,
 you may be telling your malware to reverse-connect back to one of your teammates'
-msf listeners! Just be mindful of your Kali VPN ip address before
+MSF listeners! Just be mindful of your Kali VPN ip address before
 you run exploits -- you can check it by running <code>ip a</code> and looking
 for the vpn bridge interface and its ip address.</p>
 </div>
@@ -185,7 +184,7 @@ Your report will be graded using the following rubric:
 | **Total** |  **105** |
 
 Starting from [this report template]({{ site.baseurl }}{% link pen-test/pen-test-report-template.md %}),
-create your report as a PDF file.
+create your report as a {% if site.instructorcollab_username == 'deargle' %}PDF{% endif %}{% if site.instructorcollab_username == 'aov' %}.docx{% endif %} file.
 For submission, have one person on your team submit the report on Canvas.
 
 # Getting help

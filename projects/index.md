@@ -1,5 +1,5 @@
 ---
-title: Pen Test Assignments
+title: Projects
 ---
 
 # {{ page.title }}
@@ -8,7 +8,7 @@ title: Pen Test Assignments
 
 ## Assignments
 
-{% assign assignments = site.pen_test_assignments | sort: 'order' %}
+{% assign assignments = site.projects | sort: 'order' %}
 {% for assignment in assignments %}
 
 1. [{{ assignment.title }}]( {{ assignment.url | relative_url }} )
