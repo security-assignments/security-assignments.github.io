@@ -183,7 +183,7 @@ Your report will be graded using the following rubric:
 | Clarity of writing for a managerial audience. | 5 |
 | **Total** |  **105** |
 
-Starting from [this report template]({{ site.baseurl }}{% link pen-test/pen-test-report-template.md %}),
+Starting from [this report template]({{ site.baseurl }}{% link projects/pen-test-report-template.md %}),
 create your report as a {% if site.instructorcollab_username == 'deargle' %}PDF{% endif %}{% if site.instructorcollab_username == 'aov' %}.docx{% endif %} file.
 For submission, have one person on your team submit the report on Canvas.
 

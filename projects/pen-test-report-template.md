@@ -4,7 +4,7 @@ title: Penetration Testing Report Template
 
 This page provides a template for a penetration test vulnerability assessment
 report. The rubric for each section can be found on the [assignment description
-page]({{ site.baseurl }}{% link _pen_test_assignments/pen-test.md %}#rubric).
+page]({{ site.baseurl }}{% link _projects/pen-test.md %}#rubric).
 
 ---
 

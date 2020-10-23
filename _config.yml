@@ -27,8 +27,8 @@ repository: 'deargle/security-assignments'
 instructorcollab_username: deargle
 instructorcollab_domain: colorado.edu
 
-#remote_theme: deargle/security-assignments-theme
-theme: security-assignments-theme
+remote_theme: deargle/security-assignments-theme
+#theme: security-assignments-theme
 
 # Build settings
 markdown: kramdown
@@ -64,7 +64,7 @@ collections:
         output: true
     tutorials:
         output: true
-    pen_test_assignments:
+    projects:
         output: true
     books:
     films:

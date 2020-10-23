@@ -6,8 +6,6 @@ title: Projects
 
 {% include attribution.html %}
 
-## Assignments
-
 {% assign assignments = site.projects | sort: 'order' %}
 {% for assignment in assignments %}
 
