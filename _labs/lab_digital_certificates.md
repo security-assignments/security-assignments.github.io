@@ -300,7 +300,7 @@ the [GPG Suite](https://gpgtools.org/) can be used.
 <div class='alert alert-info'><strong>Extra challenge:</strong> Follow along
 with the tutorial and send Dr. Eargle a signed, encrypted message, along with
 your public key, using Dr. Eargle's public key available
-<a href='http://daveeargle.com/key.asc'>here</a>.</div>
+<a class='alert-link' href='http://daveeargle.com/key.asc'>here</a>.</div>
 
 # Part 4. Understand Secure Communication via Signal
 

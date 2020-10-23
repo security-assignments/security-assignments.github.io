@@ -173,7 +173,7 @@ as your computer and the particular hash algorithm will allow.
 <div class='alert alert-info'>
 <p>If you're feeling adventurous, you can install Hashcat on your host computer, where you'll get massive speed improvements compared to running it in your Kali VM. Hashcast needs to be able to directly interface with
 the CPU/GPU in order to crack fast—it can't so as well in a virtualized environment.</p>
-<p>For Windows or Linux, download Hashcat <a href='https://hashcat.net/hashcat'>here</a>. For Mac, I recommend that you first install Homebrew (follow instructions at <a href='https://brew.sh'>https://brew.sh</a>),
+<p>For Windows or Linux, download Hashcat <a class='alert-link' href='https://hashcat.net/hashcat'>here</a>. For Mac, I recommend that you first install Homebrew (follow instructions at <a class='alert-link' href='https://brew.sh'>https://brew.sh</a>),
 then run the command, <code>brew install hashcat</code>.</p>
 </div>
 
@@ -426,9 +426,9 @@ all of the LinkedIn hashes. Ask me for a copy.
 
 
 <div class='alert alert-info'>Want even more practice? You can download the massive Troy Hunt haveibeenpwned SHA1 password hash list
-on the bottom of <a href='https://haveibeenpwned.com/Passwords'>this page</a>.</div>
+on the bottom of <a class='alert-link' href='https://haveibeenpwned.com/Passwords'>this page</a>.</div>
 
-<div class='alert alert-info'>Also, see <a href='https://github.com/danielmiessler/SecLists/tree/master/Passwords'>Daniel Miessler's wordlist collection</a> for more wordlists besides RockYou to try.</div>
+<div class='alert alert-info'>Also, see <a class='alert-link' href='https://github.com/danielmiessler/SecLists/tree/master/Passwords'>Daniel Miessler's wordlist collection</a> for more wordlists besides RockYou to try.</div>
 
 
 

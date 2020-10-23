@@ -138,7 +138,7 @@ Pretend that a USB drive is a keylogger. Plug it into the back of a public compu
 
 <div class='alert alert-warning'>
 
-<p><strong>Note:</strong> This Item uses Cain, which is installed on the lab VM. It can be downloaded from <a href='http://www.oxid.it/downloads/ca_setup.exe'>www.oxid.it</a>. However, this file will set off all sorts of virus detection alarms and warnings, both in the browser and on your computer. Cain is <em>not</em> a virus, 
+<p><strong>Note:</strong> This Item uses Cain, which is installed on the lab VM. It can be downloaded from <a class='alert-link' href='http://www.oxid.it/downloads/ca_setup.exe'>www.oxid.it</a>. However, this file will set off all sorts of virus detection alarms and warnings, both in the browser and on your computer. Cain is <em>not</em> a virus, 
 and www.oxid.it is the official site to obtain the file from. But you can use Cain to do suspicious things, so it gets flagged.</p>
 
 </div>

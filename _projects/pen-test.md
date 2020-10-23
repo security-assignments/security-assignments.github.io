@@ -33,7 +33,8 @@ To connect Kali to the VPN network:
 * Open a separate Terminal session, and run `sudo openvpn client.conf` from the
   directory where your `client.conf` is located.
   * Running this will give your Kali instance an ip address on the VPN
-    network in the `10.8.0.0/24` CIDR.
+    network in the `10.8.0.0/24` CIDR, on a new interface called `tun0`
+    (run `ip a` to verify).
 * Leave this terminal running for as long as you need to connect to the
   Humbleify asset. If you ever kill it, you will lose your connection to
   the VPN network.
@@ -44,7 +45,8 @@ To connect Kali to the VPN network:
 
 **Important technical details ahead!**
 
-Your Kali instance, however, will not have an IP address on the `192.168.10.107/24` CIDR. Instead, you will get an address on the `10.8.0.0/24` network.
+Your Kali instance, however, will not have an IP address on the `192.168.10.107/24` CIDR.
+Instead, you will get an address on the `10.8.0.0/24` network.
 When you connect Kali to the VPN server, your Kali instance is automatically
 configured to route traffic to `192.168.10.107/24` over the VPN server at
 `10.8.0.1`, which forwards your traffic.
@@ -70,6 +72,13 @@ you may be telling your malware to reverse-connect back to one of your teammates
 MSF listeners! Just be mindful of your Kali VPN ip address before
 you run exploits -- you can check it by running <code>ip a</code> and looking
 for the vpn bridge interface and its ip address.</p>
+
+<p>A power-user msfconsole-user move is to set your `LHOST` not to an explicit
+ip address, but rather,
+<a class='alert-link' href='{{ site.baseurl }}{% link _labs/lab_exploitation.md %}#set-lhost-iface-name'>an interface name</a>.
+You can therefore run <code>set LHOST tun0</code> wherever an lhost is required
+in msfconsole. <a class='alert-link' href='{{ site.baseurl }}{% link _labs/lab_exploitation.md %}#setg'>Set these values globally</a> to
+perhaps save a few more keystrokes over the course of the assignment.</p>
 </div>
 
 
@@ -147,7 +156,7 @@ This way, a manager can quickly get a sense of the report by reading the first p
 
 <p>
 Continuing the pyramid analogy, appendices are at the very base. Appendices are for very technical information that would bog down the report if included
-in the main body. For example, a Nessus report or detailed output from NMAP do not belong in the report because the information is too technical for a
+in the main body. For example, a Nessus report or detailed output from <code>nmap</code> do not belong in the report because the information is too technical for a
 managerial reader to process. Also, they tend to be lengthy and would interrupt the flow of your report.
 Instead, refer the reader to the appendices for very technical and lengthy information. (I am not interested in seeing a Nessus report. Don't give me one.)
 </p>
@@ -170,14 +179,14 @@ Writing technical material for a managerial audience is crucial skill for inform
 Your report will be graded using the following rubric:
 
 {: .table }
-| Section | Points |
+| Criteria | Points |
 | --- | ---: |
-| E. One page executive summary that highlights the most important findings of your report. | 5  |
-| 1. Description of the scope of the project, objectives, and your authorization to perform the assessment (i.e., my instructions to you in this document and in your email). | 5  |
-| 2. Information about the server examined (OS, user accounts, applications installed, databases stored). | 5  |
-| 3. High-level description of vulnerabilities successfully exploited and sensitive data obtained. Articulation of the managerial implications for these vulnerabilities and sensitive information and how they could impact the business.| 25 |
-| 4. Supporting details of successful exploits and sensitive data obtained. The detail should be sufficient for another person to replicate the results of your main findings using your report. | 30 |
-| 5. Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps. | 25 |
+| Section E. One page executive summary that highlights the most important findings of your report. | 5  |
+| Section 1. Description of the scope of the project, objectives, and your authorization to perform the assessment. | 5  |
+| Section 2. Information about the server examined (OS, user accounts, applications installed, databases stored). | 5  |
+| Section 3. High-level description of vulnerabilities successfully exploited and sensitive data obtained. Articulation of the managerial implications for these vulnerabilities and sensitive information and how they could impact the business.| 25 |
+| Section 4. Supporting details of successful exploits and sensitive data obtained. The detail should be sufficient for another person to replicate the results of your main findings using your report. | 30 |
+| Section 5. Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps. | 25 |
 | Glossary | 3 |
 | Cross-references throughout | 2 |
 | Clarity of writing for a managerial audience. | 5 |

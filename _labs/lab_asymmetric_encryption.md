@@ -29,7 +29,7 @@ published: true
 # Part 2. Calculating RSA keys
 
     
-<div class='alert alert-info'>Note: To help you answer the following questions, view <a href='https://youtu.be/Z8M2BTscoD4'>this “RSA Algorithm” video</a>. Also, you can review <a href='http://en.wikipedia.org/wiki/RSA_(cryptosystem)#Example'>the RSA wikipedia page example.</a></div>
+<div class='alert alert-info'>Note: To help you answer the following questions, view <a class='alert-link' href='https://youtu.be/Z8M2BTscoD4'>this “RSA Algorithm” video</a>. Also, you can review <a class='alert-link' href='http://en.wikipedia.org/wiki/RSA_(cryptosystem)#Example'>the RSA wikipedia page example.</a></div>
 
 
 3. Complete encryption and decryption using the RSA algorithm, for the following data (show all work): `p = 5, q = 11, e = 3, M = 9`. Also:

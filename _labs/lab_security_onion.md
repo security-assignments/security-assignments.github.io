@@ -501,7 +501,7 @@ Seeing an opportunity that could get him that Vice President of Product Developm
         <p><strong>Hint: </strong>
         Search for traffic with this new port. You will see a lot that are red and black -- these are failed connection attempts. The black is the victim    
         sending TCP SYN packets to the attackbox port 4445, and the RST/ACK response is the attack box indicating that the
-            <a href='https://stackoverflow.com/questions/5272026/tcp-server-sends-rst-ack-immediately-after-receiving-syn-from-client'>port is closed</a>.
+            <a class='alert-link' href='https://stackoverflow.com/questions/5272026/tcp-server-sends-rst-ack-immediately-after-receiving-syn-from-client'>port is closed</a>.
         </p>    
 
         <p>Eventually, the attackbox responds with SYN/ACK -- port is open and ready for business, establish the TCP session!
