@@ -184,7 +184,7 @@ Your report will be graded using the following rubric:
 | Section E. One page executive summary that highlights the most important findings of your report. | 5  |
 | Section 1. Description of the scope of the project, objectives, and your authorization to perform the assessment. | 5  |
 | Section 2. Information about the server examined (OS, user accounts, applications installed, databases stored). | 5  |
-| Section 3. High-level description of vulnerabilities successfully exploited and sensitive data obtained. Articulation of the managerial implications for these vulnerabilities and sensitive information and how they could impact the business.| 25 |
+| Section 3. High-level description of vulnerabilities successfully exploited and sensitive data obtained.| 25 |
 | Section 4. Supporting details of successful exploits and sensitive data obtained. The detail should be sufficient for another person to replicate the results of your main findings using your report. | 30 |
 | Section 5. Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide concrete steps. | 25 |
 | Glossary | 3 |
