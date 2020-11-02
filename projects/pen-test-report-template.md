@@ -120,7 +120,7 @@ _See below for an example._
 >
 >Because of this exploit we were able to obtain… See section 3.1. See section 5.1 for recommended steps to fix this
 >vulnerability, see section … (end example)
-
+{% if site.instructorcollab_username == 'deargle' %}
 # 5.	Vulnerability Remediation
 
 _Explanation for how to protect against vulnerabilities successfully exploited and sensitive data obtained. Provide
@@ -137,7 +137,7 @@ _See below for an example._
 > 5.1.	SSH Backdoor (example)
 >
 > Uninstall WeakSSH and install the latest version of OpenSSH. See sections 3.1 and 4.1. (end example)
-
+{% endif %}
 # 6.	Glossary
 
 _Define technical terms used in the report here._
