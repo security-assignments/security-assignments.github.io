@@ -430,3 +430,7 @@ This is a common technique used by social engineers to lend credibility to their
 8. For a moment, pretend to be your mutual friend before explaining that you spoofed the call.
 
 See [Social-Engineer.org](https://www.social-engineer.org/framework/se-tools/phone/caller-id-spoofing/) for more information about this type of attack.
+
+## Deliverable
+
+In the Canvas quiz, simply indicate whether you successfully spoofed your phone number as described above.
