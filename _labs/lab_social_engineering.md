@@ -324,14 +324,14 @@ portion of this lab.
 
          cd /root/vagrant-boxes/lab-windows-2019-vuln/
          git pull
-         vagrant provision --provision-with install-windows
+         vagrant provision --provision-with install-word
 
      The installation process takes about two minutes.
 
      If your activation grade period expires and you still need access to Word on your Windows VM, you can get a fresh start
      by running the full vagrant destroy-up-provision cycle again, via running the following script **as root**:
 
-         wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-server2019.sh
+         wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-server2019.sh | bash
 
 1.   Open Word. Accept whatever defaults for the welcoming prompts.
 
