@@ -324,7 +324,7 @@ portion of this lab.
 
          cd /root/vagrant-boxes/lab-windows-2019-vuln/
          git pull
-         vagrant provision --provision-with install-windows
+         vagrant provision --provision-with install-word
 
      The installation process takes about two minutes.
 
