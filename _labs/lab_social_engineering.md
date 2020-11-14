@@ -324,6 +324,7 @@ portion of this lab.
 
          cd /root/vagrant-boxes/lab-windows-2019-vuln/
          git pull
+         vagrant up
          vagrant provision --provision-with install-word
 
      The installation process takes about two minutes.
@@ -333,7 +334,7 @@ portion of this lab.
 
          wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-server2019.sh | bash
 
-1.   Open Word. Accept whatever defaults for the welcoming prompts.
+1.   When the script finishes, open Word on Windows. On the screen `Sign in to set up Office`, click `I don't want to sign in or create an account`. Exit the Window requesting an Office product key.
 
 1.   Enable the Developer tool access button on the Word ribbon:
 
@@ -384,15 +385,17 @@ portion of this lab.
 
     {% include lab-image.html image='word-macro-exploit-enable-content.png' %}
 
-    In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation.
+    In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation. Press the `enter`/`return` key to return to msfconsole.
 
     If it doesn’t work, make sure that macros are enabled in your Word doc (Developer tab > Macro Security > Enable all macros).
+    
+7. From msfconsole, type `sessions -l` and verify that you have an active connection with the Windows VM IP address (`192.168.56.100`). Type `sessions -i 1` to interact with the session, where `1` is the ID of the session. You should now have an active meterpreter session on the Windows VM.
 
     **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see how the sendEmail command works, type `man sendEmail.`
 
 ## Deliverable
 
-Take a screenshot showing the output of running the following commands from your meterpreter session:
+In your meterpreter session on the Windows VM, take a screenshot showing the output of running the following commands:
 
     ps -S <first few letters of your gibberish.txt>
     getpid
