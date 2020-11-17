@@ -121,7 +121,7 @@ exploited.
 
 Take a screenshot showing the output of running the following commands from your meterpreter session:
 
-    pgrep AdobeUpdate.exe
+    pgrep AdobeUpdate
     getpid
     shell
     echo "your first and last name"
@@ -129,6 +129,15 @@ Take a screenshot showing the output of running the following commands from your
 
 The first command should show the process id related to your trojan pdf, and the second verifies that you are tied to that process.
 This establishes that you were successful in this exploit.
+
+<div class='alert alert-info'><code>pgrep AdobeUpdate</code> searches through the output of <code>ps</code>, looking for
+any line that text-matches the argument <code>AdobeUpdate</code>, and returns the process id. If you
+were to visually inspect the output of <code>ps</code>, you would notice that the full process filename includes
+a <code>.exe</code> extension. But the example above does not include <code>.exe</code> in the search term. This
+is because it is possible that you downloaded the payload file multiple times, which would lead Windows to
+renaming the subsequent downloads incrementally, e.g., <code>AdobeUpdate (3).exe</code> for the fourth download.
+Searching for just <code>AdobeUpdate</code> will locate the process regardless of how many times the file
+was downloaded, assuming that the filename was spelled correctly.</div>
 
 The `shell` command drops you into a windows shell where you can more easily establish your identity.
 
@@ -385,13 +394,16 @@ portion of this lab.
 
     {% include lab-image.html image='word-macro-exploit-enable-content.png' %}
 
-    In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation. Press the `enter`/`return` key to return to msfconsole.
+    In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation. Press the `enter`/`return` key to get a new line of `msfconsole` input.
 
     If it doesn’t work, make sure that macros are enabled in your Word doc (Developer tab > Macro Security > Enable all macros).
-    
-7. From msfconsole, type `sessions -l` and verify that you have an active connection with the Windows VM IP address (`192.168.56.100`). Type `sessions -i 1` to interact with the session, where `1` is the ID of the session. You should now have an active meterpreter session on the Windows VM.
 
-    **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see how the sendEmail command works, type `man sendEmail.`
+7.  From msfconsole, type `sessions -l` and verify that you have an active connection with the Windows VM IP address
+    (`192.168.56.100`). Assuming your desired session id is `1`, type `sessions -i 1` to interact with the session, where `1` is
+    the ID of the session. You should now have an active meterpreter session on the Windows VM.
+
+    **Optional:** Use the sendEmail command on Kali to send a spoofed email with the malicious Word file as an attachment. To see
+    how the sendEmail command works, type `man sendEmail.`
 
 ## Deliverable
 
