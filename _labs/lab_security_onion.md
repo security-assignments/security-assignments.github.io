@@ -188,7 +188,7 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
     version in use.
 
 
-1.  Navigate to the `/data/cases/` directory, where `case.pcap` is found (available [here](https://daveeargle.com/class/cu/mgmt4250/case.pcap) if you don't already have it). Run the following command.
+1.  Navigate to the `/data` directory, where `case.pcap` is found (available [here](https://daveeargle.com/class/cu/mgmt4250/case.pcap) if you don't already have it). Run the following command.
 
         sudo tcpreplay -i eth1 -M 10.0 case.pcap
 
@@ -298,7 +298,7 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
 
 5.  But what was this host doing that led to them downloading malware? What sent them to that malicious domain? Let's investigate!
 
-    In Wireshark’s File menu, choose “Open,” navigate to `/data/cases/case.pcap` file, click “Open.” This will load the entire traffic file -- not just the traffic directly associated with the malware download.
+    In Wireshark’s File menu, choose “Open,” navigate to `/data/case.pcap` file, click “Open.” This will load the entire traffic file -- not just the traffic directly associated with the malware download.
 
     <div class='alert alert-info'><strong>Pay attention!</strong> In the above step, we opened the _entire_ case pcap file in wireshark. If you forget to do this and are still looking at a .pcap from CapME, you will have a bad time.</div>
 
@@ -451,7 +451,7 @@ coveting, Alex clicks on the link. Claire is ready to strike…
 
 <div class='alert alert-info'>
     If you are using the class VM, the packet capture evidence file (the <code>.pcap</code> file) is downloaded to your VM and available at
-    <code>/data/cases/evidence.pcap</code>
+    <code>/data/evidence.pcap</code>
 </div>
 
 
