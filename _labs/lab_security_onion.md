@@ -190,7 +190,7 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
 
 1.  Navigate to the `/data/cases/` directory, where `case.pcap` is found (available [here](https://daveeargle.com/class/cu/mgmt4250/case.pcap) if you don't already have it). Run the following command.
 
-        sudo tcpreplay -i eth0 -M 10.0 case.pcap
+        sudo tcpreplay -i eth1 -M 10.0 case.pcap
 
     This command replays network traffic stored in the `case.pcap` file onto security onion's network card, as if the network
     activity were happening again, live.
@@ -413,9 +413,10 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
 ## Preparation: Clear Security Onion History
 
 1.  Double-click the “Setup” icon on the Security Onion desktop, and enter the password “Password1”.
+1.  Click "Yes, Continue!" on the first pane.
 2.  Click “Yes, skip network configuration!”
 3.  Click OK with the default setting of “evaluation mode.”
-4.  Click OK with the default setting of “eth0” for the monitoring interface.
+4.  Click OK with the default setting of “eth1” for the monitoring interface.
 5.  Enter “analyst” for the Sguil username.
 6.  Enter “analyst” for the Sguil password, and confirm.
 7.  Click “Yes, proceed with changes!”
