@@ -364,7 +364,13 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
     This is another indicator of the file type.
 
     Next, open a terminal and navigate to the directory where you saved the stream, and use a forensics file carving tool called
-    Foremost:
+    Foremost.
+
+    First, install foremost:
+
+        sudo apt install foremost
+
+    Then, use it:
 
         foremost -i the.name.you.chose -o name.of.the.directory.where.you.want.to.save.the.carved_files
 
