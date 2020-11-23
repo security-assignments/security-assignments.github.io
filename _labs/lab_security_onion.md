@@ -197,14 +197,14 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
     This command replays network traffic stored in the `case.pcap` file onto security onion's network card, as if the network
     activity were happening again, live.
 
-    You should see the following result (ignore the error messages for the 20 failed packets):
+    You should see the following at the end of your output (ignore the error messages for the 20 failed packets):
 
-        Statistics for network device:   eth0
-        Attempted packets:           4682
-        Successful packets:          4662
-        Failed packets:            20
-        Retried packets (ENOBUFS):   0
-        Retried packets (EAGAIN):    0
+        Statistics for network device: eth1
+                Attempted packets:         4682
+                Successful packets:        4662
+                Failed packets:            20
+                Retried packets (ENOBUFS): 0
+                Retried packets (EAGAIN):  0
 
 2.  Log in to Squert using the icon on the Security Onion desktop using `analyst:analyst` for the username:password. (Bypass the
     SSL warning by clicking "Advanced" then "Proceed to site." From SquertProject.org:
