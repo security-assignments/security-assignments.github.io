@@ -306,7 +306,7 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
 
     Note the source IP address for packet number 1. This is the Windows VM that gets infected. This entire network trace only pertains to web-based traffic associated with our victim for a certain time window.
 
-    Right-click the first packet, and choose `Follow TCP Stream`. This will bundle together all of the network packets associated with this single HTTP web request, as did `CAPme` for the single HTTP event that resulted
+    Right-click the first packet, and choose `Follow` Then `TCP Stream`. This will bundle together all of the network packets associated with this single HTTP web request, as did `CAPme` for the single HTTP event that resulted
     in the malware download.
 
     {% include lab_question.html question='What HOST did the victim machine make a request to in the initial TCP session?' %}
@@ -318,17 +318,22 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
     This should return one result -- the one web request associated with fetching a route called "cars.php". For this record, note again the IP address of the attack host --
     in this case, the destination ip address.
 
-    For this one record, right-click the destination field value (the ip address), then choose `Apply as Filter` > `Selected`. This will filter the entire tracefile
-    to only activity with a destination ip matching this field. Let's filter even further to only select the records with `HTTP` protocol.
+    For this one record, right-click the **destination field value (the ip address)** (not just the row in general!), then choose `Apply as Filter` > `Selected`. This will filter the entire tracefile
+    to only activity with a destination ip matching this field. Confirm this by verifying that the filter field now shows
+    the following:
+
+        ip.dst == 37.143.15.180
+
+    Let's filter even further to only select the records with `HTTP` protocol.
     This can be done by appending `and http` after your `ip.dst ==` filter expression.
 
     You should now see three HTTP requests to this malicious IP. We recognize the second one -- the `GET /cars.php` one. It is the one that delivered the malware. Let's look at the first one -- right-click `Follow TCP Stream` it.
     You will notice that this HTTP request as a `REFERER` header. This is http-speak for the site that redirected the browser to the current one. Note the value for the `REFERER`.
-    There is a good chance that this is a compromised website. They're probably all compromised, but hey, world we live in. Fix or blacklist one site at a time.
+    There is a good chance that this is a compromised website.
 
     {% include lab_question.html question='What is the domain name of the “referer” website that referred the Windows VM to the IP that delivered the malware?' %}
 
-    We are also interested in knowing the IP address of this referer website -- the host at that IP may be hosting other compromised sites, so we may want to blacklist the address.
+    We are also interested in knowing the IP address of this referer website -- the host at that IP may be hosting other compromised sites, so the network administrators may want to blacklist the address.
     One way that you can find that IP address is by applying the following filter: `http contains "Host: name.of.the.referer"` (case-sensitive, and do not include the protocol (e.g., `http://` ))
 
     {% include lab_question.html question='What was the IP address of this referer website?' %}
@@ -356,10 +361,15 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
     </div>
 
 
-6.  Well shoot. What exactly was downloaded? Let's carve it out and search online for a report on what it does.
+6.  What exactly was downloaded? Let's carve it out and search online for a report on what it does.
 
     Follow again the tcp.stream related to the http request for getting `cars.php` (review above if you have forgotten how). From
-    the popup window, choose "Save As", and save the stream somewhere.
+    the popup window, opt to view as "Raw", choose "Save As", and save the stream somewhere.
+
+    {% include lab-image.html image='wireshark-tcp-stream-saveas-raw.png' %}
+
+    <div class='alert alert-info'>If you do not switch to save the stream as "Raw," then it will be saved by default as ASCII,
+    from which files cannot be carved!</div>
 
     Note the “MZ” string at the top of the blue response stream. This string is a magic number that identifies the
     file type that is being downloaded in this request (see [https://asecuritysite.com/forensics/magic](https://asecuritysite.com/forensics/magic)). Note also the `This program…` message.
@@ -374,17 +384,10 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
 
     Then, use it:
 
-        foremost -i the.name.you.chose -o name.of.the.directory.where.you.want.to.save.the.carved_files
+        cat <yourfile> | foremost -o <your_output_directory>
 
-    This will create a directory `name.of.the.directory.where.you.want.to.save.the.carved_files` containing all of the files that
-    Foremost carved out of the network stream.
-
-    <div class='alert alert-info'><strong>Foremost stuck on "reading from stdin"?</strong> This happens when foremost cannot find
-    the file you reference on <code>-i</code>. It will never end.
-        <code>stdin</code> means that it is sitting there waiting for you to enter something, because it couldn't find an input
-        otherwise.
-        It's an odd behavior, but makes sense I guess in some programmer's mind. Kill the process (<code>Ctrl+c</code>). Then, navigate to the directory where your input file is located, and <em>then</em> run <code>foremost</code>.
-    </div>
+    `foremost` will read your file from stdin, and create a directory named `your_output_directory`
+    containing all of the files that `foremost` carved out of the network stream.
 
     Inside your carved files directory, you will find a subdirectory for each file type recovered. For this analysis, you should
     see two subdirectories -- one for extracted `png` files,
