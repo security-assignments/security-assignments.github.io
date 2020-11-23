@@ -32,7 +32,9 @@ We will analyze sample data hosted [here](https://tools.netsa.cert.org/silk/refe
 > This sample data is derived from anonymized enterprise packet header traces obtained from Lawrence Berkeley National Laboratory and ICSI,
 and is used here with their permission. This data covers selected hours on selected dates in late 2004 and early 2005.
 
-3.  First, you should run the following commands for the start and end dates to filter on:
+1.  Open a terminal. One way to do this is to right-click the desktop and choose `Open Terminal`.
+
+3.  First, you should run the following commands in your terminal for the start and end dates to filter on:
 
         export sd="--start-date=2004/10/04:20"
 
