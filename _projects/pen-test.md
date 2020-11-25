@@ -1,7 +1,7 @@
 ---
 layout: assignment
 title: Penetration Test Assignment
-order: 2
+order: 3
 ---
 
 For this assignment, consider that your team is a group of consultants that offers cybersecurity penetration testing and risk assessment services. You have been retained by Humbleify{% if site.instructorcollab_username == 'deargle' %}, a company that describes itself thusly:{% endif %}{% if site.instructorcollab_username == 'aov' %}.{% endif %}

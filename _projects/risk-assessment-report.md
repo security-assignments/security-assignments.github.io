@@ -1,7 +1,7 @@
 ---
 layout: assignment
 title: Risk Assessment Report
-order: 3
+order: 2
 ---
 
 with *Dr.* [*David Lanter*](https://community.mis.temple.edu/dlanter/)
