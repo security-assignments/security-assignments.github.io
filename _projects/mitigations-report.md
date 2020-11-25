@@ -20,10 +20,14 @@ For this assignment, you will expand your penetration report to include a new se
 3. For each control identified, state the NIST Cybersecurity Framework function, category, and sub-category, along with the control family and control title from NIST 800-53 as reported by the [NIST Cybersecurity Framework ⭤  800‑53 Controls Mapping site](https://daveeargle.com/nist_csf_800_53_mapping/).
 
     Cite as many controls as necessary to mitigate the vulnerability. In some cases, a single control may be sufficient. In others, more than one control may be required.
+    
+    Put each control in its own subsection (e.g., 5.1.1).
 
 4. Since a single control may involve many activities, quote from NIST 800-53 **only the relevant portions of the control** that address the weakness you identified. This may include material from the "Control Enhancements" or "Supplemental Guidance" sections of the 800-53 control entry.
 
 5. Explain in your own words the value of the control and how it would mitigate the risk you identified.
+
+6. If a vulnerability requires a control that you have previously described elsewhere in Section 5, state the NIST Cybersecurity Framework function, category, etc., as usual, but refer the reader to the subsection where the control is explained.
 
 # Example
 
