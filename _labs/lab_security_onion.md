@@ -9,6 +9,15 @@ published: true
 
 <div class='alert alert-info'>All commands, tools, and files for this lab should be run and are found in the Security Onion virtual machine -- username: <code>securityonion</code> password: <code>Password1</code></div>
 
+<div class='alert alert-info'>
+<p>If, when you try to start the <code>lab-security-onion</code> virtual machine within
+<code>virt-manager</code>, you get an error message saying <code>"Error starting the domain: Requested operation
+is not valid: network 'vagrant-libvirt' is not active"</code>, then run the following command from a kali
+terminal as root, which will start the network as
+part of launching the vm.</p>
+<p><code>cd /root/vagrant-boxes/lab-security-onion && vagrant up</code></p>
+</div>
+
 # Part 1: Analyzing NetFlow information
 
 Although full-content data are powerful, they are less useful for fast querying and timely incident response. This is where NetFlow records, some of the most powerful information sources available to incident responders, become very useful. These records are brief summaries of network traffic which can be maintained indefinitely due to their small file size. They provide a running history of network connections at the time of an incident.
