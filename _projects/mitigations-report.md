@@ -72,6 +72,6 @@ Section 5 of the report will be graded using the following rubric:
 | Technical terms and concepts briefly explained in the text so that a non-technical reader can understand | 10 |
 | Technical terms introduced added to glossary | 5 |
 | Incorporate feedback on the report that was previously received from the instructor | 15 |
-| Show tracked changes in Microsoft Word | 5 |
+| Show tracked changes in Microsoft Word and retain previous comments made by the instructor | 5 |
 
 | **Total** |  **100** |
