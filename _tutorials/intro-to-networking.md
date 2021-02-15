@@ -39,7 +39,7 @@ On Windows, search for `cmd` and press enter. A terminal window should open. On 
 
 # Email Headers
 
-Another way of illustrating the "hops" that data make online is to look at email headers. You can do this in TUmail or Gmail by clicking on the little menu in a message and selecting `Show Original`.
+Another way of illustrating the "hops" that data make online is to look at email headers. You can do this in University mail or Gmail by clicking on the little menu in a message and selecting `Show Original`.
 
 {% include lab-image.html image='email-show-original.png' width="200px" %}
 
@@ -65,7 +65,7 @@ And if one uses a [Virtual Private Network (VPN)](https://en.wikipedia.org/wiki/
 
 {% include lab-image.html image='Denmark.png' width="600px" %}
 
-Now, consider what it means that one could use multiple VPNs, or a browsing system that automatically routes service traffic in circuitous ways, such as [Tor](https://www.torproject.org/) (this site is not accessible on Temple's network).
+Now, consider what it means that one could use multiple VPNs, or a browsing system that automatically routes service traffic in circuitous ways, such as [Tor](https://www.torproject.org/) (this site is not accessible on University's network).
 
 # More about IP addresses
 

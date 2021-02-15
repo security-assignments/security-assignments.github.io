@@ -6,14 +6,6 @@ description: Understanding asymmetric encryption and RSA practice
 published: true
 ---
 
-{% assign user_email_domain = site.instructorcollab_domain %}
-
-{% if user_email_domain == 'colorado.edu' %}
-    {% assign user_id_label = 'identikey' %}
-{% elsif user_email_domain == 'temple.edu' %}
-    {% assign user_id_label = 'TUid' %}
-{% endif %}
-
 # Part 1. Understanding Asymmetric Keys
 
 1. **Key Exchange Problem.** Imagine 200 people wish to communicate securely using symmetric keys, one symmetric key for each pair of people. (See [Metcalf's Law](http://en.wikipedia.org/wiki/Metcalf%27s_law)). 
@@ -38,7 +30,7 @@ published: true
     
     {% include lab_question.html question='Show all work for encryption <b>and</b> decryption' %}
 
-4. You are Eve. In a public-key system using RSA, you intercept the ciphertext, `C=10`, sent to a user whose public key is `e=5, n=35`. {% if site.instructorcollab_username == 'deargle' %}You grin -- an evil, knowing grin.{% endif %}
+4. You are Eve. In a public-key system using RSA, you intercept the ciphertext, `C=10`, sent to a user whose public key is `e=5, n=35`. You grin -- an evil, knowing grin.
 
 	{% include lab_question.html question='What is the plaintext `M`?' %}
     

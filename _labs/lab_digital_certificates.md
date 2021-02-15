@@ -232,8 +232,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 ## Capture Login
 
 10. Pretend that you are logging in to Bankofamerica.com. <strong>Enter as your username
-    your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if
-    site.instructorcollab_username == 'aov' %}TUid{% endif %}</strong>. Choose any **fake
+    your University ID</strong>. Choose any **fake
     password**. Submit your login request. It will fail.
 
 11. Burp Suite should have logged the login attempt -- Let's find it. Go back to Burp Suite.
@@ -264,7 +263,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
         "passcode" and "onlineid" named entries. These should be the values you
         submitted on your login attempt.
 
-        You should see your {% if site.instructorcollab_username == 'deargle' %}identikey{% endif %} {% if site.instructorcollab_username == 'aov' %}TUid{% endif %} and fake password.
+        You should see your University ID and fake password.
 
         {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Burp Suite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
 
@@ -284,7 +283,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     revisit Firefox's "Network Settings" page under the Preferences view, and select
     "No Proxy".
     
-{% if site.instructorcollab_username == 'deargle' %}
+
 
 # Part 3. Appreciate secure messaging with the bygone PGP
 
@@ -321,4 +320,4 @@ Use what you read and watched above to answer the following questions:
 
 {% include lab_question.html question='On a high level, how does the Signal protocol work?' %}
 
-{% endif %} {% if site.instructorcollab_username == 'aov' %}{% endif %}
+

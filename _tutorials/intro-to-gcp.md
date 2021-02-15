@@ -9,10 +9,10 @@ number: 3
 
 To get access to the Kali virtual machine created for this class:
 
-{% if site.instructorcollab_username == 'aov' %}
+
 1. If you don't already have one, create a personal Google account by signing up for one [here](https://accounts.google.com/SignUp).
-<div class='alert alert-danger'><strong>Heads up!</strong> Your TUmail Google account will not work with Google Cloud Platform. You'll need to use a personal Google account.</div>
-{% endif %}
+<div class='alert alert-danger'><strong>Heads up!</strong> Your University mail account will not work with Google Cloud Platform. You'll need to use a personal Google account.</div>
+
 1. While logged into your personal Google account, visit [this link](https://groups.google.com/forum/#!forum/infosec-management/join) to join the Google Group (public access) for this class.
 2. Click "Join this group."
 
@@ -21,7 +21,7 @@ To get access to the Kali virtual machine created for this class:
 # Part 2: Sign up for Google Cloud Platform (GCP)
 
 * Visit [https://cloud.google.com](https://cloud.google.com) and click "Get started for free."
-* Make sure you are signed in to Google with your personal account {% if site.instructorcollab_username == 'aov' %} (not your TUmail Google account).{% endif %}
+* Make sure you are signed in to Google with your personal account  (not your University mail Google account).
 * Step 1 of 2: Agree to the terms of service.
 * Step 2 of 2: Choose "Account type" > "Individual". Complete the sign-up form. Provide a credit card.
 

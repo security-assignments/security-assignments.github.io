@@ -55,16 +55,9 @@ Example:
 
 **Note:** Please specify the information, but redact the information in the attached photo.
 
-{% if site.instructorcollab_domain == 'colorado.edu' %}
 
-<div class='alert alert-warning'>While it is not illegal to dumpster dive in CO, you can still get in trouble for trespassing, so be mindful and don't trespass. See Colorado : State v. Hillman, 834 P.2d. 1271 (1992), which says that trash
-curbside / in front of house / outside fenced area of property is public.</div>
+<div class='alert alert-warning'>While it is not illegal to dumpster dive, you can still get in trouble for trespassing, so be mindful and don't trespass.</div>
 
-{% elsif site.instructorcollab_domain == 'temple.edu' %}
-
-<div class='alert alert-warning'>While it is not illegal to dumpster dive in PA, you can still get in trouble for trespassing, so be mindful and don't trespass.</div>
-
-{% endif %}
 
 
 Example:
@@ -198,7 +191,6 @@ Follow the instructions below to install a reverse shell payload on a power-off 
 Take a video of the Windows computer booting up and show the established Meterpreter session on your Kali VM.
 
 
-{% if site.instructorcollab_username == 'deargle' %}
 # Item 13: More Unattended-Computer Mischief -- Install a nuisance-yet-benign browser extension into the web browser of an unattended computer
 
 <div class='alert alert-danger'><strong>Heads up!</strong> <em>You must have permission from the computer owner to attempt this! </em> You might say, "Do you give me permission to attempt to install
@@ -210,4 +202,3 @@ With pre-approval of the computer owner, install a browser extension such as the
 * [nCage](https://chrome.google.com/webstore/detail/ncage/hnbmfljfohghaepamnfokgggaejlmfol?hl=en)
 * [XKCD substitutions](https://chrome.google.com/webstore/detail/xkcd-substitutions/jkgogmboalmaijfgfhfepckdgjeopfhk?hl=en)
 
-{% endif %}

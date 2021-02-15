@@ -46,13 +46,13 @@ such as [this one for `nano`](https://www.howtogeek.com/howto/42980/the-beginner
 Better yet, [watch this intro nano video first](https://www.youtube.com/watch?v=5RAdNa7kJr0),
 from the Udacity courses mentioned above.
 
-{% if site.instructorcollab_username == 'deargle' %}
+
 I use `vim` because I'm l33t. But I don't recommend that you use vim unless you
 enjoy insane learning curves and l33t-ism. If you are morbidly curious,
 [see the vim tutorial here](https://danielmiessler.com/study/vim/)
-{% endif %}
 
-{% if site.instructorcollab_username == 'deargle' %}
+
+
 ## Part 1.4. Tips.
 
 * **Tab-completion** is available in many shells. Use it! It will save you from typos
@@ -73,7 +73,7 @@ enjoy insane learning curves and l33t-ism. If you are morbidly curious,
 	Try clicking the shell app icon on the top-left of your screen and searching
 	the `Edit` menu there to see a list of commands and their keyboard shortcuts
 	next to them.
-{% endif %}
+
 
 # Part 2. Play the Bandit wargame on OvertheWire.org
 
@@ -120,7 +120,6 @@ To continue logging in, type `yes` (that's three letters: y-e-s) and press `ente
 
 # Deliverable
 
-{% if site.instructorcollab_username == 'deargle' %}
 
 Make it all the way to level 16. When you have reached level 16, prove it by taking a screenshot of your ssh terminal session showing:
 * you logged in as `bandit16@bandit` in the prompt.
@@ -131,16 +130,3 @@ For example:
 
 {% include lab-image.html image='bandit-level-16-deliverable.png' %}
 
-
-{% elsif site.instructorcollab_username == 'aov' %}
-For each level you complete, take a screenshot of your terminal screen showing the following:
-
-* Show the password for the next level.
-* Run the `date` command to show the current date.
-* Print out our name like so: `echo "Your name"`
-
-Add all of the screenshots to Word document and submit the document in the Linux tutorial quiz on Canvas.
-
-{% include lab-image.html image='bandit0.png' %}
-
-{% endif %}
