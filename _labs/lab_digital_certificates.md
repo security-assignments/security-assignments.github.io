@@ -210,7 +210,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     Follow the instructions on the following website to install Burp Suite's CA
     certificate in Firefox: [link](https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/certificate/firefox)
 
-     <div class='alert alert-info'><strong>Note:</strong> The linked to instructions above show Burp Suite Professional, but the instructions also work for Burp Suite Community Edition. You don't need to install another version of Burp Suite than the one that is already installed on your Kali VM.</div>
+     <div class='alert alert-info'><strong>Note:</strong> The linked-to instructions above show Burp Suite Professional, but the instructions also work for Burp Suite Community Edition. You don't need to install another version of Burp Suite than the one that is already installed on your Kali VM.</div>
     
     <div class='alert alert-info'><strong>Note:</strong> When the instructions say, "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save File", and your file will be downloaded with filename "cacert.der".</div>
 
