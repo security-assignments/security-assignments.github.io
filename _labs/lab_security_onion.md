@@ -186,9 +186,7 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
     executable files onto their machines.
 
     The signature rule we want to enable is [2000419](https://doc.emergingthreats.net/bin/view/Main/2000419). This signature is in
-    a list of rules downloaded by PulledPork, which securityonion uses to manage IDS rules. Ensure that it is enabled by adding it
-    sid 2000419 is enabled, even if it is default-disabled
-    in downloaded rule sets, by adding this id to a pulledpork config file:
+    a list of rules downloaded by PulledPork, which securityonion uses to manage IDS rules. Ensure that it is enabled by adding id 2000419 to a pulledpork config file:
 
         sudo bash
         echo 1:2000419 >> /etc/nsm/pulledpork/enablesid.conf
@@ -242,7 +240,7 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
     response is being examined.
     </div>
 
-    {% include lab_question.html question='What is the IP address of the the Windows VM to where the malware payload was sent (the
+    {% include lab_question.html question='What is the IP address of the Windows VM to where the malware payload was sent (the
     destination IP)?' %}
 
     {% include lab_question.html question='What is the IP address of the host that sent the malware payload? (the source IP)?' %}
@@ -283,7 +281,7 @@ the Windows VM to a server that delivered malware to the Windows VM. You’ll us
 4.  You can pivot from Squert to other network forensics tools for follow-up analyses. From the Events view, drill-down one level deeper by clicking on the second `QUEUE “2”` button that appeared after
     clicking on the first. You should now see two events. Click on one of these "event ids." Doing so will pivot you to another tool called `CapME.` Log in with username:password `analyst:analyst`.
 
-    After a moment, you will see a representation of the HTTP web request which fetched and downloaded the malware payload. In <span class='label label-danger'>red text</span> is the the HTTP request that the browser made for the download,
+    After a moment, you will see a representation of the HTTP web request which fetched and downloaded the malware payload. In <span class='label label-danger'>red text</span> is the HTTP request that the browser made for the download,
     and in <span class='label label-info'>blue text</span> is the malicious server's response in which the payload was actually downloaded.
 
     In the RED text you should see a `HOST` header, as well as a `GET` header. the `HOST` header shows the domain name and port that the browser requested. This is the malicious web domain. the `GET` header shows the specific URL that was requested
@@ -475,7 +473,7 @@ coveting, Alex clicks on the link. Claire is ready to strike…
 </div>
 
 
-1.  Find the the full URL of Alex Stephens' original web request, including the port.
+1.  Find the full URL of Alex Stephens' original web request, including the port.
 
     {% include lab_question.html question="What was the full URI of Alex Stephens' original web request? (Please include the port in your URI.)" %}
 

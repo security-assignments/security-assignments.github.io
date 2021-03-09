@@ -117,7 +117,7 @@ _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_k
 
 In this section, you will use a tool called Burp Suite in your Kali VM,
 and you will configure Kali's Firefox to route all traffic through Burp Suite.
-You will feign a MITM attack and intercept a username\|password that you submit to bankofamerica.com. This lab uses the free Burp Suite Community edition.
+You will feign a MITM attack and intercept a username\|password that you submit to bankofamerica.com. This lab uses the free Burp Suite Community Edition.
 
 Burp Suite is a network traffic proxy application created by PortSwigger. The tool can be used by developers and researchers to inspect and manipulate any network traffic to which Burp Suite has access. It is commonly used in the cybersecurity community for inspection and
 manipulation of web requests. See articles such as [this one](https://research.digitalinterruption.com/2020/09/10/giggle-laughable-security/)
@@ -210,6 +210,8 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     Follow the instructions on the following website to install Burp Suite's CA
     certificate in Firefox: [link](https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/certificate/firefox)
 
+     <div class='alert alert-info'><strong>Note:</strong> The linked-to instructions above show Burp Suite Professional, but the instructions also work for Burp Suite Community Edition. You don't need to install another version of Burp Suite than the one that is already installed on your Kali VM.</div>
+    
     <div class='alert alert-info'><strong>Note:</strong> When the instructions say, "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save File", and your file will be downloaded with filename "cacert.der".</div>
 
     {% include lab-image.html image='burpsuite-cacert-der.png' %}
