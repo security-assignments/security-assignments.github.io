@@ -14,12 +14,14 @@ To earn full credit for this lab, your team must complete 6 of the 12 items belo
 
 # Deliverable
 
-Submit <span class='label label-info'>one single solitary pdf <i class='fa fa-exclamation-triangle'></i></span> with documentation of <span class='label label-info'>all <i class='fa fa-bullhorn'></i></span> completed items for your team. 
+Submit <span class='label label-info'>one single solitary pdf <i class='fa fa-exclamation-triangle'></i></span> with documentation of <span class='label label-info'>all <i class='fa fa-bullhorn'></i></span> completed items for your team.
 
 **For each accomplished item** in your **single solitary pdf**, include:
 1. Prominent header-text indicating which item you have completed
-2. Conclusive photo-documentation of completion. 
+2. Conclusive photo-documentation of completion.
 3. A sentence or more describing the feat.
+
+The individual items will describe any additional documentation requirements.
 
 
 # Item 1: Open one of my locks via bumping and locking picking (either lifting or raking)
@@ -55,16 +57,10 @@ Example:
 
 **Note:** Please specify the information, but redact the information in the attached photo.
 
-{% if site.instructorcollab_domain == 'colorado.edu' %}
 
-<div class='alert alert-warning'>While it is not illegal to dumpster dive in CO, you can still get in trouble for trespassing, so be mindful and don't trespass. See Colorado : State v. Hillman, 834 P.2d. 1271 (1992), which says that trash
-curbside / in front of house / outside fenced area of property is public.</div>
-
-{% elsif site.instructorcollab_domain == 'temple.edu' %}
-
-<div class='alert alert-warning'>While it is not illegal to dumpster dive in PA, you can still get in trouble for trespassing, so be mindful and don't trespass.</div>
-
-{% endif %}
+<div class='alert alert-warning'>In the United States, dumpster diving is legal except
+where prohibited. Be aware of any local ordinances or trespassing laws which might
+apply to you.</div>
 
 
 Example:
@@ -129,7 +125,7 @@ The route-map can be drawn out, but it's cooler if you video-record yourself doi
 
 # Item 9: Install a false keylogger on a public computer
 
-Pretend that a USB drive is a keylogger. Plug it into the back of a public computer, and leave it there for a day. Retrieve it later. Take a picture of when you leave it and when you retrieve it. 
+Pretend that a USB drive is a keylogger. Plug it into the back of a public computer, and leave it there for a day. Retrieve it later. Take a picture of when you leave it and when you retrieve it.
 
 **Important:** Do _**not**_ use an actual keylogger unless you have prior approval from the device owner.
 
@@ -138,7 +134,7 @@ Pretend that a USB drive is a keylogger. Plug it into the back of a public compu
 
 <div class='alert alert-warning'>
 
-<p><strong>Note:</strong> This Item uses Cain, which is installed on the lab VM. It can be downloaded from <a class='alert-link' href='http://www.oxid.it/downloads/ca_setup.exe'>www.oxid.it</a>. However, this file will set off all sorts of virus detection alarms and warnings, both in the browser and on your computer. Cain is <em>not</em> a virus, 
+<p><strong>Note:</strong> This Item uses Cain, which is installed on the lab VM. It can be downloaded from <a class='alert-link' href='http://www.oxid.it/downloads/ca_setup.exe'>www.oxid.it</a>. However, this file will set off all sorts of virus detection alarms and warnings, both in the browser and on your computer. Cain is <em>not</em> a virus,
 and www.oxid.it is the official site to obtain the file from. But you can use Cain to do suspicious things, so it gets flagged.</p>
 
 </div>
@@ -156,10 +152,10 @@ Obtain the password hashes from an unattended public computer. In Windows 7/10, 
 Since these files are protected by the operating system, [boot from a Live CD/USB Linux distribution, such as Kali](https://docs.kali.org/downloading/kali-linux-live-usb-install). From within Kali, copy the SAM and system files to a USB stick.
 
 Password hashes can be dumped from the SAM file using a number of tools. For this lab, use Cain.
- 
-Run Cain (ignore any messages about the Windows firewall). Click the “Cracker” tab, and click within the right-hand pane to give it focus. Click on the + button in the toolbar and select Import Hashes from a SAM Database. Select the SAM file you obtained. Next to the Boot Key (HEX) field, select the System file you obtained. This will yield a hex string that you must copy and paste into the Boot Key (HEX) field. 
 
-Include a screen shot of the hashes below to prove that you’ve done it. 
+Run Cain (ignore any messages about the Windows firewall). Click the “Cracker” tab, and click within the right-hand pane to give it focus. Click on the + button in the toolbar and select Import Hashes from a SAM Database. Select the SAM file you obtained. Next to the Boot Key (HEX) field, select the System file you obtained. This will yield a hex string that you must copy and paste into the Boot Key (HEX) field.
+
+Include a screen shot of the hashes below to prove that you’ve done it.
 
 **Note:** Include a photo of the hashes, <span class='label label-danger'>but don’t actually crack the hashes</span>.
 
@@ -172,7 +168,7 @@ Example:
 
 # Item 11: Boot a Macintosh or Linux computer in single user mode and dump the hash
 
-**Note:** You must own the computer or have permission from the owner to do this. 
+**Note:** You must own the computer or have permission from the owner to do this.
 
 Boot a Mac or Linux computer (or VM) in [single user mode](https://en.wikipedia.org/wiki/Single_user_mode) and dump the password.
 
@@ -189,7 +185,7 @@ Note: You won’t be able to enter single user mode on a Macintosh or Linux comp
 
 # Item 12: Install a reverse shell payload on a powered-off Windows computer
 
-**Note:** You must own the computer or have permission from the owner to do this. 
+**Note:** You must own the computer or have permission from the owner to do this.
 
 Follow the instructions below to install a reverse shell payload on a power-off Windows computer:
 
@@ -198,16 +194,11 @@ Follow the instructions below to install a reverse shell payload on a power-off 
 Take a video of the Windows computer booting up and show the established Meterpreter session on your Kali VM.
 
 
-{% if site.instructorcollab_username == 'deargle' %}
 # Item 13: More Unattended-Computer Mischief -- Install a nuisance-yet-benign browser extension into the web browser of an unattended computer
 
-<div class='alert alert-danger'><strong>Heads up!</strong> <em>You must have permission from the computer owner to attempt this! </em> You might say, "Do you give me permission to attempt to install
-a browser extension on your computer?" Perhaps you make this agreement with someone in the class. You could promise that you will tell them what you installed and
-uninstall it after a certain period of time.</div>
+Stealthily install a nuisance browser extension onto someone else's computer. Perhaps wait until they have left their computer unattended and unlocked. Install an extension such as the following:
 
-With pre-approval of the computer owner, install a browser extension such as the following into an unattended computer. 
-
-* [nCage](https://chrome.google.com/webstore/detail/ncage/hnbmfljfohghaepamnfokgggaejlmfol?hl=en)
 * [XKCD substitutions](https://chrome.google.com/webstore/detail/xkcd-substitutions/jkgogmboalmaijfgfhfepckdgjeopfhk?hl=en)
 
-{% endif %}
+<div class='alert alert-danger'><strong>Heads up!</strong> <em>You must have permission from the computer owner to attempt this! </em> You might say, "Do you give me permission to attempt to install
+a browser extension on your computer when you aren't paying attention?" Perhaps you make this agreement with someone in the class. You could promise that you will tell them what you installed and uninstall it after a certain period of time.</div>

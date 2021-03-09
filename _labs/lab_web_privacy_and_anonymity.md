@@ -109,11 +109,11 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 
 4.	Run the **Tor Browser** (install if necessary) available for Linux, Mac, and Windows [here](https://www.torproject.org/download/download-easy.html).
 
-    {% if site.instructorcollab_username == 'aov' %}
-        Note: You can't download or use Tor Browser on Temple University's
-        campus unless you use a VPN service. For this part of the lab, use
-        the Tor browser from an off-campus network.
-    {% endif %}
+
+        Note: You might not be able to download or use Tor Browser on your university's
+        campus network unless you use a VPN service. If this is your case, then you can
+        use the Tor browser from an off-campus network.
+
 
     Note: If you’re using a Mac and MacOS refuses to open the Tor Browser app because it is from an unknown developer, hold the control key and right-click the Tor Browser app and then select “open.” This will create an exception for the Tor Browser app and open it.
 
@@ -150,7 +150,7 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
     SecureDrop uses the Tor network to allow whistleblowers to securely share information with the news media:
 
     {% include lab-image.html image='lab_13_2.png' width="60%" %}
-    
+
     **Note:** If you’re interested in how SecureDrop works, see here: [https://securedrop.org/faq](https://securedrop.org/faq)
 
     Visit the Duck Duck Go TOR service search engine, and search for something:

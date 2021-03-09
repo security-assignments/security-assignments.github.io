@@ -13,13 +13,13 @@ Do the following activities to help you learn about networking.
 
 The [Traceroute](https://en.wikipedia.org/wiki/Traceroute) command shows the network route or path between your computer and another device on the internet or network.
 
-1. From your computer or Kali Linux VM, open a terminal.
+1.  From your computer or Kali Linux VM, open a terminal.
 
-On a Mac, you can do this by clicking command & the space bar and typing `terminal`. In Linux and Mac, the command is `traceroute`.
+    On a Mac, you can do this by clicking command & the space bar and typing `terminal`. In Linux and Mac, the command is `traceroute`.
 
-On Windows, search for `cmd` and press enter. A terminal window should open. On Windows, the command is `tracert`.
+    On Windows, search for `cmd` and press enter. A terminal window should open. On Windows, the command is `tracert`.
 
-1. Type:
+1.  Type:
 
     `traceroute yahoo.com`
 
@@ -39,7 +39,7 @@ On Windows, search for `cmd` and press enter. A terminal window should open. On 
 
 # Email Headers
 
-Another way of illustrating the "hops" that data make online is to look at email headers. You can do this in TUmail or Gmail by clicking on the little menu in a message and selecting `Show Original`.
+Another way of illustrating the "hops" that data make online is to look at email headers. You can do this in Gmail by clicking on the little menu in a message and selecting `Show Original`.
 
 {% include lab-image.html image='email-show-original.png' width="200px" %}
 
@@ -65,7 +65,7 @@ And if one uses a [Virtual Private Network (VPN)](https://en.wikipedia.org/wiki/
 
 {% include lab-image.html image='Denmark.png' width="600px" %}
 
-Now, consider what it means that one could use multiple VPNs, or a browsing system that automatically routes service traffic in circuitous ways, such as [Tor](https://www.torproject.org/) (this site is not accessible on Temple's network).
+Now, consider what it means that one could use multiple VPNs, or a browsing system that automatically routes service traffic in circuitous ways, such as [Tor](https://www.torproject.org/) (this site may not be accessible from certain networks).
 
 # More about IP addresses
 
@@ -74,11 +74,11 @@ Open a Microsoft Word document and record your answers to the following question
 1. What is the public IP address for Temple.edu?
 1. What class of IP address is the IP address for Temple.edu?
 1. What is the IP address for your Metaploitable2 VM?
-1. What is the IP address for your Windows 7 VM?
-1. Is the IP address for your Windows 7 and Metasploitable 2 VMs public or private?
+1. What is the IP address for your Windows VM?
+1. Is the IP address for your Windows and Metasploitable 2 VMs public or private?
 1. How would you test communication between two devices?
 1. What protocol is commonly used on the internet?
-1. Use the following tools--netstat, dig, nslookup, and ping--to examine the IP address for Temple.edu and explain how these tools can be beneficial to a security professional. Take screenshots to show you have answered the above questions and add them to document you will submit.
+1. Use the following tools--`netstat`, `dig`, `nslookup`, and `ping`--to examine the IP address for Temple.edu and explain how these tools can be beneficial to a security professional. Take screenshots to show you have answered the above questions and add them to document you will submit.
 
 # Shodan
 
