@@ -46,11 +46,7 @@ such as [this one for `nano`](https://www.howtogeek.com/howto/42980/the-beginner
 Better yet, [watch this intro nano video first](https://www.youtube.com/watch?v=5RAdNa7kJr0),
 from the Udacity courses mentioned above.
 
-
-I use `vim` because I'm l33t. But I don't recommend that you use vim unless you
-enjoy insane learning curves and l33t-ism. If you are morbidly curious,
-[see the vim tutorial here](https://danielmiessler.com/study/vim/)
-
+If you want to learn `vim`, [see the vim tutorial here](https://danielmiessler.com/study/vim/). But beware, `vim` has a steep learning curve.
 
 
 ## Part 1.4. Tips.
@@ -129,4 +125,3 @@ Make it all the way to level 16. When you have reached level 16, prove it by tak
 For example:
 
 {% include lab-image.html image='bandit-level-16-deliverable.png' %}
-
