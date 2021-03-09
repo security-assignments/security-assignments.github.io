@@ -39,7 +39,7 @@ On Windows, search for `cmd` and press enter. A terminal window should open. On 
 
 # Email Headers
 
-Another way of illustrating the "hops" that data make online is to look at email headers. You can do this in University mail or Gmail by clicking on the little menu in a message and selecting `Show Original`.
+Another way of illustrating the "hops" that data make online is to look at email headers. You can do this in Gmail by clicking on the little menu in a message and selecting `Show Original`.
 
 {% include lab-image.html image='email-show-original.png' width="200px" %}
 
