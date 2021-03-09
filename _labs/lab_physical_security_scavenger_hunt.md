@@ -21,6 +21,8 @@ Submit <span class='label label-info'>one single solitary pdf <i class='fa fa-ex
 2. Conclusive photo-documentation of completion.
 3. A sentence or more describing the feat.
 
+The individual items will describe any additional documentation requirements.
+
 
 # Item 1: Open one of my locks via bumping and locking picking (either lifting or raking)
 
@@ -194,11 +196,9 @@ Take a video of the Windows computer booting up and show the established Meterpr
 
 # Item 13: More Unattended-Computer Mischief -- Install a nuisance-yet-benign browser extension into the web browser of an unattended computer
 
-<div class='alert alert-danger'><strong>Heads up!</strong> <em>You must have permission from the computer owner to attempt this! </em> You might say, "Do you give me permission to attempt to install
-a browser extension on your computer?" Perhaps you make this agreement with someone in the class. You could promise that you will tell them what you installed and
-uninstall it after a certain period of time.</div>
+Stealthily install a nuisance browser extension onto someone else's computer. Perhaps wait until they have left their computer unattended and unlocked. Install an extension such as the following:
 
-With pre-approval of the computer owner, install a browser extension such as the following into an unattended computer.
-
-* [nCage](https://chrome.google.com/webstore/detail/ncage/hnbmfljfohghaepamnfokgggaejlmfol?hl=en)
 * [XKCD substitutions](https://chrome.google.com/webstore/detail/xkcd-substitutions/jkgogmboalmaijfgfhfepckdgjeopfhk?hl=en)
+
+<div class='alert alert-danger'><strong>Heads up!</strong> <em>You must have permission from the computer owner to attempt this! </em> You might say, "Do you give me permission to attempt to install
+a browser extension on your computer when you aren't paying attention?" Perhaps you make this agreement with someone in the class. You could promise that you will tell them what you installed and uninstall it after a certain period of time.</div>
