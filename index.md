@@ -15,3 +15,5 @@ title: Information Security Management | Assignments
 ## [In-class Activities]({{ '/activities/' | relative_url }})
 
 ## [Projects]({{ '/projects/' | relative_url }})
+
+## [Store]({{ '/store/' | relative_url }})

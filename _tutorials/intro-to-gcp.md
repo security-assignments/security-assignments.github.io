@@ -21,19 +21,7 @@ Regardless, whenever you use GCP, be sure that you are accessing the platform
 while signed in to the correct Google account. Otherwise, you may be confused
 to not see expected projects.
 
-# Part 1: Join the class Google Group
-
-To get access to the Kali virtual machine created for this class:
-
-1.  While logged into the Google account that you will use with GCP,
-    visit [this link](https://groups.google.com/forum/#!forum/infosec-management/join)
-    to join the Google Group (public access) to gain access to certain GCP resources
-    for this class.
-2.  Click "Join this group."
-
-{% include lab-image.html image='Join-Google-Group.png' %}
-
-# Part 2: Sign up for Google Cloud Platform (GCP)
+# Part 1: Sign up for Google Cloud Platform (GCP)
 
 * Visit [https://cloud.google.com](https://cloud.google.com) and click "Get started for free."
 * Make sure you are signed in to Google with the account you want to use with GCP.
@@ -44,7 +32,20 @@ To get access to the Kali virtual machine created for this class:
 
 * Click "Start my free trial".
 
+
+# Part 2: Join the infosec-management Google Group
+
+To get access to the Google Cloud Platform virtual machines created for the labs on this site,
+[visit the storefront]({{ site.baseurl }}/store) and follow
+instructions there to purchase access to the "lab virtual machine access package".
+
+<div class='alert alert-warning'><strong>Heads up!</strong> It may take up to
+24 business hours before your request to join the google group is approved.</div>
+
+
 # Part 3: Create a new project and launch a new Kali Linux instance
+
+Once you have purchased access and have been added to the infosec-management google group, do the following:
 
 * First, create a new "project" which will house all of the material for this class.
 * Then, expand the hamburger menu and navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. Wait a few minutes for Compute Engine to set up.
