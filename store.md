@@ -1,6 +1,7 @@
 ---
 title: Security Assignments | Store
 layout: page
+permalink: '/store/'
 ---
 
 

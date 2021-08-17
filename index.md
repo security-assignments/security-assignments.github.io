@@ -16,4 +16,4 @@ title: Information Security Management | Assignments
 
 ## [Projects]({{ '/projects/' | relative_url }})
 
-## [Store]({{ '/store/' | relative_url }})
+## [Store]( {{ site.baseurl }}{% link store.md %})
