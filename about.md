@@ -12,4 +12,4 @@ These assignments are co-authored by Drs. [Anthony Vance](https://anthonyvance.c
 All original content on this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, 
 attributable to {% include attribution-authors-tony-dave.html %}.
 
-All code for this project [available on GitHub](http://github.com/{{ site.repository }}) and licensed under the MIT license. 
+All code for this project (the general way the site is structured and built -- excluding its content) is [available on GitHub](http://github.com/{{ site.repository }}) and licensed under the MIT license. 
