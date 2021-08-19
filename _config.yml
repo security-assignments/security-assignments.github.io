@@ -22,7 +22,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: "https://security-assignments.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: deargle
 github_username:  deargle
-repository: 'deargle/security-assignments'
+repository: 'security-assignments/security-assignments.github.io'
 
 instructorcollab_username: deargle
 instructorcollab_domain: colorado.edu
