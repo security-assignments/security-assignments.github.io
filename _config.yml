@@ -35,6 +35,13 @@ markdown: kramdown
 #theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
+
+nav_pages:
+  - labs/index.md
+  - tutorials/index.md
+  - activities/index.md
+  - books-and-films/index.md
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -82,6 +89,7 @@ defaults:
             type: "labs"
         values:
             layout: assignment
+            include_toc: true
     -
         scope:
             path: ""

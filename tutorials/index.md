@@ -1,5 +1,5 @@
 ---
-title: Information Security Management | Tutorials
+title: Tutorials
 ---
 
 # {{ page.title }}
@@ -8,7 +8,5 @@ title: Information Security Management | Tutorials
 
 {% assign tutorials = site.tutorials | sort: 'number' %}
 {% for tutorial in tutorials %}
-
-[Tutorial: {{ tutorial.title }}]( {{ tutorial.url | relative_url }} )
-
-{% endfor %}
+- [Tutorial: {{ tutorial.title }}]( {{ tutorial.url | relative_url }} )
+{%- endfor %}

@@ -1,11 +1,14 @@
 ---
-title: Security Book and Films list
-layout: default
+title: Books and Films
+layout: page
 id: security-readings-and-films-list
+redirect_from: /security-reading-and-film-list/
+include_toc: true
 ---
 
-# Security Films
+A list of recommended security-related books and films.
 
+# Security Films
 
 {% assign films = site.films %}
 {% for film in films %}
