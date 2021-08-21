@@ -1,11 +1,12 @@
 ---
-title: Case of 2018 Uber Breach
+title: "Case -- Uber 2018 Breach"
 description:
 ---
 
 # Instructions
 
-1.	Take 5-minutes or so read the case highlights below. You don’t need to read the associated reference links.
+1.	Take 5-minutes or so read the case highlights below. You don’t need to read the
+    associated reference links.
 2.	Discuss with your group the following questions:
     a.	Did a breach actually occur?
     b.	Should Uber have disclosed the breach?
