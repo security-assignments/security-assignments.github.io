@@ -1,6 +1,7 @@
 ---
 title: "Case -- Twitter 2020 Breach"
 description:
+include_toc: true
 ---
 
 # Instructions
