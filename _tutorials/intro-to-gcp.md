@@ -3,6 +3,7 @@ layout: assignment
 title: Introduction to Google Cloud Platform
 published: true
 number: 3
+include_toc: true
 ---
 
 # Part 0: Choose a Google account
