@@ -30,14 +30,14 @@ This page is the storefront for security-assignments.com.
       <ol>
         <li>Sign up for an account on GCP. Note which email address you used.</li>
         <li>Purchase this <strong>lab virtual machine access package</strong>.</li>
-        <li>Send an email to <a href="mailto:support@security-assignments.com">support@security-assignments.com</a> with your order confirmation information,
+        <li>Send an email to <strong><a href="mailto:access-request@security-assignments.com">access-request@security-assignments.com</a></strong> with your order confirmation information,
           <em>along with the email address of your GCP account.</em>
         </li>
-        <li>Within 24 business hours, your email address should be added to the <a href="https://groups.google.com/g/infosec-management">infosec-management google group</a>, giving you
+        <li>Within 24 business hours, you should receive notification to your gcp email address that it has been added to the <a href="https://groups.google.com/g/infosec-management">infosec-management google group</a>, giving you
           access to the lab virtual machines.</li>
         </ol>
 
-      <p>If you want to later change your GCP email associated with your purchase, send a request to <a href="mailto:support@security-assignments.com">support@security-assignments.com</a>.
+      <p>If you want to later change your GCP email associated with your purchase, send a request to <a href="mailto:access-request@security-assignments.com">access-request@security-assignments.com</a>.
         Non-transferrable to different persons -- just transferrable within google accounts that belong to you.</p>
     </div>
     <div class="col-sm">
@@ -45,6 +45,8 @@ This page is the storefront for security-assignments.com.
     </div>
   </div>
 </div>
+
+If you need support, contact <a href="mailto:support@security-assignments.com">support@security-assignments.com</a>
 
 
 <!-- Add the checkout buttons, set up the order and approve the order -->
