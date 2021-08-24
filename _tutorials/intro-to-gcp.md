@@ -19,7 +19,7 @@ Choose a Google account you will use. You have several options:
 
 Regardless, whenever you use GCP, be sure that you are accessing the platform
 while signed in to the correct Google account. Otherwise, you may be confused
-to not see expected projects.
+to not see expected projects or to get "access denied" messages.
 
 # Part 1: Sign up for Google Cloud Platform (GCP)
 
@@ -37,7 +37,8 @@ to not see expected projects.
 
 To get access to the Google Cloud Platform virtual machines created for the labs on this site,
 [visit the storefront]({{ site.baseurl }}/store) and follow
-instructions there to purchase access to the "lab virtual machine access package".
+instructions there to purchase access to the "lab virtual machine access package". This will
+give your gcp email address access to certain Kali GCP images used for this class.
 
 <div class='alert alert-warning'><strong>Heads up!</strong> It may take up to
 24 business hours before your request to join the google group is approved.</div>
@@ -45,53 +46,49 @@ instructions there to purchase access to the "lab virtual machine access package
 
 # Part 3: Create a new project and launch a new Kali Linux instance
 
-Once you have purchased access and have been added to the infosec-management google group, do the following:
+Once you have purchased access and your gcp email address has been added to the infosec-management google group, do the following:
 
 * First, create a new "project" which will house all of the material for this class.
 * Then, expand the hamburger menu and navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. Wait a few minutes for Compute Engine to set up.
   {% include lab-image.html image='gcp-go-to-compute.PNG' %}
-* Click "Create".
-* In the "name" field, enter a name like "kali-linux-vm" (must be all lowercase).
-* Give your new virtual machine instance the following specs:
-    * **Important:** Leave the "Region" field set to "us-central1".
-    * Leave the "Series" field set to "N1"
-    * Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
-    * Click the "CPU platform and GPU" link.
+* Click "Create Instance".
+  {% include lab-image.html image='kali-custom-image-0.png' %}
+* Use the following settings:
+  * For the first set of options:
+      1. In the "name" field, enter any name for your instance, such as "kali".
+      2. Set the "Region" field to "us-central1". The "Zone" can be anything within that zone.
+      3. Set the "Series" field set to "N1"
+      4. Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
+      5. For the "CPU platform" field, select "Intel Haswell or later".
+         {% include lab-image.html image='kali-custom-image.png' %}
+  * Scroll down to the "Boot disk" field:
+      1. Click "Change".
+      2. Select the "Custom images" tab.
+      3. Click "Select a Project" and choose "security-assignments-kali"
+      4. Select the most recent Kali version that you see.
+      5. Set "Boot disk type" to "Standard persistent disk"
+      6. Under the "Size (GB)" field, you can choose a value between 500GB (the image size)
+         and 1,000GB (the quota limit for new accounts).
 
-    {% include lab-image.html image='GCP-CPU-platform.jpg' %}
-    * Give it at least 4 vCPU and 15 GB memory
-    * For the "CPU platform" field, select "Intel Haswell or later" for CPU platform.
+         The labs don't require anywhere near even 500GB disk space, but with cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
 
-    * For the "Boot disk" field, click "Change".
-        * Select the "Custom images" tab.
-        * In the "Show images from" field, select, "infosec management"
-        * Select the most recent Kali version that you see.
-        * Leave "Boot disk type" "Standard persistent disk"
-        * Under the "Size (GB)" field, select the default size of "500".
-
-            We won't use anywhere near that much, but on cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
-
-        Your boot disk settings should look like this:
-
-        {% include lab-image.html image='kali-custom-image.png' %}
-
-        * Click the "Select" button.
-
-
-* Your overall settings should look like this:
-
-{% include lab-image.html image='kali-custom-image2.png' %}  
+         {% include lab-image.html image='kali-custom-image-2.png' %}
 
 * Click the "Create" button.
-* Wait a few minutes for your image to boot. Once it does, connect to it via `ssh`:
 
-  {% include lab-image.html image='gcloud-ssh-v2.png' %}
+  {% include lab-image.html image='kali-custom-image-3.png' %}
 
-* You should see a browser window pop up that looks like the following:
+* Wait a few minutes for your image to boot.
+  1. Once it does, it will show a checkmark.
+  2. Connect to your instance via `ssh`.
+     If it fails to connect, try again (the system may not have finished booting).
 
-  {% include lab-image.html image='gcp-ssh-connected.png' %}
+     {% include lab-image.html image='kali-custom-image-4.png' %}
 
-  The "@kali" after your username shows that you are connected to your Kali VM workstation.
+     You should see a browser window pop up that looks like the following:
+
+     {% include lab-image.html image='kali-custom-image-5.png' %}
+
 
 # Part 4: Connect to your Kali Linux VM using Chrome Remote Desktop
 
