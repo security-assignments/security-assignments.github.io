@@ -139,7 +139,7 @@ should be able to log in as long as your Kali instance is running on GCP.
 
   {% include lab-image.html image='Kali-setup.png' %}
 
-* Note that if you click the blue arrow tab on the right hand of the screen, it opens additional options in Chrome Remote Desktop:
+* Note that if you click the blue arrow tab on the right hand of the screen, it opens additional options in Chrome Remote Desktop. **Take this opportunity to enable copy-paste across your remote desktop session.**
 
   {% include lab-image.html image='Kali-remote-options.png' %}
 
