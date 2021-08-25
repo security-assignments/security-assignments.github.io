@@ -65,7 +65,9 @@ Once you have purchased access and your gcp email address has been added to the 
   * Scroll down to the "Boot disk" field:
       1. Click "Change".
       2. Select the "Custom images" tab.
-      3. Click "Select a Project" and choose "security-assignments-kali"
+      3. Click "Select a Project." Click the "All" tab to see all projects.
+         Choose "security-assignments-kali".
+         {% include lab-image.html image='kali-custom-image-6.png' %}
       4. Select the most recent Kali version that you see.
       5. Set "Boot disk type" to "Standard persistent disk"
       6. Under the "Size (GB)" field, you can choose a value between 500GB (the image size)
