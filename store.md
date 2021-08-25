@@ -28,10 +28,10 @@ This page is the storefront for security-assignments.com.
       <p>To gain access to the lab virtual machines, do the following:</p>
 
       <ol>
-        <li>Sign up for an account on GCP. Note which email address you used.</li>
+        <li>Sign up for an account on GCP. See the note on <a href="{{'/tutorials/intro-to-gcp.html' | relative_url }}">the Intro to GCP page</a> about choosing an email address for GCP. Note which email address you used.</li>
         <li>Purchase this <strong>lab virtual machine access package</strong>.</li>
-        <li>Send an email to <strong><a href="mailto:access-request@security-assignments.com">access-request@security-assignments.com</a></strong> with your order confirmation information,
-          <em>along with the email address of your GCP account.</em>
+        <li>Send an email to <strong><a href="mailto:access-request@security-assignments.com">access-request@security-assignments.com</a></strong> with your order confirmation information.
+          <strong><em>Also mention your GCP email address.</em></strong>
         </li>
         <li>Within 24 business hours, you should receive notification to your gcp email address that it has been added to the <a href="https://groups.google.com/g/infosec-management">infosec-management google group</a>, giving you
           access to the lab virtual machines.</li>

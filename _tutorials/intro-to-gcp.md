@@ -14,9 +14,7 @@ access to certain GCP resources.
 Choose a Google account you will use. You have several options:
 * You can use a personal Google account that you already have
 * You can create a new personal Google account by signing up for one [here](https://accounts.google.com/SignUp)
-* If you have a google account through your university, you can try to use this for
-  GCP, but it might not work if your university Google account administrator has
-  disabled GCP access for it. If this is the case, use a personal Google account.
+* If you have a non-`@gmail.com` google account (perhaps through your university), it won't work for GCP unless the domain admin has enabled creation of GCP resources by your account. **For example, `@temple.edu` GCP accounts will not be able to create projects on GCP.** If this is the case, use a personal Google account.
 
 Regardless, whenever you use GCP, be sure that you are accessing the platform
 while signed in to the correct Google account. Otherwise, you may be confused
