@@ -131,11 +131,7 @@ should be able to log in as long as your Kali instance is running on GCP.
   <div class='alert alert-info'><strong>Can't get to the pin-entry screen?</strong>Try a different web browser, such as Google Chrome.
   Also try disabling any browser extensions that may be interfering.</div>
 
-* If a screen asks you to select a session type, click "OK" to accept the default.
-
-  {% include lab-image.html image='default-session.png' %}
-
-  * Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
+* Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
 
   {% include lab-image.html image='color-management.png' %}
 
