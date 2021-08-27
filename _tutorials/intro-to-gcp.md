@@ -48,32 +48,42 @@ give your gcp email address access to certain Kali GCP images used for this clas
 Once you have purchased access and your gcp email address has been added to the infosec-management google group, do the following:
 
 * First, create a new "project" which will house all of the material for this class.
-* Then, expand the hamburger menu and navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. Wait a few minutes for Compute Engine to set up.
+  1. Click "create project"
+
+     {% include lab-image.html image='gcp-create-project.png' %}
+  2. Choose a name for your project, and for the "Location," choose "No Organization".
+
+     {% include lab-image.html image='gcp-choose-organization.png' %}
+* Then, expand the hamburger menu and navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. Click to enable. Wait a few minutes for Compute Engine to set up.
   {% include lab-image.html image='gcp-go-to-compute.PNG' %}
 * Click "Create Instance".
   {% include lab-image.html image='kali-custom-image-0.png' %}
-* Use the following settings:
-  * For the first set of options:
-      1. In the "name" field, enter any name for your instance, such as "kali".
-      2. Set the "Region" field to "us-central1". The "Zone" can be anything within that zone.
-      3. Set the "Series" field set to "N1"
-      4. Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
-      5. For the "CPU platform" field, select "Intel Haswell or later".
-         {% include lab-image.html image='kali-custom-image.png' %}
-  * Scroll down to the "Boot disk" field:
-      1. Click "Change".
-      2. Select the "Custom images" tab.
-      3. Click "Select a Project." Click the "All" tab to see all projects.
-         Choose "security-assignments-kali".
-         {% include lab-image.html image='kali-custom-image-6.png' %}
-      4. Select the most recent Kali version that you see.
-      5. Set "Boot disk type" to "Standard persistent disk"
-      6. Under the "Size (GB)" field, you can choose a value between 500GB (the image size)
-         and 1,000GB (the quota limit for new accounts).
+* Use the following settings or the first set of options:
+  {% include lab-image.html image='kali-custom-image.png' %}
+    1. In the "name" field, enter any name for your instance, such as "kali".
+    2. Set the "Region" field to "us-central1". The "Zone" can be anything within
+       that zone.
+    3. Set the "Series" field set to "N1"
+    4. Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
+    5. For the "CPU platform" field:
+       1. Click the "CPU platform and GPU" dropdown to expand this menu section
+          {% include lab-image.html image='gcp-cpu-dropdown.png' %}
+       2. Select "Intel Haswell or later".
 
-         The labs don't require anywhere near even 500GB disk space, but with cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
+* Use the following settings for the "Boot disk" field:
+  {% include lab-image.html image='kali-custom-image-2.png' %}
+  1. Click "Change".
+  2. Select the "Custom images" tab.
+  3. Click "Select a Project." Click the "All" tab to see all projects.
+     Choose "security-assignments-kali".
+     {% include lab-image.html image='kali-custom-image-6.png' %}
+  4. Select the most recent Kali version that you see.
+  5. Set "Boot disk type" to "Standard persistent disk"
+  6. Under the "Size (GB)" field, you can choose a value between 500GB (the image size)
+     and 1,000GB (the quota limit for new accounts).
 
-         {% include lab-image.html image='kali-custom-image-2.png' %}
+     The labs don't require anywhere near even 500GB disk space, but with cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
+
 
 * Click the "Create" button.
 
@@ -86,7 +96,7 @@ Once you have purchased access and your gcp email address has been added to the 
 
      {% include lab-image.html image='kali-custom-image-4.png' %}
 
-     You should see a browser window pop up that looks like the following:
+     You should see a browser window pop up that looks like the following image. **Leave this popup open** -- you will need it for the next step.
 
      {% include lab-image.html image='kali-custom-image-5.png' %}
 
@@ -106,19 +116,20 @@ should be able to log in as long as your Kali instance is running on GCP.
 
   {% include lab-image.html image='Debian-copy.jpg' %}
 
-* Switch to your browser window with the ssh connection to Kali, paste in the command you copied into the Kali Linux command line. Press enter.
+* Switch to your browser window with the ssh connection to Kali, paste in the command you copied into the Kali Linux command line. Press `enter`.
+  * [This document describes how to copy-paste into the GCP browser ssh window. ](https://cloud.google.com/compute/docs/ssh-in-browser?hl=en#copypaste)
 
   {% include lab-image.html image='Kali_connect.png' %}
 
-* Enter a name for this image, e.g., "Kali".
 * Enter and re-enter a six-digit pin. Press enter.
+  * You will not see any visual feedback as you enter a pin. This is normal.
 
   <div class='alert alert-warning'><strong>Did you get an OAuth error?</strong> This
   may happen if something went wrong when you ran the command copied , and if you tried
   to run it again. The copied command is only valid for one attempt. You will need to start this section over again, to obtain another authorization url, which will have a new auth token embedded.</div>
 
 * Switch back to the window with **remotedesktop.google.com** open. Click the "Remote
-  Access" link at the top or visit [this link](https://remotedesktop.google.com/access).
+  Access" link at the top or visit <https://remotedesktop.google.com/access>.
 
 * Click on your Kali instance.
 
@@ -126,7 +137,7 @@ should be able to log in as long as your Kali instance is running on GCP.
 
 * Type in your six-digit pin, and check the box so that your browser remembers the pin.
 
-  <div class='alert alert-info'><strong>Can't get to the pin-entry screen?</strong>Try a different web browser, such as Google Chrome.
+  <div class='alert alert-info'><strong>Can't get to the pin-entry screen?</strong> Try a different web browser, such as Google Chrome.
   Also try disabling any browser extensions that may be interfering.</div>
 
 * Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
