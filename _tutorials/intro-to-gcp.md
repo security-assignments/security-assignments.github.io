@@ -56,6 +56,8 @@ Once you have purchased access and your gcp email address has been added to the 
      {% include lab-image.html image='gcp-choose-organization.png' %}
 * Then, expand the hamburger menu and navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. Click to enable. Wait a few minutes for Compute Engine to set up.
   {% include lab-image.html image='gcp-go-to-compute.PNG' %}
+* Click "Enable."
+{% include lab-image.html image='Enable.png' %}
 * Click "Create Instance".
   {% include lab-image.html image='kali-custom-image-0.png' %}
 * Use the following settings or the first set of options:
