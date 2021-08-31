@@ -1,6 +1,7 @@
 ---
 title: Virtual Machines for the Security Labs
 layout: assignment
+include_toc: true
 ---
 
 <style>
