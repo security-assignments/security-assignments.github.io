@@ -15,7 +15,7 @@ send_to_address: 'access-request@security-assignments.com'
 {% endif %}
 
 
-This page is the storefront for <{{ site.url }}>.
+This page is the storefront for {{ site.title }}.
 
 ---
 

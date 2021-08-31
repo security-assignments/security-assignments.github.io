@@ -1,8 +1,8 @@
 ---
-title: Information Security Management | Assignments
 ---
+# {{ site.title }}
 
-# {{ page.title }}
+Content for an Information Security Management course.
 
 {% include attribution.html %}
 

@@ -1,8 +1,6 @@
 ---
-title: Activities
+title: In-class Activities
 ---
-
-# {{ page.title }}
 
 {% assign activities = site.activities %}
 {% for activity in activities %}
