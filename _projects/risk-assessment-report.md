@@ -50,7 +50,7 @@ To start, consider that financial management systems is an integral part of proc
 
     For each security objective column (i.e., under “Confidentiality,” “Integrity,” and “Availability”), calculate the overall categorization of the information stored within the server that houses the financial management information and information system. Determine the “Overall Impact Rating” by recording the highest impact value listed in any of the security objectives: “Confidentiality,” “Integrity,” and “Availability” to determine the overall information system categorization.
 
-    You can use [this Excel spreadsheet file](/security-assignments/assets/files/Risk_assessment_table.xlsx) as a template.
+    You can use [this Excel spreadsheet file]({{ '/assets/files/Risk_assessment_table.xlsx' | relative_url }}) as a template.
 
 2. For each information type, use the information in [FIPS-199: "Standards for Security Categorization of Federal Information and Information Systems"](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf) (particularly Table 1) to describe the potential impact to the organization if the financial management information system was breached containing these information types.
 
@@ -81,5 +81,5 @@ The suggested length requirement for the report is 4–5 pages (not including ap
         * For each subsection, explain why it has the impact rating that it does for confidentiality, integrity, and availability. You're welcome to quote from [NIST Special Publication 800-60 Volume II](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-60v2r1.pdf) with attribution.
         * Give emphasis to the most serious impacts.
 
-3. Optionally, add a glossary section that defines the technology terms you use for a managerial audience. 
+3. Optionally, add a glossary section that defines the technology terms you use for a managerial audience.
 4. Add a reference section where you can list the title, author or agency name (e.g., NIST), URL, and access date for the works you cite.

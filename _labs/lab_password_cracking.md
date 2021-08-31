@@ -83,7 +83,7 @@ Take a screenshot of your password manager showing **saved entries for at least 
 In this section, you will launch attacks over the network against login services,
 in an attempt to brute-force a username/password.
 
-**Note:** This section uses the [Kali VM](/security-assignments/labs/virtual-machines#kali).
+**Note:** This section uses the [Kali VM]({{ site.baseurl }}{% link labs/virtual-machines.md %}#kali).
 
 <div class='alert alert-info'><strong>Heads up!</strong> Pay careful attention to each step
 in this section.</div>

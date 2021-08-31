@@ -21,7 +21,7 @@ With respect to the three security objectives:
 * *Integrity*: The impacts of a breach of integrity of financial management information may result from temporary successful frauds that can affect the business’ image, while corrective actions may disrupt the business’ operations.
 * *Availability*: The impacts of a permanent loss of availability of financial management information can cripple business operations.
 
-*Assignment*: Create and document a threat model and attack plan for a financial management information system of a company that you will attack as part of [Milestone 2](/security-assignments/milestone2).  
+*Assignment*: Create and document a threat model and attack plan for a financial management information system of a company that you will attack as part of [Milestone 2]({{ site.baseurl }}{% link _projects/pen-test.md %}).  
 
 # Objectives
 
