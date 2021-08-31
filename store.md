@@ -1,7 +1,8 @@
 ---
-title: Security Assignments | Store
+title: Store
 layout: page
 permalink: '/store/'
+send_to_address: 'access-request@security-assignments.com'
 ---
 
 
@@ -14,7 +15,7 @@ permalink: '/store/'
 {% endif %}
 
 
-This page is the storefront for security-assignments.com.
+This page is the storefront for <{{ site.url }}>.
 
 ---
 
@@ -30,14 +31,14 @@ This page is the storefront for security-assignments.com.
       <ol>
         <li>Sign up for an account on GCP. See the note on <a href="{{'/tutorials/intro-to-gcp.html' | relative_url }}">the Intro to GCP page</a> about choosing an email address for GCP. Note which email address you used.</li>
         <li>Purchase this <strong>lab virtual machine access package</strong>.</li>
-        <li>Send an email to <strong><a href="mailto:access-request@security-assignments.com">access-request@security-assignments.com</a></strong> with your order confirmation information.
+        <li>Send an email to <strong><a href="mailto:{{ page.send_to_address }}">{{ page.send_to_address }}</a></strong> with your order confirmation information.
           <strong><em>Also mention your GCP email address.</em></strong>
         </li>
         <li>Within 24 business hours, you should receive notification to your gcp email address that it has been added to the <a href="https://groups.google.com/g/infosec-management">infosec-management google group</a>, giving you
           access to the lab virtual machines.</li>
         </ol>
 
-      <p>If you want to later change your GCP email associated with your purchase, send a request to <a href="mailto:access-request@security-assignments.com">access-request@security-assignments.com</a>.
+      <p>If you want to later change your GCP email associated with your purchase, send a request to <a href="{{ page.send_to_address }}">{{ page.send_to_address }}</a>.
         Non-transferrable to different persons -- just transferrable within google accounts that belong to you.</p>
     </div>
     <div class="col-sm">
@@ -79,7 +80,7 @@ function initPayPalButton() {
 
             <p>Your paypal transaction id is: <strong>${paypal_id}</strong></p>
 
-            <p>Forward your paypal transaction confirmation email to <a href="support@security-assignments.com">support@security-assignments.com</a>.
+            <p>Forward your paypal transaction confirmation email to <a href="{{ page.send_to_address }}">{{ page.send_to_address }}</a>.
             <strong>In your message, also specify your GCP email address.</strong>
           </div>
         `;
