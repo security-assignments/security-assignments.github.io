@@ -49,17 +49,15 @@ Once you have purchased access and your gcp email address has been added to the 
 
 * First, create a new "project" which will house all of the material for this class.
   1. Click "create project"
-
      {% include lab-image.html image='gcp-create-project.png' %}
   2. Choose a name for your project, and for the "Location," choose "No Organization".
-
      {% include lab-image.html image='gcp-choose-organization.png' %}
 * Then, expand the hamburger menu and navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. Click to enable. Wait a few minutes for Compute Engine to set up.
-  {% include lab-image.html image='gcp-go-to-compute.PNG' %}
+  {% include lab-image.html image='gcp-go-to-compute.PNG' width="300px" %}
 * Click "Enable."
-{% include lab-image.html image='Enable.png' %}
+  {% include lab-image.html image='Enable.png' width="300px" %}
 * Click "Create Instance".
-  {% include lab-image.html image='kali-custom-image-0.png' %}
+  {% include lab-image.html image='kali-custom-image-0.png' width="300px" %}
 * Use the following settings or the first set of options:
   {% include lab-image.html image='kali-custom-image.png' %}
     1. In the "name" field, enter any name for your instance, such as "kali".
