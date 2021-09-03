@@ -190,7 +190,7 @@ The semester is about four months long, so set up a budget planning to spend (no
 
     {% include lab-image.html image='gcp-budget-2-amount.png' %}
 
-*   `(3) Actions` > I recommend setting four thresholds -- one for each week of the month -- at 25%, 50%, 75%, and 100%. When you have hit these thresholds within
+*   `(3) Actions` > Set four thresholds -- one for each week of the month -- at 25%, 50%, 75%, and 100%. When you have hit these thresholds within
     a month, you will receive a budget notificaiton email.
 
     {% include lab-image.html image='gcp-budget-3-actions.png' %}
