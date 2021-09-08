@@ -1,6 +1,6 @@
 ---
 ---
-# {{ site.title }}
+# Security-Assignments.com
 
 Content for an Information Security Management course.
 
