@@ -1,5 +1,5 @@
 ---
-title: Lab Eratta
+title: Lab Errata
 layout: page
 include_toc: true
 ---

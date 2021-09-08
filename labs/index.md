@@ -14,7 +14,7 @@ title: Labs
 
 ## Other
 
-- [Eratta]({{ '/labs/eratta' | relative_url }})
+- [Errata]({{ '/labs/errata' | relative_url }})
 - [List of lab-related tutorials]({{ site.base_url }}{% link tutorials/index.md %})
 - [Virtual Network notes]({{'/labs/virtual-machines' | relative_url }})
 - [Lab Supplementary Files](https://github.com/{{ site.repository }}/tree/master/labs/files) To download any one of them, click its link
