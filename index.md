@@ -18,6 +18,4 @@ Content for an Information Security Management course.
 
 ## [Projects]({{ '/projects/' | relative_url }})
 
-## [Eratta]( {{ site.baseurl }}{% link eratta.md %})
-
 ## [Store]( {{ site.baseurl }}{% link store.md %})

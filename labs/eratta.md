@@ -1,5 +1,6 @@
 ---
-title: Eratta
+title: Lab Eratta
+layout: page
 include_toc: true
 ---
 
