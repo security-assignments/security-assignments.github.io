@@ -14,17 +14,12 @@ This page documents fixes for bugs in versions of the virtual machines, includin
 
 **Solution**: Set xfce4 to be the default desktop environment used by chrome remote desktop.
 
-* log in via GCP's ssh-in-the-browser
+* log in via Google Cloud Console's [SSH from the Browser](https://cloud.google.com/compute/docs/ssh-in-browser).
 * Change the default desktop environment used by chrome remote desktop:
 
   ```bash
   sudo bash -c 'echo "exec xfce4-session" > /etc/chrome-remote-desktop-session'
   ```
-* Reboot your instance.
-
-  ```bash
-  sudo reboot
-  ```
-  This will terminate your ssh session. Close the ssh popup window.
-* Wait for your instance to reboot. Then, connect again via chrome remote desktop
+* [Reboot your instance](https://cloud.google.com/compute/docs/instances/stop-start-instance#resetting_an_instance).
+* When your instance has finished rebooting, connect again via chrome remote desktop
   (<https://remotedesktop.google.com/access>)
