@@ -27,9 +27,9 @@ Browse to [ibm.com](https://ibm.com) and inspect the certificate details. For ex
 
 *   Click on the "Details" tab.
 
-{% include lab_question.html question='What is the root certificate authority for ibm.com?' %}
+{% include lab_question.html number='1' question='What is the root certificate authority for ibm.com?' %}
 
-{% include lab_question.html question='What is the intermediate certificate authority?' %}
+{% include lab_question.html number='2' question='What is the intermediate certificate authority?' %}
 
 The purpose of an intermediate authority is the following:
 
@@ -37,7 +37,7 @@ The purpose of an intermediate authority is the following:
 
     What are some of the other domains for which this certificate is valid?' In Firefox, these are listed under "Certificate Subject Alt Name."
 
-{% include lab_question.html question='What are some of the other domains for which the ibm.com certificate is valid?' %}
+{% include lab_question.html number='3' question='What are some of the other domains for which the ibm.com certificate is valid?' %}
 
 For TLS X.509 certificates, the signature in the certificate is signed by the public key included in an intermediate or root certificate authority certificate (see figure below).
 An intermediate certificate, if any, is signed by the public key included in a root certificate. The root certificate is signed using the public key in its own certificate (a self-signed certificate).
@@ -47,8 +47,8 @@ Linking certificates in this way forms a certificate chain.
 
 _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_key_certificate)_
 
-{% include lab_question.html question="For IBM's certificate, what algorithm do they use for their public key?" %}
-{% include lab_question.html question="What is the keysize of their public key?" %}
+{% include lab_question.html number='4' question="For IBM's certificate, what algorithm do they use for their public key?" %}
+{% include lab_question.html number='5' question="What is the keysize of their public key?" %}
 
 
 
@@ -61,12 +61,12 @@ _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_k
 2.  Select "Privacy & Security" on the left-hand side of the preferences window, and scroll down to the bottom to see the "Certificates" section. Click the "View Certificates" button.
 3.  Under the 'Authorities' tab, find the "DigiCert Global Root CA" certificate that was ultimately used to verify the authenticity of IBM's certificate. Click "Edit Trust."
 
-    {% include lab_question.html question="What can this DigiCert root certificate be used for?" %}
+    {% include lab_question.html number='6' question="What can this DigiCert root certificate be used for?" %}
 
 4.  Now find any of the root certificates for Symantec Corporation. Select one and click "Edit Trust."
     What can this Symantec root certificate be used for? What can it _not_ be used for? Examine other certs in the list to see what a "normal" cert in Firefox's store can do.
 
-    {% include lab_question.html question="What can this Symantec root certificate be used for?" %}
+    {% include lab_question.html number='7' question="What can this Symantec root certificate be used for?" %}
 
     Why is the trust for Symantec's cert anomalous? To help you answer this question, look at one or more of the following resources:
 
@@ -74,7 +74,7 @@ _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_k
     * [https://arstechnica.com/information-technology/2017/03/google-takes-symantec-to-the-woodshed-for-mis-issuing-30000-https-certs/](https://arstechnica.com/information-technology/2017/03/google-takes-symantec-to-the-woodshed-for-mis-issuing-30000-https-certs/)
     * [https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/](https://blog.mozilla.org/security/2018/03/12/distrust-symantec-tls-certificates/)
 
-    {% include lab_question.html question="Why does Firefox trust Symantec's Certificates in this way?" %}
+    {% include lab_question.html number='8' question="Why does Firefox trust Symantec's Certificates in this way?" %}
 
 
 
@@ -90,7 +90,7 @@ _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_k
     * [https://slate.com/technology/2016/12/how-the-2011-hack-of-diginotar-changed-the-internets-infrastructure.html](https://slate.com/technology/2016/12/how-the-2011-hack-of-diginotar-changed-the-internets-infrastructure.html)
     * [https://security.googleblog.com/2011/08/update-on-attempted-man-in-middle.html](https://security.googleblog.com/2011/08/update-on-attempted-man-in-middle.html)
 
-    {% include lab_question.html question="What does Firefox say about the trust of this Root Certificate authority? Why does Firefox say this?" %}
+    {% include lab_question.html number='9' question="What does Firefox say about the trust of this Root Certificate authority? Why does Firefox say this?" %}
 
 
 ## Perfect Forward Secrecy
@@ -108,7 +108,7 @@ _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_k
     * [https://en.wikipedia.org/wiki/Forward_secrecy](https://en.wikipedia.org/wiki/Forward_secrecy)
     * [https://www.zdnet.com/article/google-moves-forward-towards-a-more-perfect-ssl/](https://www.zdnet.com/article/google-moves-forward-towards-a-more-perfect-ssl/)
 
-    {% include lab_question.html question="What does Chrome say about the connection settings for RSA key exchange, and why?" %}
+    {% include lab_question.html number='10' question="What does Chrome say about the connection settings for RSA key exchange, and why?" %}
 
 
 
@@ -211,7 +211,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
     certificate in Firefox: [link](https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/certificate/firefox)
 
      <div class='alert alert-info'><strong>Note:</strong> The linked-to instructions above show Burp Suite Professional, but the instructions also work for Burp Suite Community Edition. You don't need to install another version of Burp Suite than the one that is already installed on your Kali VM.</div>
-    
+
     <div class='alert alert-info'><strong>Note:</strong> When the instructions say, "In the top-right corner of the page, click "CA Certificate" to download your unique Burp CA certificate. Take note of where you save this.", you should choose "Save File", and your file will be downloaded with filename "cacert.der".</div>
 
     {% include lab-image.html image='burpsuite-cacert-der.png' %}
@@ -243,7 +243,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
         bar to open the filter dialog, and change the settings as follows to make the
         visual search easier.
 
-        * Login requests submit fields such as usernames and passwords using "parameters",  
+        * Login requests submit fields such as usernames and passwords using "parameters",
           so select "Filter by request type" > "Show only parameterized results."
         * Login requests -- at least for this site -- use MIME type "html", so
           in "Filter by MIME type," uncheck all except for HTML.
@@ -267,9 +267,9 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 
         You should see your University ID and fake password.
 
-        {% include lab_question.html question="Submit a screenshot showing your username and fake password within the Burp Suite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
+        {% include lab_question.html number='11' question="Submit a screenshot showing your username and fake password within the Burp Suite window for the Bank of America login attempt. Show your entire Kali view in your screenshot. Example screenshot below." %}
 
-        {% include lab-image.html image='burpsuite-show-login-entry.png' %}
+        {% include lab-image.html number='12' image='burpsuite-show-login-entry.png' %}
 
 12. But wait, this was an HTTPS connection, so the web transaction such as the submitted username\|password) should have been encrypted. How could Burp Suite have decrypted it?
 
@@ -284,7 +284,7 @@ app's web requests. Alternatives to Burp include mitmproxy, Fiddler, ZAP, and Ch
 13. Finally, clean up by reconfiguring Firefox to no longer use a network proxy. To do this,
     revisit Firefox's "Network Settings" page under the Preferences view, and select
     "No Proxy".
-    
+
 
 
 # Part 3. Appreciate secure messaging with the bygone PGP
@@ -318,8 +318,6 @@ crypto wars:
 
 Use what you read and watched above to answer the following questions:
 
-{% include lab_question.html question='What attacks does Signal protect you against? Which does it not protect you against?' %}
+{% include lab_question.html number='12' question='What attacks does Signal protect you against? Which does it not protect you against?' %}
 
-{% include lab_question.html question='On a high level, how does the Signal protocol work?' %}
-
-
+{% include lab_question.html number='13' question='On a high level, how does the Signal protocol work?' %}
