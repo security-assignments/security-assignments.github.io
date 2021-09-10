@@ -23,3 +23,5 @@ This page documents fixes for bugs in versions of the virtual machines, includin
 * [Reboot your instance](https://cloud.google.com/compute/docs/instances/stop-start-instance#resetting_an_instance).
 * When your instance has finished rebooting, connect again via chrome remote desktop
   (<https://remotedesktop.google.com/access>)
+
+**Resolved in**: v3.0.1
