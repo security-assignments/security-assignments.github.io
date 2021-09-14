@@ -81,16 +81,15 @@ _Certificate chain image from [Wikipedia](https://en.wikipedia.org/wiki/Public_k
 
 ## Untrusted Root CA
 
-1.  Under the “Servers” tab of the View Certificates” dialog, certificates for what organization are listed? Click on one of the certificates and click the "View" button.
-3.  There is a message at the top of the View window's General tab.
-    What does Firefox say about the trust of this Root Certificate authority? Why does Firefox say this?
+Firefox ships with a few certificates that are _untrusted_ and that are _untrustable_. They are for former CA DigiNotar. Why does Firefox distrust
+certs signed by DigiNotar?
 
-    To help you answer this question, look at one or more of the following resources:
-    * [Darknet Diaries Podcast, episode 3: “DigiNotar, You are the Weakest Link, Good Bye!](https://darknetdiaries.com/episode/3/)
-    * [https://slate.com/technology/2016/12/how-the-2011-hack-of-diginotar-changed-the-internets-infrastructure.html](https://slate.com/technology/2016/12/how-the-2011-hack-of-diginotar-changed-the-internets-infrastructure.html)
-    * [https://security.googleblog.com/2011/08/update-on-attempted-man-in-middle.html](https://security.googleblog.com/2011/08/update-on-attempted-man-in-middle.html)
+To help you answer this question, look at one or more of the following resources:
+* [Darknet Diaries Podcast, episode 3: “DigiNotar, You are the Weakest Link, Good Bye!](https://darknetdiaries.com/episode/3/)
+* <https://slate.com/technology/2016/12/how-the-2011-hack-of-diginotar-changed-the-internets-infrastructure.html>
+* <https://security.googleblog.com/2011/08/update-on-attempted-man-in-middle.html>
 
-    {% include lab_question.html number='9' question="What does Firefox say about the trust of this Root Certificate authority? Why does Firefox say this?" %}
+{% include lab_question.html question="Why does Firefox distrust DigiNotar as a CA?" %}
 
 
 ## Perfect Forward Secrecy
