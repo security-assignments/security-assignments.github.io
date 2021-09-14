@@ -10,9 +10,7 @@ published: true
 
 {% assign know_this_warning = "<div class='alert alert-danger'><strong>Heads up! </strong> You should understand this well enough to be able to do it by hand.</div>" %}
 
-# Part 1
-
-## Polyalphabetic substitution and Transposition Ciphers
+# Polyalphabetic substitution and Transposition Ciphers
 
 1.  Using polyalphabetic substitution, with alphabet a–z (no caps), spaces translated to an underscore character (`_`), and a period (`.`, as the last character of the alphabet), use the private key `security` to encrypt the plaintext message:
 
@@ -29,7 +27,10 @@ published: true
 
     As a general rule for shift ciphers, *the modulus is always the size of the alphabet, but you must start your alphabet at 0*.
 
-    You may use [an online vignere cipher calculator](https://cryptii.com/pipes/vigenere-cipher) to check your work.
+    To check your understanding of modular arithmetic, review [these examples on wikipedia](https://en.wikipedia.org/wiki/Modular_arithmetic#Examples).
+
+    You may use [an online vignere cipher calculator](https://cryptii.com/pipes/vigenere-cipher) to check your work. If you use
+    this calculator, remember to customize the default alphabet to include periods and underscores.
 
     {{ know_this_warning }}
 
@@ -52,7 +53,7 @@ published: true
 
 
 
-## Frequency analysis
+# Frequency analysis
 
 Perform frequency analysis on the following ciphertext. You may use an online frequency analysis tool [such as this one ](https://crypto.interactive-maths.com/frequency-analysis-breaking-the-code.html).
 
@@ -93,26 +94,34 @@ Perform frequency analysis on the following ciphertext. You may use an online fr
 
     {% include lab_question.html question='What are the three most frequent trigrams?' %}
 
-3.  Assume that a simple cipher that shifts all characters by a fixed number was used to create the cipertext. Given the results of the frequency analysis, what would the shift key have been (the shift to go from plaintext to ciphertext)?  
-    Don’t be proud; you can use your fingers to count.   
+3.  Assume that a simple cipher that shifts all characters by a fixed number was used to create the cipertext (a caesar cipher). Given the results of the frequency analysis, what would the shift key have been (the shift to go from plaintext to ciphertext)?
+    Don’t be proud; you can use your fingers to count.
 
     {% include lab_question.html question='What is the key of the ciphertext, counting forwards?' %}
 
 4.  What is the plaintext?
 
+    **Hint:** You can use an online caesar cipher encoder/decoder such as [this one](https://cryptii.com/pipes/caesar-cipher)
+    to test your key,
+    although you should be able to perform frequency analysis by hand on short texts.
+
     {% include lab_question.html question='What author is quoted in the plaintext?' %}
 
 
 
-## One-time Pad
+# One-time Pad
 
 Decrypt the following ciphertext using the following one-time pads, using an XOR bitwise operation.
 
-You may use an online tool such as [cryptii.com](https://cryptii.com). For example:
+You may use an online tool such as [cryptii.com](https://cryptii.com). For example, select "bitwise operation":
+
+{% include lab-image.html image='cryptii-bitwise-select.png' %}
+
+And then choose "XOR", leaving the operation on "encode":
 
 {% include lab-image.html image='cryptii-otp.png' %}
 
-<div class='alert alert-info'><strong>Heads up!</strong> When using cryptii for this XOR,
+<div class='alert alert-warning'><strong>Heads up!</strong> When using cryptii for this XOR,
 leave it on <i>encode</i>, <strong>not</strong> <i>decode</i>. This is because to undo
 XOR for decryption, the same operation is done as to do it in the encryption. Again,
 leave it on <i>encode</i> for XOR even though you are decrypting.</div>
@@ -138,10 +147,7 @@ Ciphertext (hexadecimal): `E0 C5 B5 B0 82 9A 8A DA B8 FD 8A 9E 67 5A 57`
 {% include lab_question.html question='How many possible plaintexts exist for this one-time-pad ciphertext?' %}
 
 
-
-# Part 2
-
-## Hashing
+# Hashing
 
 Hash the following [plaintext](https://en.wikipedia.org/wiki/Zimmermann_Telegram) using multiple hashing algorithms.
 
@@ -161,7 +167,12 @@ Hash the following [plaintext](https://en.wikipedia.org/wiki/Zimmermann_Telegram
 
     Signed, ZIMMERMANN
 
-You may use a tool such as [cryptii.com](https://cryptii.com). For example:
+You may use a tool such as [cryptii.com](https://cryptii.com). For example,
+select "Hash function" from towards the bottom of the menu:
+
+{% include lab-image.html image='cryptii-hash-select.png' %}
+
+And use it as follows:
 
 {% include lab-image.html image='cryptii-hashing-text.png' %}
 
@@ -188,33 +199,55 @@ In cryptii, you can switch to a hex view thusly in order to make your single-bit
 
 
 
-## Symmetric encryption with AES
+# Symmetric encryption with AES
 
 Decrypt the message below using AES and the following parameters:
 Message (base64):
 
     K2NsjCqFlnNVFK1dTTm/opzc0Fq+qNj8UVg+nvIzeEgv5Y3GHATcnyROU6eg+6BAesm5qrtZe5vdjP+ffI/vYIEqIxZh9CSCbxBCo2HEYjbOFCIkx3OuoaomxGChwwbRS2lX37prQMR3VYKVXvQoLUPocPXn+oxnqqHXS/2JbLkTlOje6mrLhnjlI6VDkGDMZI3WqWRe5aHNyzQTEdhXbizHGcKrk/JpX7L1ODY0gdw6InhXew5c4EEcqQInONbYel8W5xwPYFojsKTbKRAOrNqIfI46vD9ziAFCbkG10aIRzLJmxQrkiX+DPwjuxC/p97C9Rm9DS2zn4Yy1mZCFalVDk2MLfgRtW2MBpHDHV1FGdhusnH1E0WNaOfTKlU5tyh3ImBEHS0VBlv3wEEm9f2MVyxK/0T6JdfHD/Szf1yj0GNNMGeKTpmPjP0lmwVdo5GkJJsVBPAWzGqeI+q9phUGw6YC7f4NvlT/RiyOoM8aFAwJxA7MsKTFxyv9ib47pYC8YfOJPpnuGiHw2GutS1/z3TIk40ABFcjyc3R5AxNKM3wJjRWNwrCy9ruva/kddEMa6ANIwLYO0RuTwplU00QFUaggUtYPoPur4nT1sEoY=
 
-- Algorithm: AES
+- Algorithm: AES-256
 - Chaining mode: CBC
 - IV (hexadecimal): `15 7F 14 FF DF D1 D4 25 D9 CB BD 12 ED 98 49 2F`
 - Key (hexadecimal): `FA 71 7D 51 3F D7 32 7D D9 C7 13 84 43 47 C2 5B 2F 9C 1E 48 67 C6 81 32 85 5A 13 92 60 A8 79 44`
 
+You can do this on cryptii using the "Block Cipher" tool. To do so:
 
-{% include lab-image.html image='cryptii-aes.png' %}
+1.  Start by selecting the "Encoding > Base64" tool.
+
+    {% include lab-image.html image='cryptii-base64.png' %}
+1.  Set the base64 to "decode" mode.
+1.  Paste the above base64-encoded string into the leftmost "text" node.
+    Make sure there are no extra characters after the final `=` in the pasted
+    value (not even a return character!).
+
+    The output of the base64 tool will be bytes.
+
+    {% include lab-image.html image='cryptii-base64-decode.png' %}
+
+1.  Add a "Modern Cryptography > Block Cipher" tool to the flow, so that the bytes flow
+    into it. Set the block cipher tool to use AES-256, and use the algorithm settings noted above.
+
+    {% include lab-image.html image='cryptii-aes-add-block.png' %}
+    {% include lab-image.html image='cryptii-aes.png' %}
 
 What is the plaintext of the message?
 
 {% include lab_question.html question='What is the URL included in the plaintext you decrypted with AES?' %}
 
 
-## Message Sharing
+# Message Sharing
 
 Use AES or another symmetric block cipher to encrypt/decrypt messages exchanged between you and another class member. You can use a site such as [cryptii.com](https://cryptii.com).
 
-You can generate a key and an IV from a password using the `openssl` tool, from your Kali instance, using a command such as the following:
+You and your classmate should agree on a password for encrypting the message. You can generate a key and an IV from a password using the `openssl` tool, available from your Kali instance. For example, if you had agreed on the password `Password1`,
+you could run the following to get the corresponding key and IV:
 
     openssl enc -aes-256-cbc -P -pass pass:Password1 -nosalt
+
+Running the above will give the same output every time. It would lead to the following output:
+
+{% include lab-image.html image='openssl-generate-key-and-iv.png' %}
 
 Where:
 
@@ -229,11 +262,15 @@ Where:
 
     (see `man enc`)
 
-Key and IV in hand, you and your classmate can use cryptii.com to encrypt and decrypt.    
+You and your classmate should agree on a password, then use that password to share a message using AES.
 
 
 Questions:
 
-1. {% include lab_question.html question='How did you ensure that the key exchange was safe? How would you exchange keys if you were not in the same location?' %}
+* {% include lab_question.html question='How did you ensure that your key exchange was safe? How would you exchange keys if you were not in the same location?' %}
+* {% include lab_question.html question='Which of the parameters of a block cipher (e.g., algorithm name, mode of operation, IV (if any), key length) are <strong>essential</strong> to keep secret? Security through obscurity does not count as "essential".' %}
 
-1. {% include lab_question.html question='Which of the parameters of a block cipher (e.g., algorithm name, mode of operation, IV (if any), key length) are <strong>essential</strong> to keep secret? Security through obscurity does not count as "essential".' %}
+
+# Deliverable
+
+Submit your answers for this lab by completing the associated lab quiz on your course's learning management system.
