@@ -2,6 +2,7 @@
 layout: assignment
 title: Penetration Test Assignment
 order: 3
+include_toc: true
 ---
 
 For this assignment, consider that your team is a group of consultants that offers cybersecurity penetration testing and risk assessment services. You have been retained by Humbleify.
@@ -22,64 +23,23 @@ you are only authorized to perform an evaluation of this particular server.
 
 # Accessing the asset
 
-The company has launched a copy of their webserver behind a VPN network -- one
-copy per consultancy team. To access the webserver, you must connect your
-Kali instance to the provided VPN network.
+The company has given you access to a vagrantbox virtual machine version of their webserver.
+It is [hosted on vagrantcloud as box `deargle/pentest-humbleify`](https://app.vagrantup.com/deargle/boxes/pentest-humbleify).
+To launch the virtual machine, follow the instructions on <https://github.com/security-assignments/pentest-humbleify>.
 
-To connect Kali to the VPN network:
+**Once you have launched the virtual machine on Kali**, you will be able to access the asset **at the following ip address on the `infosec-net` network**:
 
-* Download `client.conf` VPN client config
-  file to Kali from Canvas (under your team's "Files" page).
-* Open a separate Terminal session, and run `sudo openvpn client.conf` from the
-  directory where your `client.conf` is located.
-  * Running this will give your Kali instance an ip address on the VPN
-    network in the `10.8.0.0/24` CIDR, on a new interface called `tun0`
-    (run `ip a` to verify).
-* Leave this terminal running for as long as you need to connect to the
-  Humbleify asset. If you ever kill it, you will lose your connection to
-  the VPN network.
+<div class='alert alert-success'>192.168.56.200</div>
 
-**Once you have connected to the VPN network**, you will be able to access the asset **at the following ip address**:
+Your Kali instance's IP address on this network is the same as it has been for
+all other labs: `192.168.56.101`.
 
-<div class='alert alert-success'>192.168.10.107</div>
-
-**Important technical details ahead!**
-
-Your Kali instance, however, will not have an IP address on the `192.168.10.107/24` CIDR.
-Instead, you will get an address on the `10.8.0.0/24` network.
-When you connect Kali to the VPN server, your Kali instance is automatically
-configured to route traffic to `192.168.10.107/24` over the VPN server at
-`10.8.0.1`, which forwards your traffic.
-
-The VPN server is also configured to allow `client-to-client` traffic between
-clients connected to the VPN network. The asset you are assessing is also a
-client on the network. Therefore, you can access the asset from your Kali instance,
-and you can _also_ access your Kali instance from the asset. However! You will
-only be able to talk to Kali _from the asset_ using Kali's `10.8.0.0/24` address.
-
-<div class='alert alert-danger'>
-<strong>Heads up!</strong>
-
-<p>This means that, if
-you are configuring a reverse-connecting payload, you will need to specify
-Kali's <code>10.8.0.0/24</code> address, so that traffic can reach Kali from
-the asset.</p>
-
-<p>Your Kali's <code>10.8.0.0/24</code> address may change on subsequent
-connections, depending on if your teammates also connect to the VPN server.
-This is fine to do, but if you set the wrong <code>LHOST</code> Kali ip address,
-you may be telling your malware to reverse-connect back to one of your teammates'
-MSF listeners! Just be mindful of your Kali VPN ip address before
-you run exploits -- you can check it by running <code>ip a</code> and looking
-for the vpn bridge interface and its ip address.</p>
-
-<p>A power-user msfconsole-user move is to set your `LHOST` not to an explicit
-ip address, but rather,
-<a class='alert-link' href='{{ site.baseurl }}{% link _labs/lab_exploitation.md %}#set-lhost-iface-name'>an interface name</a>.
-You can therefore run <code>set LHOST tun0</code> wherever an lhost is required
-in msfconsole. <a class='alert-link' href='{{ site.baseurl }}{% link _labs/lab_exploitation.md %}#setg'>Set these values globally</a> to
-perhaps save a few more keystrokes over the course of the assignment.</p>
-</div>
+A power-user msfconsole-user move is to set your `LHOST` not to an explicit ip
+address, but rather, [an interface name]({{ site.baseurl }}{% link
+_labs/lab_exploitation.md %}#set-lhost-iface-name). You can therefore run `set
+LHOST virbr1` wherever an lhost is required in msfconsole. [Set these values
+globally]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#setg) to
+perhaps save a few more keystrokes over the course of the assignment.
 
 
 # Contractual Agreement
@@ -88,34 +48,34 @@ You have signed the following contractual agreement with Humbleify for your
 penetration test assessment:
 
 
-> Humbleify and your esteemed consultancy hereby enter into a contractual agreement for you
-> to carry out a vulnerability assessment of a specific Humbleify asset described
-> below.
+> Humbleify and your esteemed consultancy hereby enter into a contractual
+> agreement for you to carry out a vulnerability assessment of a specific
+> Humbleify asset described below.
 >
 >
 > ## Objectives
 >
 > Your objectives are threefold:
 >
-> 1. Document vulnerabilities that you are able to successfully exploit on
-> the server. Describe in detail what you did and what level of access you
-> were able to obtain. If you obtain a user account with limited
-> privileges, document whether you were able to escalate the privileges to
-> root. Document each exploit that you are able to successfully launch.
+> 1. Document vulnerabilities that you are able to successfully exploit on the
+> server. Describe in detail what you did and what level of access you were able
+> to obtain. If you obtain a user account with limited privileges, document
+> whether you were able to escalate the privileges to root. Document each
+> exploit that you are able to successfully launch.
 >
-> 2. Document potentially sensitive information that you are able to
-> obtain from the server. These could include user files or web, database,
-> or other server files.
+> 2. Document potentially sensitive information that you are able to obtain from
+> the server. These could include user files or web, database, or other server
+> files.
 >
-> 3. For both 1 and 2 above, argue for methods that could protect the vulnerabilities and sensitive information from > exploitation.
+> 3. For both 1 and 2 above, argue for methods that could protect the
+>    vulnerabilities and sensitive information from > exploitation.
 >
 >
 > ## Authorization
 >
-> You are hereby authorized to perform the agreed-upon vulnerability assessment of
-> the Humbleify webserver located at IP address 192.168.10.107 on the VPN network
-> accessible to you by using your provided vpn configuration file. Your scope of
-> engagement is exclusively limited to the single Humbleify asset.
+> You are hereby authorized to perform the agreed-upon vulnerability assessment
+> of the Humbleify vagrantbox virtual machine with IP address 192.168.56.200.
+> Your scope of engagement is exclusively limited to the single Humbleify asset.
 >
 > You may:
 >
@@ -128,6 +88,16 @@ penetration test assessment:
 > * Sabotage the work of any other consultancy team hired by Humbleify.
 > * Disclose to any other party any information discovered on the asset.
 >
+>Furthermore, note the following:
+> * This is a vagrantbox development version of a live asset. The
+>   vagrant-standard privileged user `vagrant` is present on this virtual
+>   machine, but not on the live version of the asset. Therefore, any access via
+>   the `vagrant` user is moot and out of scope.
+
+Remember that your contract is _not merely_ to access the asset and its
+sensitive information. Rather, your contract is to document _all possible_
+vulnerabilities/attack vectors.
+
 
 # Written Report Deliverable
 
@@ -140,38 +110,42 @@ include a glossary of the terms used.
 There is no length requirement for the report, but your report must not
 exceed 20 pages (not including appendices).
 
-<div class='alert alert-info'>
 
-<p>In writing your report, <em>organize for impact</em>. This means you should
+## Report-writing tips
+
+In writing your report, _organize for impact_. This means you should
 discuss the most serious vulnerabilities first. Further, in your
 description, start by describing macro-level issues and then discuss
 micro-level details. This practice makes it easier for a readers to
-quickly process your report.</p>
+quickly process your report.
 
-<p>You can think of this process like a pyramid, where at the top you have the one-page executive summary of your findings,
-and each successive section provides more granular detail. At the end of the main body of your report, the "supporting details"
-section should have sufficient details on how to replicate the exploits you found, including step-by-step commands run in Metasploit or other tools.
-This way, a manager can quickly get a sense of the report by reading the first page and then can choose to continue reading to get lower-level details.
-</p>
+You can think of this process like a pyramid, where at the top you have the
+one-page executive summary of your findings, and each successive section
+provides more granular detail. At the end of the main body of your report, the
+"supporting details" section should have sufficient details on how to replicate
+the exploits you found, including step-by-step commands run in Metasploit or
+other tools. This way, a manager can quickly get a sense of the report by
+reading the first page and then can choose to continue reading to get
+lower-level details.
 
-<p>
-Continuing the pyramid analogy, appendices are at the very base. Appendices are for very technical information that would bog down the report if included
-in the main body. For example, a Nessus report or detailed output from <code>nmap</code> do not belong in the report because the information is too technical for a
-managerial reader to process. Also, they tend to be lengthy and would interrupt the flow of your report.
-Instead, refer the reader to the appendices for very technical and lengthy information. (I am not interested in seeing a Nessus report. Don't give me one.)
-</p>
+Continuing the pyramid analogy, appendices are at the very base. Appendices are
+for very technical information that would bog down the report if included in the
+main body. For example, a Nessus report or detailed output from
+<code>nmap</code> do not belong in the report because the information is too
+technical for a managerial reader to process. Also, they tend to be lengthy and
+would interrupt the flow of your report.  Instead, refer the reader to the
+appendices for very technical and lengthy information. (Do not include a Nessus report.)
 
-<p>
-Finally, whenever you show a command or output from a command in the main body of your report, <span class='label label-info'>use excerpts or highlighting to point out the most
-relevant information</span>, and explain what you show with accompanying text. Imagine you are writing to a manager or executive who doesn't
-understand security and needs you to clearly explain your findings and their implications.
-</p>
+Finally, whenever you show a command or output from a command in the main body
+of your report, _use excerpts or highlighting to
+point out the most relevant information_, and explain what you show with
+accompanying text. Imagine you are writing to a manager or executive who doesn't
+understand security and needs you to clearly explain your findings and their
+implications.
 
-<p>
-Writing technical material for a managerial audience is crucial skill for information systems practitioners and managers alike -- especially in information security.
-</p>
-
-</div>
+Writing technical material for a managerial audience is crucial skill for
+information systems practitioners and managers alike -- especially in
+information security.
 
 
 # Rubric
@@ -223,7 +197,7 @@ This section includes tips that may not have been covered in the labs.
 
 ## Tips -- General
 
-*   Did your scan show that the server is running something on port 80? It's
+*   Did your scan show that the server is running something on port 80? If so, it's
     probably a web page! Try browsing to it by using kali's firefox, and put your
     server's ip address into the address bar.
 
@@ -256,7 +230,7 @@ You may find tools such as the following useful:
 
 ## Tips -- Productivity
 
-* Put an entry in Kali's `/etc/hosts` file to make it so that you don't have to
+* Put an entry for the target in Kali's `/etc/hosts` file to make it so that you don't have to
   keep typing out the IP address of humbleify's server.
 
 ## Tips -- Password Cracking
