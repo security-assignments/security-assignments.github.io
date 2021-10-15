@@ -24,7 +24,7 @@ you are only authorized to perform an evaluation of this particular server.
 # Accessing the asset
 
 The company has given you access to a vagrantbox virtual machine version of their webserver.
-It is [hosted on vagrantcloud as box `deargle/pentest-humbleify`](https://app.vagrantup.com/deargle/boxes/pentest-humbleify).
+It is hosted on vagrantcloud as box `deargle/pentest-humbleify`.
 To launch the virtual machine, follow the instructions on <https://github.com/security-assignments/pentest-humbleify>.
 
 **Once you have launched the virtual machine on Kali**, you will be able to access the asset **at the following ip address on the `infosec-net` network**:
