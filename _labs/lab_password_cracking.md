@@ -42,20 +42,16 @@ published: true
 
 # Part 3. Sign-up for Two Factor Authentication
 
-Visit [twofactorauth.org](https://twofactorauth.org) and browse through the categories to find an online service that you regularly use
-(e.g., Gmail, Snapchat, Instagram, Facebook, etc.). Click the box-arrow icon in the “Docs” column to learn how to set two factor authentication for that service.
-Sign up for 2FA for at least one account.
+Visit <https://2fa.directory/> and browse through the categories to find an online service that you regularly use
+(e.g., Gmail, Snapchat, Instagram, Facebook, online bank accounts, etc.). Sign up for 2FA for at least one account.
 
-**Alternatively:** Visit [dongleauth.info](https://www.dongleauth.info/) to find an online service that allows you to use [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) or [Universal Second Factor (U2F)](https://en.wikipedia.org/wiki/Universal_2nd_Factor).
+Also, visit [dongleauth.info](https://www.dongleauth.info/) to find an online service that allows you to use [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) or [Universal Second Factor (U2F)](https://en.wikipedia.org/wiki/Universal_2nd_Factor).
 
 {% include lab_question.html question='Which service did you enable 2FA for?' %}
 
 # Part 4. Install and Set up a Password Manager
 
-If you're not already using one, set up a password manager. I recommend creating an account with [LastPass](https://www.lastpass.com/) (free, or premium version $24 per year), or my favorite, [1Password](https://1password.com) (first six months free for students using this [link](https://www.studentappcentre.com/discounts/1password)[^1], $36 per year). See [here](https://thewirecutter.com/reviews/best-password-managers/) for a comparison of leading password managers.
-
-[^1]: The studentappcentre.com link was vetted and recommended by a
-      [1password Support Team member](https://www.reddit.com/r/1Password/comments/8zhik5/any_student_discount_for_1password/).
+If you're not already using one, set up a password manager. I recommend creating an account with [LastPass](https://www.lastpass.com/), or my favorite, [1Password](https://1password.com) ([student discount link](https://www.studentappcentre.com/discounts/1password)). See [here](https://thewirecutter.com/reviews/best-password-managers/) for a comparison of leading password managers.
 
 Next, install the browser extension for your password manager (see [here](https://lastpass.com/misc_download2.php) for LastPass; see [here](https://1password.com/downloads/) for 1Password). With the browser extension installed, log into a website for which you have an account. Your password manager will ask to save the password after each login. Do this for three sites.
 
@@ -150,7 +146,7 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
     The Hyrda output will tell you at what time it started, how many passwords it has tried so far, and at what time it stopped.
 
-    {% include lab_question.html question='What was the password (Scan the results to find the line beginning with <code>[443][http-get]</code>)?' %}
+    {% include lab_question.html question='Scan the results to find the line beginning with <code>[443][http-get]</code>. What was the password?' %}
 
     **Question:** Approximately how many passwords a second were you able to try? **Hint:** You may need to calculate this from the start and end time along with number of guesses made.
 
@@ -213,58 +209,38 @@ then run the command, <code>brew install hashcat</code>.</p>
 
 5.  In the output, you'll see the name of the file, followed by the type. The type
     is shown with a `$` at the beginning and end of it. You need to convert the output
-    to a format that `hashcat` can recognize. To do so, copy the
-    type and everything up until but not including `:::`.
+    to a format that `hashcat` can recognize. To do so, copy
+    everything from the first `$` up to, but not including, `:::`.
 
-    For example, if the script output the following:
+    For example, if the script output was the following:
 
         hashcat.doc:$oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a:::::hashcat.doc
 
-    You would extract just the following:
+    You would copy just the following to your clipboard:
 
         $oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a
 
-    **Save the extracted hash into a file in your home directory.** Name the file whatever you like.
+6.  While still in your home directory, run the following command (all on one
+    line). Paste the hash string into the command, surrounded by single quotes
+    (**not double-quotes!**).
 
-    **Note:** make sure the entire hash is on one line within the text file. **Don't add extra spaces at the end.**
-    If you get a "line-length exception" in the next step, make sure there's not a typo in the beginning of the hash.
+        hashcat --force -a 0 -m 9700  -o <your-output-filename> '<your-hash-string>' /usr/share/wordlists/rockyou.txt
 
-    <div class='alert alert-info'>If you want, you can use text redirection
-    (e.g., <code>></code>) to put the output of office2john.py into a file for
-    you. Then you would just have to open up the file and remove the extra stuff.
-    </div>
+    For example, using the example hash from earlier, if I wanted my output to go to a file called `yay-output.txt`:
 
-    <div class='alert alert-warning'>Also, if you want, you might attempt to
-    <code>echo -n 'thehash' > afile.txt</code> the hash into a file. But beware!
-    The hash contains <code>$</code> signs, which in bash indicate
-    a variable when couched in double-quotes. If you want to echo the hash into
-    a file, use single quotes, and you won't be bitten by bash variable expansion.
-    Be sure to <code>cat</code> the contents of your hashfile after you made it to make sure it looks right.
-    </div>
+        hashcat --force -a 0 -m 9700  -o yay-output.txt '$oldoffice$1*04477077758555626246182730342136*b1b72ff351e41a7c68f6b45c4e938bd6*0d95331895e99f73ef8b6fbc4a78ac1a' /usr/share/wordlists/rockyou.txt
 
+    <div class='alert alert-info'><strong>Why not double-quotes?</strong> The hash includes <code>$</code> characters, which, in <code>bash</code>, when surrounded by double-quotes, are used to reference variables. This is unwanted here. Single-quotes prevents this.</div>
 
-6.  While still in your home directory, run the following command (all on one line).
-    Reference the hash file you just created, and choose an arbitrary name for
-    an output file. Once the password is cracked, you will read your output file
+    Once the password is cracked, read the contents of your output file
     to see the cracked password. It will be appended to the end of the hash
     following a colon (`:`) symbol.
 
-    <div class='alert alert-info'><strong>Note: </strong>In the commands below,
-    the <code>< ></code> notation indicates placeholders, because I do not know
-    what filenames you chose. Replace the placeholders, <strong>including replacing
-    the <code>< ></code> symbols! </strong> -- with the names of the actual files
-    you are using. Remember that you can use tab-completion to help you
-    spell out the filenames.</div>
+    {% include lab_question.html question='What is the password for <code>hashcat.doc</code>?' %}
 
-        hashcat --force -a 0 -m 9700  -o <outputFileName.txt> <HashInputFileName.txt> /usr/share/wordlists/rockyou.txt
+    ---
 
-    Or alternatively, if you prefer to do it without making an input file, put the
-    hash string right in the terminal, surrounded by single quotes (**not double-quotes!**).
-    Type the quotes in yourself -- do not copy-paste them.
-
-        hashcat --force -a 0 -m 9700  -o <outputFileName.txt> '<hash string>' /usr/share/wordlists/rockyou.txt
-
-    Peruse `man hashcat` to get an idea of what the arguments do. In our particular instance,
+    Peruse `man hashcat` to get an idea of what the arguments do. In the above command,
     the switches correspond to the following:
 
     {: .table .table-condensed }
@@ -276,16 +252,21 @@ then run the command, <code>brew install hashcat</code>.</p>
     | `<Hash>` | The saved password hash. |
     | `<Dictionary>` | The list of words that will be used to try and crack the password. |
 
-      {% include lab_question.html question='What is the password for <code>hashcat.doc</code>?' %}
 
 
-7.  Follow the same process as above, but this time for word doc file `john.doc` (available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc), use `wget` as above to obtain it from url `https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc`).
+7.  Follow the same process as above, but this time for word doc file `john.doc` (available [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc):
+
+        wget https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/john.doc
 
     {% include lab_question.html question='What is the password for <code>john.doc</code>?' %}
 
-
-8.  Examine [the hashcat cracking benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40) for a [Brutalis](https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/). The Brutals has 8 graphics cards, each of which
-    can simultaneously work on cracking hashes. The measured speed for each card is shown, along with a cumulative speed at the bottom (`Speed.Dev.#*`). Use the cumulative speed for all Brutalis-related calculations in this lab.
+8.  Examine [the hashcat cracking
+    benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40)
+    for a [Sagitta Brutalis](https://web.archive.org/web/20190312022836/https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/).
+    The Brutals has 8 graphics cards, each of which can simultaneously work on
+    cracking hashes. The measured speed for each card is shown, along with a
+    cumulative speed at the bottom (`Speed.Dev.#*`). Use the cumulative speed
+    for all Brutalis-related calculations in this lab.
 
     Cracking speeds are in the following format:
 
@@ -296,17 +277,19 @@ then run the command, <code>brew install hashcat</code>.</p>
         TH/s	Terahashes per second (Trillions of hashes per second)
         PH/s	Petahashes per second (Quadrillions of hashes per second)    
 
+    Hint: For the next two questions, use `ctrl+f` in your browser on the benchmark report to find answers (e.g., search `9600`).
+
     {% include lab_question.html question='How many passwords per second can Hashcat running on a Brutalis try on a <code>.doc</code> file (i.e., hashtype "MS Office <= 2003 MD5 + RC4, oldoffice$0, oldoffice$1")?' %}
 
     {% include lab_question.html question='How much faster is Hashcat in cracking .doc MS Office documents (option 9700, "Hashtype: MS Office <= 2003 MD5 + RC4, oldoffice$0, oldoffice$1") compared to Office 2013 documents (option 9600, "Hashtype: Office 2013")?' %}
 
 
+    {% include lab_question.html question='How does an offline password attack compare with the online hydra attack you attempted earlier?' %}
+
     **Optional:** Install `hashcat` on your own machine (not the VM). See how your benchmarks compare against a Brutalis. Note that running benchmarks on the VM will break once it reaches `scrypt` before complete results are reported.
 
-		hashcat -b --force
+		    hashcat -b --force
 
-
-    {% include lab_question.html question='How does an offline password attack compare with the online hydra attack you attempted earlier?' %}
 
 
 # Part 7. Cracking LinkedIn Hashes Using Hashcat
@@ -322,8 +305,9 @@ However, in interest of your time, this section will require you to crack only
 500,000 of these passwords. After you complete this lab, you're welcome to crack
 all of the LinkedIn hashes. Ask me for a copy.
 
-1.  Download a copy of the file `LinkedIn_HalfMillionHashes.txt` from [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/LinkedIn_HalfMillionHashes.txt).
-    * Right-click this link, select "copy link", then paste it into Kali after `wget`.
+1.  Download a copy of the file `LinkedIn_HalfMillionHashes.txt` from [here](https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/LinkedIn_HalfMillionHashes.txt):
+
+        wget https://raw.githubusercontent.com/deargle/security-assignments/master/labs/files/LinkedIn_HalfMillionHashes.txt
 
 2.  To get your feet wet, perform a "straight" dictionary attack using the
     `rockyou.txt` wordlist again. This attack will try each entry in the rockyou
@@ -345,14 +329,18 @@ all of the LinkedIn hashes. Ask me for a copy.
 
     <div class='alert alert-danger'>
 
-    <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile. The <code>hashcat.potfile</code> is stored in a hidden direction in the home directory of
-        whomever you run the command as.</p>
+      <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile. The <code>hashcat.potfile</code> is stored in a hidden direction in the home directory of
+          whomever you run the command as.</p>
 
-    <p>To do this, <code>rm ~/.hashcat/hashcat.potfile</code>.</p>
+      <p>To do this, <code>rm ~/.hashcat/hashcat.potfile</code>.</p>
 
-    <p>Don't forget to also start with a fresh 500k hashlist, because the
-    <code>--remove</code> flag would have removed rows from that file as the hashes
-    were cracked and inserted into the potfile.</p>
+      <p>Don't forget to also start with a fresh 500k hashlist, because the
+      <code>--remove</code> flag would have removed rows from that file as the
+      hashes were cracked and inserted into the potfile.</p>
+
+      <p>To do this, first <code>rm LinkedIn_HalfMillionHashes.txt</code>, and
+      then rerun the earlier <code>wget</code> command to fetch the hashlist
+      again.</p>
 
     </div>
 
@@ -376,13 +364,7 @@ all of the LinkedIn hashes. Ask me for a copy.
 
     Rules apply common patterns to password dictionaries to crack even more hashes. You can read about rules in Hashcat here: [https://hashcat.net/wiki/doku.php?id=rule_based_attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack).
 
-    The “best64.rule” is one of the most effective sets of Hashcat rules. It is continually refined using input and testing from the password cracking community. You can view the contents of the best64.rule here:
-
-    [https://github.com/hashcat/hashcat/blob/master/rules/best64.rule](https://hashcat.net/wiki/doku.php?id=rule_based_attack])
-
-    You can read an explanation of these set of rules here:
-
-    [http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html](http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html)
+    The “best64.rule” is one of the most effective sets of Hashcat rules. It is continually refined using input and testing from the password cracking community. You can view the contents of the best64.rule [here](https://hashcat.net/wiki/doku.php?id=rule_based_attack), and an explanation of the rules [here](http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html).
 
     Run the following command once you understand what the `-r` flag does.
 
@@ -439,11 +421,13 @@ Refer again to the [benchmark output for a Brutalis](https://gist.github.com/epi
 
 {% include lab_question.html question='How much slower is Hashcat in cracking Bcrypt hashes compared to SHA1 hashes?' %}
 
+Hint: sites like WolframAlpha will do conversions for you. For example, [see this example query for `70000 million / 150 thousand`](https://www.wolframalpha.com/input/?i=70000+million%2F150+thousand).
+
 Read about the Bcrypt algorithm [here](https://en.wikipedia.org/wiki/Bcrypt#Algorithm), and also [here](https://stackoverflow.com/questions/6832445/how-can-bcrypt-have-built-in-salts)
 
-{% include lab_question.html question='Imagine that Bcrypt is set to a work factor of 12. How many hashing rounds will Bcrypt go through to compute the final hash?' %}
+{% include lab_question.html question='Imagine that Bcrypt is set to a work cost factor of 12. How many hashing rounds will Bcrypt go through to compute the final hash?' %}
 
-{% include lab_question.html question='An attacker knows that a user generated their password using 8 random lowercase letters exclusively (so character space of 26, length of 8). On average, an attacker needs to try only half of all possible passwords in order to brute force the password. The attacker has access to a Brutalis. How long would it take to crack the password hash if SHA1 had been used? Bcrypt with the benchmarks shown for a Brutalis?' %}
+{% include lab_question.html question='An attacker knows that a user generated their password using 8 random lowercase letters exclusively (so character space of 26, length of 8). On average, an attacker needs to try only half of all possible passwords in order to brute force the password. The attacker has access to a Brutalis. How long would it take to crack the password hash if SHA1 had been used? How long with bcrypt using the benchmarks shown for a Brutalis?' %}
 
 
 
