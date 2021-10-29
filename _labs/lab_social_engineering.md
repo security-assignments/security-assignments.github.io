@@ -264,9 +264,8 @@ From the SET main menu:
 
 # Part 3. Social Engineering Toolkit (SET) -- PowerShell Shellcode Injector
 
-<div class='alert alert-danger'><strong>Closed for maintenance!</strong> For unknown reasons, this exploit it not currently working (last tried October 2021). Skip this part.</div>
-
-PowerShell is a powerful scripting language built into the Windows operating system. In this section, you will generate an encoded PowerShell script and
+PowerShell is a powerful scripting language built into the Windows operating
+system. In this section, you will generate an encoded PowerShell script and
 execute it on Windows which opens a Meterpreter session on attacker’s machine.
 
 
@@ -281,18 +280,41 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 
           leafpad x86_powershell_injection.txt
 
+     Examine the script. It is `powershell -W 1 -C "a-command-to-run"`.
 
+     * `-W 1` sets powershell to hide the shell when the command is invoked (to
+       run hidden in the background).
+     * `-C "a-command"` is a command to run via the `powershell` program.
+
+       In this case, the command includes a base64-encoded script that will
+       attempt to open a meterpreter connection back to `192.168.56.101:443`.
+
+7.   Copy the entire script you found on `leafpad` to the clipboard.
      {% include lab-image.html image='powershell-save-payload.png' %}
+8.   On Windows, open a powershell session:
+     * Either search for `powershell` and run "Windows Powershell",
+       {% include lab-image.html image='windows-run-powershell.png' %}
+     * Or search for and run `cmd`, and then run the `powershell` command within there.
 
-7.   Copy the entire script you found on `leafpad` to the clipboard. On Windows, open a command line prompt (search for and run `cmd`).
+     <div class='alert alert-info'>It is important that you open a "powershell"
+     session and not a regular "cmd" one, because this command is longer than
+     the maximum length allowed by "cmd", and would be truncated. But
+     "powershell" does not have the same character limit.</div>
 
-     {% include lab-image.html image='windows-run-cmd.png' %}
+     You will know when you have a powershell session when your prompt begins with "PS", like the following:
 
-     Then, paste (right-click once, and be patient!) the script on the windows command line. Then press `enter`.
+     ```
+     PS C:\Users\Labuser>
+     ```
+
+ 9.  Then, paste the script on the windows command line. To do this, right-click
+     once into the powershell session window (and be patient!). Then press
+     `enter` to run the command.
 
      The command prompt should disappear -- this is part of the payload script.
 
-     Shortly after, you should see an opened Meterpreter session. Congratulations! Get the session id with `sessions` if you don't already
+     Shortly after, you should see an opened Meterpreter session.
+     Congratulations! Get the session id with `sessions` if you don't already
      see it, and then interact with that session with `sessions [id]`
 
      **Optional:** you can save the entire script as a windows batch file (.bat), then trick the user to run that file.
