@@ -20,6 +20,7 @@ Regardless, whenever you use GCP, be sure that you are accessing the platform
 while signed in to the correct Google account. Otherwise, you may be confused
 to not see expected projects or to get "access denied" messages.
 
+
 # Part 1: Sign up for Google Cloud Platform (GCP)
 
 * Visit [https://cloud.google.com](https://cloud.google.com) and click "Get started for free."
@@ -32,15 +33,13 @@ to not see expected projects or to get "access denied" messages.
 * Click "Start my free trial".
 
 
-# Part 2: Join the infosec-management Google Group
+# Part 2: Purchase the lab virtual machine access package
 
-To get access to the Google Cloud Platform virtual machines created for the labs on this site,
-[visit the storefront]({{ site.baseurl }}/store) and follow
-instructions there to purchase access to the "lab virtual machine access package". This will
-give your gcp email address access to certain Kali GCP images used for this class.
-
-<div class='alert alert-warning'><strong>Heads up!</strong> It may take up to
-24 business hours before your request to join the google group is approved.</div>
+To get access to the Google Cloud Platform virtual machines created for the labs
+on this site, [visit the storefront]({{ site.baseurl }}/store) and follow
+instructions there to purchase access to the "lab virtual machine access
+package". This will give your gcp email address access to certain Kali GCP
+images used for this class.
 
 
 # Part 3: Create a new project and launch a new Kali Linux instance

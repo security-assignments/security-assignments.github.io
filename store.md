@@ -22,9 +22,13 @@ This page is the storefront for {{ site.title }}.
 
       <ol>
         <li>Sign up for an account on GCP using an @gmail.com address.*</li>
-        <li>Enter your GCP @gmail.com address on this page, and click "Continue."</li>
-        <li>Submit payment for the <strong>lab virtual machine access package</strong>.</li>
-        <li>Within 24 business hours, you should receive notification to your gcp email address that it has been added to the <a href="https://groups.google.com/g/infosec-management">infosec-management google group</a>, giving you
+        <li>Enter your GCP <strong>@gmail.com</strong> address on this page, and click
+            "Continue."</li>
+        <li>Submit payment for the <strong>lab virtual machine
+          access package</strong>.</li>
+        <li>Within a few minutes, you should receive
+          notification to your gcp email address (not your paypal address) that the gcp address has been added to the
+          <strong>image-user@security-assignments.com</strong> group</a>, giving it
           access to the lab virtual machines.</li>
       </ol>
 
@@ -43,7 +47,7 @@ This page is the storefront for {{ site.title }}.
             class="form-control"
             id="gcp-email"
             placeholder="example@gmail.com"
-            pattern=".+@gmail\.com">
+            pattern=".+@(gmail|example)\.com">
           <small id="emailHelp" class="form-text text-muted">The @gmail.com email address that you will use with GCP.</small>
           <div class="invalid-feedback" aria-live="polite">Please provide a valid @gmail.com email address.</div>
         </div>
@@ -58,12 +62,22 @@ This page is the storefront for {{ site.title }}.
 
 <p>If you need support, contact <a href="mailto:{{ page.support_address }}">{{ page.support_address }}</a></p>
 
+<script type="text/javascript">
+  const support_address = {{ page.support_address }};
+</script>
+
 {% if jekyll.environment == "production" %}
 <!-- live client id  -->
 <script src="https://www.paypal.com/sdk/js?client-id=AUEsnSYbdrbOdYz8pzZU0ude32jv6JSvP1Uf9nNW0PzEbp3-VDXzAOFAoFQdPtkoytkiJ5sUwwZ6xirc&enable-funding=venmo&currency=USD"></script>
+<script type="text/javascript">
+  const PAYPAL_MODE = 'LIVE';
+</script>
 {% else %}
 <!-- sandbox client id  -->
 <script src="https://www.paypal.com/sdk/js?client-id=ATO5KjQC9-FA8iiRDD3Zl2WE4L3paJRaM3_6xX8XKmDvjW-SDVkrSbmgZpr6WoQnBU5oxPtMdzBg9CeL&enable-funding=venmo&currency=USD"></script>
+<script type="text/javascript">
+  const PAYPAL_MODE = 'SANDBOX';
+</script>
 {% endif %}
 
 <!-- Add the checkout buttons, set up the order and approve the order -->
@@ -79,16 +93,19 @@ function initPayPalButton() {
     onInit: function(data, actions){
       $('#loading-text').remove();
     },
+    // https://developer.paypal.com/docs/checkout/reference/server-integration/set-up-transaction/
     createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          description: `Access to security-assignments.com lab virtual machines on GCP for email address ${gcp_email}`,
-          invoice_id: gcp_email,
-          amount: {
-            value: '40.00'
-          }
-        }]
-      });
+      return fetch('https://us-central1-security-assignments-kali.cloudfunctions.net/security-assignments-paypal-order-create', {
+        method: 'post',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({'gcp_email': gcp_email, 'paypal_mode': PAYPAL_MODE})
+      }).then(function(res){
+        return res.json()
+      }).then(function(data){
+        return data.id
+      })
     },
     onApprove: function(data, actions) {
       return actions.order.capture().then(function(orderData) {
@@ -123,7 +140,9 @@ function initPayPalButton() {
           <h3>Error!</h3>
 
           <p>Sorry, an error occurred during payment processing.</p>
+          <p>This can happen if you try to submit a purchase for an email address already on file.</p>
           <p>You tried to submit GCP email address: <strong>${gcp_email}</strong></p>
+          <p>If you need support, send an email to <strong>${support_address}</strong>.</p>
         </div>
       `;
 
