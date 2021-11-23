@@ -163,10 +163,15 @@ To update Metasploitable2, run the following:
 
 Virtual machines in `virt-manager` can be "snapshotted", which lets you restore the virtual machine to a previous state if you mess it up by doing something such as deploying malware to it.
 
+
+### Creating a snapshot
+
 To create a snapshot, **first, shut down the virtual machine**. Then, click the "snapshot" button on the virtual machine pane, then `+`, then set a name, and "Finish."
 
 {% include lab-image.html image='virt-manager-snapshots.PNG' %}
 
+
+### Restoring a snapshot
 
 To restore to a snapshot, select your snapshot, and then "play" it. You do not need to shut down the virtual machine before restoring a snapshot.
 
