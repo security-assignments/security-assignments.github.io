@@ -39,18 +39,17 @@ Do either 2a or 2b, but not both.
 
 Example:
 
-<div markdown='1' style='width:30%'>
-<img src="{{ "/assets/images/lab_5_3.jpg" | relative_url }}" width='100%' alt="lab 5 1">
-</div>
+
+{% include lab-image.html image='lab_5_3.jpg' width="30%" %}
+
 
 
 ## Item 2b: Shoulder-surf to get a legible photo of a screen in use
 
 Example:
 
-<div markdown='1' style='width:30%'>
-<img src="{{ "/assets/images/lab_5_4.jpg" | relative_url }}" width='100%' alt="lab 5 1">
-</div>
+{% include lab-image.html image='lab_5_4.jpg' width="30%" %}
+
 
 
 # Item 3: Go dumpster diving to obtain a photo of sensitive and/or potentially valuable information
@@ -67,10 +66,10 @@ Example:
 
 <div class='row' >
     <div class='col-md-4'>
-        <img class='pull-left' src="{{ "/assets/images/lab_5_5.jpg" | relative_url }}" width='100%' alt="lab 5 1">
+{% include lab-image.html image='lab_5_5.jpg' %}
     </div>
     <div class='col-md-4'>
-        <img class='pull-left' src="{{ "/assets/images/lab_5_6.png" | relative_url }}" width='100%' alt="lab 5 1">
+{% include lab-image.html image='lab_5_6.png' %}
     </div>
 </div>
 
@@ -81,10 +80,10 @@ Example:
 
 <div class='row'>
     <div class='col-md-4'>
-        <img src="{{ "/assets/images/lab_5_10.jpg" | relative_url }}"  width='100%' alt="lab 5 1">
+{% include lab-image.html image='lab_5_10.jpg' %}
     </div>
     <div class='col-md-4'>
-        <img src="{{ "/assets/images/lab_5_11.jpg" | relative_url }}"  width='100%' alt="lab 5 1">
+{% include lab-image.html image='lab_5_11.jpg' %}
     </div>
 </div>
 
@@ -97,13 +96,13 @@ Example:
 
 <div class='row'>
     <div class='col-md-4'>
-        <img src="{{ "/assets/images/lab_5_7.jpg" | relative_url }}"  width='100%' alt="lab 5 1">
+{% include lab-image.html image='lab_5_7.jpg' %}  
     </div>
     <div class='col-md-4'>
-        <img src="{{ "/assets/images/lab_5_8.jpg" | relative_url }}" width='100%' alt="lab 5 1">
+{% include lab-image.html image='lab_5_8.jpg' %}
     </div>
     <div class='col-md-4'>
-        <img src="{{ "/assets/images/lab_5_9.jpg" | relative_url }}" width='100%' alt="lab 5 1">
+{% include lab-image.html image='lab_5_11.jpg' %}
     </div>
 </div>
 
@@ -139,9 +138,9 @@ and www.oxid.it is the official site to obtain the file from. But you can use Ca
 
 </div>
 
-<div markdown='1' style='width:30%'>
-<img src="{{ "/assets/images/lab_5_1.jpg" | relative_url }}" width='100%' alt="lab 5 1">
-</div>
+
+{% include lab-image.html image='lab_5_1.jpg' width="30%" %}
+
 
 Obtain the password hashes from an unattended public computer. In Windows 7/10, the password hashes are contained in two files (you’ll need both):
 
@@ -161,9 +160,7 @@ Include a screen shot of the hashes below to prove that you’ve done it.
 
 Example:
 
-<div markdown='1' style='width:30%'>
-<img src="{{ "/assets/images/lab_5_2.jpg" | relative_url }}" width='100%' alt="lab 5 1">
-</div>
+{% include lab-image.html image='lab_5_2.jpg' width="30%" %}
 
 
 # Item 11: Boot a Macintosh or Linux computer in single user mode and dump the hash
