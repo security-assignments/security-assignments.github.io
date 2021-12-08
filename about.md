@@ -38,7 +38,8 @@ platform usage costs over the semester.
 This environment consists of a Kali Linux virtual machine (VM) for each student.
 This Kali VM uses nested virtualization to host several VMs within itself:
 
-![included-vms](/assets/images/included-vms.png)
+
+![included-vms](/assets/images/included-vms.png){: max-width="300px"}
 
 The advantage of this approach are that:
 
@@ -61,7 +62,7 @@ If you would like to learn more about either using the labs or virtual machine
 environment for a class you teach, see [this guide]({% link instructor-adoption.md %}),
 or contact <support@security-assignments.com>.
 
-
+<hr/>
 
 ## Fine Print
 
