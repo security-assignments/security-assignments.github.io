@@ -60,7 +60,7 @@ that prepares students to complete this project.
 
 The pentest preparation lab sequence is as follows:
 
-{% assign pentest_prep_labs = site.labs | where: "is_pentest_prep", true %}
+{% assign pentest_prep_labs = site.labs | where: "is_pentest_prep", true | sort: "number" %}
 
 <ol>
 {% for lab in pentest_prep_labs %}
