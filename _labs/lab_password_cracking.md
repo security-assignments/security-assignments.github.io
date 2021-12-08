@@ -6,6 +6,7 @@ vms:
     - Kali
 description: hydra, hashcat, rockyou, hashcat rules, cewl wordlists
 published: true
+is_pentest_prep: true
 ---
 
 # Part 1: Test Password Security
