@@ -8,8 +8,4 @@ comment: Award-winning journalist Julia Angwin reports from the front lines of
     look at how the government, private companies, and even criminals
     use technology to indiscriminately sweep up vast amounts of our
     personal data.
-links:
-    -
-        type: Amazon
-        link: https://amzn.com/0805098070
 ---

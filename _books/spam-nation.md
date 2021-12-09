@@ -10,8 +10,4 @@ comment: In _Spam Nation_, investigative journalist Brian Krebs unmasks the
      largest spam pharmacies-and countless viruses, phishing, and
      spyware attacks-he delivers the first definitive narrative of the global
      spam problem and its threat to consumers everywhere.
-links:
-    -
-        type: Amazon
-        link: https://amzn.com/0805098070
 ---

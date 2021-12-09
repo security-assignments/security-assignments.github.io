@@ -148,7 +148,7 @@ Obtain the password hashes from an unattended public computer. In Windows 7/10, 
 
 `C:\Windows\system32\config\system`
 
-Since these files are protected by the operating system, [boot from a Live CD/USB Linux distribution, such as Kali](https://docs.kali.org/downloading/kali-linux-live-usb-install). From within Kali, copy the SAM and system files to a USB stick.
+Since these files are protected by the operating system, create a Kali bootable USB drive (via [Windows](https://www.kali.org/docs/usb/live-usb-install-with-windows/), [OS X](https://www.kali.org/docs/usb/live-usb-install-with-mac/)). From within Kali, copy the SAM and system files to a USB stick.
 
 Password hashes can be dumped from the SAM file using a number of tools. For this lab, use Cain.
 
