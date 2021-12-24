@@ -1,5 +1,6 @@
 ---
 title: In-class Activities
+layout: page
 ---
 
 {% assign activities = site.activities %}

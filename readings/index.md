@@ -1,7 +1,7 @@
 ---
-title: Information Security Management | Readings
+title: Readings
 regenerate: true
-layout: assignment
+layout: page
 ---
 
 <h2>Topics</h2>

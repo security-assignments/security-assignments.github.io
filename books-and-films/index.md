@@ -4,9 +4,8 @@ layout: page
 id: security-readings-and-films-list
 redirect_from: /security-reading-and-film-list/
 include_toc: true
+description: A list of recommended security-related books and films.
 ---
-
-A list of recommended security-related books and films.
 
 # Security Films
 

@@ -1,21 +1,55 @@
 ---
+wide_layout: true
+links:
+  - name: Labs
+    url: '/labs/'
+  - name: Tutorials
+    url: '/tutorials/'
+  - name: Book and Film List
+    url: '/security-reading-and-film-list/'
+  - name: Reading Topics
+    url: '/readings/'
+  - name: In-class Activities
+    url: '/activities/'
+  - name: Projects
+    url: '/projects'
+  - name: Store
+    url: '/store/'
 ---
-# Security-Assignments.com
 
-Content for an Information Security Management course.
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Security-Assignments.com</h1>
+    <p class="lead text-muted mb-0">Content for an information security management course.</p>
+    <p class="text-muted"><em>By Drs. <a href='https://daveeargle.com'>Dave Eargle</a> and <a href='https://anthonyvance.com/'>Anthony Vance</a></em></p>
+    <p>
+      <a class='btn btn-primary' href="{% link about.md %}">Learn more</a>
+      <span class="px-1">·</span>
+      <a href="{% link instructor-adoption.md %}">Adoption guide</a>
+    </p>
 
-{% include attribution.html %}
+  </div>
+</section>
 
-## [Labs]( {{ '/labs/' | relative_url }} )
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      {% for link in page.links %}
+      <div class="col-sm-6">
 
-## [Tutorials]( {{ '/tutorials/' | relative_url }} )
 
-## [Book and Film Lists]( {{ '/security-reading-and-film-list/' | relative_url }})
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title mb-0">{{ link.name }}</h5>
+            {% if link.description %}<p class="card-text">{{ link.description }}</p>{% endif %}
+            <a href="{{ link.url }}" class="stretched-link"></a>
+          </div>
+        </div>
 
-## [Reading Topics]( {{ '/readings/' | relative_url }})
 
-## [In-class Activities]({{ '/activities/' | relative_url }})
+      </div>
+      {% endfor %}
+    </div>
 
-## [Projects]({{ '/projects/' | relative_url }})
-
-## [Store]( {{ site.baseurl }}{% link store.md %})
+  </div>
+</div>

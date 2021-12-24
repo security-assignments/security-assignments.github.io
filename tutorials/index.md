@@ -1,8 +1,7 @@
 ---
 title: Tutorials
+layout: page
 ---
-
-# {{ page.title }}
 
 {% assign tutorials = site.tutorials | sort: 'number' %}
 {% for tutorial in tutorials %}
