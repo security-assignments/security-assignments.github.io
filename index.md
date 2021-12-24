@@ -19,7 +19,7 @@ links:
 
 <section class="jumbotron text-center">
   <div class="container">
-    <h1 class="jumbotron-heading">Security-Assignments.com</h1>
+    <h1 class="title jumbotron-heading">Security-Assignments.com</h1>
     <p class="lead text-muted mb-0">Content for an information security management course.</p>
     <p class="text-muted"><em>By Drs. <a href='https://daveeargle.com'>Dave Eargle</a> and <a href='https://anthonyvance.com/'>Anthony Vance</a></em></p>
     <p>
@@ -31,13 +31,11 @@ links:
   </div>
 </section>
 
-<div class="py-5">
+<div class="">
   <div class="container">
     <div class="row">
       {% for link in page.links %}
       <div class="col-sm-6">
-
-
         <div class="card mb-4 shadow-sm">
           <div class="card-body">
             <h5 class="card-title mb-0">{{ link.name }}</h5>
