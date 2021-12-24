@@ -38,6 +38,8 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-github-metadata
+  - jekyll-seo-tag
 
 nav_pages:
   - labs/index.md
