@@ -4,11 +4,7 @@ layout: page
 permalink: '/store/'
 send_to_address: 'access-request@security-assignments.com'
 support_address: 'support@security-assignments.com'
----
-
-
-This page is the storefront for {{ site.title }}.
-
+description: This page is the storefront for security-assignments.com.
 ---
 
 
@@ -63,7 +59,7 @@ This page is the storefront for {{ site.title }}.
 <p>If you need support, contact <a href="mailto:{{ page.support_address }}">{{ page.support_address }}</a></p>
 
 <script type="text/javascript">
-  const support_address = {{ page.support_address }};
+  const support_address = "{{ page.support_address }}";
 </script>
 
 {% if jekyll.environment == "production" %}
@@ -80,6 +76,8 @@ This page is the storefront for {{ site.title }}.
 </script>
 {% endif %}
 
+
+
 <!-- Add the checkout buttons, set up the order and approve the order -->
 <script>
 
@@ -91,7 +89,7 @@ function initPayPalButton() {
 
   paypal.Buttons({
     onInit: function(data, actions){
-      $('#loading-text').remove();
+      document.getElementById('loading-text').remove();
     },
     // https://developer.paypal.com/docs/checkout/reference/server-integration/set-up-transaction/
     createOrder: function(data, actions) {
