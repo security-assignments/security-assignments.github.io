@@ -68,18 +68,18 @@ include_toc: true
 
 ## Epilogue
 
-*	One of the hackers, then 17-year-old teenager Graham Ivan Clark, was sentenced to three years in prison and three years parole, lower sentencing limits for a “youthful defender”.
-
-  <https://www.tampabay.com/news/crime/2021/03/16/tampa-twitter-hacker-agrees-to-three-years-in-prison-in-plea-deal/>
-
+*	One of the hackers, then 17-year-old teenager Graham Ivan Clark, was [sentenced to three years in prison and three years parole](https://www.tampabay.com/news/crime/2021/03/16/tampa-twitter-hacker-agrees-to-three-years-in-prison-in-plea-deal/), lower sentencing limits for a “youthful defender”.
+* On July 21, 2021, Joseph O’Connor (aka PlugWalkJoe) 22 [was arrested in Spain in connection with the attack](https://www.nytimes.com/2021/07/21/technology/twitter-tiktok-snapchat-hacks.html).
+* [Two other individuals were charged on July 31, 2020](https://www.wired.com/story/how-alleged-twitter-hackers-got-caught-bitcoin/): Mason Sheppard (aka “Chaewon”) 19, of Bognor Regis, United Kingdom; and Nima Fazeli (aka “Rolex”) 22, of Orlando, Florida.
+  
 ## Learn more
 
+* [New York Times documentary](https://www.nytimes.com/video/NYT-Presents/100000007692848/the-teenager-who-hacked-twitter.html) about how the Twitter hack occurred (highly recommended).
 *	<https://www.dfs.ny.gov/Twitter_Report>
 *	<https://www.nytimes.com/2020/07/15/technology/twitter-hack-bill-gates-elon-musk.html>
 *	Total amount of bitcoin transferred to this address: <https://www.blockchain.com/btc/address/bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh>
 *	Hulu/NY Times documentary about the Twitter hack: <https://www.hulu.com/series/the-new-york-times-presents-f22278d1-ef56-40e8-9227-af3a029ca6f4>
 *	A fourth suspect, a Massachusetts 16-year-old “appears to have played an equal, if not more significant, role” in the attack: <https://www.nytimes.com/2020/09/01/technology/twitter-hack.html>
-
 
 [1]: https://www.dfs.ny.gov/Twitter_Report "Twitter Report, accessed 10/27/2020"
 [2]: https://arstechnica.com/tech-policy/2020/07/florida-teen-arrested-charged-with-being-mastermind-of-twitter-hack/
