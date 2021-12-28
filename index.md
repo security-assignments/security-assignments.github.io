@@ -23,9 +23,9 @@ links:
     <p class="lead text-muted mb-0">Content for an information security management course.</p>
     <p class="text-muted"><em>By Drs. <a href='https://daveeargle.com'>Dave Eargle</a> and <a href='https://anthonyvance.com/'>Anthony Vance</a></em></p>
     <p>
-      <a class='btn btn-primary' href="{% link about.md %}">Learn more</a>
+      <a class='btn btn-primary' href="{{ site.baseurl }}{% link about.md %}">Learn more</a>
       <span class="px-1">·</span>
-      <a href="{% link instructor-adoption.md %}">Adoption guide</a>
+      <a href="{{ site.baseurl }}{% link instructor-adoption.md %}">Adoption guide</a>
     </p>
 
   </div>
@@ -40,7 +40,7 @@ links:
           <div class="card-body">
             <h5 class="card-title mb-0">{{ link.name }}</h5>
             {% if link.description %}<p class="card-text">{{ link.description }}</p>{% endif %}
-            <a href="{{ link.url }}" class="stretched-link"></a>
+            <a href="{{ link.url | relative_url }}" class="stretched-link"></a>
           </div>
         </div>
 
