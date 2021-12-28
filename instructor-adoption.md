@@ -4,11 +4,11 @@ layout: page
 include_toc: true
 ---
 
-{% capture github_issues_url %}https://github.com/{{ site.repository}}/issues{% endcapture %}
+{% capture github_issues_url %}https://github.com/{{ site.repository }}/issues{% endcapture %}
 
 <p class='lead'>This guide is written for instructors considering adopting content on this site into their courses.</p>
 
-See the [about]({% link about.md %}) page for an overall description of the use-case of
+See the [about]({{ site.baseurl }}{% link about.md %}) page for an overall description of the use-case of
 content on this website.
 
 
@@ -29,7 +29,7 @@ Not all of the labs use Kali. The labs that _do_ use Kali are following:
 
 <ul>
 {% for lab in kali_labs %}
-<li><a href="{{ lab.url }}">{{ lab.title }}</a></li>
+<li><a href="{{ lab.url | relative_url }}">{{ lab.title }}</a></li>
 {% endfor %}
 </ul>
 
@@ -38,7 +38,7 @@ The labs that _do not_ use Kali are the following:
 
 <ul>
 {% for lab in nokali_labs %}
-<li><a href="{{ lab.url }}">{{ lab.title }}</a></li>
+<li><a href="{{ lab.url | relative_url }}">{{ lab.title }}</a></li>
 {% endfor %}
 </ul>
 
@@ -47,15 +47,15 @@ The labs that _do not_ use Kali are the following:
 
 If instructors assign students any of the labs that use Kali, students will need to purchase
 access to the Kali-on-GCP package. Assign the
-[Intro to GCP]({% link _tutorials/intro-to-gcp.md %}) tutorial to get students started on GCP.
+[Intro to GCP]({{ site.baseurl }}{% link _tutorials/intro-to-gcp.md %}) tutorial to get students started on GCP.
 
-Instructors may also want to assign the [Intro to Linux]({% link _tutorials/intro-to-linux.md %}) tutorial.
+Instructors may also want to assign the [Intro to Linux]({{ site.baseurl }}{% link _tutorials/intro-to-linux.md %}) tutorial.
 
 
 ## Sequencing labs for the pentest assignment
 
 There is a penetration test assignment that is intended as a major project
-(found [here]({% link _projects/pen-test.md %})). There is a sequence of labs
+(found [here]({{ site.baseurl }}{% link _projects/pen-test.md %})). There is a sequence of labs
 that prepares students to complete this project.
 
 The pentest preparation lab sequence is as follows:
@@ -64,7 +64,7 @@ The pentest preparation lab sequence is as follows:
 
 <ol>
 {% for lab in pentest_prep_labs %}
-<li><a href='{{ lab.url }}'>{{ lab.title }}</a></li>
+<li><a href='{{ lab.url | relative_url }}'>{{ lab.title }}</a></li>
 {% endfor %}
 </ol>
 
@@ -79,7 +79,7 @@ Instructors can also submit bug reports.
 To submit lab change requests, or to report bugs, instructors should submit an "issue" on the
 [the github repo for this site]({{ github_issues_url }}).
 
-For an example Service Level Agreement, see [here]({% link sla.md %}).
+For an example Service Level Agreement, see [here]({{ site.baseurl }}{% link sla.md %}).
 
 Please contact us at <support@security-assignments.com> to arrange your own SLA.
 Instructors are provided with free access to Kali-on-GCP.

@@ -31,7 +31,7 @@ environment.
 Second, we created a virtual machine hosting environment on Google Cloud
 Platform (GCP) for students to safely use security tools associated with the
 labs. We charge a nominal one-time fee per student, payable by students via
-[an online storefront]({% link store.md %}), for them to use the virtual environment
+[an online storefront]({{ site.baseurl }}{% link store.md %}), for them to use the virtual environment
 for the academic year. Students can use GCP's free trial credits to cover all
 platform usage costs over the semester.
 
@@ -39,7 +39,7 @@ This environment consists of a Kali Linux virtual machine (VM) for each student.
 This Kali VM uses nested virtualization to host several VMs within itself:
 
 
-![included-vms](/assets/images/included-vms.png){: max-width="300px"}
+![included-vms]({{ '/assets/images/included-vms.png' | relative_url }}){: max-width="300px"}
 
 The advantage of this approach are that:
 
@@ -59,7 +59,7 @@ This virtual machine setup is used at Virginia Tech, Temple University, and the
 University of Colorado-Boulder.
 
 If you would like to learn more about either using the labs or virtual machine
-environment for a class you teach, see [this guide]({% link instructor-adoption.md %}),
+environment for a class you teach, see [this guide]({{ site.baseurl }}{% link instructor-adoption.md %}),
 or contact <support@security-assignments.com>.
 
 <hr/>
