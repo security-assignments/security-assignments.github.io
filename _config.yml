@@ -14,18 +14,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Security-Assignments.com
-email: dave@daveeargle.com
+email: sales@security-assignments.com
 description: >- # this means to ignore newlines until "baseurl:"
   Security labs for a university course, "Information Security Management."
   Authors Dave Eargle and Anthony Vance
 #baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://security-assignments.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: deargle
-github_username:  deargle
 repository: 'security-assignments/security-assignments.github.io'
-
-instructorcollab_username: deargle
-instructorcollab_domain: colorado.edu
 
 remote_theme: deargle/security-assignments-theme
 #theme: security-assignments-theme
