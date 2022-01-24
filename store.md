@@ -23,8 +23,8 @@ description: This page is the storefront for security-assignments.com.
         <li>Submit payment for the <strong>lab virtual machine
           access package</strong>.</li>
         <li>Within a few minutes, you should receive
-          notification to your gcp email address (not your paypal address) that the gcp address has been added to the
-          <strong>image-user@security-assignments.com</strong> group</a>, giving it
+          notification to your gcp email address (not your paypal email address) that the gcp email address has been added to the
+          <strong>image-user@security-assignments.com</strong> group, giving it
           access to the lab virtual machines.</li>
       </ol>
 
