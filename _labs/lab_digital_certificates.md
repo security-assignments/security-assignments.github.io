@@ -3,6 +3,8 @@ title: "Lab: Digital Certificates and Trust"
 number: 4
 description: Understanding digital certificates and their drawbacks
 published: true
+vms:
+  - Kali
 ---
 
 # Part 1: Understanding Digital Certificates
