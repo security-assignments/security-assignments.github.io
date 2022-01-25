@@ -1,5 +1,5 @@
 ---
-title: "Case -- Uber 2018 Breach"
+title: "Case—Uber 2018 Breach"
 description:
 include_toc: true
 ---

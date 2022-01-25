@@ -72,7 +72,7 @@ include_toc: true
 * On July 21, 2021, 22-year-old Joseph O’Connor (aka PlugWalkJoe) [was arrested in Spain in connection with the attack](https://www.nytimes.com/2021/07/21/technology/twitter-tiktok-snapchat-hacks.html).
 * [Two other individuals were charged on July 31, 2020](https://www.wired.com/story/how-alleged-twitter-hackers-got-caught-bitcoin/): Mason Sheppard (aka “Chaewon”, age 19), of Bognor Regis, United Kingdom; and Nima Fazeli (aka “Rolex”, age 22), of Orlando, Florida.
 * A fifth suspect, a Massachusetts 16-year-old “appears to have played an equal, if not more significant, role” in the attack: <https://www.nytimes.com/2020/09/01/technology/twitter-hack.html>
-  
+
 ## Learn more
 
 * New York Times documentary about how the Twitter hack occurred (highly recommended):
