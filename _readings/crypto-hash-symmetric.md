@@ -7,6 +7,6 @@ topic: 'Cryptography – Hashes & Symmetric'
 
 Supplemental:
 * [Creating the ECB Penguin](https://blog.filippo.io/the-ecb-penguin/)
-* [Demystifying Web Authentication (Stateless Session Cookies) | Information Security Stack Exchange](https://security.stackexchange.com/a/30714)
-* [Does “Shattered” actually show SHA-1-signed certificates are “unsafe”? | Cryptography Stack Exchange](https://crypto.stackexchange.com/a/60655)
+* [Demystifying Web Authentication (Stateless Session Cookies) \| Information Security Stack Exchange](https://security.stackexchange.com/a/30714)
+* [Does “Shattered” actually show SHA-1-signed certificates are “unsafe”? \| Cryptography Stack Exchange](https://crypto.stackexchange.com/a/60655)
   - Includes timeline of laggard response to moving away from MD5
