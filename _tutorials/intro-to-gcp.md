@@ -11,19 +11,34 @@ include_toc: true
 In this tutorial, you will use a Google account to sign up for Google Cloud Platform (GCP). You will also join a Google Group with this account, which will give you
 access to certain GCP resources.
 
-Choose a Google account you will use. You have several options:
+Choose an `@gmail.com` Google account you will use. **Important:** It must be an `@gmail.com` Google account.
+
+You have several options:
 * You can use a personal Google account that you already have
-* You can create a new personal Google account by signing up for one [here](https://accounts.google.com/SignUp)
-* If you have a non-`@gmail.com` google account (perhaps through your university), it won't work for GCP unless the domain admin has enabled creation of GCP resources by your account. **For example, `@temple.edu` GCP accounts will not be able to create projects on GCP.** If this is the case, use a personal Google account.
+* You can create a new personal Google account by signing up for one
+  [here](https://accounts.google.com/SignUp)
+* If you have a non-`@gmail.com` google account (perhaps through your
+  university), it won't work for GCP unless the domain admin has enabled
+  creation of GCP resources by your account. **For example, `@temple.edu` GCP
+  accounts will not be able to create projects on GCP.** If this is the case,
+  use a personal Google account.
 
 Regardless, whenever you use GCP, be sure that you are accessing the platform
 while signed in to the correct Google account. Otherwise, you may be confused
 to not see expected projects or to get "access denied" messages.
 
+<div class='alert alert-info'><strong>Tip:</strong> You can use a browser
+incognito window to make sure you are signed in to the correct google account.
+In this window, sign in <em>only</em> to the google account you want to use with
+GCP.</div>
+
 
 # Part 1: Sign up for Google Cloud Platform (GCP)
 
-* Visit [https://cloud.google.com](https://cloud.google.com) and click "Get started for free."
+**Important:** Do the following while signed in to the Google account that you
+want to use with GCP.
+
+* Visit <https://cloud.google.com> and click "Get started for free."
 * Make sure you are signed in to Google with the account you want to use with GCP.
 * Step 1 of 2: Agree to the terms of service.
 * Step 2 of 2: Choose "Account type" > "Individual". Complete the sign-up form. Provide a credit card.
@@ -46,7 +61,8 @@ images used for this class.
 
 Once you have purchased access and your gcp email address has been added to the infosec-management google group, do the following:
 
-* First, create a new "project" which will house all of the material for this class.
+* Return to <https://console.cloud.google.com>
+* Then, create a new "project" which will house all of the material for this class.
   1. Click "create project"
      {% include lab-image.html image='gcp-create-project.png' %}
   2. Choose a name for your project, and for the "Location," choose "No Organization".
@@ -225,8 +241,4 @@ Using the Kali VM for the steps below shows both that you got your Kali VM up an
 
 For example:
 
-{% if site.instructorcollab_domain == 'colorado.edu' %}
-{% include lab-image.html image='gcp-kali-chrome-remote-proof.png' %}
-{% elsif site.instructorcollab_domain == 'temple.edu' %}
 {% include lab-image.html image='gcp-kali-chrome-remote-proof-tv.png' %}
-{% endif %}
