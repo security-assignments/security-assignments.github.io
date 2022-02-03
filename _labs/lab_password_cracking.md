@@ -114,11 +114,19 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
     wanted to crack the password for this route. Imagine that you knew, or guessed,
     that one of the usernames was `istheory`.
 
-    Open a terminal in your Kali VM. Read the explanation below for each command
-    argument. Then, type the following, all on one line (remember that you can
-    use tab-completion for the rockyou path):
+    First, install a missing package that `hydra` needs:
 
-        hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt https-get://is.theorizeit.org/auth/
+    ```bash
+    apt update && apt install -y libmongocrypt-dev
+    ```
+
+    Then, type the following, all on one line (remember that you can
+    use tab-completion for the rockyou path). Run the command after you read the
+    explanatory text below the command on this page.
+
+    ```bash
+    hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt https-get://is.theorizeit.org/auth/
+    ```
 
     **Note:** The trailing slash (`/`) in the final argument is needed.
 
