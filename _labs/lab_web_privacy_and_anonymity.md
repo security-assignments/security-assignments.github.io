@@ -223,8 +223,9 @@ In this section, you will use the **Tor Browser**.
 The **Tor Browser** can be used from your own computer, or it can be used from
 the Kali-on-GCP instance.
 
-1.  Install Tor if necessary: available for Linux, Mac, and Windows [here](https://www.torproject.org/download/download-easy.html).
+1.  Install Tor if necessary: available for Linux, Mac, and Windows [here](https://www.torproject.org/download/).
 
+    To install Tor on Kali, read [this guide]({{ site.baseurl }}{% link _tutorials/kali-install-tor.md %}).
     <div class='alert alert-info'><strong>Note:</strong> You might not be able
     to download or use Tor Browser on your university's campus network unless
     you use a VPN service. If this is your case, then you can use the Tor
