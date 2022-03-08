@@ -341,7 +341,7 @@ all of the LinkedIn hashes. Ask me for a copy.
       <p>If you accidentally delete your cracked outfile, you will need to delete your hashcat "potfile" too before you try to recreate the outfile. You have to do this because otherwise, hashcat won't write any already-cracked hashes found in the potfile to the outfile. The <code>hashcat.potfile</code> is stored in a hidden direction in the home directory of
           whomever you run the command as.</p>
 
-      <p>To do this, <code>rm ~/.hashcat/hashcat.potfile</code>.</p>
+      <p>To do this, <code>rm ~/.local/share/hashcat/hashcat.potfile</code>.</p>
 
       <p>Don't forget to also start with a fresh 500k hashlist, because the
       <code>--remove</code> flag would have removed rows from that file as the
