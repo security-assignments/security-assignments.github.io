@@ -1,0 +1,11 @@
+{% if page.vms %}
+<div class='alert alert-info'>
+This lab uses the following <a href="{{ site.baseurl }}{% link labs/virtual-machines.md %}#infosec-net-network-map">VMs:</a>
+<ul>
+{% for vm in page.vms %}
+    <li>{{ vm }}</li>
+{% endfor %}
+</ul>
+See <a href='{{ site.baseurl }}{% link labs/virtual-machines.md %}#infosec-net-network-map'>this page</a> for notes on the virtual machines (usage, ip addresses, passwords, etc).
+</div>
+{% endif %}
