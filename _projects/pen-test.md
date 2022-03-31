@@ -153,7 +153,6 @@ information security.
 Your report will be graded using the following rubric:
 
 {: .table }
-{% if site.instructorcollab_username == 'deargle' %}
 | Criteria | Points |
 | --- | ---: |
 | Section E. One page executive summary that highlights the most important findings of your report. | 5  |
@@ -166,23 +165,13 @@ Your report will be graded using the following rubric:
 | Cross-references throughout | 2 |
 | Clarity of writing for a managerial audience. | 5 |
 | **Total** |  **105** |
-{% endif %}
-{% if site.instructorcollab_username == 'aov' %}
-| Criteria | Points |
-| --- | ---: |
-| Section E. One page executive summary that highlights the most important findings of your report. | 5  |
-| Section 1. Description of the scope of the project, objectives, and your authorization to perform the assessment. | 5  |
-| Section 2. Information about the server examined (OS, user accounts, applications installed, databases stored). | 5  |
-| Section 3. High-level description of vulnerabilities successfully exploited and sensitive data obtained.| 35 |
-| Section 4. Supporting details of successful exploits and sensitive data obtained. The detail should be sufficient for another person to replicate the results of your main findings using your report. | 40 |
-| Glossary | 3 |
-| Cross-references throughout | 2 |
-| Clarity of writing for a managerial audience. | 5 |
-| **Total** |  **100** |
-{% endif %}
+
+# Report Template
 
 Starting from [this report template]({{ site.baseurl }}{% link projects/pen-test-report-template.md %}),
 create your report.
+
+<a href='{{ site.baseurl }}{% link projects/pen-test-report-template.md %}' class='btn btn-primary'>Go to the Report Template</a>
 
 # Getting help
 
