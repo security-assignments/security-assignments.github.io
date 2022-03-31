@@ -89,7 +89,7 @@ defaults:
             path: ""
             type: "labs"
         values:
-            layout: assignment
+            layout: lab-assignment
             include_toc: true
     -
         scope:
