@@ -230,15 +230,20 @@ asked.”
 
 
 
-1.  Navigate to the `/data` directory, where `case.pcap` is found (available
-    [here](https://github.com/deargle/lab-security-onion/blob/master/case.pcap)
-    if you don't already have it). Run the following command.
+1.  Navigate to the `/data` directory, and download `case.pcap` using the following
+    command:
 
-        sudo tcpreplay -i eth1 -M 10.0 case.pcap
+    ```console
+    /data$ sudo wget -O case.pcap https://github.com/deargle/lab-security-onion/raw/master/case.pcap
+    ```
 
-    This command replays network traffic stored in the `case.pcap` file onto
+    Then, run the following command to replay network traffic stored in the `case.pcap` file onto
     security onion's network card, as if the network activity were happening
     again, live.
+
+    ```console
+    /data$ sudo tcpreplay -i eth1 -M 10.0 case.pcap
+    ```
 
     You should see the following at the end of your output (ignore the error
     messages for the 20 failed packets):
@@ -616,18 +621,20 @@ coveting, Alex clicks on the link. Claire is ready to strike…
 
 <div class='alert alert-danger'><strong>Intentional lack of specific steps ahead!</strong> Apply skills covered in Part 2 to solve this case.</div>
 
-<div class='alert alert-info'>
-    If you are using the class VM, the packet capture evidence file (the <code>.pcap</code> file) is downloaded to your VM and available at
-    <code>/data/evidence.pcap</code>
-</div>
+1.  Download the packet capture evidence file, `evidence.pcap`, into the `/data` folder:
 
+    ```console
+    /data$ sudo wget -O evidence.pcap https://github.com/deargle/lab-security-onion/raw/master/evidence.pcap
+    ```
+
+    You can use `evidence.pcap` file as you did `case.pcap`, including tcp-replaying it and opening it in Wireshark.
 
 1.  Find the full URL of Alex Stephens' original web request, including the port.
 
     {% include lab_question.html question="What was the full URI of Alex Stephens' original web request? (Please include the port in your URI.)" %}
 
     **Hint:** Squert will not help you in this part of the case -- instead, load
-    the evidence.pcap file into Wireshark and look for `http` traffic.
+    the `evidence.pcap` file into Wireshark and look for `http` traffic.
 
     The reason why the Squert alerts will not help to find the original HTTP
     request will be more clear in Step 4.
