@@ -11,10 +11,9 @@ published: true
 
 <div class='alert alert-info'>
 <p>If, when you try to start the <code>lab-security-onion</code> virtual machine within
-<code>virt-manager</code>, you get an error message saying <code>"Error starting the domain: Requested operation
-is not valid: network 'vagrant-libvirt' is not active"</code>, then run the following command from a kali
-terminal as root, which will start the network as
-part of launching the vm.</p>
+<code>virt-manager</code>, you get an error message saying:</p>
+<blockquote>"Error starting the domain: Requested operation is not valid: network 'vagrant-libvirt' is not active"</blockquote>
+<p>...then run the following command from a kali terminal as root, which will start the network as part of launching the vm.</p>
 <p><code>cd /root/vagrant-boxes/lab-security-onion && vagrant up</code></p>
 </div>
 
@@ -56,11 +55,12 @@ and is used here with their permission. This data covers selected hours on selec
 
 3.  First, you should run the following commands in your terminal for the start and end dates to filter on:
 
-        export sd="--start-date=2004/10/04:20"
+    ```bash
+    export sd="--start-date=2004/10/04:20"
+    export sd="$sd --end-date=2005/01/08:05"
+    ```
 
-        export sd="$sd --end-date=2005/01/08:05"
-
-    These commands just set a convenience variabl called `$sd` that let you not have to type out the `--start-date` and `--end-date` flags for each of the following commands. You can view it by running `echo $sd`.
+    These commands just set a convenience variable called `$sd` that let you not have to type out the `--start-date` and `--end-date` flags for each of the following commands. You can view it by running `echo $sd`.
 
 
     <div class='alert alert-danger'>
@@ -85,7 +85,7 @@ and is used here with their permission. This data covers selected hours on selec
         | rwstats --percentage=1 --fields=sip,dip --bytes
     ```
 
-    <div class='alert alert-info'></div>The backslash <code>\</code> character lets a single command span multiple lines.</div>
+    <div class='alert alert-info'>The backslash "<code>\</code>" character lets a single command span multiple lines.</div>
 
 
 
@@ -162,7 +162,7 @@ and is used here with their permission. This data covers selected hours on selec
     what hosts is this box SSH\'ing to the most often?' %}
 
 
-11. Query for long standing SSH traffic:
+11. Query for long-standing SSH traffic:
 
     ```bash
     rwfilter --data-rootdir=/data/SiLK-LBNL-05 \
@@ -173,7 +173,7 @@ and is used here with their permission. This data covers selected hours on selec
 
     Note:
     * `rwcut` converts the binary output of `rwfilter` into human-readable text. Per [the `rwcut` manpage](https://
-      tools.netsa.cert.org/silk/rwcut.html), "rwcut reads binary SiLK Flow records and prints the user-selected record attributes (or fields) to the terminal in a textual, bar-delimited (|) format."
+      tools.netsa.cert.org/silk/rwcut.html), "rwcut reads binary SiLK Flow records and prints the user-selected record attributes (or fields) to the terminal in a textual, bar-delimited (`|`) format."
     * In this example, `--duration=1700-` and `--dport=22` filters to only records with an ssh connection time of at least
       1700 seconds (almost 30 minutes).
     * `rwsort` sorts the records by the "duration" field.
@@ -493,22 +493,17 @@ asked.”
 
 
     <div class='alert alert-info'><strong>What could you do with this information?</strong>
-
         <ul>
-            <li>You could be proactive and contact the website to alert them to their likely compromise. If it's a giant
-                such as ebay though and the compromise is a malicious script embedded in someone's item listing, fat chance that ebay will do anything about it. Or maybe they will, and take down the listing. But if they do not
-                take further steps to block malicious redirects from being posted on their site, it will likely just happen again and again.</li>
-            <li>You could just block this domain from being accessed within your organization. Why is this employee doing online shopping during work anyway? Fire the guy. Oh wait, everyone in your organization cyberloafs, you can't just fire everyone. Or maybe it was the CEO who was doing the online shopping. Sigh.</li>
+            <li>You could be proactive and contact the website to alert them to their likely compromise.</li>
+            <li>You could just block this domain from being accessed within your organization.</li>
             <li>
-              <p>You could report the compromise to Google, who can put a rule into the Chrome browser to block requests to this domain from being fulfilled. You may have seen a message along these lines in Chrome before:
+              <p>You could report the compromise to Google, who can put a rule into the Chrome browser to block requests to this domain from being fulfilled. You may have seen a message along these lines in Chrome before:</p>
 
-              <p>"The site that you are trying to visit is currently serving malware. Try again later. <em>If you are the domain administrator and are viewing this message, contact us *here* for more information on what we found.</p>
+              <blockquote>"The site that you are trying to visit is currently serving malware. Try again later. <em>If you are the domain administrator and are viewing this message, contact us *here* for more information on what we found.</em></blockquote>
 
-              <p>At which point your CEO will switch to Internet Explorer and visit the site anyway. Sigh.</p>
+              <p>At which point your employees may unfortunately switch to Internet Explorer and visit the site anyway.</p>
             </li>
         </ul>
-
-        <p>As you can see, you have many options.</p>
     </div>
 
 
