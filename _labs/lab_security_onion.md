@@ -459,7 +459,7 @@ asked.”
         ip.dst == 37.143.15.180
 
     Let's filter even further to only select the records with `HTTP` protocol.
-    This can be done by appending ` and http` after your `ip.dst ==` filter
+    This can be done by appending "<code>&nbsp;and http</code>" after your "<code>ip.dst ==</code>" filter
     expression:
 
         ip.dst == 37.143.15.180 and http
