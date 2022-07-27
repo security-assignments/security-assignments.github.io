@@ -8,7 +8,7 @@ description: This page is the storefront for security-assignments.com.
 ---
 
 
-<h2>Lab virtual machine access package -- $40 for Academic year 21/22</h2>
+<h2>Lab virtual machine access package -- $50 for Academic year 22/23</h2>
 
 <div class="container">
   <div class="row">
@@ -93,6 +93,7 @@ function initPayPalButton() {
     },
     // https://developer.paypal.com/docs/checkout/reference/server-integration/set-up-transaction/
     createOrder: function(data, actions) {
+      // return fetch('http://localhost:8080/', {
       return fetch('https://us-central1-security-assignments-kali.cloudfunctions.net/security-assignments-paypal-order-create', {
         method: 'post',
         headers: {
