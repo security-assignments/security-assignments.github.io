@@ -163,16 +163,13 @@ should be able to log in as long as your Kali instance is running on GCP.
 
   {% include lab-image.html image='Kali-setup.png' %}
 
-* Note that if you click the blue arrow tab on the right hand of the screen, it opens additional options in Chrome Remote Desktop. **Take this opportunity to enable copy-paste across your remote desktop session.**
+* Enable copy-paste across your remote desktop session.
 
-  {% include lab-image.html image='Kali-remote-options.png' %}
+  - Click the blue arrow tab on the right hand of the screen to open additional options in Chrome Remote Desktop.
+    {% include lab-image.html image='Kali-remote-options.png' %}  
+  - Look for an option to "Enable clipboard synchronization." Follow prompts in your browser to grant permission. See [this example](https://superuser.com/a/1543231).
 
- <div class='alert alert-info'><strong>Enabling copy-paste.</strong> It is possible
- to enable copy-paste between your host computer and your Kali instance. Look in
- the above-shown sidebar
- additional options for a related option if you are having trouble copy-pasting. The
- specific enabling method changes from time to time, but is usually accessible through
- the sidebar.</div>
+    <div class='alert alert-info'>The specific method to enable copy-paste changes from time to time, but is usually accessible through the sidebar.</div>
 
 <div class='alert alert-warning'>If you have suspended or stopped your instance,
 you will need to navigate to the GCP console and start it again before attempting
@@ -193,20 +190,27 @@ depend on your needs, but be aware that suspended instances
 The semester is about four months long, so set up a budget planning to spend (no more than) $75 per month. To do so:
 
 *   Click the hamburger menu on the upper left > `Billing` > `Budgets & alerts`.
-*   `Create Budget`
+*   Click `Create Budget`
 
     {% include lab-image.html image='gcp-budget-create.png' %}
 
-*   `(1) Scope` > Projects => "All projects"
+*   `(1) Scope`
+
+    - `Projects` => "All projects"
+    - `Services` => "All services"
+    - _uncheck_ "Discounts" and "Promotions and others"
 
     {% include lab-image.html image='gcp-budget-1-scope.png' %}
 
-*   `(2) Amount` > `Budget type` => "Specified amount", `Target amount` => $75, _uncheck_ "Include credits in cost."
+*   `(2) Amount`
+
+    - `Budget type` => "Specified amount"
+    - `Target amount` => $75
 
     {% include lab-image.html image='gcp-budget-2-amount.png' %}
 
-*   `(3) Actions` > Set four thresholds -- one for each week of the month -- at 25%, 50%, 75%, and 100%. When you have hit these thresholds within
-    a month, you will receive a budget notificaiton email.
+*   `(3) Actions` > Set four thresholds, at 25%, 50%, 75%, and 100%. When you have hit these thresholds within
+    a month, you will receive a budget notification email.
 
     {% include lab-image.html image='gcp-budget-3-actions.png' %}
 

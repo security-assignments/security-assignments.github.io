@@ -390,7 +390,7 @@ all of the LinkedIn hashes. Ask me for a copy.
 
     The `?d?d` at the end means to append two digits between 0–9 each at the end of each password in the rockyou.txt password dictionary.
 
-    {% include lab_question.html question='How many total passwords were you able to recover after using this hybrid attack combination with the earlier straight and rules-based attacks?' %}
+    {% include lab_question.html question='How many total passwords were you able to recover after using this hybrid attack in combination with the earlier straight and rules-based attacks?' %}
 
 
 

@@ -119,7 +119,7 @@ and is used here with their permission. This data covers selected hours on selec
     associated with traffic exchanged
     between that pair  was in the top 25 of all netflow-record pair-counts.
 
-    {% include lab_question.html question='Take note of the source and desination IPs of the top three talker-pairs, ranked by
+    {% include lab_question.html question='Take note of the source and destination IPs of the top three talker-pairs, ranked by
     number of flow records.' %}
 
     <div class='alert alert-info'><strong>Consider:</strong> Conceptually, why do you think it’s important information to know the
@@ -179,7 +179,7 @@ and is used here with their permission. This data covers selected hours on selec
     * `rwsort` sorts the records by the "duration" field.
     * The `--fields` argument to `rwcut` filters which columns are shown. Try running the command without this argument.
 
-    {% include lab_question.html question='What is the IP address of the source that had an an ongoing SSH session of <em>at least 30 minutes</em>?' %}
+    {% include lab_question.html question='What is the IP address of the source that had an ongoing SSH session of <em>at least 30 minutes</em>?' %}
 
     <div class='alert alert-info'><strong>Reflect:</strong> Conceptually, why should we look for long standing SSH connections?</div>
 
