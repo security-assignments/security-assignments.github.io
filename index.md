@@ -11,6 +11,8 @@ links:
     url: '/readings/'
   - name: In-class Activities
     url: '/activities/'
+  - name: Cases
+    url: '/cases/'
   - name: Projects
     url: '/projects'
   - name: Store
