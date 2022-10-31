@@ -32,7 +32,7 @@ Anyone should be able to see and use the custom class kali image if they join [t
 
 The network map is as follows:
 
-<div style='width:40%'>
+<div>
     <table class='table'>
         <thead>
             <tr>
@@ -40,32 +40,37 @@ The network map is as follows:
                 <th>Machine</th>
                 <th>Login</th>
                 <th>Password</th>
+                <th>Notes</th>
             </tr>
         </thead>
         <tbody>
         <tr>
             <td>192.168.56.101</td>
             <td>Kali (the host)</td>
-            <td>root</td>
-            <td>toor</td>
+            <td><code>root</code></td>
+            <td><code>toor</code></td>
+            <td></td>
         </tr>        
         <tr>
             <td>192.168.56.100</td>
-            <td>Windows 19</td>
-            <td>Labuser</td>
-            <td>Passw0rd!</td>
+            <td>Windows VM</td>
+            <td><code>Labuser</code></td>
+            <td><code>Passw0rd!</code></td>
+            <td>This VM is memory-intensive! Will probably freeze and not launch if your GCP instance doesn't have at least 8 GB memory.</td>
         </tr>        
         <tr>
             <td>192.168.56.102</td>
-            <td>Metasploitable2</td>
-            <td>msfadmin</td>
-            <td>msfadmin</td>
+            <td>Metasploitable2 VM</td>
+            <td><code>msfadmin</code></td>
+            <td><code>msfadmin</code></td>
+            <td></td>
         </tr>
         <tr>
             <td>192.168.56.103</td>
-            <td>Security Onion</td>
-            <td>securityonion</td>
-            <td>Password1</td>
+            <td>Security Onion VM</td>
+            <td><code>securityonion</code></td>
+            <td><code>Password1</code></td>
+            <td>This VM is memory-intensive!</td>
         </tr>
         </tbody>
     </table>

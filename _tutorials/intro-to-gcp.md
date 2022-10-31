@@ -80,10 +80,14 @@ Once you have purchased access and your gcp email address has been added to the 
        that zone.
     3. Set the "Series" field set to "N1"
     4. Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
+       <div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
+       
     5. For the "CPU platform" field:
        1. Click the "CPU platform and GPU" dropdown to expand this menu section
           {% include lab-image.html image='gcp-cpu-dropdown.png' %}
        2. Select "Intel Haswell or later".
+
+
 
 * Use the following settings for the "Boot disk" field:
   {% include lab-image.html image='kali-custom-image-2.png' %}
