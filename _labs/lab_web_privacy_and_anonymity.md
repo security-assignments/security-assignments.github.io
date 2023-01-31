@@ -54,7 +54,7 @@ For this section of the lab, you'll configure Firefox on your laptop to block
 and examine web trackers of various kinds.
 
 1.  Watch this [one-minute video](https://www.youtube.com/watch?v=dKmoubR-nVg)
-    about the new privacy protections in Firefox 70.
+    about the privacy protections in Firefox.
 2.  Make sure you have at least Firefox 70
     *   If you don't already have Firefox, download the [latest version of
         Firefox](https://www.mozilla.org/en-US/firefox/new/).
@@ -81,38 +81,29 @@ and examine web trackers of various kinds.
 
 Firefox now blocks third-party cookies and fingerprinting techniques. However, to get more information about web trackers, you'll next install Ghostery, a browser extension that blocks ads and trackers.
 
-1.  Visit
-    [https://www.ghostery.com/products/](https://www.ghostery.com/products/) and
-    install the Ghostery extension in Firefox.
-2.  Choose the free basic plan.
+1.  Visit [https://www.ghostery.com/ghostery-ad-blocker](https://www.ghostery.com/ghostery-ad-blocker/) and install the Ghostery extension in Firefox.
 3.  In "Customize Setup," select "Block Everything" and click the "Next" button.
     Uncheck the box for sending anonymous analytics to Ghostery.
 4.  Browse to your favorite sites and click the Ghostery icon after each page
     load. Which of your favorite sites uses the most web trackers?
-5.  Click on the Ghostery icon and select the "Detailed View" tab. Click on the
-    struck-through name of an add tracker and click the “Continue to full
-    tracker profile” to learn more about the ad tracker (see figure below).
+5. Click on the Ghostery icon and select the "Detailed View" tab. Click on the struck-through name of an add tracker and, if available, click the “Continue to full tracker profile” to learn more about the ad tracker (see figure below).
 
     {% include lab-image.html image='lab_13_1.png' width="70%" %}
-5.	While viewing one of the "full tracker profiles", click on the down arrow
-    next to “Privacy Information” to learn about the tracker’s privacy policy.
+5.	Google "privacy policy" and the name of one of the trackers you identified to read about that tracker’s privacy policy.
 
     {% include lab_question.html question='What is the name of the third-party tracker you read about, and what kinds of information is its company collecting about you?' %}
 
 
 # Part 3: Browser Fingerprinting
 
-1.	Visit [https://panopticlick.eff.org](https://panopticlick.eff.org) and test your browser.
+1.	Visit [Coveryourtracks.eff.org](https://coveryourtracks.eff.org/) and click the "Test your browser" button. Leave the "Test with a real tracking company" option checked.
 
     {% include lab_question.html question='Is your browser blocking tracking ads?' %}
     {% include lab_question.html question='Is your browser blocking invisible trackers?' %}
-    {% include lab_question.html question='Does your browser unblock 3rd parties that promise to honor Do Not Track?' %}
     {% include lab_question.html question='Does your browser protect against fingerprinting?' %}
 
 
-2.	Click on the link, “Show full results for fingerprinting.” Look over the
-    browser characteristics and how many bits of identifying information each
-    one provides.
+2.	In the `Detailed Results` section of the report, look at the different kinds of metrics to see how many bits of identifying information each one provides.
 
     Note: The bits of identifying information means that your browser can be
     uniquely identified out of a set of 2^bits of identifying information. A
@@ -127,9 +118,9 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
     information. 94.2% of browsers with Flash or Java were unique in our
     sample.”
 
-    [https://panopticlick.eff.org/static/browser-uniqueness.pdf](https://panopticlick.eff.org/static/browser-uniqueness.pdf)
+    [https://coveryourtracks.eff.org/static/browser-uniqueness.pdf](https://coveryourtracks.eff.org/static/browser-uniqueness.pdf)
 
-    {% include lab_question.html question='How many bits of information does Panopticlick report for your browser?' %}
+    {% include lab_question.html question='How many bits of identifying information does Coveryourtracks.org report for your browser?' %}
 
 
 
@@ -137,9 +128,9 @@ Firefox now blocks third-party cookies and fingerprinting techniques. However, t
 
 <div class='alert alert-danger'><strong>Heads up!</strong> This lab does <em>not</em> condone any illegal activity.</div>
 
-There are occasionally times when _anonymnity_ on the internet is desirable.
+There are occasionally times when _anonymity_ on the internet is desirable.
 This is different from _confidentiality_ on the internet. With confidentiality,
-it is not possible for eavesdroppers to read the web traffic. With anonymnity,
+it is not possible for eavesdroppers to read the web traffic. With anonymity,
 web traffic cannot be linked back to its origin.
 
 HTTPS provides web traffic _confidentiality_ -- but only of the request
@@ -149,13 +140,13 @@ with IP address `192.0.2.1` and logs in to
 `https://securedrop-for-journalists.example.com/submit/something/condemning` and
 submits leaked documents, the following information should be encrypted
 (confidential):
-* the login information
-* the submitted documents
-* that the requested path was `/submit/something/condemning`
+* The login information
+* The submitted documents
+* That the requested path was `/submit/something/condemning`
 
 However, https _cannot_ protect the following information:
-* the source ip address of `192.0.2.1`
-* the request to `securedrop-for-journalists.example.com`
+* The source IP address of `192.0.2.1`
+* The request to `securedrop-for-journalists.example.com`
 
 The latter is considered "metadata," and it must be readable for the internet to
 work. However, it alone may be enough to identify and implicate the activist. Internet
@@ -174,10 +165,10 @@ in a chain, but the attack still exists.
 
 ## Testing whether private browsing anonymizes source IPs
 
-1.	Go to <http://whatismyip.com/> and note your IP address.
+1.	Go to <https://whatismyip.com/> and note your IP address.
 2.	Turn on your browser’s privacy mode (e.g., “Incognito Mode” in Chrome,
     “Private Browsing” in Firefox and Safari).
-3.	Go to <http://whatismyip.com/> again and note your IP address.
+3.	Go to <https://whatismyip.com/> again and note your IP address.
 
 Note that your IP address didn’t change. Why not?
 
@@ -236,18 +227,18 @@ the Kali-on-GCP instance.
     </div>
 
 4.	Run the **Tor Browser**.
-5.	Visit <http://whatismyip.com/> inside of the Tor Browser and verify that
+5.	Visit <https://whatismyip.com/> inside of the Tor Browser and verify that
     your IP address has changed.
 6.	Determine your IP address using three different websites (e.g.,
-    <https://www.whatismyip.com/>, <http://www.whatsmyip.org>, and
+    <https://www.whatismyip.com/>, <https://www.whatsmyip.org>, and
     <https://whatismyipaddress.com/>). Note what IP addresses each site reports
     for your browser.
 7.	Look up the location of each IP address you noted in step 6 using a service
     like <https://www.wolframalpha.com/>.
 
-    {% include lab_question.html question='To which parts of the world do the IPs you noted in step 6 belong?' %}
+    {% include lab_question.html question='To which parts of the world do the IPs you noted in step 5 belong?' %}
 
-Read the about how to use Tor effectively: <https://www.torproject.org/download/download-easy.html#warning>
+8.	Read this page about what Tor can and can't do to protect your anonymity: [https://support.torproject.org/faq/staying-anonymous/](https://support.torproject.org/faq/staying-anonymous/)
 
 ## Visit an `.onion` server
 
@@ -256,7 +247,7 @@ accessible via the Tor network. This is what is known colloquially as “the dar
 web.” While it’s true that there are many sites providing illegal services on
 the dark web, there are also legitimate uses for the dark web as well.
 
-Read this short article about the dark web: <https://www.wired.com/2014/11/hacker-lexicon-whats-dark-web/>
+Read this short article about the dark web: [https://www.wired.co.uk/article/what-is-the-dark-web-how-to-access/](https://www.wired.co.uk/article/what-is-the-dark-web-how-to-access/)
 
 
 ## Access legitimate Tor services
@@ -281,17 +272,41 @@ visit the drop sites for each of the following news organizations:
 
 ### **Facebook**
 
-If you have a Facebook account, you can access Facebook using their TOR service.
+If you have a Facebook account, you can access Facebook using their TOR service:
+
+[https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion/](https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion/)
+
 [Facebook says](https://m.facebook.com/nt/screen/?params=%7B%22note_id%22%3A2655797467977351%7D&path=%2Fnotes%2Fnote%2F&refsrc=deprecated) the following about why it provides an onion address:
 
 > Consider Tor: Tor challenges some assumptions of Facebook's security mechanisms - for example its design means that from the perspective of our systems a person who appears to be connecting from Australia at one moment may the next appear to be in Sweden or Canada. In other contexts such behaviour might suggest that a hacked account is being accessed through a “botnet”, but for Tor this is normal.
 
-
-
-
 Note: Facebook says that as of April 2016, [more than 1 million people access Facebook via Tor](https://www.facebook.com/notes/facebook-over-tor/1-million-people-use-facebook-over-tor/865624066877648/)
 
-**Exercise:** Search the internet to find the new Facebook onion address (note: as of May 2021, https://facebookcorewwwi.onion no longer works).
+### **The Federalist Papers** 
+
+Originally published pseudonymously in 1787–1788:
+
+[http://kx5thpx2olielkihfyo4jgjqfb7zx7wxr3sd4xzt26ochei4m6f7tayd.onion/book/9K0biYYOZKvPBokZ](http://kx5thpx2olielkihfyo4jgjqfb7zx7wxr3sd4xzt26ochei4m6f7tayd.onion/book/9K0biYYOZKvPBokZ)
+
+### **The New York Times**
+
+[https://www.nytimesn7cgmftshazwhfgzm37qxb44r64ytbb2dj3x62d2lljsciiyd.onion](https://www.nytimesn7cgmftshazwhfgzm37qxb44r64ytbb2dj3x62d2lljsciiyd.onion/)
+
+### **ProPublica (non-profit news site)**
+[http://p53lf57qovyuvwsc6xnrppyply3vtqm7l6pcobkmyqsiofyeznfu5uqd.onion](http://p53lf57qovyuvwsc6xnrppyply3vtqm7l6pcobkmyqsiofyeznfu5uqd.onion/)
+
+### **DuckDuckGo search engine**
+[https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion](https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion/)
+
+### **The CIA's official Tor service**
+[http://ciadotgov4sjwlzihbbgxnqg3xiyrg7so2r2o3lt5wz5ypk4sxyjstad.onion](http://ciadotgov4sjwlzihbbgxnqg3xiyrg7so2r2o3lt5wz5ypk4sxyjstad.onion)
+
+### **OnionShare**
+
+Anonymously send and receive files, chat, and host websites via the Tor network using OnionShare:
+
+[http://lldan5gahapx5k7iafb3s4ikijc4ni7gx5iywdflkba5y2ezyg6sjgyd.onion/](http://lldan5gahapx5k7iafb3s4ikijc4ni7gx5iywdflkba5y2ezyg6sjgyd.onion/)
+
 
 ## `.onion` without a Tor client
 
@@ -303,6 +318,6 @@ Try to load a `.onion` URL in a browser other than the Tor Browser.
 
 {% include lab_question.html question='What do you think about the experience of accessing TOR services?' %}
 
-<div class='alert alert-danger'><strong>Take heed!</strong> There are a number of ways to defeat Tor anonymnity. For instance, see <a href='https://www.theguardian.com/world/interactive/2013/oct/04/tor-stinks-nsa-presentation-document'>This Top-Secret presentation from the Snowden leaks about attacking Tor</a>, which says the following:
+<div class='alert alert-danger'><strong>Take heed!</strong> There are a number of ways to defeat Tor anonymity. For instance, see <a href='https://www.theguardian.com/world/interactive/2013/oct/04/tor-stinks-nsa-presentation-document'>This Top-Secret presentation from the Snowden leaks about attacking Tor</a>, which says the following:
 
 <blockquote>We will never be able to de-anonymize all Tor users all the time... [but] with manual analysis we can de-anonymize a <em>very small fraction</em> of Tor users, however, [never in response to a post-hoc request].</blockquote></div>
