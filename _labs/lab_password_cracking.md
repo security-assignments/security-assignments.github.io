@@ -52,17 +52,23 @@ Also, visit [dongleauth.info](https://www.dongleauth.info/) to find an online se
 
 # Part 4. Install and Set up a Password Manager
 
-If you're not already using one, set up a password manager. I recommend creating an account with [LastPass](https://www.lastpass.com/), or my favorite, [1Password](https://1password.com) ([student discount link](https://www.studentappcentre.com/discounts/1password)). See [here](https://thewirecutter.com/reviews/best-password-managers/) for a comparison of leading password managers.
+If you're not already using one, set up a password manager. I recommend creating a free account with [Bitwarden](https://bitwarden.com), or my favorite, [1Password](https://1password.com) ([student discount link](https://www.studentappcentre.com/discounts/1password)) with a small subscription fee. See [here](https://thewirecutter.com/reviews/best-password-managers/) for a comparison of leading password managers.
 
-Next, install the browser extension for your password manager (see [here](https://lastpass.com/misc_download2.php) for LastPass; see [here](https://1password.com/downloads/) for 1Password). With the browser extension installed, log into a website for which you have an account. Your password manager will ask to save the password after each login. Do this for three sites.
+**Note**: Read [here](https://www.wired.com/story/lastpass-breach-vaults-password-managers/) for why I do not recommend using LastPass.
+
+Next, install the browser extension for your password manager (see [here](https://bitwarden.com/download/) for Bitwarden; see [here](https://1password.com/downloads/) for 1Password). With the browser extension installed, log into a website for which you have an account. Your password manager will ask to save the password after each login. Do this for three sites.
 
 ## Deliverable:
 
 Take a screenshot of your password manager showing **saved entries for at least three sites** you visited. Also, make sure the screenshot **shows your username** in the top left- or right-hand corner. Submit your screenshot on Canvas.
 
-**LastPass.com example screenshot:**
+**Bitwarden app example screenshot:**
 
-{% include lab-image.html image='LastPass.png' width="600px" %}
+{% include lab-image.html image='Bitwarden-app.png' width="600px" %}
+
+**Bitwarden.com example screenshot:**
+
+{% include lab-image.html image='Bitwarden-web.png' width="600px" %}
 
 **1Password app example screenshot:**
 
@@ -150,10 +156,10 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
     **Note:** you can also use THC-Hydra with web forms: [http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html](http://insidetrust.blogspot.com/2011/08/using-hydra-to-dictionary-attack-web.html)
 
-    In Greek and Roman mythology, [Hyrda](https://en.wikipedia.org/wiki/Lernaean_Hydra) is a mythical sea monster with many heads. When a head is cut off, it is replaced by another. `THC Hydra`, the tool you are using,
-    likewise launches multiple "heads" (tasks), each of which makes a battery of attacks (password guesses) before dying off and being replaced by another head (task). By default, Hyrda runs with 16 concurrent heads.
+    In Greek and Roman mythology, [Hydra](https://en.wikipedia.org/wiki/Lernaean_Hydra) is a mythical sea monster with many heads. When a head is cut off, it is replaced by another. `THC Hydra`, the tool you are using,
+    likewise launches multiple "heads" (tasks), each of which makes a battery of attacks (password guesses) before dying off and being replaced by another head (task). By default, Hydra runs with 16 concurrent heads.
 
-    The Hyrda output will tell you at what time it started, how many passwords it has tried so far, and at what time it stopped.
+    The Hydra output will tell you at what time it started, how many passwords it has tried so far, and at what time it stopped.
 
     {% include lab_question.html question='Scan the results to find the line beginning with <code>[443][http-get]</code>. What was the password?' %}
 
@@ -192,9 +198,9 @@ then run the command, <code>brew install hashcat</code>.</p>
     the Word document password called `hashcat.doc`. This document has been prepared
     specifically for this lab. The word document has been password-protected. The
     hash of the password is stored within the metadata of the document file itself.
-    You can use the python script called `office2john.py` to extract the hash.
+    You can use the Python script called `office2john.py` to extract the hash.
     `john` in that script name refers to [JtR, John the Ripper](https://github.com/openwall/john),
-    and the python script prints the hash in a format that `john` can accept.
+    and the Python script prints the hash in a format that `john` can accept.
     We will edit the output to prepare for its use with `hashcat`.
 
     First, obtain the necessary files:
@@ -253,11 +259,11 @@ then run the command, <code>brew install hashcat</code>.</p>
     the switches correspond to the following:
 
     {: .table .table-condensed }
-    | `--force` | This is necssary to get hashcat to run in a VM environment (it doesn't normally like to do so). |
+    | `--force` | This is necessary to get hashcat to run in a VM environment (it doesn't normally like to do so). |
     | `-a 0` | Straight dictionary attack against the hash |
     | `-m <Office_Flag>` | The corresponding flag for the version of Office in use (see table in `hashcat --help`) |
     | `--status` | Provides an update of the status of the process without giving a prompt |
-    | `-o <Output_File>` | The location where the cracked hashes will be saved. <br>The results will also be saved on the .pot file, unles  otherwise specified. In our case, we disabled it. |
+    | `-o <Output_File>` | The location where the cracked hashes will be saved. <br>The results will also be saved on the .pot file, unless  otherwise specified. In our case, we disabled it. |
     | `<Hash>` | The saved password hash. |
     | `<Dictionary>` | The list of words that will be used to try and crack the password. |
 
@@ -272,7 +278,7 @@ then run the command, <code>brew install hashcat</code>.</p>
 8.  Examine [the hashcat cracking
     benchmarks](https://gist.github.com/epixoip/a83d38f412b4737e99bbef804a270c40)
     for a [Sagitta Brutalis](https://web.archive.org/web/20190312022836/https://sagitta.pw/hardware/gpu-compute-nodes/brutalis/).
-    The Brutals has 8 graphics cards, each of which can simultaneously work on
+    The Brutalis has 8 graphics cards, each of which can simultaneously work on
     cracking hashes. The measured speed for each card is shown, along with a
     cumulative speed at the bottom (`Speed.Dev.#*`). Use the cumulative speed
     for all Brutalis-related calculations in this lab.
@@ -436,7 +442,7 @@ Read about the Bcrypt algorithm [here](https://en.wikipedia.org/wiki/Bcrypt#Algo
 
 {% include lab_question.html question='Imagine that Bcrypt is set to a work cost factor of 12. How many hashing rounds will Bcrypt go through to compute the final hash?' %}
 
-{% include lab_question.html question='An attacker knows that a user generated their password using 8 random lowercase letters exclusively (so character space of 26, length of 8). On average, an attacker needs to try only half of all possible passwords in order to brute force the password. The attacker has access to a Brutalis. How long would it take to crack the password hash if SHA1 had been used? How long with bcrypt using the benchmarks shown for a Brutalis?' %}
+{% include lab_question.html question='An attacker knows that a user generated their password using 8 random lowercase letters exclusively (so character space of 26, length of 8). On average, an attacker needs to try only half of all possible passwords in order to brute force the password. The attacker has access to a Brutalis. How long would it take to crack the password hash if SHA1 had been used? How long with Bcrypt using the benchmarks shown for a Brutalis?' %}
 
 
 
@@ -449,15 +455,15 @@ an organization or individual that also has a website or social media profile.
 Because people often use information about themselves or their organization when
 creating passwords, custom wordlists can be very effective.
 
-Imagine that you exfiltrated the following MD5 hash from a database on <neurosecurity.byu.edu>:
+Imagine that you exfiltrated the following MD5 hash from a database on <neurosecurity.net>:
 
     cf4aff530715824c055892438a1ab6b2
 
-You want to create a custom dictionary using the words on `neurosecurity.byu.edu` to see if you can crack the hash.
+You want to create a custom dictionary using the words on `neurosecurity.net` to see if you can crack the hash.
 
 1.  Create a custom dictionary using CeWL for the website neurosecurity.byu.edu:
 
-        cewl -v -d 2 -m 5 -w custom_dict.txt https://neurosecurity.byu.edu
+        cewl -v -d 2 -m 5 -w custom_dict.txt https://neurosecurity.net
 
     Where:
 
