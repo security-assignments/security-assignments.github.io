@@ -68,7 +68,7 @@ Take a screenshot of your password manager showing **saved entries for at least 
 
 **Bitwarden.com example screenshot:**
 
-{% include lab-image.html image='Bitwarden-web.png' width="600px" %}
+{% include lab-image.html image='bitwarden-web.png' width="600px" %}
 
 **1Password app example screenshot:**
 
