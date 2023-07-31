@@ -12,9 +12,7 @@ include_toc: true
 2. For the Marriott breach, do the following from the _perspective of the business_ affected by the incident:
   	1.  Identify and prioritize the key _information assets_ involved in the security incident
   	2.  Explain which security objective(s) failed for those assets (confidentiality, integrity, and availability)
-  	3.  Determine the business impact to each of the assets identified in terms of “high,” “medium,” or “low” per
-[FIPS-199: “Standards for Security Categorization of Federal Information and Information Systems](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
-
+  	3.  Determine the business impact to each of the assets identified in terms of “high,” “medium,” or “low” per [FIPS-199: “Standards for Security Categorization of Federal Information and Information Systems](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf).
 3. Do the same thing for the Muskingum Valley Health Centers incident.
 
 

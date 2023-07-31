@@ -6,8 +6,6 @@ number: 9
 published: true
 ---
 
-<h3><em>There can be no cybersecurity without physical security.</em></h3>
-
 **Note:** This lab can be completed in a group of up to four members. Before you make a submission on Canvas, all of your team members should join one of the <span class='label label-danger'>already-existing</span> "Physical Security" groups on Canvas.
 
 To earn full credit for this lab, your team must complete 6 of the 12 items below.

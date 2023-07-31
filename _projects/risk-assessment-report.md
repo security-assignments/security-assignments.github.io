@@ -4,7 +4,9 @@ title: Risk Assessment Report
 order: 2
 ---
 
-with *Dr.* [*David Lanter*](https://community.mis.temple.edu/dlanter/)
+*With Dr.* [*David Lanter*](https://community.mis.temple.edu/dlanter/)
+
+---
 
 Your assignment is to create a risk assessment report for managers of a (fictitious) company that owns and depends on financial information contained in a financial management system.
 
