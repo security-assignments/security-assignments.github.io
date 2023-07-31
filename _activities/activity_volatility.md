@@ -1,7 +1,8 @@
 ---
-title: "Incident response with Volatility memory analysis"
+title: "Activity: Incident response with Volatility memory analysis"
 description:
 include_toc: true
+slug: volatility
 ---
 
 # Scenario

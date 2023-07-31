@@ -1,7 +1,10 @@
 ---
-title: "Case—Twitter 2020 Incident"
+title: "Case: Twitter 2020 Incident"
 description:
 include_toc: true
+slug: case-twitter-2020
+redirect_from:
+  - /activity/case-twitter-2020
 ---
 
 # Instructions

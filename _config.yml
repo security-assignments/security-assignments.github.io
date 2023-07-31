@@ -70,6 +70,10 @@ collections:
         output: true
     activities:
         output: true
+        permalink: /:collection/:slug
+    cases:
+        output: true
+        permalink: /:collection/:slug
     tutorials:
         output: true
     projects:
@@ -95,5 +99,11 @@ defaults:
         scope:
             path: ""
             type: "activities"
+        values:
+            layout: assignment
+    -
+        scope:
+            path: ""
+            type: "cases"
         values:
             layout: assignment

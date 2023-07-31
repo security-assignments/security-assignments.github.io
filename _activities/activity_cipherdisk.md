@@ -1,7 +1,8 @@
 ---
-title: Cipher Disk In-Class Activity
+title: "Activity: Cipher Disk"
 description: Hands-on practice with monoalphabetic and polyalphabetic substitution ciphers.
 include_toc: true
+slug: cipherdisk
 ---
 
 Use the cipher disk at the following site to answer the questions below:

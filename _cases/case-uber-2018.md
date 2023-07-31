@@ -1,7 +1,10 @@
 ---
-title: "Case—Uber 2018 Breach"
+title: "Case: Uber 2018 Breach"
 description:
 include_toc: true
+slug: case-uber-2018
+redirect_from:
+  - /activity/case-uber-2018
 ---
 
 # Instructions

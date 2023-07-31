@@ -1,5 +1,5 @@
 ---
-title: Risk Assessment—Business Impact Activity
+title: "Activity: Risk Assessment—Business Impact"
 description: Drawing from FIPS-199, practice identifying organizational assets via examining media breach reports.
   Business impact assessment of the loss of a given security objective (i.e., confidentiality, integrity,
   and availability).

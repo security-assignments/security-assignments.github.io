@@ -1,6 +1,7 @@
 ---
-title: Diceware Activity
+title: "Activity: Diceware Passphrases"
 description: An exercise creating passphrases using the EFF's long improved-usability list.
+slug: diceware
 ---
 
 For this activity, you will calculate the strength of a five-word Diceware passphrase in terms of the time and money required to crack it.  
