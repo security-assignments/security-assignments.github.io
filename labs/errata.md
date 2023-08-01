@@ -11,7 +11,7 @@ This page documents fixes for bugs in versions of the virtual machines, includin
 * `openssh-server` and openssh-client still need to be pinned to a version in a version of debian supported by GCP -->
 
 
-# Kali-on-GCP v3.1.0
+# Kali-on-GCP v3.1.1
 
 * Kali is running metasploit-framework v6.1.23-dev, but with [this commit](https://github.com/rapid7/metasploit-framework/commit/9211838a625b02488f4a8ef745cf00a33e4ba113) from v6.1.31 applied to give `chrome_enum.rb` the ability to handle Chrome > v80. 
 * Installed docker, Docker version 24.0.5, build ced0996
