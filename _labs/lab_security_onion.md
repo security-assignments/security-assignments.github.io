@@ -526,11 +526,7 @@ asked.”
 7.  Next, open a terminal and navigate to the directory where you saved the
     stream, and use a forensics file carving tool called Foremost.
 
-    First, install `foremost`:
-
-        sudo apt update && sudo apt install foremost
-
-    Then, use it:
+    Invoke it as follows:
 
         cat <yourfile> | foremost -o OUTPUT_DIRECTORY
 
@@ -560,12 +556,8 @@ asked.”
 
     {% include lab_question.html question='What does Brian Krebs indicate this malware is typically used for?' %}
 
-    **For fun:** Install `mirage` and use it to open the png inside your
-    carved-files directory:
-
-    ```bash
-    sudo apt update && sudo apt install mirage
-    ```
+    **For fun:** Use the `mirage` command to open the png inside your
+    carved-files directory.
 
     <div class='alert alert-success'>If you ever have a storage device that
     corrupts and is reported to be unreadable by your operating system, it is
