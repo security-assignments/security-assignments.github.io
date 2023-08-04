@@ -137,7 +137,7 @@ Enter a "name" for your malicious post, and submit the comment. The page should 
 
 
 
-<!-- # XSS -- DOM  -->
+<!-- # XSS -- DOM   -->
 
 <!-- This requires a newer version of DVWA. Available via docker... -->
 
