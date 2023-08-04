@@ -1,6 +1,6 @@
 ---
-title: "Activity: AMASS Passive recon activity"
-description: A hands-on activity exploring passive domain reconnaissance with `amass`
+title: "Activity: Amass passive reconnaissance activity"
+description: A hands-on activity exploring passive domain reconnaissance with Amass
 published: true
 include_toc: true
 minilab: true
@@ -23,13 +23,11 @@ From the command line in Kali Linux, run the `amass` command to do reconnaissanc
     amass intel -ip -src -cidr 128.187.0.0/16
     ```
 
-3.  Reverse whois
+3.  Reverse whois:
 
     > This method is invoked using the `-whois` flag. Essentially it takes the details from the specified domain’s whois records, and then tries to find other domains with similar whois records.
     > 
-    > This is a great method for discovering root domains that may be owned by an organisation.
-
-    https://hakluke.medium.com/haklukes-guide-to-amass-how-to-use-amass-more-effectively-for-bug-bounties-7c37570b83f7 
+    > This is a great method for discovering root domains that may be owned by an organisation. ([source](https://hakluke.medium.com/haklukes-guide-to-amass-how-to-use-amass-more-effectively-for-bug-bounties-7c37570b83f7))  
 
     ```shell
     amass intel -whois -d byu.edu
@@ -43,7 +41,7 @@ From the command line in Kali Linux, run the `amass` command to do reconnaissanc
 
 # Enum module — Enumerate and map targets
 
-5.  Determine how subdomains for a given domain:
+5.  Determine how many subdomains exist for a given domain:
 
     ```shell
     amass enum -ip -d nmims.edu
