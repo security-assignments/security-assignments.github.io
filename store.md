@@ -8,7 +8,7 @@ description: This page is the storefront for security-assignments.com.
 ---
 
 
-<h2>Lab virtual machine access package -- $50 for Academic year 22/23</h2>
+<h2>Lab virtual machine access package -- $50</h2>
 
 <div class="container">
   <div class="row">
