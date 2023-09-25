@@ -73,19 +73,21 @@ Once you have purchased access and your gcp email address has been added to the 
   {% include lab-image.html image='Enable.png' width="300px" %}
 * Click "Create Instance".
   {% include lab-image.html image='kali-custom-image-0.png' width="300px" %}
-* Use the following settings or the first set of options:
+* Use the following settings for the first set of options:
   {% include lab-image.html image='kali-custom-image.png' %}
     1. In the "name" field, enter any name for your instance, such as "kali".
     2. Set the "Region" field to "us-central1". The "Zone" can be anything within
        that zone.
     3. Set the "Series" field set to "N1"
     4. Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
-       <div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
+       <div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this and switch to an instance with less than 7.5 GB memory, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
        
     5. For the "CPU platform" field:
        1. Click the "CPU platform and GPU" dropdown to expand this menu section
           {% include lab-image.html image='gcp-cpu-dropdown.png' %}
        2. Select "Intel Haswell or later".
+
+    <div class='alert alert-info'><strong>Do you get an error message saying that a N1 instance is not available?</strong> You might get an error message such as the following: <code>Failed to start kali, A n1-standard-4-VM instance is currently unavailable in [your regional zone]. Alternatively , you can try your request again with a different VM hardward configuration or at a later time.</code> If you get this error message, you can check a different N1-series machine type for availability, such as <code>n1-standard-2</code>, or you could try an N2-series instance, with machine-type <code>n2-standard-4</code>, and with CPU platform <code>Automatic</code></div>
 
 
 
