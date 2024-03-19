@@ -7,7 +7,7 @@ This is the base repo for https://security-assignments.com. Open-source for non-
 ## Getting started for development
 
 
-* If you fork, go go to your repo on github.com > settings > "Github Page" > set your site to be built from the master branch.
+* If you fork, go to your repo on github.com > settings > "Github Page" > set your site to be built from the master branch.
 
 * Make sure you have both Ruby and Bundler installed.
 
