@@ -23,15 +23,37 @@ Enter a single quote: `'` and press enter. This will show an error. It is possib
 
 {% include lab_question.html question='What kind of SQL server is DVWA using? This will determine what flavor of SQL syntax we must use in our injection attacks.' %}
 
+{% include lab_question.html question='Which of the following is not a valid comment in MySQL?
+<br>
+a. <code># comment</code>
+<br>
+b. <code>-- comment</code>
+<br>
+c. <code>// comment</code>
+<br>
+d. <code>/* comment */</code>' %}
+
 Try the following SQLi queries.
 
 ## Simple injection using tautology
 
 `test' OR 1=1#`
 
-This query will display all records that are True or False. The `test'` parameter will probably not be equal to any user in the database and therefore this statement should evaluate to False. The other part, `1=1`, will be `True` since `1` (one) is equal to `1` (one). The `#` sign comments out any following SQL code or error. The query that executes in the database looks like this;
+This query will display all records that are True or False. The `test'` parameter will probably not be equal to any user in the database and therefore this statement should evaluate to False. The other part, `1=1`, will be `True` since `1` (one) is equal to `1` (one). The `#` sign comments out any following SQL code or error. 
 
-`SELECT first_name, last_name FROM users WHERE user_id = 'test' or '1'='1';`
+The query that PHP sends to the database looks like this:
+
+`SELECT first_name, last_name FROM users WHERE user_id = '$id';`
+
+With our SQL injection payload, it looks like this:
+
+`SELECT first_name, last_name FROM users WHERE user_id = 'test' OR 1=1#';`
+
+The DBMS strips the comment, leaving us with this query:
+
+`SELECT first_name, last_name FROM users WHERE user_id = 'test' OR 1=1`
+
+Ending a statement without a semicolon works as long as no other statements follow it.
 
 ## Union-based SQLi queries
 
