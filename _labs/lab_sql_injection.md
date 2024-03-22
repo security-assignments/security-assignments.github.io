@@ -3,8 +3,9 @@ title: "Activity: SQL Injection"
 number: 10
 description: A hands-on activity exploring SQLi with DVWA
 published: true
-include_toc: true
-slug: sqli
+vms:
+    - Kali
+    - Metasploitable2
 ---
 
 
