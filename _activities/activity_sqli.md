@@ -6,6 +6,8 @@ published: true
 vms:
     - Kali
     - Metasploitable2
+include_toc: true
+slug: sqli
 ---
 
 
