@@ -1,6 +1,6 @@
 ---
 title: "Lab: Web Privacy and Anonymity"
-number: 13
+number: 14
 description: Overview of trackers, third party cookies, and Tor
 published: true
 ---
