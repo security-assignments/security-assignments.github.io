@@ -105,7 +105,7 @@ In this section, you'll use a digital forensics tool, FTK Imager, to make a copy
 
 2. Right-click the folder and select "Properties." Select the "Sharing" tab, and click "Share." On the next pop-up Window, click "Share." Click "Done" and "Close."
 
-2. From inside the Windows VM, open a web browser and [download the FTK Imager zip file](https://security-assignments.com/beta/assets/files/FTK_Imager.zip). 
+2. From inside the Windows VM, open a web browser and [download the FTK Imager zip file]( {{ '/assets/files/FTK_Imager.zip' | relative_url }}). 
 
 3. In Windows, extract the zip file, and run `FTK Imager.exe` from the extracted directory.
 
