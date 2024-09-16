@@ -111,12 +111,10 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
 2.	We will use the 'rockyou' password list to launch an online password attack using
     [`THC-Hydra`](https://github.com/vanhauser-thc/thc-hydra). The attack will be
-    launched against a website that is managed by Dr. Eargle, who authorizes you
+    launched against a website that is managed by one of the operators of security-assignments.com, who authorizes you
     to launch the attack only as specified in the instructions below.
 
-    Visit [https://is.theorizeit.org](https://is.theorizeit.org) in a browser,
-    and note that it is an installation of mediawiki. Now browse to subdirectory
-    <https://is.theorizeit.org/auth/>. It requires a login. Let's say that you
+    Visit <http://is.theorizeit.org/auth/> in a browser, and note that it requires a login. Let's say that you
     wanted to crack the password for this route. Imagine that you knew, or guessed,
     that one of the usernames was `istheory`.
 
@@ -125,7 +123,7 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
     explanatory text below the command on this page.
 
     ```bash
-    hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt https-get://is.theorizeit.org/auth/
+    hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt http-get://is.theorizeit.org/auth/
     ```
 
     **Note:** The trailing slash (`/`) in the final argument is needed.
