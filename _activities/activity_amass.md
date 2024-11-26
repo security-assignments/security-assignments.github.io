@@ -7,7 +7,7 @@ minilab: true
 slug: amass
 ---
 
-From the command line in Kali Linux, run the `amass` command to do reconnaissance against a target. 
+From the command line interface in Kali Linux, run the `amass` command to do reconnaissance against a target. 
 
 # Intel module — Collect intelligence
 
