@@ -111,19 +111,26 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
 2.	We will use the 'rockyou' password list to launch an online password attack using
     [`THC-Hydra`](https://github.com/vanhauser-thc/thc-hydra). The attack will be
-    launched against a website that is managed by one of the operators of security-assignments.com, who authorizes you
-    to launch the attack only as specified in the instructions below.
+    launched against a website that you run on your local Kali instance. 
 
-    Visit <http://is.theorizeit.org/auth/> in a browser, and note that it requires a login. Let's say that you
-    wanted to crack the password for this route. Imagine that you knew, or guessed,
-    that one of the usernames was `istheory`.
+    Run the following commands from any directory to clone a repository to your Kali and then to use Docker to launch a web server.
+
+    ```sh
+    git clone https://github.com/security-assignments/httpd-hydra-practice.git
+    cd httpd-hydra-practice
+    docker compose up
+    ```
+
+    A web server should now be running on port `9876`. Visit <http://localhost:9876> to confirm this.
+
+    Now, visit <http://localhost:9876/auth/> in a browser, and note that it requires a login. Let's say that you wanted to crack the password for this route. Imagine that you knew, or guessed, that one of the usernames was `security-student`.
 
     Type the following, all on one line (remember that you can
     use tab-completion for the rockyou path). Run the command after you read the
     explanatory text below the command on this page.
 
     ```bash
-    hydra -V -l istheory -P /usr/share/wordlists/rockyou.txt http-get://is.theorizeit.org/auth/
+    hydra -V -l security-student -P /usr/share/wordlists/rockyou.txt http-get://localhost:9876/auth/
     ```
 
     **Note:** The trailing slash (`/`) in the final argument is needed.
@@ -132,11 +139,11 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
     * `hydra` is the password cracking tool to execute.
     * `-V` means verbose, and will show you the username and password combination being attempted.
-    * `-l istheory` sets “istheory” as the login name. **Note:** that’s a lowercase ‘L.’
+    * `-l security-student` sets "security-student" as the login name. **Note:** that’s a lowercase ‘L.’
     * `-P /usr/share/wordlists/rockyou.txt` is the password dictionary file to use.
       * the password is case-sensitive!
     * `https-get` means a [GET request](https://www.w3schools.com/tags/ref_httpmethods.asp) over HTTPS. Note that Hydra supports many protocols (e.g., ftp, ssh).
-    * `is.theorizeit.org/auth/` is the password-protected URL to be accessed.
+    * `localhost:9876/auth/` is the password-protected URL to be accessed.
 
     <div class='alert alert-info'><strong>Tip</strong> This is a good opportunity
     to look at a command's built-in help documentation. Run <code>hydra -h</code>
@@ -153,7 +160,7 @@ This attack uses `/usr/share/wordlists/rockyou.txt.gz`, which comprises all uniq
 
     The Hydra output will tell you at what time it started, how many passwords it has tried so far, and at what time it stopped.
 
-    {% include lab_question.html question='Scan the results to find the line beginning with <code>[443][http-get]</code>. What was the password?' %}
+    {% include lab_question.html question='Scan the results to find the line beginning with <code>[9876][http-get]</code>. What was the password?' %}
 
     **Question:** Approximately how many passwords a second were you able to try? **Hint:** You may need to calculate this from the start and end time along with number of guesses made.
 
