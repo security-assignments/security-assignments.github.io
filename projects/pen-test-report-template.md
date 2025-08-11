@@ -26,9 +26,17 @@ page]({{ site.baseurl }}{% link _projects/pen-test.md %}#rubric).
 
 Remove all colored blocks from your final submission.
 
+Throughout the document, replace the following placeholder values with the appropriate value:
+
+- `{team_identifier}` -- Your class team identifier. For example, "Team 1".
+- `{acquisition_target}` -- The name of the company for your assessment
+- `{link_provided_by_instructor}`  -- The asset link provided to you by your instructor
+
+This report is confidential; you are forbidden to share it publicly, or to post it on a site such as LinkedIn or your resume website.  
+
 ---
 
-# Team [team-number] Penetration Testing Report
+# {team_identifier} Penetration Testing Report
 
 {: .alert .alert-warning }
 _[List team member names here]_
@@ -74,39 +82,60 @@ _Description of the scope of the project, objectives, and your authorization to 
 {: .alert .alert-warning }
 _The agreement objectives. Use the below text, copied from the assignment description._
 
-We have entered into a contractual agreement with Humbleify for us to carry out a vulnerability assessment of a specific Humbleify asset hosted on vagrantcloud at `deargle/pentest-humbleify`.
+{acquisition_target} and {team_identifier} hereby enter into a contractual
+agreement for {team_identifier} to carry out a vulnerability assessment of a specific
+{acquisition_target} asset described below.
 
-The agreed-upon objectives are threefold:
+The specific {acquisition_target} asset was accessible at the time of the assessment from link {link_provided_by_instructor}.
 
-> 1. Document vulnerabilities that you are able to successfully exploit on the server. Describe in detail what you did and what level of access you were able to obtain. If you obtain a user account with limited privileges, document whether you were able to escalate the privileges to root. Document each exploit that you are able to successfully launch.
->
-> 2. Document potentially sensitive information that you are able to obtain from the server. These could include user files or web, database, or other server files.
->
-> 3. For both 1 and 2 above, argue for methods that could protect the vulnerabilities and sensitive information from > exploitation.
+## Objectives
+
+{team_identifier}'s objectives are threefold:
+
+1.    Document vulnerabilities that {team_identifier} is able to successfully exploit on the
+      server. Describe in detail what was done and what level of access {team_identifier} was obtained. 
+      If {team_identifier} obtains a user account with limited privileges, document
+      whether it was possible to escalate the privileges to root. Document each
+      exploit that was successfully launched.
+
+2.    Document potentially sensitive information that {team_identifier} was able to obtain from
+      the server. These could include user files or web, database, or other server
+      files.
+
+3.    For both 1 and 2 above, argue for methods that could protect the
+      vulnerabilities and sensitive information from > exploitation.
 
 ## 1.2.	Authorization
 
 {: .alert .alert-warning }
-_A copy of your authorization to perform the threat assessment. Use the below text._
+_A copy of your authorization to perform the threat assessment.
 
-We are operating under the following authorization:
+{team_identifier} operatied under the following authorization:
 
-> You are hereby authorized to perform the agreed-upon vulnerability assessment of the Humbleify vagrantbox virtual machine with IP address 192.168.56.200. Your scope of engagement is exclusively limited to the single Humbleify asset.
+> ## Authorization
 >
-> You may:
+> {team_identifier} is hereby authorized to perform the agreed-upon vulnerability assessment
+> of the {acquisition_target} vagrantbox virtual machine with IP address 192.168.56.200.
+> The scope of engagement is exclusively limited to the single {acquisition_target} asset.
+>
+> {team_identifier} may:
 >
 > * Access the server through any technological means available.
 > * Carry out activities that may crash the server.
 >
-> You may not:
+> {team_identifier} may not:
 >
-> * Social engineer any Humbleify employees.
-> * Sabotage the work of any other consultancy team hired by Humbleify.
+> * Social engineer any {acquisition_target} employees.
+> * Sabotage the work of any other consultancy team hired by {acquisition_target}.
 > * Disclose to any other party any information discovered on the asset.
 >
 > Furthermore, note the following:
 >
-> * This is a vagrantbox development version of a live asset. The vagrant-standard privileged user vagrant is present on this virtual machine, but not on the live version of the asset. Therefore, any access via the vagrant user is moot and out of scope.
+> * The asset is a vagrantbox development version of a live asset. The
+>   vagrant-standard privileged user `vagrant` is present on this virtual
+>   machine, but not on the live version of the asset. Therefore, any access via
+>   the `vagrant` user is moot and is out of scope.
+
 
 # 2.	Target of Assessment
 

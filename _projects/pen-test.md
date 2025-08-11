@@ -5,90 +5,74 @@ order: 3
 include_toc: true
 ---
 
-For this assignment, consider that your team is a group of consultants that offers cybersecurity penetration testing and risk assessment services. You have been retained by Humbleify.
+For this assignment, consider that your team is a group of consultants that offers cybersecurity penetration testing and risk assessment services. You have been retained by a company that is in talks to connect their network systems with another company. The acquiring company has required that the acquisition target undergo a penetration testing assessment as part of the negotiations. Furthermore, the acquisition target is seeking cybersecurity insurance, who also requires that they undergo a cybersecurity risk assessment, including a penetration test.
 
-
-> Humbleify is a place for people who enjoy humbling to connect. Find local humbling events or just share your favorite tips and stories with others who love to humble.
-
-
-Humbleify is in talks to connect their network systems with another company that has required that Humbleify undergo a penetration testing assessment as part of the
-negotiations. Furthermore, Humbleify is seeking cybersecurity insurance, who
-also requires that Humbleify undergo a cybersecurity risk assessment, including
-a penetration test.
-
-Therefore, Humbleify has hired you to assess one of their public-facing webservers. In this
-project, the company has intentionally not given you very much background information on this
-asset -- they would like you to see what you can find out, going in "blind." But
-you are only authorized to perform an evaluation of this particular server.
+Therefore, the acquisition target has hired you to assess one of their public-facing webservers. In this project, the company has intentionally not given you very much background information on this asset -- they would like you to see what you can find out, going in "blind." But you are only authorized to perform an evaluation of this particular server.
 
 # Accessing the asset
 
-The company has given you access to a vagrantbox virtual machine version of their webserver.
-It is hosted on vagrantcloud as box `deargle/pentest-humbleify`.
-To launch the virtual machine, follow the instructions on <https://github.com/security-assignments/pentest-humbleify>.
+The company has given you access to a vagrantbox virtual machine version of their webserver. It is hosted on vagrantcloud as a box. 
+
+**Your instructor will provide you with a link to the asset.** To launch the asset, follow the instructions at <https://github.com/security-assignments/manage-pentest-vm> using your Kali machine, using your instructor-provided asset link.[^instructors]
+ 
+[^instructors]: Instructors can obtain an asset link by contacting support at [{{ site.support_email }}](mailto:{{ site.support_email }})
 
 **Once you have launched the virtual machine on Kali**, you will be able to access the asset **at the following ip address on the `infosec-net` network**:
 
 <div class='alert alert-success'>192.168.56.200</div>
 
-Your Kali instance's IP address on this network is the same as it has been for
-all other labs: `192.168.56.101`.
+Your Kali instance's IP address on this network is the same as it has been for all other labs: `192.168.56.101`.
 
-A power-user msfconsole-user move is to set your `LHOST` not to an explicit ip
-address, but rather, [an interface name]({{ site.baseurl }}{% link
-_labs/lab_exploitation.md %}#set-lhost-iface-name). You can therefore run `set
-LHOST virbr1` wherever an lhost is required in msfconsole. [Set these values
-globally]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#setg) to
-perhaps save a few more keystrokes over the course of the assignment.
+A power-user msfconsole-user move is to set your `LHOST` not to an explicit ip address, but rather, [an interface name]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#set-lhost-iface-name). You an therefore run `set LHOST virbr1` wherever an lhost is required in msfconsole. [Set these values globally]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#setg) to perhaps save a few more  eystrokes over the course of the assignment.
 
 
 # Contractual Agreement
 
-You have signed the following contractual agreement with Humbleify for your
-penetration test assessment:
+You have signed the following contractual agreement with the acquisition target for your penetration test assessment:
 
 
-> Humbleify and your esteemed consultancy hereby enter into a contractual
-> agreement for you to carry out a vulnerability assessment of a specific
-> Humbleify asset described below.
+> {acquisition_target} and {consultancy} hereby enter into a contractual
+> agreement for {consultancy} to carry out a vulnerability assessment of a specific
+> {acquisition_target} asset described below.
 >
 >
 > ## Objectives
 >
-> Your objectives are threefold:
+> {consultancy}'s objectives are threefold:
 >
-> 1. Document vulnerabilities that you are able to successfully exploit on the
-> server. Describe in detail what you did and what level of access you were able
-> to obtain. If you obtain a user account with limited privileges, document
-> whether you were able to escalate the privileges to root. Document each
-> exploit that you are able to successfully launch.
+> 1.    Document vulnerabilities that {consultancy} is able to successfully exploit on the
+>       server. Describe in detail what was done and what level of access {consultancy} was obtained. 
+>       If {consultancy} obtains a user account with limited privileges, document
+>       whether it was possible to escalate the privileges to root. Document each
+>       exploit that was successfully launched.
 >
-> 2. Document potentially sensitive information that you are able to obtain from
-> the server. These could include user files or web, database, or other server
-> files.
+> 2.    Document potentially sensitive information that {consultancy} was able to obtain from
+>       the server. These could include user files or web, database, or other server
+>       files.
 >
-> 3. For both 1 and 2 above, argue for methods that could protect the
->    vulnerabilities and sensitive information from > exploitation.
+> 3.    For both 1 and 2 above, argue for methods that could protect the
+>       vulnerabilities and sensitive information from > exploitation.
 >
 >
 > ## Authorization
 >
-> You are hereby authorized to perform the agreed-upon vulnerability assessment
-> of the Humbleify vagrantbox virtual machine with IP address 192.168.56.200.
-> Your scope of engagement is exclusively limited to the single Humbleify asset.
+> {consultancy} is hereby authorized to perform the agreed-upon vulnerability assessment
+> of the {acquisition_target} vagrantbox virtual machine with IP address 192.168.56.200.
+> The scope of engagement is exclusively limited to the single {acquisition_target} asset.
 >
-> You may:
+> {consultancy} may:
 >
 > * Access the server through any technological means available.
 > * Carry out activities that may crash the server.
 >
-> You may not:
+> {consultancy} may not:
 >
-> * Social engineer any Humbleify employees.
-> * Sabotage the work of any other consultancy team hired by Humbleify.
+> * Social engineer any {acquisition_target} employees.
+> * Sabotage the work of any other consultancy team hired by {acquisition_target}.
 > * Disclose to any other party any information discovered on the asset.
 >
->Furthermore, note the following:
+> Furthermore, note the following:
+>
 > * This is a vagrantbox development version of a live asset. The
 >   vagrant-standard privileged user `vagrant` is present on this virtual
 >   machine, but not on the live version of the asset. Therefore, any access via
@@ -175,7 +159,7 @@ create your report.
 
 # Getting help
 
-Per the contract, the client will not answer most questions about the Humbleify server.
+Per the contract, the client will not answer most questions about the {acquisition_target} server.
 However, you are welcome to ask *general questions about the lab material* to your
 friends and advisors.
 
@@ -220,7 +204,7 @@ You may find tools such as the following useful:
 ## Tips -- Productivity
 
 * Put an entry for the target in Kali's `/etc/hosts` file to make it so that you don't have to
-  keep typing out the IP address of humbleify's server.
+  keep typing out the IP address of {acquisition_target}'s server.
 
 ## Tips -- Password Cracking
 
