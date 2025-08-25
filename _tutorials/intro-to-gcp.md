@@ -116,46 +116,28 @@ Ensure before beginning this step that you have completed parts 1 and 2, after w
 
 ## Part 3.3: Create your Kali Compute Instance
 
-* Click "Create Instance".
-* Use the following settings for the first set of options:
-    1. In the "name" field, enter any name for your instance, such as "kali".
-    2. Set the "Region" field to "us-west1". Set "Zone" to "Any".
-       - We choose the "us-west1" region because it seems to have better availability for our desired machine type.
-    3. For the "Machine configuration", choose "N1"
-    4. Change the "Machine type" field to "n1-standard-4 (4 vCPU, 15 GB memory)"
-       
-       <div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this and switch to an instance with less than 7.5 GB memory, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
-       
-    5. For the "CPU platform" field:
-       1. Click the "CPU platform and GPU" dropdown to expand this menu section
-       2. Select "Intel Haswell or later".
+Follow the steps in the images and image-captions below.
 
-    <div class='alert alert-info'><strong>Do you get an error message saying that a N1 instance is not available?</strong> You might get an error message such as the following: <code>Failed to start kali, A n1-standard-4-VM instance is currently unavailable in [your regional zone]. Alternatively, you can try your request again with a different VM hardware configuration or at a later time.</code> If you get this error message, first try a different regional zone. Then, you can check a different N1-series machine type for availability, such as <code>n1-standard-2</code>. Or you could try an N2-series instance, with machine-type <code>n2-standard-4</code>, and with CPU platform <code>Automatic</code></div>
-
-* Use the following settings for the "Boot disk" field:
-  1. Click "Change".
-  2. Select the "Custom images" tab.
-  3. Click "Select a Project." Click the "All" tab to see all projects.
-     Choose "security-assignments-kali".
-  4. Select the most recent Kali version that you see.
-  5. Set "Boot disk type" to "Standard persistent disk"
-  6. Under the "Size (GB)" field, you can choose a value between 500GB (the image size)
-     and 1,000GB (the quota limit for new accounts).
-
-     The labs don't require anywhere near even 500GB disk space, but with cloud computing, the more space that you allocate for your drive, _the better performance they give to read/write operations for your instance._
-
-* Click the "Create" button.
-
-
----
 
 {% include lab-image.html caption='On the VM instances screen, click "Create Instance".' image='intro-to-gcp/compute-engine-enabled-create-instance.png' %}
 
-{% include lab-image.html caption='VM instance settings. (1) Set name to `kali`; (2) set region to "us-west1"; (3) set Machine Configuration to "N1"; (4) set Machine Type to "N1"; (5) set CPU platform to "Intel Haswell or later"; (6) configure the Boot Disk settings (see next screenshot); (7) review the estimated cost; (8) click "Create"' image='intro-to-gcp/gcp-create-instance-settings.png' %}
+{% include lab-image.html caption='VM machine configuration settings. (1) Set name to `kali`; (2) set region to "us-west1"; (3) set the machine type Series to "N1"; (4) for the machine type, choose `n1-standard-4`; (5) set CPU platform to "Intel Haswell or later"; Do *not* yet click "create".' image='intro-to-gcp/gcp-create-instance-settings-2.png' %}
 
-{% include lab-image.html caption='VM instance settings -- boot disk detail' image='intro-to-gcp/boot-disk-settings.png' %}
+{% include lab-image.html caption='VM OS and storage settings. (1) Click "OS and storage". (2) Click "Change".' image='intro-to-gcp/gcp-create-instance-settings-3.png' %}
 
-{% include lab-image.html caption='Choosing a source image for the boot disk' image='intro-to-gcp/boot-image-select-project-list.png' %}
+{% include lab-image.html caption='Boot Disk project select -- (1) Click "Custom Images." (2) Click "change". (3) Select `All`. (4) select project `security-assignments-kali`. You should be able to see and select this project if you are using a Google account that has purchased access to the class lab materials.' image='intro-to-gcp/boot-disk-project-select.png' %}
+
+{% include lab-image.html caption='Boot Disk. With "Custom Images" selected and with the project set to `security-assignments-kali`, (1) click the "Image" dropdown and select the most recent Kali image. Then, (2) set the "Boot disk type" to "Standard persistent disk". (3) Choose "Select"' image='intro-to-gcp/boot-disk-settings-2.png' %}
+
+
+{% include lab-image.html caption='Create the instance -- (1) Review the configuration; (2) review the estimated cost; (3) click "Create"' image='intro-to-gcp/boot-disk-create.png' %}
+
+---
+
+<div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this and switch to an instance with less than 7.5 GB memory, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
+       
+   
+<div class='alert alert-info'><strong>Do you get an error message saying that a N1 instance is not available?</strong> You might get an error message such as the following: <code>Failed to start kali, A n1-standard-4-VM instance is currently unavailable in [your regional zone]. Alternatively, you can try your request again with a different VM hardware configuration or at a later time.</code> If you get this error message, first try a different regional zone. Then, you can check a different N1-series machine type for availability, such as <code>n1-standard-2</code>. Or you could try an N2-series instance, with machine-type <code>n2-standard-4</code>, and with CPU platform <code>Automatic</code></div>
 
 
 

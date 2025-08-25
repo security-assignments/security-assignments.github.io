@@ -28,8 +28,10 @@ description: This page is the storefront for security-assignments.com.
           access to the lab virtual machines.</li>
       </ol>
 
-      <p>If you later want to change your GCP email associated with your purchase, <a href="mailto:{{ page.support_address }}">{{ page.support_address }}</a>
-        Non-transferrable to different persons -- just transferrable within google accounts that belong to you.</p>
+      <p><strong>Changing your purchase email address: </strong>If you later want to change your GCP email associated with your purchase, contact <a href="mailto:{{ page.support_address }}">{{ page.support_address }}</a></p>
+        <p>Access is only transferrable between google accounts that belong to you. It is non-transferrable to different persons.</p>
+      <p>In your request, state the email you are transferring <em>from</em>, and the one you are transferring <em>to</em>. Send the request from the email account from which access will be transferred.</p>
+      <p><em>Please do not make a new purchase and then open a "charged twice" PayPal dispute. </em></p>
       <hr/>
       <p>* If you have a non-@gmail.com email address that you are certain will work on GCP, contact <a href="mailto:{{ page.send_to_address }}">{{ page.send_to_address }}</a>.</p>
     </div>
@@ -93,8 +95,8 @@ function initPayPalButton() {
     },
     // https://developer.paypal.com/docs/checkout/reference/server-integration/set-up-transaction/
     createOrder: function(data, actions) {
-      // return fetch('http://localhost:8080/', {
-      return fetch('https://us-central1-security-assignments-kali.cloudfunctions.net/security-assignments-paypal-order-create', {
+      return fetch('http://localhost:8080/', {
+      // return fetch('https://us-central1-security-assignments-kali.cloudfunctions.net/security-assignments-paypal-order-create', {
         method: 'post',
         headers: {
           'content-type': 'application/json'
