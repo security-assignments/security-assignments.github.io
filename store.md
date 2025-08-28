@@ -95,8 +95,8 @@ function initPayPalButton() {
     },
     // https://developer.paypal.com/docs/checkout/reference/server-integration/set-up-transaction/
     createOrder: function(data, actions) {
-      return fetch('http://localhost:8080/', {
-      // return fetch('https://us-central1-security-assignments-kali.cloudfunctions.net/security-assignments-paypal-order-create', {
+      //return fetch('http://localhost:8080/', {
+      return fetch('https://us-central1-security-assignments-kali.cloudfunctions.net/security-assignments-paypal-order-create', {
         method: 'post',
         headers: {
           'content-type': 'application/json'
