@@ -23,8 +23,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: "https://security-assignments.com" # the base hostname & protocol for your site, e.g. http://example.com
 repository: 'security-assignments/security-assignments.github.io'
 
-#remote_theme: deargle/security-assignments-theme
-theme: security-assignments-theme
+remote_theme: deargle/security-assignments-theme
+# theme: security-assignments-theme
 
 # Build settings
 markdown: kramdown
