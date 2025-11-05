@@ -23,8 +23,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: "https://security-assignments.com" # the base hostname & protocol for your site, e.g. http://example.com
 repository: 'security-assignments/security-assignments.github.io'
 
-remote_theme: deargle/security-assignments-theme
-#theme: security-assignments-theme
+#remote_theme: deargle/security-assignments-theme
+theme: security-assignments-theme
 
 # Build settings
 markdown: kramdown
@@ -65,6 +65,10 @@ exclude:
   - README.md
 
 host: 0.0.0.0
+
+paypal_create_order_endpoint: https://us-central1-security-assignments-kali.cloudfunctions.net/security-assignments-paypal-order-create
+transfer_access_service_endpoint: https://transfer-access-service-wffmc6utkq-uc.a.run.app # live
+# transfer_access_service_endpoint: https://transfer-access-service-sandbox-wffmc6utkq-uc.a.run.app # sandbox
 
 # Collections
 collections:

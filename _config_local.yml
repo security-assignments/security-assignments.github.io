@@ -1,1 +1,3 @@
 url: http://0.0.0.0:4000
+paypal_create_order_endpoint: http://localhost:8080/
+transfer_access_service_endpoint: http://localhost:8080
