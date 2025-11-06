@@ -38,3 +38,24 @@ This page documents fixes for bugs in versions of the virtual machines, includin
   (<https://remotedesktop.google.com/access>)
 
 **Resolved in**: v3.0.1
+
+
+
+# Kali-on-GCP v5.0.0
+
+**Problem:** Lock screen starts when screensaver begins.
+
+**Solutions:** 
+
+To be able to unlock the lock screen, [set a password for your user](https://docs.cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#set_a_user_password):
+
+> 1. Connect to the instance using SSH, as you did when you first set up the instance.
+> 2. Create a password for the user:
+>
+>    ```
+>    sudo passwd $(whoami)
+>    ```
+
+Alternatively, disable the lock screen and screensaver using the `xfce4-screensaver-settings` application, launched from the terminal.
+
+**Resolved:**: Lock screen disabled in v5.0.2
