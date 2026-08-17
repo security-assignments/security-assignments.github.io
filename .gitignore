@@ -6,3 +6,4 @@ _site
 .bundle
 _config.yml.*
 .venv-linkcheck/
+_config_dev_theme.yml

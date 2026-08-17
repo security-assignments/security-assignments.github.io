@@ -1,0 +1,41 @@
+#!/bin/sh
+# Blocks pushing a Gemfile that still points security-assignments-theme at a
+# local :path (the dev-only override for previewing local theme edits, see
+# _config_dev_theme.yml). GitHub Pages has no ../security-assignments-theme
+# checkout to resolve that path against, so a push with this still active
+# breaks the live site's build, not just local dev.
+#
+# Installed via `git config core.hooksPath .githooks` -- script/bootstrap
+# does this for you on a fresh clone.
+
+bad_ref=""
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  # local_sha is all-zeros when deleting a remote ref -- nothing to check.
+  case "$local_sha" in
+    0000000000000000000000000000000000000000) continue ;;
+  esac
+
+  if git show "$local_sha:Gemfile" 2>/dev/null \
+      | grep -Eq "^[[:space:]]*gem[[:space:]]+['\"]security-assignments-theme['\"].*:path"; then
+    bad_ref="$local_ref ($local_sha)"
+  fi
+done
+
+if [ -n "$bad_ref" ]; then
+  cat >&2 <<EOF
+
+pre-push: refusing to push $bad_ref
+Gemfile still points security-assignments-theme at a local :path -- that's
+the dev-only override for previewing local theme edits. GitHub Pages can't
+resolve that path and the live build will fail.
+
+Fix: comment the gem 'security-assignments-theme', :path => '...' line back
+out in Gemfile, commit, and push again.
+
+To bypass (not recommended): git push --no-verify
+EOF
+  exit 1
+fi
+
+exit 0

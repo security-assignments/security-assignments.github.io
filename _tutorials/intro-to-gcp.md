@@ -99,66 +99,121 @@ Ensure before beginning this step that you have completed parts 1 and 2, after w
 {% include lab-image.html caption='Select your new project. Ensure that the project dropdown selector now shows your new project name.' image='intro-to-gcp/select-new-project.png' %}
 
 
-## Part 3.2: Enable the Compute Engine API
+<!-- TODO(editorial): draft sketch, replacing manual Console click-through
+     (formerly Part 3.2/3.3) with the kali-launcher Cloud Shell script. See
+     security-assignments-workingdir/security-assignments-github-io-handoff.md
+     for the source of this scope (kali-launcher's own README-public.md /
+     tutorial.md). All {% include lab-image.html %} calls below point at
+     PLACEHOLDER-*.png filenames that don't exist yet -- real screenshots
+     still need to be captured and the filenames updated to match. -->
 
-1. Click "Create a VM" to navigate to the ["Compute Engine"](https://console.cloud.google.com/compute) area. 
-2. Click "enable". Wait a few minutes for Compute Engine to set up.
+<!-- DRAFT A for Part 3.2, swapped OUT for live preview on 2026-08-17 -- kept here for comparison, not currently rendered.
 
----
+## Part 3.2: Launch your Kali instance with the launcher script
 
-{% include lab-image.html caption='Select "Create a VM".' image='intro-to-gcp/choose-create-vm.png' %}
+Instead of manually configuring a virtual machine in the GCP Console, use
+the `kali-launcher` Cloud Shell walkthrough below. It automatically enables
+the Compute Engine API, finds the course's Kali image, and creates your
+instance for you -- retrying across a shortlist of zones and machine types
+on its own if one is temporarily out of capacity.
 
-{% include lab-image.html caption='Enable the Compute Engine API. This will take a few minutes to complete.' image='intro-to-gcp/compute-engine-enable.png' %}
+<p class='text-center'><a href='https://console.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/security-assignments/kali-launcher&cloudshell_tutorial=tutorial.md'><img src='https://gstatic.com/cloudssh/images/open-btn.svg' alt='Open in Cloud Shell'></a></p>
 
+1. Click the button above. This opens **Cloud Shell** (a browser-based
+   terminal tied to your GCP project -- not the same thing as
+   "SSH-in-browser", which you'll see mentioned in older instructions) in a
+   new tab, with a walkthrough panel alongside the terminal.
 
+   {% include lab-image.html caption='PLACEHOLDER -- Cloud Shell opening with the launcher walkthrough panel alongside the terminal' image='intro-to-gcp/PLACEHOLDER-cloud-shell-open.png' %}
 
+2. In the walkthrough panel, use the project picker to select the GCP
+   project you created in Part 3.1.
 
+   {% include lab-image.html caption='PLACEHOLDER -- walkthrough project picker' image='intro-to-gcp/PLACEHOLDER-walkthrough-project-picker.png' %}
 
-## Part 3.3: Create your Kali Compute Instance
+3. In the Cloud Shell terminal at the bottom of the screen, run:
 
-Follow the steps in the images and image-captions below.
+       ./launch-kali.sh
 
+   {% include lab-image.html caption='PLACEHOLDER -- running ./launch-kali.sh in the Cloud Shell terminal' image='intro-to-gcp/PLACEHOLDER-launch-kali-run.png' %}
 
-{% include lab-image.html caption='On the VM instances screen, click "Create Instance".' image='intro-to-gcp/compute-engine-enabled-create-instance.png' %}
+4. Wait for the script to finish. It tries a shortlist of zones and machine
+   types automatically and skips ahead on its own if one is temporarily out
+   of capacity -- you shouldn't need to intervene or retry anything
+   yourself.
 
-{% include lab-image.html caption='VM machine configuration settings. (1) Set name to `kali`; (2) set region to "us-west1"; (3) set the machine type Series to "N1"; (4) for the machine type, choose `n1-standard-4`; (5) set CPU platform to "Intel Haswell or later"; Do *not* yet click "create".' image='intro-to-gcp/gcp-create-instance-settings-2.png' %}
+   {% include lab-image.html caption='PLACEHOLDER -- launch-kali.sh finishing, printing the instance zone and a ready-to-run `gcloud compute ssh` command' image='intro-to-gcp/PLACEHOLDER-launch-kali-done.png' %}
 
-{% include lab-image.html caption='VM OS and storage settings. (1) Click "OS and storage". (2) Click "Change".' image='intro-to-gcp/gcp-create-instance-settings-3.png' %}
-
-{% include lab-image.html caption='Boot Disk project select -- (1) Click "Custom Images." (2) Click "change". (3) Select `All`. (4) select project `security-assignments-kali`. You should be able to see and select this project if you are using a Google account that has purchased access to the class lab materials.' image='intro-to-gcp/boot-disk-project-select.png' %}
-
-{% include lab-image.html caption='Boot Disk. With "Custom Images" selected and with the project set to `security-assignments-kali`, (1) click the "Image" dropdown and select the most recent Kali image. Then, (2) set the "Boot disk type" to "Standard persistent disk". (3) Choose "Select"' image='intro-to-gcp/boot-disk-settings-2.png' %}
-
-
-{% include lab-image.html caption='Create the instance -- (1) Review the configuration; (2) review the estimated cost; (3) click "Create"' image='intro-to-gcp/boot-disk-create.png' %}
+-- END DRAFT A -->
 
 ---
 
 <div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this and switch to an instance with less than 7.5 GB memory, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
-       
-   
-<div class='alert alert-info'><strong>Do you get an error message saying that a N1 instance is not available?</strong> You might get an error message such as the following: <code>Failed to start kali, A n1-standard-4-VM instance is currently unavailable in [your regional zone]. Alternatively, you can try your request again with a different VM hardware configuration or at a later time.</code> If you get this error message, first try a different regional zone. Then, you can check a different N1-series machine type for availability, such as <code>n1-standard-2</code>. Or you could try an N2-series instance, with machine-type <code>n2-standard-4</code>, and with CPU platform <code>Automatic</code></div>
 
+<!-- TODO(editorial): the old "Do you get an error message saying that a N1
+     instance is not available?" alert lived here -- dropped because
+     launch-kali.sh's automatic zone/machine-type retry is meant to replace
+     exactly this manual workaround. Confirm that's the right call before
+     merging. -->
 
+<!-- DRAFT B for Part 3.2 -- swapped IN for live preview on 2026-08-17, revised
+     2026-08-17 per Dave: drop "instead of manually configuring..." framing
+     (assumes students know the old method -- they don't), keep instructions
+     minimal to avoid overwhelming a first-time student, and send students
+     back to the "SSH-in-browser" button in Part 3.3 rather than continuing
+     in Cloud Shell, since they're on the Compute Engine instances page
+     already and don't gain anything by staying in Cloud Shell for that
+     step. -->
 
+## Part 3.2: Launch your Kali instance with the launcher script
 
-## Part 3.4: Connect to your instance via SSH-in-browser
+1. Go to the [VM instances page](https://console.cloud.google.com/compute/instances). Check the project selector at the top of the page to make sure it shows the project you created in Part 3.1.
+2. Click the Cloud Shell icon (`>_`) near the top-right of the page. A
+   terminal opens along the bottom of the screen.
+3. The first time you open Cloud Shell, it will ask for permission to run
+   `gcloud` commands on your behalf. Click "Authorize".
+4. Once Cloud Shell has connected, you'll see a fresh terminal prompt at the
+   bottom of the screen. Run:
 
-1. Wait a few minutes for your image to boot. Once it has booted, it will show a checkmark.
-2. Connect to your instance via `ssh`.
+       curl -fsSL "https://raw.githubusercontent.com/security-assignments/kali-launcher/main/launch-kali.sh?$(date +%s)" | bash
 
-   If it fails to connect, try again (the system may not have finished booting).
-
-   You should see a browser window pop up that looks like the following image. **Leave this popup open** -- you will need it for the next step.
-
+5. Wait for it to finish -- this can take a few minutes, and the terminal
+   will just show a growing line of dots while it works, which is normal.
+   You'll know it's done when the terminal prints `Kali instance 'kali'
+   created in <zone>.` The VM instances list above the terminal won't
+   update on its own -- once you see that message, click Refresh there to
+   show your new instance in the instances list.
 
 ---
 
-{% include lab-image.html caption='Once the instance has been created, click SSH to connect to your instance via "SSH-in-browser"' image='intro-to-gcp/instance-created-ssh.png' %}
+{% include lab-image.html caption='(1) Confirm the project selector shows the project you created in Part 3.1' image='intro-to-gcp/compute-instances-verify-project.png' %}
 
-{% include lab-image.html caption='Authorize "SSH-in-browser"' image='intro-to-gcp/ssh-in-browser-authorize.png' %}
+{% include lab-image.html caption='(1) Click the Cloud Shell icon in the Console toolbar' image='intro-to-gcp/compute-instances-activate-cloud-shell.png' %}
 
-{% include lab-image.html caption='You should see a shell prompt to your Kali instance in the SSH-in-browser window' image='intro-to-gcp/kali-custom-image-5.png' %}
+{% include lab-image.html caption='(1) Click Authorize to grant Cloud Shell permission to make Google Cloud API calls' image='intro-to-gcp/compute-instances-authorize-cloud-shell.png' %}
+
+{% include lab-image.html caption='A fresh Cloud Shell terminal, ready for the curl | bash one-liner' image='intro-to-gcp/cloud-shell-landing-fresh.png' %}
+
+{% include lab-image.html caption="(1) Look for the &quot;Kali instance 'kali' created&quot; line in the terminal -- that means launch-kali.sh is done; (2) click Refresh; (3) your new instance now appears in the instances list" image='intro-to-gcp/kali-launch-create.png' %}
+
+
+## Part 3.3: Connect to your instance via SSH-in-browser
+
+1. Wait a few minutes for your instance to boot. Once it has booted, it will
+   show a checkmark next to it in the VM instances list.
+2. Click "SSH" next to your instance to connect via SSH-in-browser.
+
+   If it fails to connect, try again (the system may not have finished
+   booting).
+
+   You should see a browser window pop up that looks like the following
+   image. **Leave this popup open** -- you will need it for the next step.
+
+   {% include lab-image.html caption='Once the instance has been created, click SSH to connect to your instance via "SSH-in-browser"' image='intro-to-gcp/instance-created-ssh.png' %}
+
+   {% include lab-image.html caption='Authorize "SSH-in-browser"' image='intro-to-gcp/ssh-in-browser-authorize.png' %}
+
+   {% include lab-image.html caption='You should see a shell prompt to your Kali instance in the SSH-in-browser window' image='intro-to-gcp/kali-custom-image-5.png' %}
 
 
 

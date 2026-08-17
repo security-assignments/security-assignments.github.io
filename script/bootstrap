@@ -3,6 +3,8 @@
 
 set -ex
 
+git config core.hooksPath .githooks
+
 script/branding
 bundle install
 npm install
