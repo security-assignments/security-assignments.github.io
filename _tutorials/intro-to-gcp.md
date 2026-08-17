@@ -169,23 +169,33 @@ on its own if one is temporarily out of capacity.
 
 1. Go to the [VM instances page](https://console.cloud.google.com/compute/instances). Check the project selector at the top of the page to make sure it shows the project you created in Part 3.1.
 
-   {% include lab-image.html caption='PLACEHOLDER -- empty VM instances page for the new project' image='intro-to-gcp/PLACEHOLDER-compute-instances-empty.png' %}
+   {% include lab-image.html caption='(1) Confirm the project selector shows the project you created in Part 3.1' image='intro-to-gcp/compute-instances-verify-project.png' %}
 
 2. Click the Cloud Shell icon (`>_`) near the top-right of the page. A
    terminal opens along the bottom of the screen.
 
-   {% include lab-image.html caption='PLACEHOLDER -- clicking the Cloud Shell activation icon in the Console toolbar' image='intro-to-gcp/PLACEHOLDER-activate-cloud-shell.png' %}
+   {% include lab-image.html caption='(1) Click the Cloud Shell icon in the Console toolbar' image='intro-to-gcp/compute-instances-activate-cloud-shell.png' %}
 
-3. In that terminal, run:
+3. The first time you open Cloud Shell, it will ask for permission to run
+   `gcloud` commands on your behalf. Click "Authorize".
 
-       curl -fsSL https://raw.githubusercontent.com/security-assignments/kali-launcher/main/launch-kali.sh | bash
+   {% include lab-image.html caption='(1) Click Authorize to grant Cloud Shell permission to make Google Cloud API calls' image='intro-to-gcp/compute-instances-authorize-cloud-shell.png' %}
 
-   {% include lab-image.html caption='PLACEHOLDER -- running the curl | bash one-liner in the Cloud Shell terminal' image='intro-to-gcp/PLACEHOLDER-launch-kali-curl-run.png' %}
+4. Once Cloud Shell has connected, you'll see a fresh terminal prompt at the
+   bottom of the screen. Run:
 
-4. Wait for it to finish. Watch the VM instances list above the terminal --
-   your Kali instance will appear there once it's created.
+       curl -fsSL "https://raw.githubusercontent.com/security-assignments/kali-launcher/main/launch-kali.sh?$(date +%s)" | bash
 
-   {% include lab-image.html caption='PLACEHOLDER -- launch-kali.sh finishing, with the new instance now listed above the terminal' image='intro-to-gcp/PLACEHOLDER-launch-kali-curl-done.png' %}
+   {% include lab-image.html caption='A fresh Cloud Shell terminal, ready for the curl | bash one-liner' image='intro-to-gcp/cloud-shell-landing-fresh.png' %}
+
+5. Wait for it to finish -- this can take a few minutes, and the terminal
+   will just show a growing line of dots while it works, which is normal.
+   You'll know it's done when the terminal prints `Kali instance 'kali'
+   created in <zone>.` The VM instances list above the terminal won't
+   update on its own -- once you see that message, click Refresh there to
+   show your new instance in the instances list.
+
+   {% include lab-image.html caption="(1) Look for the &quot;Kali instance 'kali' created&quot; line in the terminal -- that means launch-kali.sh is done; (2) click Refresh; (3) your new instance now appears in the instances list" image='intro-to-gcp/kali-launch-create.png' %}
 
 
 ## Part 3.3: Connect to your instance via SSH-in-browser
