@@ -1,0 +1,35 @@
+#!/bin/sh
+# Requests a fresh GitHub Pages build without needing a new commit on main.
+#
+# Useful after pushing to a dependency this site pulls in at build time (e.g.
+# security-assignments-theme via remote_theme in _config.yml) -- pushing that
+# repo alone doesn't trigger a rebuild here, since nothing changed in this
+# repo's own history.
+#
+# Requires the gh CLI, authenticated with push access to this repo.
+set -e
+
+REPO="security-assignments/security-assignments.github.io"
+
+gh api -X POST "repos/$REPO/pages/builds" >/dev/null
+echo "Build requested. Polling for completion..."
+
+while true; do
+  result=$(gh api "repos/$REPO/pages/builds/latest")
+  build_status=$(echo "$result" | grep -o '"status":"[a-z]*"' | head -1 | cut -d'"' -f4)
+  echo "  status: $build_status"
+
+  case "$build_status" in
+    built)
+      echo "Build succeeded."
+      exit 0
+      ;;
+    errored)
+      echo "Build failed:"
+      echo "$result"
+      exit 1
+      ;;
+  esac
+
+  sleep 8
+done
