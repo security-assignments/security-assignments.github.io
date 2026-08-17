@@ -107,6 +107,8 @@ Ensure before beginning this step that you have completed parts 1 and 2, after w
      PLACEHOLDER-*.png filenames that don't exist yet -- real screenshots
      still need to be captured and the filenames updated to match. -->
 
+<!-- DRAFT A for Part 3.2, swapped OUT for live preview on 2026-08-17 -- kept here for comparison, not currently rendered.
+
 ## Part 3.2: Launch your Kali instance with the launcher script
 
 Instead of manually configuring a virtual machine in the GCP Console, use
@@ -142,6 +144,8 @@ on its own if one is temporarily out of capacity.
 
    {% include lab-image.html caption='PLACEHOLDER -- launch-kali.sh finishing, printing the instance zone and a ready-to-run `gcloud compute ssh` command' image='intro-to-gcp/PLACEHOLDER-launch-kali-done.png' %}
 
+-- END DRAFT A -->
+
 ---
 
 <div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this and switch to an instance with less than 7.5 GB memory, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
@@ -152,31 +156,55 @@ on its own if one is temporarily out of capacity.
      exactly this manual workaround. Confirm that's the right call before
      merging. -->
 
+<!-- DRAFT B for Part 3.2 -- swapped IN for live preview on 2026-08-17, revised
+     2026-08-17 per Dave: drop "instead of manually configuring..." framing
+     (assumes students know the old method -- they don't), keep instructions
+     minimal to avoid overwhelming a first-time student, and send students
+     back to the "SSH-in-browser" button in Part 3.3 rather than continuing
+     in Cloud Shell, since they're on the Compute Engine instances page
+     already and don't gain anything by staying in Cloud Shell for that
+     step. -->
 
-## Part 3.3: Connect to your instance
+## Part 3.2: Launch your Kali instance with the launcher script
 
-`launch-kali.sh` prints a ready-to-run `gcloud compute ssh` command once it
-finishes. Run that command **in the same Cloud Shell terminal** -- for this
-tutorial, stay in Cloud Shell rather than switching to the separate
-"SSH-in-browser" button on the Compute Engine instances page.
+1. Go to the [VM instances page](https://console.cloud.google.com/compute/instances). Check the project selector at the top of the page to make sure it shows the project you created in Part 3.1.
 
-1. Copy the `gcloud compute ssh ...` command printed at the end of the
-   script's output.
+   {% include lab-image.html caption='PLACEHOLDER -- empty VM instances page for the new project' image='intro-to-gcp/PLACEHOLDER-compute-instances-empty.png' %}
 
-   {% include lab-image.html caption='PLACEHOLDER -- copying the printed gcloud compute ssh command' image='intro-to-gcp/PLACEHOLDER-ssh-command-copy.png' %}
+2. Click the Cloud Shell icon (`>_`) near the top-right of the page. A
+   terminal opens along the bottom of the screen.
 
-2. Paste it into the same Cloud Shell terminal and press `enter`.
+   {% include lab-image.html caption='PLACEHOLDER -- clicking the Cloud Shell activation icon in the Console toolbar' image='intro-to-gcp/PLACEHOLDER-activate-cloud-shell.png' %}
 
-   If prompted to generate SSH keys or authorize the connection, accept the
-   defaults.
+3. In that terminal, run:
 
-   {% include lab-image.html caption='PLACEHOLDER -- pasting the gcloud compute ssh command into the Cloud Shell terminal' image='intro-to-gcp/PLACEHOLDER-ssh-command-paste.png' %}
+       curl -fsSL https://raw.githubusercontent.com/security-assignments/kali-launcher/main/launch-kali.sh | bash
 
-3. You should see a shell prompt for your Kali instance, now running inside
-   your Cloud Shell terminal window. **Leave this window open** -- you will
-   need it for the next step.
+   {% include lab-image.html caption='PLACEHOLDER -- running the curl | bash one-liner in the Cloud Shell terminal' image='intro-to-gcp/PLACEHOLDER-launch-kali-curl-run.png' %}
 
-   {% include lab-image.html caption='PLACEHOLDER -- connected to the Kali instance inside the Cloud Shell terminal' image='intro-to-gcp/PLACEHOLDER-ssh-connected.png' %}
+4. Wait for it to finish. Watch the VM instances list above the terminal --
+   your Kali instance will appear there once it's created.
+
+   {% include lab-image.html caption='PLACEHOLDER -- launch-kali.sh finishing, with the new instance now listed above the terminal' image='intro-to-gcp/PLACEHOLDER-launch-kali-curl-done.png' %}
+
+
+## Part 3.3: Connect to your instance via SSH-in-browser
+
+1. Wait a few minutes for your instance to boot. Once it has booted, it will
+   show a checkmark next to it in the VM instances list.
+2. Click "SSH" next to your instance to connect via SSH-in-browser.
+
+   If it fails to connect, try again (the system may not have finished
+   booting).
+
+   You should see a browser window pop up that looks like the following
+   image. **Leave this popup open** -- you will need it for the next step.
+
+   {% include lab-image.html caption='Once the instance has been created, click SSH to connect to your instance via "SSH-in-browser"' image='intro-to-gcp/instance-created-ssh.png' %}
+
+   {% include lab-image.html caption='Authorize "SSH-in-browser"' image='intro-to-gcp/ssh-in-browser-authorize.png' %}
+
+   {% include lab-image.html caption='You should see a shell prompt to your Kali instance in the SSH-in-browser window' image='intro-to-gcp/kali-custom-image-5.png' %}
 
 
 
@@ -197,8 +225,8 @@ Setting up Chrome Remote Desktop (CRD) will enable you to graphically connect to
 * Click the "Authorize" button.
 * Select your personal Google account and click the "Allow" button.
 * Click the "copy" icon to the right of the Debian Linux command to copy the command.
-* Switch back to your Cloud Shell terminal window (where you're connected to Kali via `gcloud compute ssh` from Part 3.3), paste in the command you copied into the Kali Linux command line. Press `enter`.
-  * <!-- TODO(editorial): this help link is written for GCP's separate "SSH-in-browser" popup, which this tutorial no longer uses in Part 3 -- confirm whether copy/paste into Cloud Shell needs different instructions before merging. --> [This document describes how to copy-paste into the GCP browser ssh window. ](https://cloud.google.com/compute/docs/ssh-in-browser?hl=en#copypaste)
+* Switch to your browser window with the ssh connection to Kali, paste in the command you copied into the Kali Linux command line. Press `enter`.
+  * [This document describes how to copy-paste into the GCP browser ssh window. ](https://cloud.google.com/compute/docs/ssh-in-browser?hl=en#copypaste)
 * Enter and re-enter a six-digit pin. Press enter.
   * You will not see any visual feedback as you enter a pin. This is normal.
 

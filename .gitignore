@@ -5,3 +5,4 @@ _site
 /vendor/
 .bundle
 _config.yml.*
+_config_dev_theme.yml
