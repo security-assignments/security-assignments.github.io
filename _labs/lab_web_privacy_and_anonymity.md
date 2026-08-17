@@ -247,7 +247,7 @@ accessible via the Tor network. This is what is known colloquially as “the dar
 web.” While it’s true that there are many sites providing illegal services on
 the dark web, there are also legitimate uses for the dark web as well.
 
-Read this short article about the dark web: [https://www.wired.co.uk/article/what-is-the-dark-web-how-to-access/](https://www.wired.co.uk/article/what-is-the-dark-web-how-to-access/)
+Read the introduction (up to the "Terminology" heading) of this article about the dark web: [https://en.wikipedia.org/wiki/Dark_web](https://en.wikipedia.org/wiki/Dark_web)
 
 
 ## Access legitimate Tor services

@@ -172,8 +172,7 @@ and is used here with their permission. This data covers selected hours on selec
     ```
 
     Note:
-    * `rwcut` converts the binary output of `rwfilter` into human-readable text. Per [the `rwcut` manpage](https://
-      tools.netsa.cert.org/silk/rwcut.html), "rwcut reads binary SiLK Flow records and prints the user-selected record attributes (or fields) to the terminal in a textual, bar-delimited (`|`) format."
+    * `rwcut` converts the binary output of `rwfilter` into human-readable text. Per [the `rwcut` manpage](https://tools.netsa.cert.org/silk/rwcut.html), "rwcut reads binary SiLK Flow records and prints the user-selected record attributes (or fields) to the terminal in a textual, bar-delimited (`|`) format."
     * In this example, `--duration=1700-` and `--dport=22` filters to only records with an ssh connection time of at least
       1700 seconds (almost 30 minutes).
     * `rwsort` sorts the records by the "duration" field.

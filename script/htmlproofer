@@ -1,0 +1,36 @@
+#!/bin/sh
+# Checks the built site for broken links (internal + external) using html-proofer.
+#
+# Must run inside the security-assignments-jekyll Docker container, since the
+# host's Ruby is too new for the github-pages gem stack this repo pins to.
+# From the host:
+#
+#   docker exec security-assignments-jekyll script/htmlproofer
+#
+# Pass extra html-proofer flags through, e.g. to skip the slow external checks:
+#
+#   docker exec security-assignments-jekyll script/htmlproofer --disable-external
+set -e
+
+cd "$(dirname "$0")/.."
+
+# html-proofer 5.x needs Ruby >= 3.2; this container runs Ruby 2.7, so pin the
+# last release compatible with it (and its transitive deps, which otherwise
+# resolve to versions that also require Ruby >= 3.2).
+if ! gem list -i '^html-proofer$' -v 3.19.4 >/dev/null 2>&1; then
+  gem install nokogiri -v 1.15.7
+  gem install zeitwerk -v 2.6.18
+  gem install html-proofer -v 3.19.4
+fi
+
+bundle exec jekyll build --config _config.yml,_config_local.yml
+
+# --assume-extension: this site's pages/collections use extensionless URLs
+# (e.g. /about, /activities/amass) that only resolve via GitHub Pages' web
+# server rewriting them to *.html. Without this flag, html-proofer flags
+# every such link as broken even though they work in production.
+exec htmlproofer ./_site \
+  --allow-hash-href \
+  --assume-extension \
+  --checks-to-ignore ScriptCheck,ImageCheck \
+  "$@"

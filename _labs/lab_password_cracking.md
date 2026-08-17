@@ -43,10 +43,10 @@ is_pentest_prep: true
 
 # Part 3. Sign-up for Two Factor Authentication
 
-Visit <https://2fa.directory/> and browse through the categories to find an online service that you regularly use
+Visit <https://2fa.directory/us/> and browse through the categories to find an online service that you regularly use
 (e.g., Gmail, Snapchat, Instagram, Facebook, online bank accounts, etc.). Sign up for 2FA for at least one account.
 
-Also, visit [dongleauth.info](https://www.dongleauth.info/) to find an online service that allows you to use [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) or [Universal Second Factor (U2F)](https://en.wikipedia.org/wiki/Universal_2nd_Factor).
+That same site also lets you find an online service that allows you to use [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) or [Universal Second Factor (U2F)](https://en.wikipedia.org/wiki/Universal_2nd_Factor).
 
 {% include lab_question.html question='Which service did you enable 2FA for?' %}
 
@@ -86,7 +86,7 @@ Take a screenshot of your password manager showing **saved entries for at least 
 In this section, you will launch attacks over the network against login services,
 in an attempt to brute-force a username/password.
 
-**Note:** This section uses the [Kali VM]({{ site.baseurl }}{% link labs/virtual-machines.md %}#kali).
+**Note:** This section uses the [Kali VM]({{ site.baseurl }}{% link labs/virtual-machines.md %}#using-the-virtual-machines-within-kali).
 
 <div class='alert alert-info'><strong>Heads up!</strong> Pay careful attention to each step
 in this section.</div>

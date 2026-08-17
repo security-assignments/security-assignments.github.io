@@ -3,7 +3,7 @@ topic: 'Authentication and Passwords'
 ---
 
 The reading covers Anderson, either 2nd edition or 3rd edition:
-  * [3rd edition: Anderson Ch. 3, pp. 90-97](https://www.cl.cam.ac.uk/~rja14/Papers/SEv3-ch3-sep16.pdf) (section 3.4–3.4.4.2)-, pp. 105-110 (section 3.4.9–3.4.12)
+  * [3rd edition: Anderson Ch. 3, pp. 90-97](https://www.cl.cam.ac.uk/archive/rja14/Papers/SEv3-ch03.pdf) (section 3.4–3.4.4.2)-, pp. 105-110 (section 3.4.9–3.4.12)
   * [2nd edition: Anderson Ch. 2, pp. 31-39, 56-58](http://www.cl.cam.ac.uk/~rja14/Papers/SEv2-c02.pdf)
 
 If you read the 3rd edition, please also read this excerpt from the 2nd edition:

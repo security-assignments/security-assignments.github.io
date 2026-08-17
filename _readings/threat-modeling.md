@@ -11,4 +11,4 @@ Supplemental:
 *   G. Conti and J. Caroland, “Embracing the Kobayashi Maru: Why You Should Teach
     Your Students to Cheat,” in IEEE Security & Privacy, vol. 9, no. 4, pp.
     48-51, July-Aug. 2011, doi: 10.1109/MSP.2011.80.
-    [(pdf)](http://www.rumint.org/gregconti/publications/KobayashiMaru_PrePub.pdf)
+    [(pdf)](https://www.gregconti.com/publications/201107_Kobayashi.pdf)

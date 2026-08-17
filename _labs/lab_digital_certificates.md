@@ -327,7 +327,7 @@ to the Signal app and protocol.
 crypto wars:
     * Interview with Moxie Marlinspike starting at 9:00, but start at [8:23](https://youtu.be/j7VA4H8m4uk?t=502) for context
     * Many attacks that do not depend on cracking E2E, Interviews with [Morgan Marquis-Boire at 16:18](https://youtu.be/j7VA4H8m4uk?t=978) and [Bill Marczak of The Citizen Lab at 18:37](https://youtu.be/j7VA4H8m4uk?t=1097)
-1.	Watch this [video](https://video.vice.com/en_us/video/motherboard-hacking-week-how-to-use-signal-encryption/5a0f6547177dd45aee30e663) and read about the Signal app [here](https://signal.org/) and [here](https://theintercept.com/2017/05/01/cybersecurity-for-the-people-how-to-keep-your-chats-truly-private-with-signal/).
+1.	Read about the Signal app [here](https://signal.org/) and [here](https://theintercept.com/2017/05/01/cybersecurity-for-the-people-how-to-keep-your-chats-truly-private-with-signal/).
 1.  Also read about the cryptographic primitives that the Signal protocol uses, [here](https://medium.com/@justinomora/demystifying-the-signal-protocol-for-end-to-end-encryption-e2ee-ad6a567e6cb4).
 
 Use what you read and watched above to answer the following questions:

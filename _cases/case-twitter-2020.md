@@ -81,10 +81,10 @@ redirect_from:
 * New York Times documentary about how the Twitter hack occurred (highly recommended):
 	- [NYTimes.com](https://www.nytimes.com/video/NYT-Presents/100000007692848/the-teenager-who-hacked-twitter.html)
 	- [Hulu](<https://www.hulu.com/series/the-new-york-times-presents-f22278d1-ef56-40e8-9227-af3a029ca6f4>)
-* ["Twitter Investigation Report," NY DFS](https://www.dfs.ny.gov/Twitter_Report)
+* ["Twitter Investigation Report," NY DFS](https://www.dfs.ny.gov/system/files/documents/2026/07/Twitter-Investigation-Report.pdf)
 *	[Early news story of the incident](https://www.nytimes.com/2020/07/15/technology/twitter-hack-bill-gates-elon-musk.html)
 *	Total amount of bitcoin transferred to this address: <https://www.blockchain.com/btc/address/bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh>
 
-[1]: https://www.dfs.ny.gov/Twitter_Report "Twitter Report, accessed 10/27/2020"
+[1]: https://www.dfs.ny.gov/system/files/documents/2026/07/Twitter-Investigation-Report.pdf "Twitter Report, accessed 10/27/2020"
 [2]: https://arstechnica.com/tech-policy/2020/07/florida-teen-arrested-charged-with-being-mastermind-of-twitter-hack/
 [3]: https://blog.twitter.com/en_us/topics/company/2020/our-continued-work-to-keep-twitter-secure.html
