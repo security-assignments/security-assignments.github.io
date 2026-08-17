@@ -78,7 +78,7 @@ To get access to the Google Cloud Platform virtual machines created for the labs
 
 # Part 3: Create a new project and launch a new Kali Linux instance
 
-Ensure before beginning this step that you have completed parts 1 and 2, after which you should have a GCP account with access to the course lab GCP materials. Then, do the following on <https://console.cloud.google.com>:
+Before starting, make sure you've completed Parts 1 and 2, so you have a GCP account with access to the course lab materials. Then do the following on <https://console.cloud.google.com>:
 
 
 
@@ -99,71 +99,9 @@ Ensure before beginning this step that you have completed parts 1 and 2, after w
 {% include lab-image.html caption='Select your new project. Ensure that the project dropdown selector now shows your new project name.' image='intro-to-gcp/select-new-project.png' %}
 
 
-<!-- TODO(editorial): draft sketch, replacing manual Console click-through
-     (formerly Part 3.2/3.3) with the kali-launcher Cloud Shell script. See
-     security-assignments-workingdir/security-assignments-github-io-handoff.md
-     for the source of this scope (kali-launcher's own README-public.md /
-     tutorial.md). All {% include lab-image.html %} calls below point at
-     PLACEHOLDER-*.png filenames that don't exist yet -- real screenshots
-     still need to be captured and the filenames updated to match. -->
-
-<!-- DRAFT A for Part 3.2, swapped OUT for live preview on 2026-08-17 -- kept here for comparison, not currently rendered.
-
-## Part 3.2: Launch your Kali instance with the launcher script
-
-Instead of manually configuring a virtual machine in the GCP Console, use
-the `kali-launcher` Cloud Shell walkthrough below. It automatically enables
-the Compute Engine API, finds the course's Kali image, and creates your
-instance for you -- retrying across a shortlist of zones and machine types
-on its own if one is temporarily out of capacity.
-
-<p class='text-center'><a href='https://console.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/security-assignments/kali-launcher&cloudshell_tutorial=tutorial.md'><img src='https://gstatic.com/cloudssh/images/open-btn.svg' alt='Open in Cloud Shell'></a></p>
-
-1. Click the button above. This opens **Cloud Shell** (a browser-based
-   terminal tied to your GCP project -- not the same thing as
-   "SSH-in-browser", which you'll see mentioned in older instructions) in a
-   new tab, with a walkthrough panel alongside the terminal.
-
-   {% include lab-image.html caption='PLACEHOLDER -- Cloud Shell opening with the launcher walkthrough panel alongside the terminal' image='intro-to-gcp/PLACEHOLDER-cloud-shell-open.png' %}
-
-2. In the walkthrough panel, use the project picker to select the GCP
-   project you created in Part 3.1.
-
-   {% include lab-image.html caption='PLACEHOLDER -- walkthrough project picker' image='intro-to-gcp/PLACEHOLDER-walkthrough-project-picker.png' %}
-
-3. In the Cloud Shell terminal at the bottom of the screen, run:
-
-       ./launch-kali.sh
-
-   {% include lab-image.html caption='PLACEHOLDER -- running ./launch-kali.sh in the Cloud Shell terminal' image='intro-to-gcp/PLACEHOLDER-launch-kali-run.png' %}
-
-4. Wait for the script to finish. It tries a shortlist of zones and machine
-   types automatically and skips ahead on its own if one is temporarily out
-   of capacity -- you shouldn't need to intervene or retry anything
-   yourself.
-
-   {% include lab-image.html caption='PLACEHOLDER -- launch-kali.sh finishing, printing the instance zone and a ready-to-run `gcloud compute ssh` command' image='intro-to-gcp/PLACEHOLDER-launch-kali-done.png' %}
-
--- END DRAFT A -->
-
 ---
 
 <div class='alert alert-info'><strong>Heads up!</strong> GCP might later suggest that your instance is over-provisioned, and that you should downgrade it to something with less memory. If you do this and switch to an instance with less than 7.5 GB memory, then you won't be able to launch some of the memory-intensive virtual machines, such as the Windows one.</div>
-
-<!-- TODO(editorial): the old "Do you get an error message saying that a N1
-     instance is not available?" alert lived here -- dropped because
-     launch-kali.sh's automatic zone/machine-type retry is meant to replace
-     exactly this manual workaround. Confirm that's the right call before
-     merging. -->
-
-<!-- DRAFT B for Part 3.2 -- swapped IN for live preview on 2026-08-17, revised
-     2026-08-17 per Dave: drop "instead of manually configuring..." framing
-     (assumes students know the old method -- they don't), keep instructions
-     minimal to avoid overwhelming a first-time student, and send students
-     back to the "SSH-in-browser" button in Part 3.3 rather than continuing
-     in Cloud Shell, since they're on the Compute Engine instances page
-     already and don't gain anything by staying in Cloud Shell for that
-     step. -->
 
 ## Part 3.2: Launch your Kali instance with the launcher script
 
@@ -228,35 +166,35 @@ on its own if one is temporarily out of capacity.
 Setting up Chrome Remote Desktop (CRD) will enable you to graphically connect to your Kali instance, from your browser, using a Google account to authenticate. You should be able to access your instance from anywhere as long as your Kali instance is running on GCP, and as long as your traffic is not blocked by a local firewall, such as may happen on university Guest WiFi networks.
 
 
-* Open another browser window, and visit [https://remotedesktop.google.com/headless](https://remotedesktop.google.com/headless).
-* Click the "Begin" button.
-* On the "Download and Install" page, click the "Next" button. (Chrome Remote Desktop is already installed on Kali).
-* Click the "Authorize" button.
-* Select your personal Google account and click the "Allow" button.
-* Click the "copy" icon to the right of the Debian Linux command to copy the command.
-* Switch to your browser window with the ssh connection to Kali, paste in the command you copied into the Kali Linux command line. Press `enter`.
-  * [This document describes how to copy-paste into the GCP browser ssh window. ](https://cloud.google.com/compute/docs/ssh-in-browser?hl=en#copypaste)
-* Enter and re-enter a six-digit pin. Press enter.
-  * You will not see any visual feedback as you enter a pin. This is normal.
+1. Open another browser window, and visit [https://remotedesktop.google.com/headless](https://remotedesktop.google.com/headless).
+2. Click the "Begin" button.
+3. On the "Download and Install" page, click the "Next" button. (Chrome Remote Desktop is already installed on Kali).
+4. Click the "Authorize" button.
+5. Select your personal Google account and click the "Allow" button.
+6. Click the copy icon next to the Debian Linux command.
+7. Switch to your browser window with the ssh connection to Kali, paste in the command you copied into the Kali Linux command line. Press `enter`.
+   - [This document describes how to copy-paste into the GCP browser ssh window. ](https://cloud.google.com/compute/docs/ssh-in-browser?hl=en#copypaste)
+8. Enter and re-enter a six-digit pin. Press enter.
+   - You will not see any visual feedback as you enter a pin. This is normal.
 
-  <div class='alert alert-warning'><strong>Did you get an OAuth error?</strong> This
-  may happen if something went wrong when you ran the command copied , and if you tried
-  to run it again. The copied command is only valid for one attempt. You will need to start this section over again, to obtain another authorization url, which will have a new auth token embedded.</div>
+   <div class='alert alert-warning'><strong>Did you get an OAuth error?</strong> This
+   may happen if something went wrong when you ran the copied command, and you tried
+   to run it again. The copied command is only valid for one attempt. You will need to start this section over again, to obtain another authorization url, which will have a new auth token embedded.</div>
 
-* Switch back to the window with **remotedesktop.google.com** open. Click the "Remote
-  Access" link at the top or visit <https://remotedesktop.google.com/access>.
-* Click on your Kali instance.
-* Type in your six-digit pin, and check the box so that your browser remembers the pin.
-  <div class='alert alert-info'><strong>Can't get to the pin-entry screen?</strong> Try a different web browser, such as Google Chrome.
-  Also try disabling any browser extensions that may be interfering.</div>
-* Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
-* After you finish logging in, you should see the Kali Desktop screen.
-* Enable copy-paste across your remote desktop session.
+9. Switch back to the window with **remotedesktop.google.com** open. Click the "Remote
+   Access" link at the top or visit <https://remotedesktop.google.com/access>.
+10. Click on your Kali instance.
+11. Type in your six-digit pin, and check the box so that your browser remembers the pin.
+    <div class='alert alert-info'><strong>Can't get to the pin-entry screen?</strong> Try a different web browser, such as Google Chrome.
+    Also try disabling any browser extensions that may be interfering.</div>
+12. Next, if you are prompted to enter a password to create a "color managed device", type in the password `toor`, and click `authenticate`.
+13. After you finish logging in, you should see the Kali Desktop screen.
+14. Enable copy-paste across your remote desktop session.
 
-  - Click the blue arrow tab on the right hand of the screen to open additional options in Chrome Remote Desktop.
-  - Look for an option to "Enable clipboard synchronization." Follow prompts in your browser to grant permission. See [this example](https://superuser.com/a/1543231).
+    - Click the blue arrow tab on the right hand of the screen to open additional options in Chrome Remote Desktop.
+    - Look for an option to "Enable clipboard synchronization." Follow prompts in your browser to grant permission. See [this example](https://superuser.com/a/1543231).
 
-    <div class='alert alert-info'>The specific method to enable copy-paste changes from time to time, but is usually accessible through the sidebar.</div>
+      <div class='alert alert-info'>The specific method to enable copy-paste changes from time to time, but is usually accessible through the sidebar.</div>
 
 <div class='alert alert-warning'>If you have suspended or stopped your instance,
 you will need to navigate to the GCP console and start it again before attempting
@@ -294,7 +232,7 @@ You can either suspend, shut down, or delete an instance. Which you choose will
 depend on your needs, but be aware that suspended instances
 [still incur some costs](https://cloud.google.com/compute/vm-instance-pricing). (See [figure](#intro-to-gcp-gcp-shutdown-suspend-png).)
 
-Set up a budget planning to spend (no more than) $75 per month. To do so:
+Set up a budget of no more than $75 per month. To do so:
 
 *   Use the search bar at the top of the page to find the `Budgets & alerts` page.
 *   Click `Create Budget`
