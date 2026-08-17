@@ -354,7 +354,7 @@ of life or serious life threatening injuries.
 [5]: https://www.washingtonpost.com/technology/2018/12/12/us-investigators-point-china-marriott-hack-affecting-million-travelers/
 [6]: https://www.nytimes.com/2020/02/10/us/politics/equifax-hack-china.html
 [7]: https://news.marriott.com/2019/02/marriott-international-reports-fourth-quarter-2018-results/
-[8]: https://ico.org.uk/media/action-weve-taken/mpns/2618524/marriott-international-inc-mpn-20201030.pdf
+[8]: https://ico.org.uk/media2/migrated/2618524/marriott-international-inc-mpn-20201030.pdf
 [9]: https://www.huntonprivacyblog.com/2020/10/30/ico-fines-marriott-international-18-4-million-for-security-breach/
 [10]: https://marriott.gcs-web.com/node/30866/html
 [11]: https://www.beckershospitalreview.com/cybersecurity/ohio-hospital-s-ehr-hit-by-ransomware-attack-exposes-7-000-patients-info.html

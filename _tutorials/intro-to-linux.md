@@ -18,7 +18,7 @@ Once you have your Kali Linux instance set up in GCP, open a terminal Window in 
 
 {% include lab-image.html image='Kali-dock.jpg' %}
 
-Next, using the terminal in Kali, complete pages 1–19 of [this gentle introduction to the Linux terminal, aka shell](https://linuxjourney.com/lesson/the-shell).
+Next, using the terminal in Kali, complete pages 1–19 of [this gentle introduction to the Linux terminal, aka shell](https://linuxvoyage.github.io/lesson/the-shell).
 
 Alternatively, Udacity
 has a [free set of follow-along video lecture demonstrations](https://www.udacity.com/course/linux-command-line-basics--ud595)
@@ -27,7 +27,7 @@ that you might prefer instead.
 ## Part 1.2. Text manipulation
 
 In addition to the above tutorial, complete the following short pages
-from [this set about text manipulation](https://linuxjourney.com/lesson/stdout-standard-out-redirect#):
+from [this set about text manipulation](https://linuxvoyage.github.io/lesson/stdout-standard-out-redirect):
 
 * 1\. `stdout`
 * 2\. `stdin`
@@ -38,7 +38,7 @@ from [this set about text manipulation](https://linuxjourney.com/lesson/stdout-s
 
 ## Part 1.3. "Super-user do" (`sudo`)
 
-Read [this linuxjourney page](https://linuxjourney.com/lesson/users-and-groups) to learn about
+Read [this linuxjourney page](https://linuxvoyage.github.io/lesson/users-and-groups) to learn about
 linux filesystem access permissions. Specifically, pay attention to the following quote about the `sudo`
 command at the bottom:
 
@@ -83,7 +83,7 @@ If you want to learn `vim`, [see the vim tutorial here](https://danielmiessler.c
   speed of a wizard. If I ever see you not using tab completion, I will tsk-tsk
   you and have you do it again.
 
-	Read about history navigation on the [`history` linuxjourney lesson](https://linuxjourney.com/lesson/history-command). Specifcally, note the below quotes:
+	Read about history navigation on the [`history` linuxjourney lesson](https://linuxvoyage.github.io/lesson/history-command). Specifcally, note the below quotes:
 
 	> Want to run the same command you did before, just hit the up arrow.
 

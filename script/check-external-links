@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+# Checks every external (http/https) link in the built site with curl_cffi,
+# which impersonates a real browser's TLS/JA3 fingerprint. html-proofer (see
+# script/htmlproofer) uses plain libcurl for its external checks, which a lot
+# of sites (Stack Overflow, NYTimes, Medium, ...) 403 on sight because it
+# doesn't look like a browser at the TLS layer -- that's noise, not real
+# breakage. This script exists to cut through that noise and surface links
+# that are actually dead.
+#
+# Run from the host (no Docker needed) after building the site once:
+#   docker exec security-assignments-jekyll bundle exec jekyll build --config _config.yml,_config_local.yml
+#   script/check-external-links
+#
+# Bootstraps its own venv with curl_cffi on first run.
+
+import ipaddress
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+VENV = REPO / ".venv-linkcheck"
+
+
+def in_venv():
+    return sys.prefix == str(VENV)
+
+
+def bootstrap():
+    if not VENV.exists():
+        subprocess.run([sys.executable, "-m", "venv", str(VENV)], check=True)
+    pip = VENV / "bin" / "pip"
+    subprocess.run([str(pip), "install", "-q", "curl_cffi"], check=True)
+    python = VENV / "bin" / "python3"
+    os.execv(str(python), [str(python), str(Path(__file__).resolve()), *sys.argv[1:]])
+
+
+try:
+    import curl_cffi  # noqa: F401
+except ImportError:
+    if in_venv():
+        print("curl_cffi missing even inside venv -- something's wrong", file=sys.stderr)
+        sys.exit(1)
+    bootstrap()
+
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from html.parser import HTMLParser
+from urllib.parse import urlparse
+
+from curl_cffi import requests as cffi_requests
+
+
+class LinkExtractor(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = []  # (url, line)
+
+    def handle_starttag(self, tag, attrs):
+        if tag != "a":
+            return
+        for name, value in attrs:
+            if name == "href" and value:
+                self.links.append((value, self.getpos()[0]))
+
+
+def is_intentionally_unreachable(url):
+    host = urlparse(url).hostname or ""
+    if host in ("localhost", "kali") or host.endswith(".onion"):
+        return True
+    try:
+        return ipaddress.ip_address(host).is_private
+    except ValueError:
+        return False
+
+
+def collect_links(site_dir):
+    by_url = {}
+    for html_file in sorted(site_dir.rglob("*.html")):
+        parser = LinkExtractor()
+        parser.feed(html_file.read_text(encoding="utf-8", errors="replace"))
+        rel = html_file.relative_to(site_dir)
+        for url, line in parser.links:
+            if not url.startswith(("http://", "https://")):
+                continue
+            if is_intentionally_unreachable(url):
+                continue
+            by_url.setdefault(url, []).append((str(rel), line))
+    return by_url
+
+
+def check(url):
+    try:
+        resp = cffi_requests.get(
+            url, impersonate="chrome", timeout=20, allow_redirects=True
+        )
+        return resp.status_code, None
+    except Exception as e:  # noqa: BLE001 -- report any failure mode uniformly
+        return None, str(e)
+
+
+def main():
+    site_dir = REPO / "_site"
+    if not site_dir.exists():
+        print(f"{site_dir} doesn't exist -- build the site first", file=sys.stderr)
+        sys.exit(1)
+
+    by_url = collect_links(site_dir)
+    print(f"Checking {len(by_url)} unique external links...")
+
+    failures = {}
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        future_to_url = {pool.submit(check, url): url for url in by_url}
+        for future in as_completed(future_to_url):
+            url = future_to_url[future]
+            status, error = future.result()
+            if error or (status and status >= 400):
+                failures[url] = (status, error)
+
+    if not failures:
+        print("All external links OK.")
+        return
+
+    print(f"\n{len(failures)} broken link(s):\n")
+    for url in sorted(failures):
+        status, error = failures[url]
+        label = f"status {status}" if status else error
+        print(f"- {url}  [{label}]")
+        for rel, line in by_url[url]:
+            print(f"    {rel}:{line}")
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
