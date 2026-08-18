@@ -378,11 +378,11 @@ all of the LinkedIn hashes. Ask me for a copy.
 
     Rules apply common patterns to password dictionaries to crack even more hashes. You can read about rules in Hashcat here: [https://hashcat.net/wiki/doku.php?id=rule_based_attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack).
 
-    The “best64.rule” is one of the most effective sets of Hashcat rules. It is continually refined using input and testing from the password cracking community. You can view the contents of the best64.rule [here](https://hashcat.net/wiki/doku.php?id=rule_based_attack), and an explanation of the rules [here](http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html).
+    The “best66.rule” is one of the most effective sets of Hashcat rules. It is continually refined using input and testing from the password cracking community. You can view the contents of the best66.rule [here](https://hashcat.net/wiki/doku.php?id=rule_based_attack), and an explanation of the rules [here](http://kaoticcreations.blogspot.com/2011/09/explanation-of-hashcat-rules.html).
 
     Run the following command once you understand what the `-r` flag does.
 
-        hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best64.rule /usr/share/wordlists/rockyou.txt
+        hashcat --force -m 100  --remove --outfile=LinkedIn_cracked.txt LinkedIn_HalfMillionHashes.txt -r /usr/share/hashcat/rules/best66.rule /usr/share/wordlists/rockyou.txt
 
     {% include lab_question.html question='How many total passwords were you able to recover after using this rules based attack in combination with the earlier straight attack?' %}
 
@@ -481,9 +481,9 @@ You want to create a custom dictionary using the words on `neurosecurity.net` to
 
         less custom_dict.txt
 
-4.  Permute the words in the `custom_dict.txt` wordlist using the “best64” rule, and append the output to `custom_dict.txt` (all one line):
+4.  Permute the words in the `custom_dict.txt` wordlist using the “best66” rule, and append the output to `custom_dict.txt` (all one line):
 
-        hashcat custom_dict.txt -r /usr/share/hashcat/rules/best64.rule --stdout >> custom_dict.txt
+        hashcat custom_dict.txt -r /usr/share/hashcat/rules/best66.rule --stdout >> custom_dict.txt
 
 5.  Check how many entries are in the custom_dict.txt file now:
 
