@@ -41,6 +41,10 @@ This page documents fixes for bugs in versions of the virtual machines, includin
 
 
 
+# Kali-on-GCP v5.0.3
+
+* Added the `GVNIC` guest-os-feature to the image, enabling it to boot on gVNIC-only machine series (C3, C4, N4, and other third-generation-and-later machine types) in addition to the existing N1/N2 support. No change for instances created on N1/N2 — those still work as before.
+
 # Kali-on-GCP v5.0.0
 
 **Problem:** Lock screen starts when screensaver begins.
