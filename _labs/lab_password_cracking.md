@@ -414,7 +414,7 @@ all of the LinkedIn hashes. Ask me for a copy.
 ?b = 0x00 - 0xff
     ```
 
-    **Optional:** Experiment with other rules found in `/usr/share/hashcast/rules`.
+    **Optional:** Experiment with other rules found in `/usr/share/hashcat/rules`.
 
     **Optional:** Another common password pattern is to prepend digits at the beginning of passwords. If you would like try this mask, run the following command:
 
