@@ -384,39 +384,50 @@ portion of this lab.
 
 4.   Install Word into the Windows virtual machine.
 
-     The version of Word that gets installed on the lab virtual machine only works for 5 days without a product key.
-     The first time that you install windows to your virtual machine, you can run the following from kali as `root`:
+     The lab installs a pinned, offline copy of **Microsoft Word 2010** with no
+     product key, so it runs fully functional for about **30 days** in its
+     built-in grace period. (An earlier version of this lab used a newer
+     click-to-run Word whose 5-day trial ended at a "Sign in to set up Office"
+     Microsoft-account screen; that is no longer the case.)
+
+     The first time that you install Word into your virtual machine, run the
+     following from Kali as `root`:
 
          cd /root/vagrant-boxes/lab-windows-2019-vuln/
          git pull
          vagrant up
          vagrant provision --provision-with install-word
 
-     The installation process takes about two minutes.
+     The installation downloads the Office media and silently installs Word, so
+     it takes about **5–10 minutes** with no interaction required.
 
 
      <div class='alert alert-info'><strong>If your Word install expires </strong>
-     <p>If your Word activation grade period expires, you can get a fresh start
-     by running the full vagrant destroy-up-provision cycle again, via running
-     the following from a terminal as `root`</p>
+     <p>If your Word grace period expires, you can reset it to a fresh ~30 days
+     without reinstalling by running the following from a terminal as <code>root</code>
+     (the VM must still be up with Word already installed):</p>
 
      <div markdown="1">
      ```bash
      cd /root/vagrant-boxes/lab-windows-2019-vuln
-     vagrant destroy
-     vagrant up
-     vagrant provision --provision-with install-word
-     vagrant provision --provision-with reboot
+     vagrant provision --provision-with office-rearm
      ```
      </div>
 
+     <p>Office 2010 allows this reset up to five times per install. If you have
+     <code>vagrant destroy</code>ed the VM, Word is gone — just run
+     <code>install-word</code> again as in the steps above to get a fresh install
+     with a fresh grace period.</p>
 
-1.   When the script finishes, open Word on Windows. Navigate through the welcome prompts.
+     </div>
 
-     * On the screen `Sign in to set up Office`, click the `x` in the upper-right corner.
-     * On the privacy page, click "Next"
-     * On the next page, select "Don't send optional data"
-     * On the next page, click "Done".
+1.   When the script finishes, open Word on Windows.
+
+     No first-run or sign-in prompts should appear — the installer pre-configures
+     Word so it opens straight to a blank document, with macros and the VBA
+     editor enabled.
+
+
 1.   Open a new blank document:
 
      {% include lab-image.html image='word-open-blank-document.png'%}
