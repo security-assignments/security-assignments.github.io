@@ -23,7 +23,7 @@ The company has given you access to a vagrantbox virtual machine version of thei
 
 Your Kali instance's IP address on this network is the same as it has been for all other labs: `192.168.56.101`.
 
-A power-user msfconsole-user move is to set your `LHOST` not to an explicit ip address, but rather, [an interface name]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#set-lhost-iface-name). You an therefore run `set LHOST infosec-net` wherever an lhost is required in msfconsole. [Set these values globally]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#setg) to perhaps save a few more  eystrokes over the course of the assignment.
+A power-user msfconsole-user move is to set your `LHOST` not to an explicit ip address, but rather, [an interface name]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#set-lhost-iface-name). You an therefore run `set LHOST infosec0` wherever an lhost is required in msfconsole. [Set these values globally]({{ site.baseurl }}{% link _labs/lab_exploitation.md %}#setg) to perhaps save a few more  eystrokes over the course of the assignment.
 
 
 # Contractual Agreement
