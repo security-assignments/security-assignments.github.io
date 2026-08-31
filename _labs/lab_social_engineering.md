@@ -347,12 +347,8 @@ Because Word docs can run macros, this attack vector will work as long as you
 can convince a user to open the Word file and enable some settings.
 
 The first step is to create the malicious macro-embedded Word document, acting as the attacker.
-You will need access to Microsoft Word in order
-to do this. This part of the lab includes instructions for installing an evaluation version of Microsoft Word into the Windows virtual
-machine on Kali.
 
-It is admittedly a bit odd to be, acting as an attacker, using the victim's machine to create a malicious document that we want the
-victim to run on that very machine, but so be it.
+To do this, you will use a version of Microsoft Word installed into the Windows virtual machine on Kali.
 
 Know that if you tried to use Word on a system running antivirus protection, it would likely prevent you from creating the malicious
 document, because it would detect that the document contained commands to launch a hidden shell (meterpreter).
@@ -382,50 +378,22 @@ portion of this lab.
           set ExitOnSession false
           exploit -j
 
-4.   Install Word into the Windows virtual machine.
+4.   Install or reset Microsoft Word into the Windows virtual machine.
 
-     The lab installs a pinned, offline copy of **Microsoft Word 2010** with no
-     product key, so it runs fully functional for about **30 days** in its
-     built-in grace period. (An earlier version of this lab used a newer
-     click-to-run Word whose 5-day trial ended at a "Sign in to set up Office"
-     Microsoft-account screen; that is no longer the case.)
+     The Windows virtual machine already has **Microsoft Word 2010** installed. If it is expired, you may need to reset it, by running the following from a terminal as `root`:
 
-     The first time that you install Word into your virtual machine, run the
-     following from Kali as `root`:
-
-         cd /root/vagrant-boxes/lab-windows-2019-vuln/
-         git pull
-         vagrant up
-         vagrant provision --provision-with install-word
-
-     The installation downloads the Office media and silently installs Word, so
-     it takes about **5–10 minutes** with no interaction required.
-
-
-     <div class='alert alert-info'><strong>If your Word install expires </strong>
-     <p>If your Word grace period expires, you can reset it to a fresh ~30 days
-     without reinstalling by running the following from a terminal as <code>root</code>
-     (the VM must still be up with Word already installed):</p>
-
-     <div markdown="1">
      ```bash
      cd /root/vagrant-boxes/lab-windows-2019-vuln
      vagrant provision --provision-with office-rearm
      ```
-     </div>
-
-     <p>Office 2010 allows this reset up to five times per install. If you have
-     <code>vagrant destroy</code>ed the VM, Word is gone — just run
-     <code>install-word</code> again as in the steps above to get a fresh install
-     with a fresh grace period.</p>
-
-     </div>
 
 1.   When the script finishes, open Word on Windows.
 
+     <!--
      No first-run or sign-in prompts should appear — the installer pre-configures
      Word so it opens straight to a blank document, with macros and the VBA
      editor enabled.
+     -->
 
 
 1.   Open a new blank document:
