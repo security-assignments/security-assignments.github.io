@@ -111,9 +111,15 @@ Before starting, make sure you've completed Parts 1 and 2, so you have a GCP acc
 3. The first time you open Cloud Shell, it will ask for permission to run
    `gcloud` commands on your behalf. Click "Authorize".
 4. Once Cloud Shell has connected, you'll see a fresh terminal prompt at the
-   bottom of the screen. Run:
+   bottom of the screen. Download and install the Kali launcher, then run it:
 
-       curl -fsSL "https://raw.githubusercontent.com/security-assignments/kali-launcher/main/launch-kali.sh?$(date +%s)" | bash
+       curl -fsSL "https://raw.githubusercontent.com/security-assignments/kali-launcher/refs/heads/main/kali-launcher.sh?$(date +%s)" -o kali-launcher.sh
+       bash kali-launcher.sh --install-and-run
+
+   This installs a managed copy at `~/.local/bin/kali-launcher`, adds it to
+   `PATH` for future Cloud Shell sessions, and launches it immediately. In
+   the future, run `kali-launcher`, or update the launcher itself with
+   `kali-launcher --self-update`.
 
 5. Wait for it to finish -- this can take a few minutes, and the terminal
    will just show a growing line of dots while it works, which is normal.
@@ -130,9 +136,9 @@ Before starting, make sure you've completed Parts 1 and 2, so you have a GCP acc
 
 {% include lab-image.html caption='(1) Click Authorize to grant Cloud Shell permission to make Google Cloud API calls' image='intro-to-gcp/compute-instances-authorize-cloud-shell.png' %}
 
-{% include lab-image.html caption='A fresh Cloud Shell terminal, ready for the curl | bash one-liner' image='intro-to-gcp/cloud-shell-landing-fresh.png' %}
+{% include lab-image.html caption='A fresh Cloud Shell terminal, ready to download and install kali-launcher' image='intro-to-gcp/cloud-shell-landing-fresh.png' %}
 
-{% include lab-image.html caption="(1) Look for the &quot;Kali instance 'kali' created&quot; line in the terminal -- that means launch-kali.sh is done; (2) click Refresh; (3) your new instance now appears in the instances list" image='intro-to-gcp/kali-launch-create.png' %}
+{% include lab-image.html caption="(1) Look for the &quot;Kali instance 'kali' created&quot; line in the terminal -- that means kali-launcher is done; (2) click Refresh; (3) your new instance now appears in the instances list" image='intro-to-gcp/kali-launch-create.png' %}
 
 
 ## Part 3.3: Connect to your instance via SSH-in-browser
