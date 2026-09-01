@@ -6,10 +6,33 @@ include_toc: true
 
 This page documents fixes for bugs in versions of the virtual machines, including Kali on GCP.
 
-<!-- # Kali-on-GCP Unreleased
 
-* `openssh-server` and openssh-client still need to be pinned to a version in a version of debian supported by GCP -->
+# Kali-on-GCP v6.0.0
 
+* Based on Kali Linux 2026.2.
+
+# Kali-on-GCP v5.0.3
+
+* Added the `GVNIC` guest-os-feature to the image, enabling it to boot on gVNIC-only machine series (C3, C4, N4, and other third-generation-and-later machine types) in addition to the existing N1/N2 support.
+
+# Kali-on-GCP v5.0.0
+
+**Problem:** Lock screen starts when screensaver begins.
+
+**Solutions:**
+
+To be able to unlock the lock screen, [set a password for your user](https://docs.cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#set_a_user_password):
+
+> 1. Connect to the instance using SSH, as you did when you first set up the instance.
+> 2. Create a password for the user:
+>
+>    ```
+>    sudo passwd $(whoami)
+>    ```
+
+Alternatively, disable the lock screen and screensaver using the `xfce4-screensaver-settings` application, launched from the terminal.
+
+**Resolved:** Lock screen disabled in v5.0.2
 
 # Kali-on-GCP v3.1.1
 
@@ -38,28 +61,3 @@ This page documents fixes for bugs in versions of the virtual machines, includin
   (<https://remotedesktop.google.com/access>)
 
 **Resolved in**: v3.0.1
-
-
-
-# Kali-on-GCP v5.0.3
-
-* Added the `GVNIC` guest-os-feature to the image, enabling it to boot on gVNIC-only machine series (C3, C4, N4, and other third-generation-and-later machine types) in addition to the existing N1/N2 support. No change for instances created on N1/N2 — those still work as before.
-
-# Kali-on-GCP v5.0.0
-
-**Problem:** Lock screen starts when screensaver begins.
-
-**Solutions:** 
-
-To be able to unlock the lock screen, [set a password for your user](https://docs.cloud.google.com/architecture/chrome-desktop-remote-on-compute-engine#set_a_user_password):
-
-> 1. Connect to the instance using SSH, as you did when you first set up the instance.
-> 2. Create a password for the user:
->
->    ```
->    sudo passwd $(whoami)
->    ```
-
-Alternatively, disable the lock screen and screensaver using the `xfce4-screensaver-settings` application, launched from the terminal.
-
-**Resolved:**: Lock screen disabled in v5.0.2
