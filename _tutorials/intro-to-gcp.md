@@ -113,8 +113,11 @@ Before starting, make sure you've completed Parts 1 and 2, so you have a GCP acc
 4. Once Cloud Shell has connected, you'll see a fresh terminal prompt at the
    bottom of the screen. Download and install the Kali launcher, then run it:
 
+   ```bash
        curl -fsSL "https://raw.githubusercontent.com/security-assignments/kali-launcher/refs/heads/main/kali-launcher.sh?$(date +%s)" -o kali-launcher.sh
-       bash kali-launcher.sh --install-and-run
+       chmod +x kali-launcher.sh
+       ./kali-launcher.sh --install-and-run
+   ```
 
    This installs a managed copy at `~/.local/bin/kali-launcher`, adds it to
    `PATH` for future Cloud Shell sessions, and launches it immediately. In
