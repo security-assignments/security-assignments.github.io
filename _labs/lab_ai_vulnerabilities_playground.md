@@ -42,13 +42,13 @@ Complete this part from a terminal inside your Kali Chrome Remote Desktop sessio
 
 # Part 2: Orient Yourself to AIVP
 
-In AIVP, select **Explore Labs**, then expand **Phase 1: Prompt Injection** and select **Launch Lab** for the exercise you are completing. Before attempting a challenge, read its embedded **Scenario**, **Objective**, **What You're Breaking**, **What You'll Learn**, and **Real-World Impact** panels. These panels explain the individual exercise; do not look for or share challenge solutions outside this local learning environment.
+In AIVP, select **Explore Labs**, then expand **Phase 1: Prompt Injection** and select **Launch Lab** for the exercise you are completing. Before attempting a challenge, read its embedded **Scenario**, **Objective**, **What You're Breaking**, **What You'll Learn**, and **Real-World Impact** panels. These panels explain the individual exercise.
 
 {% include lab-image.html image='aivp/aivp-explore-phase-1.png' alt='AIVP Explore Security Labs page with Phase 1 Prompt Injection expanded, listing PI-01 through PI-10 and their Launch Lab buttons.' caption='AIVP Explore Labs with Phase 1 expanded. Use the Launch Lab button next to the challenge you are completing.' %}
 
-After each attempt, use AIVP's **Run Summary** to assess the result. For this lab, a completed exercise has **Exploit Success: Yes**. Aim also for **User-visible Disclosure: Yes** when that field is shown. Do not submit generated secrets, chat output that reveals them, or a copy of a successful prompt as part of this course lab.
+After each attempt, use AIVP's **Run Summary** to assess the result. For this lab, a completed exercise has **Exploit Success: Yes**. Aim also for **User-visible Disclosure: Yes** when that field is shown.
 
-When you recover the challenge's synthetic secret, enter it in AIVP's **Submit Your Answer** field and select **Submit Answer** to check it within the local application. Before taking your course-submission screenshot, clear that field and collapse or crop out the chat history. The secret belongs only in the local challenge's answer form; it should not appear in your course submission.
+When you recover the challenge's synthetic secret, enter it in AIVP's **Submit Your Answer** field and select **Submit Answer** to check it within the local application.
 
 # Part 3: Prompt Injection Exercises
 
@@ -58,17 +58,17 @@ Complete the following three AIVP challenges in **Phase 1: Prompt Injection**:
 2. **PI-02: Indirect Prompt Injection.** Read the challenge's embedded material and complete it in AIVP.
 3. **One additional Phase 1 challenge of your choice from PI-03 through PI-10.** Choose a different prompt-injection technique, read its embedded material, and complete it in AIVP.
 
-{% include lab-image.html image='aivp/aivp-pi-01-start.png' alt='Clean starting layout of AIVP PI-01 Direct Prompt Injection showing the scenario and objective panels, an empty Chat with the Model field, and zero recent runs.' caption='PI-01 before a prompt is sent. Read the scenario and objective on the left, then use the empty chat field on the right. The image contains no generated secret or completed run.' %}
+{% include lab-image.html image='aivp/aivp-pi-01-start.png' alt='Clean starting layout of AIVP PI-01 Direct Prompt Injection showing the scenario and objective panels, an empty Chat with the Model field, and zero recent runs.' caption='PI-01 before a prompt is sent. Read the scenario and objective on the left, then use the empty chat field on the right.' %}
 
 As you work, focus on the difference between an attacker directly addressing the model and attacker-controlled content being processed as data. AIVP uses model-generated responses, so results are nondeterministic and you may need to iterate. The goal is to recognize the broken trust boundary, not to memorize a particular wording that happens to work with one model response.
 
 # Part 4: Reflection and Defensive Design
 
-Answer the following questions. Describe your strategy and reasoning at a high level; do not include a generated secret or reproduce a successful secret-extraction prompt.
+Answer the following questions. Describe your strategy and reasoning.
 
-{% include lab-image.html image='aivp/aivp-pi-01-success.png' alt='AIVP PI-01 Direct Prompt Injection successful-result page. The Run Summary shows Exploit Success, Internal Disclosure, and User-visible Disclosure as Yes, while the chat history is collapsed, the prompt field and answer field are empty, and the submission feedback says Correct.' caption='Example of a successful PI-01 Run Summary from a maintainer validation run. Your submission should show the relevant lab ID and Exploit Success: Yes, with chat content and generated secrets omitted or redacted.' %}
+{% include lab-image.html image='aivp/aivp-pi-01-success.png' alt='AIVP PI-01 Direct Prompt Injection successful-result page. The Run Summary shows Exploit Success, Internal Disclosure, and User-visible Disclosure as Yes, while the chat history is collapsed, the prompt field and answer field are empty, and the submission feedback says Correct.' caption='Example of a successful PI-01 Run Summary from a maintainer validation run. Your submission should show the relevant lab ID and Exploit Success: Yes.' %}
 
-{% include lab_question.html question='For each of PI-01, PI-02, and your selected third challenge, submit a screenshot of its AIVP Run Summary showing the lab ID and Exploit Success: Yes. Redact or omit chat output and any generated secret. You may combine screenshots only if each required lab ID and summary remains clearly visible.' %}
+{% include lab_question.html question='For each of PI-01, PI-02, and your selected third challenge, submit a screenshot of its AIVP Run Summary showing the lab ID and Exploit Success: Yes. You may combine screenshots only if each required lab ID and summary remains clearly visible.' %}
 
 {% include lab_question.html question='Which additional Phase 1 challenge did you choose, and what prompt-injection technique does its embedded challenge description explore?' %}
 
