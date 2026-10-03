@@ -205,9 +205,7 @@ Setting up Chrome Remote Desktop (CRD) will enable you to graphically connect to
 
       <div class='alert alert-info'>The specific method to enable copy-paste changes from time to time, but is usually accessible through the sidebar.</div>
 
-<div class='alert alert-warning'>If you have suspended or stopped your instance,
-you will need to navigate to the GCP console and start it again before attempting
-to connect with CRD.</div>
+<div class='alert alert-info'><strong>Managing Kali between labs:</strong> Leave it running while working through a lab. Before stopping it, copy necessary notes and deliverables off the VM and assume you may need a fresh instance next time. See the <a href="{{ '/tutorials/kali-vm-lifecycle-management.html' | relative_url }}">Kali VM lifecycle guidance</a> for starting, stopping, and recovering from a stockout.</div>
 
 
 ---
@@ -233,13 +231,8 @@ to connect with CRD.</div>
 
 # Part 5: Set up budget alerts
 
-You get $300 in free credits when you sign up for google cloud platform. As of 8/27/2019, the Kali instance that you launch will cost almost $200 per month
-if you run it continuously. _So do not run it continuously._ Shut down the instance when you are not using it. You are only billed by GCP for time that your instance
-is _running_.
-
-You can either suspend, shut down, or delete an instance. Which you choose will
-depend on your needs, but be aware that suspended instances
-[still incur some costs](https://cloud.google.com/compute/vm-instance-pricing). (See [figure](#intro-to-gcp-gcp-shutdown-suspend-png).)
+For when to leave Kali running, stop it, or recreate it after a stockout, see
+[the Kali VM lifecycle guidance]({{ '/tutorials/kali-vm-lifecycle-management.html' | relative_url }}).
 
 Set up a budget of no more than $75 per month. To do so:
 
@@ -258,7 +251,7 @@ Set up a budget of no more than $75 per month. To do so:
     * `(3) Actions`
       - Set four thresholds, at 25%, 50%, 75%, and 100%. When you have hit these thresholds within a month, you will receive a budget notification email.
 
-These budget reminders will help you to keep an eye on your costs, and will help remind you to shut down an instance that could otherwise cost you a lot of money.
+These budget reminders help you keep an eye on your costs. Budget alerts are notifications; they do not automatically stop Kali or cap spending.
 
 
 
@@ -275,7 +268,7 @@ These budget reminders will help you to keep an eye on your costs, and will help
 
 {% include lab-image.html caption='(1) Set actions at 25, 50, 75, and 100 "Percent of budget"; (2) Leave the default for "Manage notifications." (3) Click "Finish"' image='intro-to-gcp/gcp-create-budget-3-actions.png' %}
 
-{% include lab-image.html caption='To minimize costs, shut down or suspend your Kali instance when not using it for a prolonged period.' image='intro-to-gcp/gcp-shutdown-suspend.png' %}
+{% include lab-image.html caption='Use the instance controls to stop Kali between labs, after copying necessary course work off the VM. See the lifecycle guidance before restarting or deleting it.' image='intro-to-gcp/gcp-shutdown-suspend.png' %}
 
 
 
