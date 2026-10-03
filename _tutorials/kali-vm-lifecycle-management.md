@@ -6,11 +6,11 @@ number: 3.5
 include_toc: true
 ---
 
-Treat your Kali-on-GCP VM instance as disposable. Keep necessary notes, screenshots, and deliverables outside the VM instance, for example, on your own computer or in a course document. 
+Treat your Kali-on-GCP VM instance as disposable. Keep necessary notes, screenshots, and deliverables outside the VM instance, for example, on your own computer or in a course document.
 
 Before stopping Kali, assume that your next lab session may require a fresh instance.
 
-# Tools: Google Cloud console vs using `kali-launcher` 
+# Tools: Google Cloud console vs using `kali-launcher`
 
 Use `kali-launcher` to create or recreate the Kali VM instance.
 
@@ -19,7 +19,7 @@ Use the Google Cloud console to stop and start an existing Kali VM instance.
 
 # Key principles for the life of a Kali-on-GCP instance
 
-Subscribing to the Kali-on-GCP lab virtual machine access package gives your Google account access to the Kali on GCP _image_. 
+Subscribing to the Kali-on-GCP lab virtual machine access package gives your Google account access to the Kali on GCP _image_.
 
 GCP resources are located in specific datacenter _zones_. A zone is located within a _region_. Zones have **limited compute resource hardware availability.**
 
@@ -29,40 +29,49 @@ While an instance is _running_, its machine resources are _reserved_ -- the reso
 
 When you use your Kali instance, such as when you set up Chrome Remote Desktop access, you are making modifications to your _disk_.
 
-"Stopping" keeps the VM instance's disk, but it releases the VM instance's compute capacity. When you start it again, Google Cloud must find available capacity for its zone and machine type. A **stockout** means that capacity is unavailable, so even an existing VM instance may fail to start. See [Google's resource availability guidance](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability).
-
-When a user attempts to _start_ a _stopped_ instance, the disk's _zone_ is checked for whether the machine resources are available at that time. If the zone does not have the requested resources, this is called a "stockout" event. Dealing with a stockout involves recreating your Kali instance. This is described more later in this document. 
-
- 
+"Stopping" keeps the VM instance's disk, but it releases the VM instance's compute capacity. When you start it again, Google Cloud must check for available capacity for its zone and machine type. A **stockout** means that capacity is unavailable in that zone, so the stopped VM instance may fail to start. This is described in [Google's resource availability guidance](https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-resource-availability). Dealing with a stockout involves recreating your Kali instance. This is described more later in this document.
 
 
-# Startup credit of $300 is enough to leave the instance running constantly for about 1.5 months
 
-A note on costs:
 
--  Regardless of whether your Kali instance is _running_ or _stopped_, you incur costs for having a _disk_. As of 2026-10-02, those costs are about **$24/month**.
--  A _running_ instance incurs CPU and RAM "Compute" costs. As of 2026-10-02, these costs for a Kali-on-GCP instance are around **$170/month** compute costs for an instance left running 24/7. This is in addition to the disk costs.  
+# The startup credit of $300 is enough to leave the instance running constantly for ~1.5 months
 
+Regardless of whether your Kali instance is _running_ or _stopped_, you incur costs for having a _disk_. As of 2026-10-02, those costs are about **$24/month**.
+
+A _running_ instance incurs CPU and RAM "Compute" costs. As of 2026-10-02, these costs for a Kali-on-GCP instance are around **$170/month** compute costs for an instance left running 24/7. This is in addition to the disk costs.
+
+
+Using these estimates for one Kali VM instance running 24/7:
+
+| Item | Calculation | Approximate amount |
+| --- | --- | --- |
+| Compute per month | CPU and RAM | $170 |
+| Disk per month | Persistent disk | $24 |
+| Total per month | $170 + $24 | **$194** |
+| Time covered by $300 | $300 ÷ $194 per month | **1.55 months (about 46 days)** |
+{: .table .table-bordered .table-striped .table-sm }
+
+This assumes the credit is used only for this instance and its disk. Actual costs vary with the machine type, zone, and other resource usage.
 
 # Keep Kali running throughout a lab
 
 Remember that whenever you stop your Kali instance, there is a chance you will have to destroy it and recreate it when you try to start it again. Recreating it loses any in-progress work.
 
-Therefore, **leave Kali running for the duration of a lab**. 
+Therefore, **leave Kali running for the duration of a lab**.
 
 Closing Chrome Remote Desktop or your browser does not stop the VM instance.
 
 
 # You can stop your Kali instance when you finish a lab
 
-When you finish a lab, you can stop your Kali instance. 
+When you finish a lab, you can stop your Kali instance.
 
 Stopping preserves your instance's boot disk, but if you stop your instance, plan to possibly have to recreate it when you try to start it again. Do not stop a Kali instance without first copying all necessary course work off of it.
 
 1. Copy all necessary notes, screenshots, and deliverables off the VM instance. Check that you can open them outside Kali.
 2. On the [VM instances page](https://console.cloud.google.com/compute/instances), check your course project, select your `kali` instance, choose **Stop**, and confirm.
 
-{% include lab-image.html image='intro-to-gcp/gcp-shutdown-suspend.png' alt='Selected VM instance with the Stop control marked in the Google Cloud console' caption='First copy necessary course work off your Kali VM instance. Then select its checkbox, choose <strong>Stop</strong>, and confirm. Wait for the stopped status. This older console screenshot labels the Stop control with a square icon; the example instance has a different name. Select your own <code>kali</code> instance.' %}
+{% include lab-image.html image='intro-to-gcp/gcp-shutdown-suspend.png' alt='Selected VM instance with the Stop control marked in the Google Cloud console' caption='First copy necessary course work off your Kali VM instance. Then select its checkbox, choose <strong>Stop</strong>, and confirm. Wait for the stopped status. This older console screenshot labels the Stop control with a square icon. Select your own <code>kali</code> instance.' %}
 
 
 
@@ -71,6 +80,8 @@ Stopping preserves your instance's boot disk, but if you stop your instance, pla
 1. On the [VM instances page](https://console.cloud.google.com/compute/instances), select your `kali` instance and choose **Start / Resume**.
 2. Wait for it to show as running and allow a few minutes for Kali to boot.
 3. Connect through [Chrome Remote Desktop](https://remotedesktop.google.com/access).
+
+{% include lab-image.html image='kali-vm-lifecycle-management/start-stopped-instance.png' alt='Stopped Kali VM instance selected with Start / Resume enabled in the Google Cloud console' caption='Check your course project, (1) select the checkbox beside your stopped <code>kali</code> VM instance, and (2) click <strong>Start / Resume</strong>. Wait for the instance to show as running, allow a few minutes for Kali to boot, then connect through Chrome Remote Desktop.' %}
 
 However, you might get a **stockout** when you try to start your stopped Kali instance.
 
@@ -86,7 +97,7 @@ If you have a stockout when you try to start a stopped Kali instance, you need t
 Recreation gives you a fresh Kali VM instance; it does not carry over your files, installed software, or Chrome Remote Desktop setup.
 
 
-1. Open **Cloud Shell** using the `>_` icon in the Google Cloud console. Confirm that you are using your course Google account and project. Run these commands in Cloud Shell, rather than in a terminal inside Kali.
+1. Open **Cloud Shell** using the `>_` icon in the Google Cloud console. Confirm that you are using your course Google account and project.
 
 2. Update the launcher and recreate the instance:
 
