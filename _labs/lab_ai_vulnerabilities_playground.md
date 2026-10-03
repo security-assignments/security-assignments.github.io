@@ -44,6 +44,10 @@ In AIVP, select **Explore Labs**, then expand **Phase 1: Prompt Injection** and 
 
 {% include lab-image.html image='aivp/aivp-explore-phase-1.png' alt='AIVP Explore Security Labs page with Phase 1 Prompt Injection expanded, listing PI-01 through PI-10 and their Launch Lab buttons.' caption='AIVP Explore Labs with Phase 1 expanded. Use the Launch Lab button next to the challenge you are completing.' %}
 
+The first model response to each lab can take over 10 seconds, because the model runs on your VM's CPU, so wait for a response before resubmitting. 
+
+As you work, focus on the difference between an attacker directly addressing the model and attacker-controlled content being processed as data. AIVP uses model-generated responses, so results are nondeterministic and you may need to iterate. The goal is to recognize the broken trust boundary, not to memorize a particular wording that happens to work with one model response.
+
 After each attempt, use AIVP's **Run Summary** to assess the result. For this lab, a completed exercise has **Exploit Success: Yes**. Aim also for **User-visible Disclosure: Yes** when that field is shown.
 
 When you recover the challenge's synthetic secret, enter it in AIVP's **Submit Your Answer** field and select **Submit Answer** to check it within the local application.
@@ -58,7 +62,6 @@ Complete the following three AIVP challenges in **Phase 1: Prompt Injection**:
 
 {% include lab-image.html image='aivp/aivp-pi-01-start.png' alt='Clean starting layout of AIVP PI-01 Direct Prompt Injection showing the scenario and objective panels, an empty Chat with the Model field, and zero recent runs.' caption='PI-01 before a prompt is sent. Read the scenario and objective on the left, then use the empty chat field on the right.' %}
 
-The first model response can take about 10 seconds because the model runs on your VM's CPU, so wait for a response before resubmitting. As you work, focus on the difference between an attacker directly addressing the model and attacker-controlled content being processed as data. AIVP uses model-generated responses, so results are nondeterministic and you may need to iterate. The goal is to recognize the broken trust boundary, not to memorize a particular wording that happens to work with one model response.
 
 # Part 4: Reflection and Defensive Design
 
@@ -66,17 +69,17 @@ Answer the following questions. Describe your strategy and reasoning.
 
 {% include lab-image.html image='aivp/aivp-pi-01-success.png' alt='AIVP PI-01 Direct Prompt Injection successful-result page. The Run Summary shows Exploit Success, Internal Disclosure, and User-visible Disclosure as Yes, while the chat history is collapsed, the prompt field and answer field are empty, and the submission feedback says Correct.' caption='Example of a successful PI-01 Run Summary from a maintainer validation run. Your submission should show the relevant lab ID and Exploit Success: Yes.' %}
 
-{% include lab_question.html question='For each of PI-01, PI-02, and your selected third challenge, submit a screenshot of its AIVP Run Summary showing the lab ID and Exploit Success: Yes. You may combine screenshots only if each required lab ID and summary remains clearly visible.' %}
+{% include lab_question.html question='For each of <strong>PI-01</strong>, <strong>PI-02</strong>, and your <strong>selected third challenge</strong>, submit a <strong>screenshot</strong> of its AIVP <strong>Run Summary</strong> showing the <strong>lab ID</strong> and <code>Exploit Success: Yes</code>. You may combine screenshots only if each required lab ID and summary remains clearly visible.' %}
 
-{% include lab_question.html question='Which additional Phase 1 challenge did you choose, and what prompt-injection technique does its embedded challenge description explore?' %}
+{% include lab_question.html question='Which <strong>additional Phase 1 challenge</strong> did you choose, and what <strong>prompt-injection technique</strong> does its embedded challenge description explore?' %}
 
-{% include lab_question.html question='Compare direct prompt injection with indirect prompt injection. In each case, where do the attacker-controlled instructions enter the AI application?' %}
+{% include lab_question.html question='Compare <strong>direct</strong> prompt injection with <strong>indirect</strong> prompt injection. In each case, <strong>where</strong> do the attacker-controlled instructions enter the AI application?' %}
 
 {% include lab_question.html question='Why should an AI application avoid placing credentials, private records, or other secrets in model context, even when the system prompt tells the model not to reveal them?' %}
 
-{% include lab_question.html question='Propose two concrete mitigations for a support chatbot that can search internal documents and call tools. At least one mitigation must be enforced outside the model. Explain what each mitigation protects and why a prompt-only instruction is insufficient.' %}
+{% include lab_question.html question='Propose <strong>two</strong> concrete mitigations for a support chatbot that can search internal documents and call tools. <strong>At least one</strong> mitigation must be enforced <strong>outside the model</strong>. Explain what each mitigation protects and why a prompt-only instruction is insufficient.' %}
 
-{% include lab_question.html question='Confirm that you performed this work only against the loopback-only AIVP application on your course Kali VM.' %}
+{% include lab_question.html question='Confirm that you performed this work <strong>only</strong> against the loopback-only AIVP application on your course Kali VM.' %}
 
 # Troubleshooting and Cleanup
 
