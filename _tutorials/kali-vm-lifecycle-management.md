@@ -23,7 +23,7 @@ Subscribing to the Kali-on-GCP lab virtual machine access package gives your Goo
 
 GCP resources are located in specific datacenter _zones_. A zone is located within a _region_. Zones have **limited compute resource hardware availability.**
 
-When you use the `kali-launcher` script from the [setup instructions](https://jetpack-cupcake.exe.xyz:4000/tutorials/intro-to-gcp.html#part-32-launch-your-kali-instance-with-the-launcher-script), the launcher searches for a _zone_ with sufficient available hardware to launch your Kali instance, and it _launches_ a Kali instance for you in that zone. It uses a specific _hardware configuration_, which states the required CPU and RAM specifications. It also creates a _disk_ for you from the access package _image_. 
+When you use the `kali-launcher` script from the [setup instructions]({{ '/tutorials/intro-to-gcp.html#part-32-launch-your-kali-instance-with-the-launcher-script' | relative_url }}), the launcher searches for a _zone_ with sufficient available hardware to launch your Kali instance, and it _launches_ a Kali instance for you in that zone. It uses a specific _hardware configuration_, which states the required CPU and RAM specifications. It also creates a _disk_ for you from the access package _image_.
 
 While an instance is _running_, its machine resources are _reserved_ -- the resources cannot be taken away.
 
@@ -60,9 +60,9 @@ When you finish a lab, you can stop your Kali instance.
 Stopping preserves your instance's boot disk, but if you stop your instance, plan to possibly have to recreate it when you try to start it again. Do not stop a Kali instance without first copying all necessary course work off of it.
 
 1. Copy all necessary notes, screenshots, and deliverables off the VM instance. Check that you can open them outside Kali.
-3. Select your `kali` instance, choose **Stop**, and confirm.
+2. On the [VM instances page](https://console.cloud.google.com/compute/instances), check your course project, select your `kali` instance, choose **Stop**, and confirm.
 
-<!-- AI include the "stop instance" screenshot here -->
+{% include lab-image.html image='intro-to-gcp/gcp-shutdown-suspend.png' alt='Selected VM instance with the Stop control marked in the Google Cloud console' caption='First copy necessary course work off your Kali VM instance. Then select its checkbox, choose <strong>Stop</strong>, and confirm. Wait for the stopped status. This older console screenshot labels the Stop control with a square icon; the example instance has a different name. Select your own <code>kali</code> instance.' %}
 
 
 
@@ -77,10 +77,9 @@ However, you might get a **stockout** when you try to start your stopped Kali in
 
 # To deal with a stockout, recreate your Kali instance using `kali-launcher`
 
-A stockout event looks like this: <!-- AI link this image stockout.png-->
+A stockout event looks like this:
 
-   <!-- AI add this image -->
-   /home/exedev/repos/security-assignments-workingdir/temp-images/stockout.png
+{% include lab-image.html image='kali-vm-lifecycle-management/stockout.png' alt='Google Cloud reports that the n2-standard-4 VM instance is unavailable in us-central1-b when starting Kali' caption='The stopped <code>kali</code> VM instance is selected, but <strong>Start / Resume</strong> fails because the requested machine type is unavailable in its zone. This is a stockout. Use <code>kali-launcher --recreate</code> in Cloud Shell to create a fresh instance, after ensuring necessary course work is stored offsite.' %}
 
 If you have a stockout when you try to start a stopped Kali instance, you need to recreate your Kali instance using `kali-launcher`.
 
@@ -104,8 +103,7 @@ Recreation gives you a fresh Kali VM instance; it does not carry over your files
 
 
 
-<!-- AI add this image -->
-   /home/exedev/repos/security-assignments-workingdir/temp-images/recreate.png
+{% include lab-image.html image='kali-vm-lifecycle-management/recreate.png' alt='Cloud Shell shows the recreation command, deletion confirmation, and successful creation of a fresh Kali instance' caption='In Cloud Shell, run <code>kali-launcher --self-update</code>, then <code>kali-launcher --recreate</code>. Confirm deletion only after necessary course work is stored offsite. Wait for <strong>Kali instance created</strong>, then repeat Chrome Remote Desktop setup. This screenshot runs the downloaded script as <code>./kali-launcher.sh --recreate</code>; the instructions above use its installed command, <code>kali-launcher</code>.' %}
 
 
 
