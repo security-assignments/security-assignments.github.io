@@ -26,7 +26,7 @@ By the end of this lab, you should be able to:
 
 Complete this part from a terminal inside your Kali Chrome Remote Desktop session. The installer uses the course-supported AIVP configuration and may take approximately 5–10 minutes, depending on network and container-registry speed; the fastest validated installation took 3 minutes 27 seconds. The initial installation needs outbound network access to download required packages, containers, and the model.
 
-1. Run the following command:
+1. Run the following command. **This step may take 5–10 minutes**, so let it finish; do not interrupt it, even if the output pauses for a while:
 
         curl -fsSL https://raw.githubusercontent.com/security-assignments/aivp-kali-installer/main/install.sh | sh
 
