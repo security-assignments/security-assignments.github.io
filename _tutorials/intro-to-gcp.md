@@ -205,7 +205,7 @@ Setting up Chrome Remote Desktop (CRD) will enable you to graphically connect to
 
       <div class='alert alert-info'>The specific method to enable copy-paste changes from time to time, but is usually accessible through the sidebar.</div>
 
-<div class='alert alert-info'><strong>Managing Kali between labs:</strong> Leave it running while working through a lab. Before stopping it, copy necessary notes and deliverables off the VM and assume you may need a fresh instance next time. See the <a href="{{ '/tutorials/kali-vm-lifecycle-management.html' | relative_url }}">Kali VM lifecycle guidance</a> for starting, stopping, and recovering from a stockout.</div>
+<div class='alert alert-info'><strong>Managing Kali between labs:</strong> Leave it running while working through a lab. Before stopping it, copy necessary notes and deliverables off the VM and assume you may need a fresh instance next time. See the lifecycle guidance for <a href="{{ '/tutorials/kali-vm-lifecycle-management.html#start-a-stopped-kali-for-your-next-lab' | relative_url }}">starting</a>, <a href="{{ '/tutorials/kali-vm-lifecycle-management.html#you-can-stop-your-kali-instance-when-you-finish-a-lab' | relative_url }}">stopping</a>, and <a href="{{ '/tutorials/kali-vm-lifecycle-management.html#to-deal-with-a-stockout-recreate-your-kali-instance-using-kali-launcher' | relative_url }}">recovering from a stockout</a>.</div>
 
 
 ---
@@ -231,8 +231,9 @@ Setting up Chrome Remote Desktop (CRD) will enable you to graphically connect to
 
 # Part 5: Set up budget alerts
 
-For when to leave Kali running, stop it, or recreate it after a stockout, see
-[the Kali VM lifecycle guidance]({{ '/tutorials/kali-vm-lifecycle-management.html' | relative_url }}).
+See the lifecycle guidance for [keeping Kali running during a lab]({{ '/tutorials/kali-vm-lifecycle-management.html#keep-kali-running-throughout-a-lab' | relative_url }}),
+[stopping it between labs]({{ '/tutorials/kali-vm-lifecycle-management.html#you-can-stop-your-kali-instance-when-you-finish-a-lab' | relative_url }}), and
+[recreating it after a stockout]({{ '/tutorials/kali-vm-lifecycle-management.html#to-deal-with-a-stockout-recreate-your-kali-instance-using-kali-launcher' | relative_url }}).
 
 Set up a budget of no more than $75 per month. To do so:
 
@@ -268,7 +269,9 @@ These budget reminders help you keep an eye on your costs. Budget alerts are not
 
 {% include lab-image.html caption='(1) Set actions at 25, 50, 75, and 100 "Percent of budget"; (2) Leave the default for "Manage notifications." (3) Click "Finish"' image='intro-to-gcp/gcp-create-budget-3-actions.png' %}
 
-{% include lab-image.html caption='Use the instance controls to stop Kali between labs, after copying necessary course work off the VM. See the lifecycle guidance before restarting or deleting it.' image='intro-to-gcp/gcp-shutdown-suspend.png' %}
+{% include lab-image.html caption='Use the instance controls to stop Kali between labs, after copying necessary course work off the VM.' image='intro-to-gcp/gcp-shutdown-suspend.png' %}
+
+Before doing so, review the lifecycle guidance for [stopping]({{ '/tutorials/kali-vm-lifecycle-management.html#you-can-stop-your-kali-instance-when-you-finish-a-lab' | relative_url }}), [restarting]({{ '/tutorials/kali-vm-lifecycle-management.html#start-a-stopped-kali-for-your-next-lab' | relative_url }}), or [deleting]({{ '/tutorials/kali-vm-lifecycle-management.html#destroy-kali-when-you-no-longer-need-it' | relative_url }}) your Kali VM instance.
 
 
 
