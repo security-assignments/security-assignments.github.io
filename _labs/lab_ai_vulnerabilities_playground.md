@@ -69,7 +69,7 @@ Answer the following questions. Describe your strategy and reasoning.
 
 {% include lab-image.html image='aivp/aivp-pi-01-success.png' alt='AIVP PI-01 Direct Prompt Injection successful-result page. The Run Summary shows Exploit Success, Internal Disclosure, and User-visible Disclosure as Yes, while the chat history is collapsed, the prompt field and answer field are empty, and the submission feedback says Correct.' caption='Example of a successful PI-01 Run Summary from a maintainer validation run. Your submission should show the relevant lab ID and Exploit Success: Yes.' %}
 
-{% include lab_question.html question='For each of <strong>PI-01</strong>, <strong>PI-02</strong>, and your <strong>selected third challenge</strong>, submit a <strong>screenshot</strong> of its AIVP <strong>Run Summary</strong> showing the <strong>lab ID</strong> and <code>Exploit Success: Yes</code>. You may combine screenshots only if each required lab ID and summary remains clearly visible.' %}
+{% include lab_question.html question='For each of <strong>PI-01</strong>, <strong>PI-02</strong>, and your <strong>selected third challenge</strong>, submit a <strong>screenshot</strong> of its AIVP <strong>Run Summary</strong> showing the <strong>lab ID</strong> and <code>Exploit Success: Yes</code>. You may combine screenshots as long as each required lab ID and summary remains clearly visible.' %}
 
 {% include lab_question.html question='Which <strong>additional Phase 1 challenge</strong> did you choose, and what <strong>prompt-injection technique</strong> does its embedded challenge description explore?' %}
 
@@ -78,8 +78,6 @@ Answer the following questions. Describe your strategy and reasoning.
 {% include lab_question.html question='Why should an AI application avoid placing credentials, private records, or other secrets in model context, even when the system prompt tells the model not to reveal them?' %}
 
 {% include lab_question.html question='Propose <strong>two</strong> concrete mitigations for a support chatbot that can search internal documents and call tools. <strong>At least one</strong> mitigation must be enforced <strong>outside the model</strong>. Explain what each mitigation protects and why a prompt-only instruction is insufficient.' %}
-
-{% include lab_question.html question='Confirm that you performed this work <strong>only</strong> against the loopback-only AIVP application on your course Kali VM.' %}
 
 # Troubleshooting and Cleanup
 
@@ -90,4 +88,4 @@ Use these commands from a Kali terminal if you need to check or manage the local
         aivp logs
         aivp stop
 
-Use <code>aivp restart</code> if the local application is not responding, and <code>aivp logs</code> if you need to diagnose startup behavior; <code>aivp logs</code> follows the log stream until you press <kbd>Ctrl</kbd>+<kbd>C</kbd>. AIVP remains local to your VM; no additional inbound network configuration is needed. When you are finished, you may stop the AIVP application with <code>aivp stop</code>. This does not uninstall the downloaded model or Ollama. Run <code>aivp start</code> later if you want to return to the playground.
+Use <code>aivp restart</code> if the local application is not responding, and <code>aivp logs</code> if you need to diagnose startup behavior; <code>aivp logs</code> follows the log stream until you press <kbd>Ctrl</kbd>+<kbd>C</kbd>. When you are finished, you may stop the AIVP application with <code>aivp stop</code>. This does not uninstall the downloaded model or Ollama. Run <code>aivp start</code> later if you want to return to the playground.
