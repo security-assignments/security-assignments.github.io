@@ -11,8 +11,6 @@ In this lab, you will use the [OWASP AI Vulnerabilities Playground (AIVP)](https
 
 <div class='alert alert-danger'><strong>Authorized use only.</strong> Perform this lab only in the locally installed AIVP application on your course Kali VM. Do not use the techniques from this lab against public AI services, other systems, or data you do not own or have explicit permission to test.</div>
 
-<div class='alert alert-info'><strong>Keep AIVP local.</strong> AIVP's web UI is deliberately vulnerable and is configured to listen only on your Kali VM's loopback interface. Open it only from Chrome inside your Kali Chrome Remote Desktop session at <code>http://127.0.0.1:8888</code>. Do not create a GCP firewall rule, public port exposure, or a tunnel for port 8888. Also do not expose Ollama's port 11434.</div>
-
 # Learning Objectives
 
 By the end of this lab, you should be able to:
@@ -24,7 +22,7 @@ By the end of this lab, you should be able to:
 
 # Part 1: Install and Open AIVP
 
-Complete this part from a terminal inside your Kali Chrome Remote Desktop session. The installer uses the course-supported AIVP configuration and may take approximately 5–10 minutes, depending on network and container-registry speed; the fastest validated installation took 3 minutes 27 seconds. The initial installation needs outbound network access to download required packages, containers, and the model.
+Complete this part from a terminal inside your Kali Chrome Remote Desktop session. The installer uses the course-supported AIVP configuration and may take approximately 5–10 minutes, depending on network and container-registry speed. The initial installation downloads required packages, containers, and the model.
 
 1. Run the following command. **This step may take 5–10 minutes**, so let it finish; do not interrupt it, even if the output pauses for a while:
 
@@ -38,7 +36,7 @@ Complete this part from a terminal inside your Kali Chrome Remote Desktop sessio
 
         aivp open
 
-   Alternatively, open <http://127.0.0.1:8888> in Chrome inside the Kali desktop. The first CPU-only model response can take about 10 seconds.
+   Alternatively, open <http://127.0.0.1:8888> in Chrome inside the Kali desktop.
 
 # Part 2: Orient Yourself to AIVP
 
@@ -60,7 +58,7 @@ Complete the following three AIVP challenges in **Phase 1: Prompt Injection**:
 
 {% include lab-image.html image='aivp/aivp-pi-01-start.png' alt='Clean starting layout of AIVP PI-01 Direct Prompt Injection showing the scenario and objective panels, an empty Chat with the Model field, and zero recent runs.' caption='PI-01 before a prompt is sent. Read the scenario and objective on the left, then use the empty chat field on the right.' %}
 
-As you work, focus on the difference between an attacker directly addressing the model and attacker-controlled content being processed as data. AIVP uses model-generated responses, so results are nondeterministic and you may need to iterate. The goal is to recognize the broken trust boundary, not to memorize a particular wording that happens to work with one model response.
+The first model response can take about 10 seconds because the model runs on your VM's CPU, so wait for a response before resubmitting. As you work, focus on the difference between an attacker directly addressing the model and attacker-controlled content being processed as data. AIVP uses model-generated responses, so results are nondeterministic and you may need to iterate. The goal is to recognize the broken trust boundary, not to memorize a particular wording that happens to work with one model response.
 
 # Part 4: Reflection and Defensive Design
 
