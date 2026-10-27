@@ -218,49 +218,32 @@ Stopping this live-CD VM loses changes in guest RAM.
 
 ## WebGoat
 
-From <https://github.com/WebGoat/WebGoat>:
-
-> WebGoat is a deliberately insecure web application maintained by OWASP designed to teach web application security lessons.
-
-The easiest way to run WebGoat is to run it as a Docker container:
-
-<!-- 
+Run [WebGoat](https://github.com/WebGoat/WebGoat) in a Kali terminal:
 
 ```bash
-# manually hard-codes to `buster` since otherwise `lsb-release` would output `kali-rolling`, which isn't an available debian distro on download.docker.com/linux/debian
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io
+docker run --rm -it -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 webgoat/webgoat:v2023.8
 ```
 
--->
-
-```bash
-docker run -it -p 127.0.0.1:80:8888 -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 webgoat/webgoat:v2023.8
-```
-
+Wait for startup, then open [WebGoat](http://localhost:8080/WebGoat/) or
+[WebWolf](http://localhost:9090/WebWolf/) in Kali's browser. Press Ctrl+C in the
+terminal to stop and remove the container.
 
 ## DVWA directly on Kali
 
-There is already an older version of a DVWA server running on the metasploitable2 VM bundled with Kali, but the below instructions will run the latest DVWA directly on Kali as a containerized process and not in a virtual machine.
+Run a pinned [DVWA](https://github.com/digininja/DVWA) release in Docker on Kali:
 
 ```bash
-$ mkdir DVWA && cd DVWA
-$ cat << "EOF" > compose.yml
+mkdir -p DVWA && cd DVWA
+cat << "EOF" > compose.yml
 volumes:
   dvwa:
-
 
 networks:
   dvwa:
 
-
 services:
   dvwa:
-    build: .
     image: ghcr.io/digininja/dvwa:1232568
-    # Change `always` to `build` to build from local source
     pull_policy: always
     environment:
       - DB_SERVER=db
@@ -286,14 +269,12 @@ services:
     restart: unless-stopped
 EOF
 
-$ sudo docker compose up -d
-$ # now visit localhost:4280 in a kali web browser to access DVWA. Default username:password is admin:password
+sudo docker compose up -d
 ```
 
-If you copy-paste everything above into a shell in Kali, DVWA should be accessible from Kali. It does the following:
+In Kali's browser, open [database setup](http://localhost:4280/setup.php) and
+click **Create / Reset Database**. Then [log in](http://localhost:4280/login.php)
+with username `admin` and password `password`.
 
-1.  First, from whatever starting directory, makes directory `DVWA` and `cd`s into it
-2.  Then, creates a file called `compose.yml`, which specifies a group of docker containers for dvwa: one called `dvwa`, and another called `db`. These will be on their own virtual docker network namespace, isolated from other docker containers that might be running on kali. The `compose.yml` file is exactly the same as the one in the [dvwa gitub repo](https://github.com/digininja/DVWA/blob/master/compose.yml), except I pinned the dvwa image to tag `1232568` (which was the most recent tag at time of writing) instead of the 'latest' tag, which can migrate and potentially break things unexpectedly, which is Bad Business for teaching.
-3.  The last command, `docker compose up -d`, starts the containers. The dvwa web application interface will be accessible from Kali at `127.0.0.1:4280`
-
-    Note that because of the `restart:unless-stopped` configuration, the docker daemon will *always* run this container, even after a reboot, until the user runs `sudo docker compose down` from within the DVWA directory.
+From the `DVWA` directory, run `sudo docker compose down` to stop the containers.
+Database data is retained. Otherwise, the containers restart when Kali reboots.
