@@ -199,7 +199,21 @@ If you are curious how the lab was set up, then browse [this github repository](
 
 A fun hack-the-box challenge. From <https://www.vulnhub.com/entry/de-ice-s1100,8/>. 
 
-See [`deargle/lab-de-ice-s1-100`](https://github.com/deargle/lab-de-ice-s1-100) for instructions.
+See [`security-assignments/lab-de-ice-s1-100`](https://github.com/security-assignments/lab-de-ice-s1-100)
+for the Bash launcher and instructor instructions. Run these commands in Kali:
+
+```bash
+git clone https://github.com/security-assignments/lab-de-ice-s1-100.git
+cd lab-de-ice-s1-100
+sudo bash deploy.sh install
+```
+
+The launcher verifies and reuses the ISO cached in the current course Kali image,
+or downloads the [hosted ISO](https://storage.googleapis.com/security-assignments-vagrant-boxes/lab-isos/De-ICE_S1.100.iso).
+It waits for HTTP and SSH before reporting ready. Open **http://192.168.1.100/**
+from Kali. This optional VM uses 512 MiB RAM and one vCPU on its own `De-ICE`
+network (`192.168.1.0/24`); it is not one of the pre-created `infosec-net` VMs.
+Stopping this live-CD VM loses changes in guest RAM.
 
 
 ## WebGoat
